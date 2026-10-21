@@ -270,6 +270,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 .lowlist li span{display:block}
 .find{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;margin:8px 0 12px}
 .subtabs{margin:4px 0 10px;flex-wrap:wrap}
+.bcsbox{border-left:5px solid var(--green);background:color-mix(in srgb,var(--green) 8%,var(--surface));padding:10px 12px;border-radius:10px;margin:10px 0;display:grid;gap:4px}
 </style>
 </head>
 <body>
@@ -1600,7 +1601,8 @@ function lowAdvice(){
     : low ? fill(["Your CGPA {c} is below first class (3.00). It closes a few doors, not the career. Choose the tab that fits your situation:","আপনার সিজিপিএ {c} প্রথম শ্রেণির (৩.০০) নিচে। এতে কিছু দরজা বন্ধ হয়, ক্যারিয়ার নয়। আপনার অবস্থার সঙ্গে মেলে এমন ট্যাব বেছে নিন:"],{c:N(c.toFixed(2))})
     : fill(["Your CGPA {c} counts as first class. These routes still help if you are not getting the job you want:","আপনার সিজিপিএ {c} প্রথম শ্রেণি হিসেবে গণ্য। চাকরি না পেলে এই পথগুলো তবুও কাজে আসবে:"],{c:N(c.toFixed(2))});
   const tabs=`<div class="seg subtabs" role="group">`+Object.keys(LOWT).map(k=>`<button type="button" data-lt="${k}" aria-pressed="${st.lt===k}">${esc(L(LOWT[k].n))}</button>`).join("")+`</div>`;
-  return `<p class="lowhead ${low?"warn":""}">${esc(head)}</p>${tabs}<ol class="lowlist">`+LOWT[st.lt].items.map(([en,bn,d,s])=>`<li><b>${esc(st.lang==="bn"?bn:en)}</b><span>${esc(L(d))}</span>${bxSrc(s)}</li>`).join("")+`</ol>`;
+  const bcs=L(["Try BCS: no CGPA cut-off. Any class or division the circular accepts can apply, age 21–32, no limit on attempts. Selection depends only on the preliminary, written and viva exams, so a low CGPA does not count against you. Many technical and professional cadre posts went unfilled in the 47th BCS.","বিসিএস দিন: সিজিপিএর কোনো সীমা নেই। বিজ্ঞপ্তিতে গ্রহণযোগ্য যেকোনো শ্রেণি/বিভাগ আবেদন করতে পারে, বয়স ২১–৩২, যতবার খুশি দেওয়া যায়। নির্বাচন হয় শুধু প্রিলিমিনারি, লিখিত ও ভাইভা পরীক্ষায়, তাই কম সিজিপিএ এখানে বাধা নয়। ৪৭তম বিসিএসে অনেক কারিগরি ও পেশাগত ক্যাডার পদ পূরণ হয়নি।"]);
+  return `<p class="lowhead ${low?"warn":""}">${esc(head)}</p><div class="bcsbox"><b>BCS</b><span>${esc(bcs)}</span>${bxSrc("B13")}</div>${tabs}<ol class="lowlist">`+LOWT[st.lt].items.map(([en,bn,d,s])=>`<li><b>${esc(st.lang==="bn"?bn:en)}</b><span>${esc(L(d))}</span>${bxSrc(s)}</li>`).join("")+`</ol>`;
 }
 function bxSrc(k){ const s=SRC2[k]||SRC[k]; return s?`<a class="src" href="${s.u}" target="_blank" rel="noopener">${t("src")}: ${esc(s.t)}</a>`:""; }
 function renderBeyond(){
