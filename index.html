@@ -276,6 +276,18 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 .qnav a{flex:none;padding:7px 13px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:600}
 .qnav a:hover,.qnav a:focus-visible{background:var(--brand);color:#fff;border-color:var(--brand)}
 section[id],.panel[id]{scroll-margin-top:64px}
+.tabs2{flex-wrap:wrap;margin:10px 0 8px}
+.node.br.tbr{cursor:pointer}
+.gband{font-weight:700;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.glist{display:grid;gap:10px;padding:0;list-style:none}
+.glist li{border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--surface)}
+.glist li button{margin-top:6px}
+.gate{display:flex;gap:8px;align-items:baseline}.gate b{min-width:2.2em}
+.ok{color:var(--green)}.no{color:var(--flagred)}
+.golink{border:1px solid var(--accent);color:var(--accent);background:none;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+.abgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px}
+.abgrid a{display:block;border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--surface);color:var(--ink);text-decoration:none}
+.abgrid a b{color:var(--accent)}.abgrid a span{display:block;font-size:.9rem;margin-top:3px}
 </style>
 </head>
 <body>
@@ -286,7 +298,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nprof="1" data-t="navP"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -338,10 +350,26 @@ section[id],.panel[id]{scroll-margin-top:64px}
     </div>
   </section>
 
+  <section class="section panel" id="guide">
+    <h2 data-t="gH"></h2><p class="muted" data-t="gSub"></p>
+    <div id="guide-body"></div>
+  </section>
+
+  <section class="section panel" id="tracks">
+    <h2 data-t="trH"></h2><p class="muted" data-t="trSub"></p>
+    <div class="seg tabs2" id="tr-tabs" role="group"></div>
+    <div id="tr-body"></div>
+  </section>
+
   <section class="section panel" id="beyond">
     <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
-    <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="prof" data-t="tabProf"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
+    <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
     <div id="by-body"></div>
+  </section>
+
+  <section class="section panel" id="abroad">
+    <h2 data-t="abH"></h2><p class="muted" id="ab-sub"></p>
+    <div id="ab-list" class="abgrid"></div>
   </section>
 
   <section class="section duo">
@@ -1051,26 +1079,6 @@ const BEYOND = {
     ["Fully funded scholarships","সম্পূর্ণ বৃত্তি",null,{req:["Examples: Erasmus Mundus (EU), Fulbright (USA), Global Korea Scholarship, MEXT (Japan), Australia Awards, Türkiye (master's under 30), Chinese Government (CSC), Finland. Joint Japan/World Bank and ADB-Japan need 2+ years of work experience.","উদাহরণ: ইরাসমাস মুন্ডুস (ইইউ), ফুলব্রাইট (যুক্তরাষ্ট্র), গ্লোবাল কোরিয়া স্কলারশিপ, মেক্সট (জাপান), অস্ট্রেলিয়া অ্যাওয়ার্ডস, তুরস্ক (স্নাতকোত্তরে ৩০-এর নিচে), চীনা সরকারি বৃত্তি (সিএসসি), ফিনল্যান্ড। জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপানে ২ বছরের বেশি কাজের অভিজ্ঞতা লাগে।"],pay:["Usually cover tuition and living costs. Deadlines are mostly December to April.","সাধারণত টিউশন ও থাকা-খাওয়ার খরচ বহন করে। আবেদনের সময় মূলত ডিসেম্বর থেকে এপ্রিল।"],s:"B5"}]
   ]]
  ]},
- prof:{en:"Doctor, lawyer, CA, teacher",bn:"ডাক্তার, আইনজীবী, সিএ, শিক্ষক",root:["Professional careers","পেশাগত ক্যারিয়ার"],tree:[
-  ["Doctor","ডাক্তার",[
-    ["MBBS / BDS admission","এমবিবিএস / বিডিএস ভর্তি",null,{req:["Science group. SSC + HSC GPA together at least 8.5, and at least 3.5 each in HSC Biology, Physics and Chemistry (2025-26 rules). Then a 100-mark MCQ test; you need 40+ to qualify, and each wrong answer cuts 0.25.","বিজ্ঞান বিভাগ। এসএসসি + এইচএসসি মিলিয়ে জিপিএ কমপক্ষে ৮.৫, আর এইচএসসিতে জীববিজ্ঞান, পদার্থ ও রসায়নে প্রতিটিতে কমপক্ষে ৩.৫ (২০২৫-২৬ নিয়ম)। এরপর ১০০ নম্বরের এমসিকিউ পরীক্ষা; যোগ্য হতে ৪০+ লাগে, প্রতিটি ভুলে ০.২৫ কাটা যায়।"],pay:["Rules change every year; check the DGHS guideline for your session.","নিয়ম প্রতি বছর বদলায়; আপনার সেশনের ডিজিএইচএস নির্দেশিকা দেখুন।"],s:"B14"}],
-    ["Internship + BMDC registration","ইন্টার্নশিপ + বিএমডিসি নিবন্ধন",null,{req:["After MBBS/BDS, finish the internship and register with BMDC. Only then can you practise.","এমবিবিএস/বিডিএসের পর ইন্টার্নশিপ শেষ করে বিএমডিসিতে নিবন্ধন। তারপরই প্র্যাকটিস করা যায়।"],pay:["Then: BCS Health cadre (govt) or private hospitals. Specialist degrees (FCPS, MD, MS) raise pay most.","এরপর: বিসিএস স্বাস্থ্য ক্যাডার (সরকারি) বা বেসরকারি হাসপাতাল। বিশেষজ্ঞ ডিগ্রি (এফসিপিএস, এমডি, এমএস) বেতন সবচেয়ে বেশি বাড়ায়।"],s:"B14"}]
-  ]],
-  ["Lawyer & judge","আইনজীবী ও বিচারক",[
-    ["Advocate","অ্যাডভোকেট",null,{req:["LLB, then 6 months as pupil under a senior advocate, then the Bar Council exams (MCQ, written, viva). After 2 years in lower courts you can try for the High Court.","এলএলবি, তারপর একজন সিনিয়র আইনজীবীর অধীনে ৬ মাস শিক্ষানবিশ, তারপর বার কাউন্সিল পরীক্ষা (এমসিকিউ, লিখিত, ভাইভা)। নিম্ন আদালতে ২ বছর পর হাইকোর্টের জন্য চেষ্টা করা যায়।"],pay:["Income is low in the first years and grows with your client base.","প্রথম কয়েক বছর আয় কম, মক্কেল বাড়লে আয় বাড়ে।"],s:"B16"}],
-    ["Assistant Judge","সহকারী জজ",null,{req:["LLB, age up to 32. Bangladesh Judicial Service Commission exam: preliminary, written and viva.","এলএলবি, বয়স ৩২ পর্যন্ত। বাংলাদেশ জুডিশিয়াল সার্ভিস কমিশনের পরীক্ষা: প্রিলিমিনারি, লিখিত ও ভাইভা।"],pay:["Government judicial pay scale; check the circular.","সরকারি বিচার বিভাগীয় বেতন স্কেল; বিজ্ঞপ্তি দেখুন।"],s:"B17"}]
-  ]],
-  ["Chartered Accountant (CA)","চার্টার্ড অ্যাকাউন্ট্যান্ট (সিএ)",[
-    ["Entry","শুরু",null,{req:["Any background. After HSC: SSC + HSC GPA at least 8.0 (or O/A Level equivalent). Or start after your bachelor's, or begin exams while at university (Pre-Articled Student).","যেকোনো বিভাগ। এইচএসসির পর: এসএসসি + এইচএসসি জিপিএ কমপক্ষে ৮.০ (বা ও/এ লেভেল সমমান)। অথবা স্নাতকের পর শুরু, বা বিশ্ববিদ্যালয়ে থাকতেই পরীক্ষা শুরু (প্রি-আর্টিকেলড স্টুডেন্ট)।"],pay:["CGPA is not the gate; passing the papers is.","সিজিপিএ নয়, পেপার পাস করাই আসল।"],s:"B15"}],
-    ["Articleship + 3 levels","আর্টিকেলশিপ + ৩ লেভেল",null,{req:["4 years of articleship at an audit firm while passing Certificate, Professional and Advanced levels at ICAB.","অডিট ফার্মে ৪ বছরের আর্টিকেলশিপ, সঙ্গে আইসিএবির সার্টিফিকেট, প্রফেশনাল ও অ্যাডভান্সড লেভেল পাস।"],pay:["ICAB minimum stipend for a first-year student: ৳7,000 a month (many firms pay more). Qualified CAs move to finance manager and CFO roles.","প্রথম বর্ষে আইসিএবির ন্যূনতম ভাতা মাসে ৭,০০০ টাকা (অনেক ফার্ম বেশি দেয়)। সিএ হলে ফিন্যান্স ম্যানেজার ও সিএফও পদে যাওয়া যায়।"],s:"B15"}]
-  ]],
-  ["Teacher","শিক্ষক",[
-    ["Govt primary school","সরকারি প্রাথমিক বিদ্যালয়",null,{req:["Any bachelor's with at least second class (CGPA 2.25/4 or 2.8/5), no third class anywhere, age 21–32.","যেকোনো স্নাতক, কমপক্ষে দ্বিতীয় শ্রেণি (সিজিপিএ ২.২৫/৪ বা ২.৮/৫), কোথাও তৃতীয় শ্রেণি নয়, বয়স ২১–৩২।"],pay:["Grade 13 (2025 circular). Below grade 10, so see the grade 10 advice in the Low CGPA tab.","গ্রেড ১৩ (২০২৫ বিজ্ঞপ্তি)। গ্রেড ১০-এর নিচে, তাই সিজিপিএ কম ট্যাবে গ্রেড ১০ পরামর্শ দেখুন।"],s:"B18"}],
-    ["Non-govt school / college (NTRCA)","বেসরকারি স্কুল / কলেজ (এনটিআরসিএ)",null,{req:["Pass the NTRCA teacher registration exam (preliminary, written, viva), then apply in its mass recruitment for MPO-listed schools and colleges.","এনটিআরসিএ শিক্ষক নিবন্ধন পরীক্ষা (প্রিলিমিনারি, লিখিত, ভাইভা) পাস করে গণবিজ্ঞপ্তিতে এমপিওভুক্ত স্কুল-কলেজে আবেদন।"],pay:["Pay follows the MPO scale for the post.","পদ অনুযায়ী এমপিও স্কেলে বেতন।"],s:"B19"}],
-    ["Govt college (BCS General Education)","সরকারি কলেজ (বিসিএস সাধারণ শিক্ষা)",null,{req:["Honours/Master's in the subject, then BCS. Starts as lecturer in grade 9.","বিষয়ে অনার্স/মাস্টার্স, তারপর বিসিএস। গ্রেড ৯-এ প্রভাষক হিসেবে শুরু।"],pay:["Grade 9 starting basic about ৳44,000.","গ্রেড ৯-এ শুরুর মূল বেতন প্রায় ৪৪,০০০ টাকা।"],s:"S19"}],
-    ["University lecturer","বিশ্ববিদ্যালয় প্রভাষক",null,{req:["Each university sets its own result rules, usually very strong results plus research. A master's or PhD abroad helps a lot.","প্রতিটি বিশ্ববিদ্যালয় নিজস্ব ফলাফলের শর্ত ঠিক করে, সাধারণত খুব ভালো ফল ও গবেষণা লাগে। বিদেশে মাস্টার্স বা পিএইচডি অনেক সাহায্য করে।"],pay:["Check each university's circular.","প্রতিটি বিশ্ববিদ্যালয়ের বিজ্ঞপ্তি দেখুন।"],s:"S16"}]
-  ]]
- ]},
  diploma:{en:"Diploma & technical",bn:"ডিপ্লোমা ও কারিগরি",root:["Diploma / technical","ডিপ্লোমা / কারিগরি"],tree:[
   ["Jobs in Bangladesh","বাংলাদেশে চাকরি",[
     ["Sub-Assistant Engineer (govt)","উপসহকারী প্রকৌশলী (সরকারি)",null,{req:["These posts are filled by diploma engineers. Check each circular for grade, age and subject.","এই পদগুলো ডিপ্লোমা প্রকৌশলীদের দিয়ে পূরণ হয়। গ্রেড, বয়স ও বিষয়ের শর্ত প্রতিটি বিজ্ঞপ্তিতে দেখুন।"],pay:["Government pay scale grade as per circular.","বিজ্ঞপ্তি অনুযায়ী সরকারি বেতন স্কেলের গ্রেড।"],s:"B7"}],
@@ -1089,6 +1097,128 @@ const BEYOND = {
   ]]
  ]}
 };
+
+/* ===== Career tracks (tabs), result guide, free abroad ===== */
+Object.assign(SRC2,{
+  A1:{t:"Join Bangladesh Army (official recruitment site)",u:"https://joinbangladesharmy.army.mil.bd"},
+  A2:{t:"UNB: Bangladesh Army BMA Long Course circular (2023)",u:"https://www.unb.com.bd/category/Business/recruitment-circular-in-bangladesh-army-2023/110728"},
+  A3:{t:"Join Bangladesh Navy (official recruitment site)",u:"https://www.joinnavy.mil.bd"},
+  A4:{t:"Join Bangladesh Air Force (official recruitment site)",u:"https://joinairforce.baf.mil.bd"},
+  A5:{t:"Bangladesh Bank careers",u:"https://erecruitment.bb.org.bd"},
+  A6:{t:"Bangladesh Public Service Commission",u:"https://bpsc.gov.bd"}
+});
+/* leaf info: req, pay, s (source), m (Bdjobs PVT_MARKET key, adds live pay range) */
+const I=(re,rb,pe,pb,s,m)=>({req:[re,rb],pay:[pe,pb],s,m});
+const TRACKS={
+ army:{en:"Army, Navy, Air Force",bn:"সেনা, নৌ, বিমানবাহিনী",tree:[
+  ["Army officer (after HSC)","সেনা কর্মকর্তা (এইচএসসির পর)",[
+   ["BMA Long Course","বিএমএ লং কোর্স",null,I("SSC and HSC: GPA 5.00 in one and at least 4.50 in the other. Age about 16.5–21, unmarried. Steps: written test, medical, viva, then ISSB. Then 2+ years of training at Bangladesh Military Academy.","এসএসসি ও এইচএসসি: একটিতে জিপিএ ৫.০০, অন্যটিতে কমপক্ষে ৪.৫০। বয়স প্রায় ১৬.৫–২১, অবিবাহিত। ধাপ: লিখিত, মেডিকেল, ভাইভা, তারপর আইএসএসবি। এরপর বাংলাদেশ মিলিটারি একাডেমিতে প্রশিক্ষণ।","Commissioned officer on the government defence pay scale, with housing, medical and ration support.","কমিশনপ্রাপ্ত কর্মকর্তা, সরকারি প্রতিরক্ষা বেতন স্কেল, সঙ্গে আবাসন, চিকিৎসা ও রেশন সুবিধা।","A2")]]],
+  ["Army officer (after graduation)","সেনা কর্মকর্তা (স্নাতকের পর)",[
+   ["Doctor (Army Medical Corps)","ডাক্তার (আর্মি মেডিকেল কোর)",null,I("MBBS/BDS with BMDC registration, through the Army's special/medical course circular.","বিএমডিসি নিবন্ধনসহ এমবিবিএস/বিডিএস, সেনাবাহিনীর বিশেষ/মেডিকেল কোর্সের বিজ্ঞপ্তির মাধ্যমে।","Defence pay scale; check the circular.","প্রতিরক্ষা বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","A1")],
+   ["Engineer, signals, EME","ইঞ্জিনিয়ার, সিগন্যালস, ইএমই",null,I("BSc in civil, electrical, mechanical, CSE and similar, through the BMA special course for Engineers, Signals and EME.","সিভিল, ইলেকট্রিক্যাল, মেকানিক্যাল, সিএসই ইত্যাদিতে বিএসসি, ইঞ্জিনিয়ার্স, সিগন্যালস ও ইএমই-র বিএমএ বিশেষ কোর্সের মাধ্যমে।","Defence pay scale; check the circular.","প্রতিরক্ষা বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","A1")],
+   ["Education Corps, law (JAG) and others","এডুকেশন কোর, আইন (জ্যাগ) ও অন্যান্য",null,I("Honours/Master's graduates join through special or short course circulars. Each circular sets subject, result and age.","অনার্স/মাস্টার্স স্নাতকেরা বিশেষ বা শর্ট কোর্সের বিজ্ঞপ্তিতে যোগ দেন। বিষয়, ফলাফল ও বয়স প্রতিটি বিজ্ঞপ্তিতে আলাদা।","Defence pay scale; check the circular.","প্রতিরক্ষা বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","A1")]]],
+  ["Navy","নৌবাহিনী",[
+   ["Navy officer cadet","নৌ কর্মকর্তা ক্যাডেট",null,I("High SSC and HSC GPA (recent circulars ask about 4.50 in each), unmarried, age limit near 21. Graduate entries exist for engineering, education and other branches.","এসএসসি ও এইচএসসিতে ভালো জিপিএ (সাম্প্রতিক বিজ্ঞপ্তিতে প্রতিটিতে প্রায় ৪.৫০), অবিবাহিত, বয়সসীমা প্রায় ২১। প্রকৌশল, শিক্ষা ও অন্যান্য শাখায় স্নাতকদের জন্যও প্রবেশপথ আছে।","Defence pay scale; check the circular.","প্রতিরক্ষা বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","A3")]]],
+  ["Air Force","বিমানবাহিনী",[
+   ["Air Force officer cadet","বিমানবাহিনী কর্মকর্তা ক্যাডেট",null,I("Pilot (GD) branch needs science in HSC with good GPA plus strict medical and eyesight tests. Graduate entries exist for engineering, education, admin and others.","পাইলট (জিডি) শাখায় এইচএসসিতে বিজ্ঞানসহ ভালো জিপিএ এবং কড়া মেডিকেল ও দৃষ্টিশক্তি পরীক্ষা লাগে। প্রকৌশল, শিক্ষা, প্রশাসনসহ স্নাতকদের প্রবেশপথ আছে।","Defence pay scale; check the circular.","প্রতিরক্ষা বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","A4")]]]
+ ]},
+ govt:{en:"Govt jobs & BCS",bn:"সরকারি চাকরি ও বিসিএস",tree:[
+  ["BCS cadre","বিসিএস ক্যাডার",[
+   ["General cadres (admin, police, foreign affairs, tax...)","সাধারণ ক্যাডার (প্রশাসন, পুলিশ, পররাষ্ট্র, কর...)",null,I("Any bachelor's. Age 21–32, no limit on attempts. Preliminary, written, viva. CGPA is not scored.","যেকোনো স্নাতক। বয়স ২১–৩২, যতবার খুশি। প্রিলিমিনারি, লিখিত, ভাইভা। সিজিপিএর নম্বর নেই।","Grade 9: starting basic ৳44,000.","গ্রেড ৯: শুরুর মূল বেতন ৪৪,০০০ টাকা।","A6")],
+   ["Technical & professional cadres","কারিগরি ও পেশাগত ক্যাডার",null,I("Need the matching degree (engineering, medicine, agriculture, etc.). Many of these posts stayed empty in the 47th BCS, so the odds are better.","মিলে যাওয়া ডিগ্রি লাগে (প্রকৌশল, চিকিৎসা, কৃষি ইত্যাদি)। ৪৭তম বিসিএসে এর অনেক পদ খালি ছিল, তাই সুযোগ বেশি।","Grade 9: starting basic ৳44,000.","গ্রেড ৯: শুরুর মূল বেতন ৪৪,০০০ টাকা।","B13")]]],
+  ["Non-cadre & ministry jobs","নন-ক্যাডার ও মন্ত্রণালয়ের চাকরি",[
+   ["Grade 9–10 posts","গ্রেড ৯–১০ পদ",null,I("BPSC non-cadre and ministry circulars. Read each one's subject and result rule.","পিএসসি নন-ক্যাডার ও মন্ত্রণালয়ের বিজ্ঞপ্তি। প্রতিটির বিষয় ও ফলাফলের শর্ত পড়ুন।","Grade 10 starts at ৳32,000 basic. Aim for grade 10 or above.","গ্রেড ১০ শুরু ৩২,০০০ টাকা মূল বেতনে। গ্রেড ১০ বা তার ওপরে লক্ষ্য রাখুন।","A6")]]],
+  ["Bangladesh Bank & govt banks","বাংলাদেশ ব্যাংক ও সরকারি ব্যাংক",[
+   ["Assistant Director (Bangladesh Bank)","সহকারী পরিচালক (বাংলাদেশ ব্যাংক)",null,I("Any bachelor's, age 21–32. Result rules in the circular; strong results help.","যেকোনো স্নাতক, বয়স ২১–৩২। ফলাফলের শর্ত বিজ্ঞপ্তিতে; ভালো ফল সাহায্য করে।","Grade 9.","গ্রেড ৯।","S20")],
+   ["Senior Officer / Officer (state banks)","সিনিয়র অফিসার / অফিসার (রাষ্ট্রীয় ব্যাংক)",null,I("Bankers' Selection Committee exams. Some posts limit how many second-class results you may have.","ব্যাংকার্স সিলেকশন কমিটির পরীক্ষা। কিছু পদে দ্বিতীয় শ্রেণির ফলাফলের সংখ্যা সীমিত।","Government bank pay scale.","সরকারি ব্যাংকের বেতন স্কেল।","S21")]]]
+ ]},
+ bank:{en:"Private banks & finance",bn:"বেসরকারি ব্যাংক ও ফিন্যান্স",tree:[
+  ["Private banks","বেসরকারি ব্যাংক",[
+   ["Management Trainee / Probationary Officer","ম্যানেজমেন্ট ট্রেইনি / প্রবেশনারি অফিসার",null,I("Any bachelor's or master's; MBA often preferred. Written test and interview.","যেকোনো স্নাতক বা স্নাতকোত্তর; প্রায়ই এমবিএ অগ্রাধিকার। লিখিত পরীক্ষা ও ইন্টারভিউ।","Bangladesh Bank minimum after confirmation: ৳39,000 total.","কনফার্মেশনের পর বাংলাদেশ ব্যাংকের ন্যূনতম: মোট ৩৯,০০০ টাকা।","S2","pvt_bank")]]],
+  ["Accounting & finance","হিসাব ও ফিন্যান্স",[
+   ["Chartered Accountant (CA)","চার্টার্ড অ্যাকাউন্ট্যান্ট (সিএ)",null,I("Any background. SSC + HSC GPA 8.0+ after HSC, or start after a bachelor's. 4 years of articleship plus 3 ICAB levels.","যেকোনো বিভাগ। এইচএসসির পর এসএসসি + এইচএসসি জিপিএ ৮.০+, বা স্নাতকের পর শুরু। ৪ বছরের আর্টিকেলশিপ ও আইসিএবির ৩টি লেভেল।","First-year allowance at least ৳7,000; qualified CAs move to finance manager and CFO.","প্রথম বর্ষে ভাতা কমপক্ষে ৭,০০০ টাকা; সিএ হলে ফিন্যান্স ম্যানেজার ও সিএফও।","B15","audit")],
+   ["Accountant / finance analyst","অ্যাকাউন্ট্যান্ট / ফিন্যান্স অ্যানালিস্ট",null,I("BBA/MBA in accounting or finance; Excel is a must.","হিসাববিজ্ঞান বা ফিন্যান্সে বিবিএ/এমবিএ; এক্সেল জানা আবশ্যক।","","","S22","fin_analyst")]]]
+ ]},
+ health:{en:"Doctor & health",bn:"ডাক্তার ও স্বাস্থ্য",tree:[
+  ["Doctor","ডাক্তার",[
+   ["MBBS / BDS admission","এমবিবিএস / বিডিএস ভর্তি",null,I("Science group. SSC + HSC GPA 8.5+, and 3.5+ in HSC Biology, Physics and Chemistry. 100-mark MCQ test, 40+ to qualify (2025-26).","বিজ্ঞান বিভাগ। এসএসসি + এইচএসসি জিপিএ ৮.৫+, আর এইচএসসিতে জীববিজ্ঞান, পদার্থ ও রসায়নে ৩.৫+। ১০০ নম্বরের এমসিকিউ, যোগ্য হতে ৪০+ (২০২৫-২৬)।","Rules change yearly; check the DGHS guideline.","নিয়ম প্রতি বছর বদলায়; ডিজিএইচএস নির্দেশিকা দেখুন।","B14")],
+   ["After MBBS","এমবিবিএসের পর",null,I("Internship, then BMDC registration. Then BCS Health, Army Medical Corps or private hospitals. FCPS/MD/MS raise pay most.","ইন্টার্নশিপ, তারপর বিএমডিসি নিবন্ধন। এরপর বিসিএস স্বাস্থ্য, আর্মি মেডিকেল কোর বা বেসরকারি হাসপাতাল। এফসিপিএস/এমডি/এমএস বেতন সবচেয়ে বেশি বাড়ায়।","","","B14","doctor")]]],
+  ["Other health jobs","অন্যান্য স্বাস্থ্য পেশা",[
+   ["Nurse","নার্স",null,I("BSc or Diploma in Nursing & Midwifery, with Nursing Council registration.","নার্সিং ও মিডওয়াইফারিতে বিএসসি বা ডিপ্লোমা, নার্সিং কাউন্সিলে নিবন্ধন।","","","B12","nurse")],
+   ["Pharmacist / quality control","ফার্মাসিস্ট / কোয়ালিটি কন্ট্রোল",null,I("B.Pharm (or diploma for some posts) with Pharmacy Council registration; QC also takes chemistry and microbiology.","ফার্মেসি কাউন্সিলে নিবন্ধনসহ বি.ফার্ম (কিছু পদে ডিপ্লোমা); কিউসিতে রসায়ন ও মাইক্রোবায়োলজিও নেয়।","","","B12","qc")],
+   ["Medical Promotion Officer","মেডিকেল প্রমোশন অফিসার",null,I("Any graduate (science preferred). Pharma companies care about talking skill and travel more than CGPA.","যেকোনো স্নাতক (বিজ্ঞান অগ্রাধিকার)। ওষুধ কোম্পানি সিজিপিএর চেয়ে কথা বলার দক্ষতা ও ঘোরাঘুরি বেশি দেখে।","","","B12","mpo")]]]
+ ]},
+ law:{en:"Law",bn:"আইন",tree:[
+  ["Lawyer","আইনজীবী",[
+   ["Advocate","অ্যাডভোকেট",null,I("LLB, 6 months as a pupil under a senior advocate, then Bar Council exams (MCQ, written, viva). High Court after 2 years of practice.","এলএলবি, সিনিয়র আইনজীবীর অধীনে ৬ মাস শিক্ষানবিশ, তারপর বার কাউন্সিল পরীক্ষা (এমসিকিউ, লিখিত, ভাইভা)। ২ বছর প্র্যাকটিসের পর হাইকোর্ট।","Low at first; grows with clients.","শুরুতে কম; মক্কেল বাড়লে বাড়ে।","B16")],
+   ["Legal officer (companies, banks)","লিগ্যাল অফিসার (কোম্পানি, ব্যাংক)",null,I("LLB (LLM preferred); Bar membership helps.","এলএলবি (এলএলএম অগ্রাধিকার); বার সদস্যপদ সাহায্য করে।","","","B12","legal")]]],
+  ["Judge","বিচারক",[
+   ["Assistant Judge","সহকারী জজ",null,I("LLB, age up to 32. Judicial Service Commission exam: preliminary, written, viva.","এলএলবি, বয়স ৩২ পর্যন্ত। জুডিশিয়াল সার্ভিস কমিশনের পরীক্ষা: প্রিলিমিনারি, লিখিত, ভাইভা।","Judicial pay scale; check the circular.","বিচার বিভাগীয় বেতন স্কেল; বিজ্ঞপ্তি দেখুন।","B17")]]]
+ ]},
+ teach:{en:"Teaching",bn:"শিক্ষকতা",tree:[
+  ["School","স্কুল",[
+   ["Govt primary teacher","সরকারি প্রাথমিক শিক্ষক",null,I("Any bachelor's, at least second class (CGPA 2.25/4), no third class anywhere, age 21–32.","যেকোনো স্নাতক, কমপক্ষে দ্বিতীয় শ্রেণি (সিজিপিএ ২.২৫/৪), কোথাও তৃতীয় শ্রেণি নয়, বয়স ২১–৩২।","Grade 13 (below grade 10).","গ্রেড ১৩ (গ্রেড ১০-এর নিচে)।","B18")],
+   ["Non-govt school / college (NTRCA)","বেসরকারি স্কুল / কলেজ (এনটিআরসিএ)",null,I("Pass the NTRCA registration exam, then apply in its mass recruitment.","এনটিআরসিএ নিবন্ধন পরীক্ষা পাস করে গণবিজ্ঞপ্তিতে আবেদন।","MPO scale.","এমপিও স্কেল।","B19")],
+   ["Private / English-medium school","বেসরকারি / ইংলিশ মিডিয়াম স্কুল",null,I("Degree in the subject; demo class and English skill matter more than CGPA.","বিষয়ে ডিগ্রি; সিজিপিএর চেয়ে ডেমো ক্লাস ও ইংরেজি বেশি গুরুত্বপূর্ণ।","","","B12","teacher")]]],
+  ["College & university","কলেজ ও বিশ্ববিদ্যালয়",[
+   ["Govt college (BCS Education)","সরকারি কলেজ (বিসিএস শিক্ষা)",null,I("Honours/Master's in the subject, then BCS.","বিষয়ে অনার্স/মাস্টার্স, তারপর বিসিএস।","Grade 9: ৳44,000 basic.","গ্রেড ৯: মূল ৪৪,০০০ টাকা।","S19")],
+   ["University lecturer","বিশ্ববিদ্যালয় প্রভাষক",null,I("Top results plus research; each university sets its own rule. A master's/PhD abroad helps a lot.","সেরা ফল ও গবেষণা; প্রতিটি বিশ্ববিদ্যালয়ের নিজস্ব নিয়ম। বিদেশে মাস্টার্স/পিএইচডি অনেক সাহায্য করে।","","","B12","lecturer")]]]
+ ]},
+ tech:{en:"Engineering & IT",bn:"প্রকৌশল ও আইটি",tree:[
+  ["Software & IT","সফটওয়্যার ও আইটি",[
+   ["Software engineer","সফটওয়্যার ইঞ্জিনিয়ার",null,I("CSE or any degree plus real projects. Companies hire through coding tests; a GitHub portfolio beats CGPA.","সিএসই বা যেকোনো ডিগ্রি সঙ্গে বাস্তব প্রজেক্ট। কোডিং টেস্টে নিয়োগ; গিটহাব পোর্টফোলিও সিজিপিএর চেয়ে কার্যকর।","Entry about ৳25k–47k a month (2026 estimate).","শুরুতে মাসে প্রায় ২৫–৪৭ হাজার টাকা (২০২৬ অনুমান)।","S3")],
+   ["Network / support engineer","নেটওয়ার্ক / সাপোর্ট ইঞ্জিনিয়ার",null,I("BSc in CSE/EEE/IT or Diploma; certificates (e.g. CCNA) help.","সিএসই/ইইই/আইটিতে বিএসসি বা ডিপ্লোমা; সার্টিফিকেট (যেমন সিসিএনএ) সাহায্য করে।","","","B12","network")],
+   ["UI/UX designer","ইউআই/ইউএক্স ডিজাইনার",null,I("Any degree; portfolio decides.","যেকোনো ডিগ্রি; পোর্টফোলিওই আসল।","","","B12","uiux")]]],
+  ["Factory & construction","কারখানা ও নির্মাণ",[
+   ["Site engineer","সাইট ইঞ্জিনিয়ার",null,I("Diploma or BSc in Civil.","সিভিলে ডিপ্লোমা বা বিএসসি।","","","B12","civil_site")],
+   ["Industrial / production engineer","ইন্ডাস্ট্রিয়াল / প্রোডাকশন ইঞ্জিনিয়ার",null,I("BSc in IPE, textile or EEE.","আইপিই, টেক্সটাইল বা ইইইতে বিএসসি।","","","B12","ie")]]]
+ ]},
+ mnc:{en:"Multinationals",bn:"বহুজাতিক কোম্পানি",tree:[
+  ["Long-running MNCs in Bangladesh","বাংলাদেশে দীর্ঘদিনের বহুজাতিক",[
+   ["Consumer goods: Unilever, BAT, Nestlé, Reckitt, Marico","ভোগ্যপণ্য: ইউনিলিভার, বিএটি, নেসলে, রেকিট, ম্যারিকো",null,I("Hire fresh graduates through yearly Management Trainee programmes (online test, case study, interviews). They judge leadership, problem solving and communication heavily.","প্রতি বছর ম্যানেজমেন্ট ট্রেইনি প্রোগ্রামে নতুন স্নাতক নেয় (অনলাইন টেস্ট, কেস স্টাডি, ইন্টারভিউ)। নেতৃত্ব, সমস্যা সমাধান ও যোগাযোগ দক্ষতা খুব গুরুত্ব পায়।","Among the best-paid entry jobs; check each programme.","শুরুর দিকের সবচেয়ে ভালো বেতনের চাকরিগুলোর একটি; প্রতিটি প্রোগ্রাম দেখুন।","B12","brand")],
+   ["Telecom: Grameenphone, Robi, Banglalink","টেলিকম: গ্রামীণফোন, রবি, বাংলালিংক",null,I("Graduate and internship programmes; engineering, business and tech roles.","স্নাতক ও ইন্টার্নশিপ প্রোগ্রাম; প্রকৌশল, ব্যবসা ও প্রযুক্তি পদ।","Check each programme.","প্রতিটি প্রোগ্রাম দেখুন।","B12")],
+   ["Banks: Standard Chartered, HSBC, Citi","ব্যাংক: স্ট্যান্ডার্ড চার্টার্ড, এইচএসবিসি, সিটি",null,I("International graduate programmes; very competitive, strong English needed.","আন্তর্জাতিক গ্র্যাজুয়েট প্রোগ্রাম; প্রতিযোগিতা অনেক, ভালো ইংরেজি লাগে।","Check each programme.","প্রতিটি প্রোগ্রাম দেখুন।","B12")],
+   ["Others: Berger, Bata, Singer, Haleon (GSK)","অন্যান্য: বার্জার, বাটা, সিঙ্গার, হেলিয়ন (জিএসকে)",null,I("Sales, supply chain, finance and marketing trainee roles.","সেলস, সাপ্লাই চেইন, ফিন্যান্স ও মার্কেটিং ট্রেইনি পদ।","","","B12","tso")]]],
+  ["How to get in","কীভাবে ঢুকবেন",[
+   ["Internship first","আগে ইন্টার্নশিপ",null,I("Many MNC hires come from their own interns and campus competitions. Apply in your 3rd–4th year.","বহুজাতিকের অনেক নিয়োগ আসে নিজেদের ইন্টার্ন ও ক্যাম্পাস প্রতিযোগিতা থেকে। ৩য়–৪র্থ বর্ষেই আবেদন করুন।","Why: you are tested on work, not just grades.","কারণ: শুধু গ্রেড নয়, কাজ দিয়ে যাচাই হয়।","B12")]]]
+ ]},
+ ind:{en:"Industry: garments, pharma, local groups",bn:"শিল্প: পোশাক, ওষুধ, দেশি গ্রুপ",tree:[
+  ["Garments & textile","পোশাক ও টেক্সটাইল",[
+   ["Merchandiser","মার্চেন্ডাইজার",null,I("Textile/apparel degree, or any degree with buyer-communication skills.","টেক্সটাইল/অ্যাপারেল ডিগ্রি, বা যেকোনো ডিগ্রি সঙ্গে বায়ারের সঙ্গে যোগাযোগ দক্ষতা।","","","B12","merch")],
+   ["Compliance / HR","কমপ্লায়েন্স / এইচআর",null,I("BBA/MBA (HRM preferred) or any master's.","বিবিএ/এমবিএ (এইচআরএম অগ্রাধিকার) বা যেকোনো মাস্টার্স।","","","B12","compliance")]]],
+  ["Local conglomerates (FMCG, retail, supply chain)","দেশি বড় গ্রুপ (এফএমসিজি, রিটেইল, সাপ্লাই চেইন)",[
+   ["Sales / territory officer","সেলস / টেরিটরি অফিসার",null,I("Any bachelor's. Targets and field work matter, not CGPA. Fastest way to grow pay by performance.","যেকোনো স্নাতক। সিজিপিএ নয়, টার্গেট ও মাঠের কাজ গুরুত্বপূর্ণ। পারফরম্যান্সে বেতন বাড়ানোর দ্রুত উপায়।","","","B12","tso")],
+   ["Supply chain executive","সাপ্লাই চেইন এক্সিকিউটিভ",null,I("BBA/MBA or any degree; Excel and planning skills.","বিবিএ/এমবিএ বা যেকোনো ডিগ্রি; এক্সেল ও পরিকল্পনার দক্ষতা।","","","B12","scm_ex")]]]
+ ]},
+ ngo:{en:"NGO & development",bn:"এনজিও ও উন্নয়ন",tree:[
+  ["NGOs & UN agencies","এনজিও ও জাতিসংঘ সংস্থা",[
+   ["Programme officer","প্রোগ্রাম অফিসার",null,I("Any bachelor's; master's often preferred. Field experience and reports count more than CGPA.","যেকোনো স্নাতক; প্রায়ই মাস্টার্স অগ্রাধিকার। সিজিপিএর চেয়ে মাঠের অভিজ্ঞতা ও রিপোর্ট লেখা বেশি গুরুত্বপূর্ণ।","","","B12","program")],
+   ["Research / M&E","গবেষণা / এমঅ্যান্ডই",null,I("Statistics, economics or social science; data skills (Excel, SPSS/Stata).","পরিসংখ্যান, অর্থনীতি বা সমাজবিজ্ঞান; ডেটা দক্ষতা (এক্সেল, এসপিএসএস/স্টাটা)।","","","B12","research")]]]
+ ]},
+ skill:{en:"Skills-first work",bn:"দক্ষতাভিত্তিক কাজ",tree:[
+  ["CGPA rarely asked","সিজিপিএ খুব কম দেখা হয়",[
+   ["Digital marketing","ডিজিটাল মার্কেটিং",null,I("Any degree; proven results (ads you ran, pages you grew) decide.","যেকোনো ডিগ্রি; আপনার চালানো বিজ্ঞাপন ও বাড়ানো পেজের ফলাফলই আসল।","","","B12","dm")],
+   ["Content writer / designer","কনটেন্ট রাইটার / ডিজাইনার",null,I("Writing samples or a design portfolio.","লেখার নমুনা বা ডিজাইন পোর্টফোলিও।","","","B12","designer")],
+   ["Customer service / call centre","কাস্টমার সার্ভিস / কল সেন্টার",null,I("Any bachelor's (some take HSC); clear speaking matters most. A common first job.","যেকোনো স্নাতক (কিছুতে এইচএসসি); পরিষ্কার কথা বলাই আসল। সাধারণ প্রথম চাকরি।","","","B12","cs")],
+   ["Freelancing","ফ্রিল্যান্সিং",null,I("One sellable skill (design, web, writing, video) plus a profile on global marketplaces. Start small, build reviews.","একটি বিক্রয়যোগ্য দক্ষতা (ডিজাইন, ওয়েব, লেখা, ভিডিও) আর আন্তর্জাতিক মার্কেটপ্লেসে প্রোফাইল। ছোট কাজে শুরু, রিভিউ বাড়ান।","Income depends on skill and clients; no fixed pay.","আয় দক্ষতা ও ক্লায়েন্টের ওপর নির্ভর করে; নির্দিষ্ট বেতন নেই।","B12")]]]
+ ]}
+};
+/* Free study abroad: official pages. Re-checked every two months. */
+const ABROAD_DATE="21 Oct 2026";
+const ABROAD=[
+ ["Chevening (UK)","শেভেনিং (যুক্তরাজ্য)","1-year master's, fully funded. Needs 2 years of work experience.","১ বছরের মাস্টার্স, সম্পূর্ণ খরচ। ২ বছরের কাজের অভিজ্ঞতা লাগে।","https://www.chevening.org/scholarships/"],
+ ["Commonwealth Scholarships (UK)","কমনওয়েলথ স্কলারশিপ (যুক্তরাজ্য)","Master's and PhD for Commonwealth citizens, fully funded.","কমনওয়েলথ নাগরিকদের জন্য মাস্টার্স ও পিএইচডি, সম্পূর্ণ খরচ।","https://cscuk.fcdo.gov.uk/scholarships/"],
+ ["Fulbright (USA)","ফুলব্রাইট (যুক্তরাষ্ট্র)","Master's and PhD, through the US Embassy Dhaka.","মাস্টার্স ও পিএইচডি, ঢাকার মার্কিন দূতাবাসের মাধ্যমে।","https://bd.usembassy.gov/education-culture/"],
+ ["Erasmus Mundus (Europe)","ইরাসমাস মুন্ডুস (ইউরোপ)","Joint master's in 2+ European countries, full scholarship.","ইউরোপের ২+ দেশে যৌথ মাস্টার্স, পূর্ণ বৃত্তি।","https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en"],
+ ["DAAD (Germany)","ডাড (জার্মানি)","Master's and PhD scholarships; many German public universities charge little or no tuition.","মাস্টার্স ও পিএইচডি বৃত্তি; জার্মানির অনেক সরকারি বিশ্ববিদ্যালয়ে টিউশন কম বা নেই।","https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/"],
+ ["Australia Awards","অস্ট্রেলিয়া অ্যাওয়ার্ডস","Master's, fully funded, for Bangladeshi applicants.","বাংলাদেশিদের জন্য মাস্টার্স, সম্পূর্ণ খরচ।","https://www.dfat.gov.au/people-to-people/australia-awards"],
+ ["MEXT (Japan)","মেক্সট (জাপান)","Japanese government scholarship; apply via the Embassy of Japan.","জাপান সরকারের বৃত্তি; জাপান দূতাবাসের মাধ্যমে আবেদন।","https://www.bd.emb-japan.go.jp/itpr_en/education.html"],
+ ["Global Korea Scholarship","গ্লোবাল কোরিয়া স্কলারশিপ","Bachelor's, master's and PhD in Korea, fully funded.","কোরিয়ায় স্নাতক, মাস্টার্স ও পিএইচডি, সম্পূর্ণ খরচ।","https://www.studyinkorea.go.kr"],
+ ["Türkiye Scholarships","তুরস্ক বৃত্তি","All levels; master's applicants under 30.","সব স্তর; মাস্টার্সে বয়স ৩০-এর নিচে।","https://www.turkiyeburslari.gov.tr"],
+ ["Chinese Government Scholarship","চীনা সরকারি বৃত্তি","All levels at Chinese universities.","চীনের বিশ্ববিদ্যালয়ে সব স্তর।","https://www.campuschina.org"],
+ ["Stipendium Hungaricum (Hungary)","স্টিপেন্ডিয়াম হাঙ্গারিকাম (হাঙ্গেরি)","Bachelor's, master's and PhD; Bangladesh is a partner country.","স্নাতক, মাস্টার্স ও পিএইচডি; বাংলাদেশ অংশীদার দেশ।","https://stipendiumhungaricum.hu"],
+ ["Joint Japan/World Bank (JJ/WBGSP)","জয়েন্ট জাপান/বিশ্বব্যাংক","Development master's; needs 2+ years of work.","উন্নয়ন বিষয়ে মাস্টার্স; ২+ বছরের অভিজ্ঞতা লাগে।","https://www.worldbank.org/en/programs/scholarships"]
+];
 
 /* ===== BCGO Career Map — app ===== */
 const T = {
@@ -1147,7 +1277,14 @@ const T = {
   afterHsc:["Jobs right after HSC","এইচএসসির পরই চাকরি"],dipRoutes:["Diploma routes","ডিপ্লোমা রুট"],
   tapUnfold:["Tap a career to unfold its road. Tap a branch to fold it.","ক্যারিয়ারে চাপ দিলে পুরো পথ খুলে যাবে। শাখায় চাপ দিলে গুটিয়ে যাবে।"],
   openH:["Jobs for any subject","যেকোনো বিষয়ের জন্য চাকরি"],
-  nav1:["1. Your details","১. আপনার তথ্য"],nav2:["2. Your jobs","২. আপনার চাকরি"],nav3:["3. Study more","৩. আরও পড়াশোনা"],nav4:["4. Low CGPA","৪. সিজিপিএ কম"],nav5:["5. Private jobs","৫. বেসরকারি চাকরি"],nav6:["6. Quiz","৬. কুইজ"],nav7:["7. GPA help","৭. জিপিএ সাহায্য"],
+  nav1:["Your details","আপনার তথ্য"],nav2:["Your jobs","আপনার চাকরি"],nav3:["Study more","আরও পড়াশোনা"],nav4:["Low CGPA","সিজিপিএ কম"],nav5:["Private jobs","বেসরকারি চাকরি"],nav6:["Quiz","কুইজ"],nav7:["GPA help","জিপিএ সাহায্য"],
+  navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Free abroad","বিনা খরচে বিদেশ"],
+  gH:["Not sure which way to go? Start from your result","কোন পথে যাবেন বুঝতে পারছেন না? ফলাফল থেকে শুরু করুন"],
+  gSub:["Uses the GPA and CGPA you entered above. In Bangladesh results open or close some doors, so start there, then pick by interest.","ওপরে দেওয়া জিপিএ ও সিজিপিএ ব্যবহার করে। বাংলাদেশে ফলাফল কিছু দরজা খোলে বা বন্ধ করে, তাই এখান থেকে শুরু করুন, তারপর আগ্রহ অনুযায়ী বাছুন।"],
+  trH:["All careers in Bangladesh","বাংলাদেশের সব ক্যারিয়ার"],
+  trSub:["Pick a career. Tap a blue branch to open it, then tap a box for requirements and pay.","একটি ক্যারিয়ার বাছুন। নীল শাখায় চাপ দিয়ে খুলুন, তারপর বাক্সে চাপ দিয়ে শর্ত ও বেতন দেখুন।"],
+  abH:["Free study abroad (fully funded)","বিনা খরচে বিদেশে পড়াশোনা (সম্পূর্ণ বৃত্তি)"],
+  openTr:["Open this career","এই ক্যারিয়ার খুলুন"],
   byH:["What next after your degree","ডিগ্রির পরে কী করবেন"],
   bySub:["Tap a box to see what you need and what it pays.","কী লাগবে আর কত বেতন, দেখতে একটি বাক্সে চাপুন।"],
   tabHigher:["After bachelor's","স্নাতকের পর"], tabProf:["Doctor, lawyer, CA, teacher","ডাক্তার, আইনজীবী, সিএ, শিক্ষক"], navP:["Doctor/Lawyer/CA/Teacher","ডাক্তার/আইনজীবী/সিএ/শিক্ষক"], tabDip:["Diploma & technical","ডিপ্লোমা ও কারিগরি"],
@@ -1647,6 +1784,55 @@ function renderBeyond(){
     d=`<h3>${esc(st.lang==="bn"?n[1]:n[0])}</h3><p><b>${t("req")}:</b> ${esc(L(I.req))}</p><p><b>${t("payL")}:</b> ${esc(L(I.pay))}</p>${bxSrc(I.s)}`; }
   $("#by-body").innerHTML=`<div class="mapgrid"><div>${tree}</div><aside><div class="ticket">${d}</div></aside></div>`;
 }
+
+/* ---- career tracks ---- */
+st.tr="army"; st.tsel=null; st.topen=new Set();
+function mkt(m){ const x=m&&PVT_MARKET[m]; if(!x||!x[2]) return ""; return fill(["Bdjobs entry-level ads: about ৳{a}k–{b}k a month.","বিডিজবসের এন্ট্রি লেভেল বিজ্ঞাপন: মাসে প্রায় {a}–{b} হাজার টাকা।"],{a:N(Math.round(x[2]/1000)),b:N(Math.round(x[3]/1000))}); }
+function trNode(path,n){ const [en,bn,kids]=n; const lab=st.lang==="bn"?bn:en;
+  if(kids){ const open=st.topen.has(path); return li(`<button type="button" class="node br tbr" style="background:var(--accent)" data-tf="${path}" aria-expanded="${open}">${esc(lab)}<span class="car" aria-hidden="true">${open?"−":"+"}</span></button>`, open?kids.map((k,i)=>trNode(path+"."+i,k)).join(""):""); }
+  return li(`<button type="button" class="node role${st.tsel===path?" on":""}" style="--lc:var(--green)" data-ts="${path}">${esc(lab)}</button>`); }
+function trFind(path){ const [tab,...ix]=path.split("."); let n=null, arr=TRACKS[tab].tree; for(const i of ix){ n=arr[+i]; arr=n[2]||[]; } return n; }
+function renderTracks(){
+  $("#tr-tabs").innerHTML=Object.keys(TRACKS).map(k=>`<button type="button" data-tt="${k}" aria-pressed="${st.tr===k}">${esc(L([TRACKS[k].en,TRACKS[k].bn]))}</button>`).join("");
+  const T0=TRACKS[st.tr];
+  const tree=`<div class="tree"><span class="node root">${esc(L([T0.en,T0.bn]))}</span><ul>${T0.tree.map((n,i)=>trNode(st.tr+"."+i,n)).join("")}</ul></div>`;
+  let d=`<p class="muted">${t("tapBox")}</p>`;
+  if(st.tsel&&st.tsel.split(".")[0]===st.tr){ const n=trFind(st.tsel), I0=n[3]; const pay=[L(I0.pay),mkt(I0.m)].filter(Boolean).join(" ");
+    d=`<h3>${esc(st.lang==="bn"?n[1]:n[0])}</h3><p><b>${t("req")}:</b> ${esc(L(I0.req))}</p>${pay?`<p><b>${t("payL")}:</b> ${esc(pay)}</p>`:""}${bxSrc(I0.s)}${I0.m?bxSrc("B12"):""}`; }
+  $("#tr-body").innerHTML=`<div class="mapgrid"><div>${tree}</div><aside><div class="ticket">${d}</div></aside></div>`;
+}
+function goTrack(k){ st.tr=k; st.topen=new Set(TRACKS[k].tree.map((_,i)=>k+"."+i)); st.tsel=null; renderTracks(); $("#tracks").scrollIntoView({behavior:smooth(),block:"start"}); }
+/* ---- result-based guide ---- */
+function renderGuide(){
+  const s=num(st.ssc), h=num(st.hsc), c=num(st.cg); const out=[];
+  const tot=(s!=null&&h!=null)?s+h:null;
+  const G=(ok,en,bn)=>`<div class="gate"><b class="${ok?"ok":"no"}">${ok?"✓":"✗"}</b><span>${esc(L([en,bn]))}</span></div>`;
+  let gates="";
+  if(tot!=null){
+    const army=(s>=5&&h>=4.5)||(h>=5&&s>=4.5);
+    gates=G(army,"Army BMA Long Course: needs 5.00 in one and 4.50+ in the other","সেনাবাহিনী বিএমএ লং কোর্স: একটিতে ৫.০০, অন্যটিতে ৪.৫০+ লাগে")+
+      G(tot>=8.5,`MBBS/BDS: SSC + HSC must be 8.5+ (yours ${tot.toFixed(2)})`,`এমবিবিএস/বিডিএস: এসএসসি + এইচএসসি ৮.৫+ লাগে (আপনার ${N(tot.toFixed(2))})`)+
+      G(tot>=8,"CA right after HSC: SSC + HSC 8.0+ (or start after bachelor's)","এইচএসসির পরই সিএ: এসএসসি + এইচএসসি ৮.০+ (না হলে স্নাতকের পর)");
+  }
+  let band, recs;
+  if(c==null){ band=L(["Enter your CGPA above to get suggestions. Already-filled SSC/HSC checks are shown below.","পরামর্শ পেতে ওপরে সিজিপিএ লিখুন। এসএসসি/এইচএসসি দিয়ে যা যাচাই হয় তা নিচে দেখানো হলো।"]); recs=[]; }
+  else if(c>=3.5){ band=fill(["CGPA {c}: strong. Use it where results count most.","সিজিপিএ {c}: ভালো। যেখানে ফলাফল সবচেয়ে বেশি গোনা হয় সেখানে কাজে লাগান।"],{c:N(c.toFixed(2))});
+    recs=[["teach","University lecturer and teaching","বিশ্ববিদ্যালয় প্রভাষক ও শিক্ষকতা","Top results are the first filter here.","এখানে সেরা ফলই প্রথম ছাঁকনি।"],["govt","Bangladesh Bank, state banks, BCS","বাংলাদেশ ব্যাংক, রাষ্ট্রীয় ব্যাংক, বিসিএস","No result rule will stop you.","কোনো ফলাফলের শর্ত আপনাকে আটকাবে না।"],["mnc","Multinational trainee programmes","বহুজাতিক ট্রেইনি প্রোগ্রাম","Your result gets you to the test; skills win it.","ফল আপনাকে পরীক্ষা পর্যন্ত নেবে; দক্ষতা জেতাবে।"]]; }
+  else if(c>=3){ band=fill(["CGPA {c}: first class. Almost every circular is open to you.","সিজিপিএ {c}: প্রথম শ্রেণি। প্রায় সব বিজ্ঞপ্তিতে আবেদন করতে পারবেন।"],{c:N(c.toFixed(2))});
+    recs=[["govt","BCS and govt banks","বিসিএস ও সরকারি ব্যাংক","First class clears the result rules.","প্রথম শ্রেণিতে ফলাফলের শর্ত পূরণ হয়।"],["bank","Private banks and CA","বেসরকারি ব্যাংক ও সিএ","Steady growth, clear promotion path.","স্থির উন্নতি, পদোন্নতির পরিষ্কার পথ।"],["mnc","Multinationals","বহুজাতিক","Apply to trainee programmes in your final year.","শেষ বর্ষেই ট্রেইনি প্রোগ্রামে আবেদন করুন।"]]; }
+  else if(c>=2.25){ band=fill(["CGPA {c}: second class. Some bank and university-teaching jobs ask for first class, but most jobs are open.","সিজিপিএ {c}: দ্বিতীয় শ্রেণি। কিছু ব্যাংক ও বিশ্ববিদ্যালয় শিক্ষকতায় প্রথম শ্রেণি চায়, তবে বেশিরভাগ চাকরি খোলা।"],{c:N(c.toFixed(2))});
+    recs=[["govt","BCS (no CGPA score)","বিসিএস (সিজিপিএর নম্বর নেই)","Only exam marks count.","শুধু পরীক্ষার নম্বর গোনা হয়।"],["skill","Skills-first work","দক্ষতাভিত্তিক কাজ","They hire on proof, not grades.","গ্রেড নয়, প্রমাণ দেখে নেয়।"],["ind","Sales, garments, supply chain","সেলস, পোশাক, সাপ্লাই চেইন","Performance raises pay fast.","পারফরম্যান্সে বেতন দ্রুত বাড়ে।"],["bank","CA / ACCA","সিএ / এসিসিএ","Papers passed matter, not CGPA.","সিজিপিএ নয়, পেপার পাস গুরুত্বপূর্ণ।"]]; }
+  else { band=fill(["CGPA {c}: below second class. Grades will not carry you, so skills and exams must.","সিজিপিএ {c}: দ্বিতীয় শ্রেণির নিচে। গ্রেড আপনাকে এগিয়ে নেবে না, তাই দক্ষতা ও পরীক্ষাই ভরসা।"],{c:N(c.toFixed(2))});
+    recs=[["skill","Skills-first work and freelancing","দক্ষতাভিত্তিক কাজ ও ফ্রিল্যান্সিং","Your work is the CV.","আপনার কাজই আপনার সিভি।"],["ind","Sales and field jobs","সেলস ও মাঠের কাজ","Targets matter, not transcripts.","ট্রান্সক্রিপ্ট নয়, টার্গেট গুরুত্বপূর্ণ।"],["govt","BCS, if the circular accepts your class","বিসিএস, বিজ্ঞপ্তি আপনার শ্রেণি গ্রহণ করলে","Read the result rule first.","আগে ফলাফলের শর্ত পড়ুন।"]]; }
+  const skills=L(["Employers that weigh skills and experience over CGPA: software companies (coding tests), startups, digital agencies, sales and FMCG distribution, garments merchandising, call centres, NGOs (field experience), and freelancing.","যারা সিজিপিএর চেয়ে দক্ষতা ও অভিজ্ঞতা বেশি দেখে: সফটওয়্যার কোম্পানি (কোডিং টেস্ট), স্টার্টআপ, ডিজিটাল এজেন্সি, সেলস ও এফএমসিজি ডিস্ট্রিবিউশন, পোশাকের মার্চেন্ডাইজিং, কল সেন্টার, এনজিও (মাঠের অভিজ্ঞতা) এবং ফ্রিল্যান্সিং।"]);
+  $("#guide-body").innerHTML=`<p class="gband">${esc(band)}</p>${gates?`<div class="gates">${gates}</div>`:""}`+
+    (recs.length?`<ul class="glist">${recs.map(([k,en,bn,we,wb])=>`<li><b>${esc(L([en,bn]))}</b><div class="muted">${esc(L([we,wb]))}</div><button type="button" class="golink" data-gt="${k}">${t("openTr")} →</button></li>`).join("")}</ul>`:"")+
+    `<p class="lowhead">${esc(skills)} <button type="button" class="golink" data-gt="skill">${t("openTr")} →</button></p>`;
+}
+function renderAbroad(){
+  $("#ab-sub").textContent=fill(["Official pages only, no agents needed. Checked {d}; updated every two months.","শুধু অফিসিয়াল পেজ, এজেন্ট লাগে না। যাচাই {d}; প্রতি দুই মাসে হালনাগাদ।"],{d:ABROAD_DATE});
+  $("#ab-list").innerHTML=ABROAD.map(([en,bn,de,db,u])=>`<a href="${u}" target="_blank" rel="noopener"><b>${esc(L([en,bn]))}</b><span>${esc(L([de,db]))}</span></a>`).join("");
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -1657,8 +1843,8 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); }
-function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); }
+function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); }
 
 function select(key, scroll){
   st.sel=key; renderMap(); renderDetail();
@@ -1669,11 +1855,15 @@ function firstSel(){ const L0=lvl(); if(L0.cat==="deg"){ const l=roleList(); st.
 
 /* ---- events ---- */
 document.addEventListener("click",e=>{
-  const na=e.target.closest(".qnav a"); if(na){ if(na.dataset.nlow){ st.bt="low"; renderBeyond(); } else if(na.dataset.nprof){ st.bt="prof"; renderBeyond(); } else if(na.getAttribute("href")==="#beyond"&&st.bt==="low"){ st.bt="higher"; renderBeyond(); } return; }
+  const na=e.target.closest(".qnav a"); if(na){ if(na.dataset.nlow){ st.bt="low"; renderBeyond(); }  else if(na.getAttribute("href")==="#beyond"&&st.bt==="low"){ st.bt="higher"; renderBeyond(); } return; }
   const b=e.target.closest("button,[data-role],[data-pre]"); if(!b) return;
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
   if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
+  if(b.dataset.tt){ st.tr=b.dataset.tt; st.tsel=null; st.topen=new Set(); renderTracks(); return; }
+  if(b.dataset.tf){ const k=b.dataset.tf; st.topen.has(k)?st.topen.delete(k):st.topen.add(k); renderTracks(); return; }
+  if(b.dataset.ts){ st.tsel=b.dataset.ts; renderTracks(); if(matchMedia("(max-width: 900px)").matches) $("#tr-body .ticket").scrollIntoView({behavior:smooth(),block:"center"}); return; }
+  if(b.dataset.gt){ goTrack(b.dataset.gt); return; }
   if(b.dataset.lt){ st.lt=b.dataset.lt; renderBeyond(); return; }
   if(b.dataset.bx){ st.bsel=b.dataset.bx; renderBeyond(); return; }
   if(b.dataset.s){ st.sector=b.dataset.s; renderMap(); return; }
@@ -1701,7 +1891,7 @@ document.addEventListener("change",e=>{
 document.addEventListener("input",e=>{
   if(e.target.id==="f-find"){ filterJobs(); return; }
   const m=e.target.id.match(/^f-(ssc|hsc|cg|mcg)$/); if(!m) return;
-  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond();
+  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond(); renderGuide();
 });
 
 if(matchMedia("(max-width: 600px)").matches) st.view="lines";
