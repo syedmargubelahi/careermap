@@ -323,6 +323,11 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .mmeta{font-size:.85rem;color:var(--muted)}.mmiss{font-size:.85rem;color:var(--accent)}
 .wreal{margin:12px 0 0;padding:10px 12px;border-left:4px solid var(--gold);background:var(--surface);border-radius:8px}
 .giscus{margin-top:14px}
+.fbmain{display:flex;align-items:center;gap:14px;margin:14px 0 6px;padding:16px 18px;border-radius:16px;background:#1877F2;color:#fff;text-decoration:none;font-size:1.1rem}
+.fbmain:hover{filter:brightness(1.07)}.fbmain b{display:block}.fbmain small{display:block;font-size:.88rem;opacity:.92;font-weight:500}
+.fbmain>span:last-child{margin-left:auto;font-size:1.4rem}
+.fbic{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#fff;color:#1877F2;font:800 1.6rem/1 Inter,sans-serif;flex:none}
+.fother{margin:22px 0 4px;font-size:1rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -444,7 +449,8 @@ section[id],.panel[id]{scroll-margin-top:64px}
   <section class="section panel" id="forum">
     <h2>💬 <span data-t="fH"></span></h2><p data-t="fSub"></p>
     <p class="muted" data-t="fRules"></p>
-    <div class="wbtns"><a class="join big" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><span data-t="fFb"></span></a></div>
+    <a class="fbmain" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><span class="fbic" aria-hidden="true">f</span><span><b data-t="fFb"></b><small data-t="fFbSub"></small></span><span aria-hidden="true">→</span></a>
+    <h3 class="fother" data-t="fOther"></h3>
     <p class="hint" id="forum-note"></p>
     <div id="giscus" class="giscus"></div>
   </section>
@@ -1342,7 +1348,9 @@ const T = {
   fH:["Community forum: share your opinion","কমিউনিটি ফোরাম: আপনার মতামত দিন"],
   fSub:["Tell us what is wrong, what is missing, or your own career story. Every month we read the comments and update the site.","কী ভুল, কী নেই, বা আপনার নিজের ক্যারিয়ারের গল্প জানান। প্রতি মাসে মন্তব্য পড়ে সাইট হালনাগাদ করা হয়।"],
   fFb:["Post in our Facebook group","আমাদের ফেসবুক গ্রুপে লিখুন"],
-  fGh:["Comment below (sign in with GitHub)","নিচে মন্তব্য করুন (গিটহাব দিয়ে সাইন ইন)"],
+  fFbSub:["Easiest way: share your opinion, questions or story with the community","সবচেয়ে সহজ উপায়: কমিউনিটিতে আপনার মতামত, প্রশ্ন বা গল্প জানান"],
+  fOther:["Or comment here on the website (needs a GitHub account)","অথবা এখানে ওয়েবসাইটেই মন্তব্য করুন (গিটহাব অ্যাকাউন্ট লাগবে)"],
+  fGh:["Sign in with GitHub below to comment.","মন্তব্য করতে নিচে গিটহাব দিয়ে সাইন ইন করুন।"],
   fWait:["The comment box is being set up. Meanwhile, please post in our Facebook group.","মন্তব্যের বক্স চালু হচ্ছে। এর মধ্যে আমাদের ফেসবুক গ্রুপে লিখুন।"],
   fRules:["Be respectful. No ads, no personal phone numbers, no agent offers.","সম্মান বজায় রাখুন। বিজ্ঞাপন, ব্যক্তিগত ফোন নম্বর বা এজেন্টের অফার নয়।"],
   navS:["Start here","এখান থেকে শুরু"],
