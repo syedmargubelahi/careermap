@@ -286,7 +286,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nprof="1" data-t="navP"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -340,7 +340,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
 
   <section class="section panel" id="beyond">
     <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
-    <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
+    <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="prof" data-t="tabProf"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
     <div id="by-body"></div>
   </section>
 
@@ -1028,6 +1028,12 @@ const SRC2 = {
   B10:{t:"The Daily Star: Korea opens EPS sectors to Bangladeshi workers",u:"https://www.thedailystar.net/business/economy/news/korea-opens-fisheries-construction-sectors-bangladeshi-workers-3549561"},
   B11:{t:"UNB: German Opportunity Card for Bangladeshis",u:"https://unb.com.bd/news/tag/129336"},
   B12:{t:"Bdjobs.com entry-level listings, sampled 21 Oct 2026",u:"https://bdjobs.com/h/jobs"},
+  B14:{t:"Prothom Alo: MBBS/BDS 2025-26 admission rules (Nov 2025)",u:"https://en.prothomalo.com/youth/education/lpcpzm0agn"},
+  B15:{t:"The Daily Star: The Chartered Accountancy journey in Bangladesh (Sep 2025)",u:"https://www.thedailystar.net/campus/news/rewarding-yet-relentless-chartered-accountancy-journey-bangladesh-3988266"},
+  B16:{t:"Banglapedia: Advocate (enrolment steps)",u:"https://en.banglapedia.org/index.php/Advocate"},
+  B17:{t:"Bangladesh Judicial Service Commission",u:"https://bjsc.gov.bd"},
+  B18:{t:"Prothom Alo: Primary assistant teacher recruitment, 10,219 posts (Nov 2025)",u:"https://en.prothomalo.com/youth/employment/6atdinyate"},
+  B19:{t:"NTRCA: Non-Government Teachers' Registration & Certification Authority",u:"https://www.ntrca.gov.bd"},
   B13:{t:"Prothom Alo: 47th BCS final results, 2,167 cadre posts vacant (Jun 2026)",u:"https://en.prothomalo.com/youth/employment/wct409dbvh"}
 };
 /* Tree nodes: [en, bn, children|null, info] ; info = {req:[en,bn], pay:[en,bn], s:"B#"} */
@@ -1043,6 +1049,26 @@ const BEYOND = {
     ["Master's abroad","বিদেশে স্নাতকোত্তর",null,{req:["52,799 Bangladeshis went abroad for tertiary study in 2023. Top countries: USA, UK, Canada, Malaysia, Germany. Each university sets its own English test score and CGPA; check the programme page.","২০২৩ সালে ৫২,৭৯৯ জন বাংলাদেশি উচ্চশিক্ষায় বিদেশে গেছেন। শীর্ষ দেশ: যুক্তরাষ্ট্র, যুক্তরাজ্য, কানাডা, মালয়েশিয়া, জার্মানি। ইংরেজি পরীক্ষার স্কোর ও সিজিপিএর শর্ত প্রতিটি বিশ্ববিদ্যালয় নিজে ঠিক করে; প্রোগ্রামের পেজ দেখুন।"],pay:["Bangladeshi students spent a record $667.77 million abroad in FY25. Plan funding before applying.","২০২৪-২৫ অর্থবছরে বাংলাদেশি শিক্ষার্থীরা বিদেশে রেকর্ড ৬৬৭.৭৭ মিলিয়ন ডলার খরচ করেছেন। আবেদনের আগে খরচের পরিকল্পনা করুন।"],s:"B3"}],
     ["USA (graduate study)","যুক্তরাষ্ট্র (স্নাতকোত্তর)",null,{req:["20,156 Bangladeshi students in the US in 2024/25; 64.6% are graduate students. Many fund it with assistantships.","২০২৪-২৫ সালে যুক্তরাষ্ট্রে ২০,১৫৬ জন বাংলাদেশি শিক্ষার্থী; ৬৪.৬% স্নাতকোত্তর পর্যায়ে। অনেকে অ্যাসিস্ট্যান্টশিপ দিয়ে খরচ চালান।"],pay:["Funding: teaching or research assistantships; varies by university.","খরচ: টিচিং বা রিসার্চ অ্যাসিস্ট্যান্টশিপ; বিশ্ববিদ্যালয়ভেদে ভিন্ন।"],s:"B4"}],
     ["Fully funded scholarships","সম্পূর্ণ বৃত্তি",null,{req:["Examples: Erasmus Mundus (EU), Fulbright (USA), Global Korea Scholarship, MEXT (Japan), Australia Awards, Türkiye (master's under 30), Chinese Government (CSC), Finland. Joint Japan/World Bank and ADB-Japan need 2+ years of work experience.","উদাহরণ: ইরাসমাস মুন্ডুস (ইইউ), ফুলব্রাইট (যুক্তরাষ্ট্র), গ্লোবাল কোরিয়া স্কলারশিপ, মেক্সট (জাপান), অস্ট্রেলিয়া অ্যাওয়ার্ডস, তুরস্ক (স্নাতকোত্তরে ৩০-এর নিচে), চীনা সরকারি বৃত্তি (সিএসসি), ফিনল্যান্ড। জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপানে ২ বছরের বেশি কাজের অভিজ্ঞতা লাগে।"],pay:["Usually cover tuition and living costs. Deadlines are mostly December to April.","সাধারণত টিউশন ও থাকা-খাওয়ার খরচ বহন করে। আবেদনের সময় মূলত ডিসেম্বর থেকে এপ্রিল।"],s:"B5"}]
+  ]]
+ ]},
+ prof:{en:"Doctor, lawyer, CA, teacher",bn:"ডাক্তার, আইনজীবী, সিএ, শিক্ষক",root:["Professional careers","পেশাগত ক্যারিয়ার"],tree:[
+  ["Doctor","ডাক্তার",[
+    ["MBBS / BDS admission","এমবিবিএস / বিডিএস ভর্তি",null,{req:["Science group. SSC + HSC GPA together at least 8.5, and at least 3.5 each in HSC Biology, Physics and Chemistry (2025-26 rules). Then a 100-mark MCQ test; you need 40+ to qualify, and each wrong answer cuts 0.25.","বিজ্ঞান বিভাগ। এসএসসি + এইচএসসি মিলিয়ে জিপিএ কমপক্ষে ৮.৫, আর এইচএসসিতে জীববিজ্ঞান, পদার্থ ও রসায়নে প্রতিটিতে কমপক্ষে ৩.৫ (২০২৫-২৬ নিয়ম)। এরপর ১০০ নম্বরের এমসিকিউ পরীক্ষা; যোগ্য হতে ৪০+ লাগে, প্রতিটি ভুলে ০.২৫ কাটা যায়।"],pay:["Rules change every year; check the DGHS guideline for your session.","নিয়ম প্রতি বছর বদলায়; আপনার সেশনের ডিজিএইচএস নির্দেশিকা দেখুন।"],s:"B14"}],
+    ["Internship + BMDC registration","ইন্টার্নশিপ + বিএমডিসি নিবন্ধন",null,{req:["After MBBS/BDS, finish the internship and register with BMDC. Only then can you practise.","এমবিবিএস/বিডিএসের পর ইন্টার্নশিপ শেষ করে বিএমডিসিতে নিবন্ধন। তারপরই প্র্যাকটিস করা যায়।"],pay:["Then: BCS Health cadre (govt) or private hospitals. Specialist degrees (FCPS, MD, MS) raise pay most.","এরপর: বিসিএস স্বাস্থ্য ক্যাডার (সরকারি) বা বেসরকারি হাসপাতাল। বিশেষজ্ঞ ডিগ্রি (এফসিপিএস, এমডি, এমএস) বেতন সবচেয়ে বেশি বাড়ায়।"],s:"B14"}]
+  ]],
+  ["Lawyer & judge","আইনজীবী ও বিচারক",[
+    ["Advocate","অ্যাডভোকেট",null,{req:["LLB, then 6 months as pupil under a senior advocate, then the Bar Council exams (MCQ, written, viva). After 2 years in lower courts you can try for the High Court.","এলএলবি, তারপর একজন সিনিয়র আইনজীবীর অধীনে ৬ মাস শিক্ষানবিশ, তারপর বার কাউন্সিল পরীক্ষা (এমসিকিউ, লিখিত, ভাইভা)। নিম্ন আদালতে ২ বছর পর হাইকোর্টের জন্য চেষ্টা করা যায়।"],pay:["Income is low in the first years and grows with your client base.","প্রথম কয়েক বছর আয় কম, মক্কেল বাড়লে আয় বাড়ে।"],s:"B16"}],
+    ["Assistant Judge","সহকারী জজ",null,{req:["LLB, age up to 32. Bangladesh Judicial Service Commission exam: preliminary, written and viva.","এলএলবি, বয়স ৩২ পর্যন্ত। বাংলাদেশ জুডিশিয়াল সার্ভিস কমিশনের পরীক্ষা: প্রিলিমিনারি, লিখিত ও ভাইভা।"],pay:["Government judicial pay scale; check the circular.","সরকারি বিচার বিভাগীয় বেতন স্কেল; বিজ্ঞপ্তি দেখুন।"],s:"B17"}]
+  ]],
+  ["Chartered Accountant (CA)","চার্টার্ড অ্যাকাউন্ট্যান্ট (সিএ)",[
+    ["Entry","শুরু",null,{req:["Any background. After HSC: SSC + HSC GPA at least 8.0 (or O/A Level equivalent). Or start after your bachelor's, or begin exams while at university (Pre-Articled Student).","যেকোনো বিভাগ। এইচএসসির পর: এসএসসি + এইচএসসি জিপিএ কমপক্ষে ৮.০ (বা ও/এ লেভেল সমমান)। অথবা স্নাতকের পর শুরু, বা বিশ্ববিদ্যালয়ে থাকতেই পরীক্ষা শুরু (প্রি-আর্টিকেলড স্টুডেন্ট)।"],pay:["CGPA is not the gate; passing the papers is.","সিজিপিএ নয়, পেপার পাস করাই আসল।"],s:"B15"}],
+    ["Articleship + 3 levels","আর্টিকেলশিপ + ৩ লেভেল",null,{req:["4 years of articleship at an audit firm while passing Certificate, Professional and Advanced levels at ICAB.","অডিট ফার্মে ৪ বছরের আর্টিকেলশিপ, সঙ্গে আইসিএবির সার্টিফিকেট, প্রফেশনাল ও অ্যাডভান্সড লেভেল পাস।"],pay:["ICAB minimum stipend for a first-year student: ৳7,000 a month (many firms pay more). Qualified CAs move to finance manager and CFO roles.","প্রথম বর্ষে আইসিএবির ন্যূনতম ভাতা মাসে ৭,০০০ টাকা (অনেক ফার্ম বেশি দেয়)। সিএ হলে ফিন্যান্স ম্যানেজার ও সিএফও পদে যাওয়া যায়।"],s:"B15"}]
+  ]],
+  ["Teacher","শিক্ষক",[
+    ["Govt primary school","সরকারি প্রাথমিক বিদ্যালয়",null,{req:["Any bachelor's with at least second class (CGPA 2.25/4 or 2.8/5), no third class anywhere, age 21–32.","যেকোনো স্নাতক, কমপক্ষে দ্বিতীয় শ্রেণি (সিজিপিএ ২.২৫/৪ বা ২.৮/৫), কোথাও তৃতীয় শ্রেণি নয়, বয়স ২১–৩২।"],pay:["Grade 13 (2025 circular). Below grade 10, so see the grade 10 advice in the Low CGPA tab.","গ্রেড ১৩ (২০২৫ বিজ্ঞপ্তি)। গ্রেড ১০-এর নিচে, তাই সিজিপিএ কম ট্যাবে গ্রেড ১০ পরামর্শ দেখুন।"],s:"B18"}],
+    ["Non-govt school / college (NTRCA)","বেসরকারি স্কুল / কলেজ (এনটিআরসিএ)",null,{req:["Pass the NTRCA teacher registration exam (preliminary, written, viva), then apply in its mass recruitment for MPO-listed schools and colleges.","এনটিআরসিএ শিক্ষক নিবন্ধন পরীক্ষা (প্রিলিমিনারি, লিখিত, ভাইভা) পাস করে গণবিজ্ঞপ্তিতে এমপিওভুক্ত স্কুল-কলেজে আবেদন।"],pay:["Pay follows the MPO scale for the post.","পদ অনুযায়ী এমপিও স্কেলে বেতন।"],s:"B19"}],
+    ["Govt college (BCS General Education)","সরকারি কলেজ (বিসিএস সাধারণ শিক্ষা)",null,{req:["Honours/Master's in the subject, then BCS. Starts as lecturer in grade 9.","বিষয়ে অনার্স/মাস্টার্স, তারপর বিসিএস। গ্রেড ৯-এ প্রভাষক হিসেবে শুরু।"],pay:["Grade 9 starting basic about ৳44,000.","গ্রেড ৯-এ শুরুর মূল বেতন প্রায় ৪৪,০০০ টাকা।"],s:"S19"}],
+    ["University lecturer","বিশ্ববিদ্যালয় প্রভাষক",null,{req:["Each university sets its own result rules, usually very strong results plus research. A master's or PhD abroad helps a lot.","প্রতিটি বিশ্ববিদ্যালয় নিজস্ব ফলাফলের শর্ত ঠিক করে, সাধারণত খুব ভালো ফল ও গবেষণা লাগে। বিদেশে মাস্টার্স বা পিএইচডি অনেক সাহায্য করে।"],pay:["Check each university's circular.","প্রতিটি বিশ্ববিদ্যালয়ের বিজ্ঞপ্তি দেখুন।"],s:"S16"}]
   ]]
  ]},
  diploma:{en:"Diploma & technical",bn:"ডিপ্লোমা ও কারিগরি",root:["Diploma / technical","ডিপ্লোমা / কারিগরি"],tree:[
@@ -1124,7 +1150,7 @@ const T = {
   nav1:["1. Your details","১. আপনার তথ্য"],nav2:["2. Your jobs","২. আপনার চাকরি"],nav3:["3. Study more","৩. আরও পড়াশোনা"],nav4:["4. Low CGPA","৪. সিজিপিএ কম"],nav5:["5. Private jobs","৫. বেসরকারি চাকরি"],nav6:["6. Quiz","৬. কুইজ"],nav7:["7. GPA help","৭. জিপিএ সাহায্য"],
   byH:["What next after your degree","ডিগ্রির পরে কী করবেন"],
   bySub:["Tap a box to see what you need and what it pays.","কী লাগবে আর কত বেতন, দেখতে একটি বাক্সে চাপুন।"],
-  tabHigher:["After bachelor's","স্নাতকের পর"], tabDip:["Diploma & technical","ডিপ্লোমা ও কারিগরি"],
+  tabHigher:["After bachelor's","স্নাতকের পর"], tabProf:["Doctor, lawyer, CA, teacher","ডাক্তার, আইনজীবী, সিএ, শিক্ষক"], navP:["Doctor/Lawyer/CA/Teacher","ডাক্তার/আইনজীবী/সিএ/শিক্ষক"], tabDip:["Diploma & technical","ডিপ্লোমা ও কারিগরি"],
   byLow:["Low CGPA","সিজিপিএ কম"],
   req:["Requirement","শর্ত"], payL:["Pay / cost","বেতন / খরচ"], tapBox:["Tap a box on the map to see details.","বিস্তারিত দেখতে ম্যাপের একটি বাক্সে চাপুন।"],
   findPh:["Search jobs, e.g. bank, nurse, engineer","চাকরি খুঁজুন, যেমন ব্যাংক, নার্স, ইঞ্জিনিয়ার"], checked:["Last checked against sources: 21 Oct 2026. Rules change; always confirm with the latest circular.","সর্বশেষ উৎস যাচাই: ২১ অক্টোবর ২০২৬। নিয়ম বদলায়; সবসময় সর্বশেষ বিজ্ঞপ্তি দেখে নিন।"],
@@ -1643,7 +1669,7 @@ function firstSel(){ const L0=lvl(); if(L0.cat==="deg"){ const l=roleList(); st.
 
 /* ---- events ---- */
 document.addEventListener("click",e=>{
-  const na=e.target.closest(".qnav a"); if(na){ if(na.dataset.nlow){ st.bt="low"; renderBeyond(); } else if(na.getAttribute("href")==="#beyond"&&st.bt==="low"){ st.bt="higher"; renderBeyond(); } return; }
+  const na=e.target.closest(".qnav a"); if(na){ if(na.dataset.nlow){ st.bt="low"; renderBeyond(); } else if(na.dataset.nprof){ st.bt="prof"; renderBeyond(); } else if(na.getAttribute("href")==="#beyond"&&st.bt==="low"){ st.bt="higher"; renderBeyond(); } return; }
   const b=e.target.closest("button,[data-role],[data-pre]"); if(!b) return;
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
