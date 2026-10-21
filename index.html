@@ -1904,7 +1904,7 @@ function renderAbroad(){
 
 /* ---- Start here: 3-step guide (one question per screen, progress bar, Back) ---- */
 st.w={stage:null,like:null,place:null};
-const WSTAGE=[["school","🎒","In school (class 4–10)","স্কুলে পড়ি (৪র্থ–১০ম শ্রেণি)"],["after10","📝","Finished SSC / O Level / Dakhil","এসএসসি / ও লেভেল / দাখিল শেষ"],["college","📘","In college (HSC / A Level / Alim)","কলেজে পড়ি (এইচএসসি / এ লেভেল / আলিম)"],["uni","🎓","At university or graduated","বিশ্ববিদ্যালয়ে পড়ি বা পাস করেছি"],["dip","🛠️","Diploma / polytechnic","ডিপ্লোমা / পলিটেকনিক"]];
+const WSTAGE=[["school","🎒","In school (class 1–10)","স্কুলে পড়ি (১ম–১০ম শ্রেণি)"],["after10","📝","Finished SSC / O Level / Dakhil","এসএসসি / ও লেভেল / দাখিল শেষ"],["college","📘","In college (HSC / A Level / Alim)","কলেজে পড়ি (এইচএসসি / এ লেভেল / আলিম)"],["uni","🎓","At university or graduated","বিশ্ববিদ্যালয়ে পড়ি বা পাস করেছি"],["dip","🛠️","Diploma / polytechnic","ডিপ্লোমা / পলিটেকনিক"]];
 const WLIKE={
  help:["❤️","Helping sick people","অসুস্থ মানুষকে সাহায্য","health",["Doctor","Nurse","Pharmacist"],["ডাক্তার","নার্স","ফার্মাসিস্ট"],["Take the Science group. Biology, Chemistry and Physics are a must.","বিজ্ঞান বিভাগ নিন। জীববিজ্ঞান, রসায়ন ও পদার্থবিজ্ঞান অবশ্যই।"]],
  uniform:["🎖️","Uniform and serving the country","ইউনিফর্ম পরে দেশের সেবা","army",["Army officer","Navy officer","Air Force pilot"],["সেনা কর্মকর্তা","নৌ কর্মকর্তা","বিমানবাহিনীর পাইলট"],["Get top GPA in SSC and HSC (army asks 5.00 in one, 4.50+ in the other). Stay fit and play sports.","এসএসসি ও এইচএসসিতে সেরা জিপিএ রাখুন (সেনাবাহিনীতে একটিতে ৫.০০, অন্যটিতে ৪.৫০+ লাগে)। শরীর ফিট রাখুন, খেলাধুলা করুন।"]],
@@ -1977,7 +1977,7 @@ function renderMatch(){
   $("#match-out").innerHTML=(ctx?`<p class="hint">${esc(ctx)}</p>`:"")+h;
 }
 /* ---- forum (Giscus: GitHub Discussions). Fill GISCUS ids to switch on. ---- */
-const GISCUS={repo:"syedmargubelahi/careermap",repoId:"",category:"General",categoryId:""};
+const GISCUS={repo:"syedmargubelahi/careermap",repoId:"R_kgDOVRy2dg",category:"General",categoryId:"DIC_kwDOVRy2ds4DJRlo"};
 let giscusOn=false;
 function renderForum(){
   const ok=GISCUS.repoId&&GISCUS.categoryId&&location.hostname.endsWith("github.io");
