@@ -16,7 +16,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;650;800&family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-*{box-sizing:border-box}[hidden]{display:none!important}img{max-width:100%}body{margin:0}
 /* Layout: a transit map. Picker on top ("where you stand"), lines on the left, the selected route's ticket on the right. */
 :root{
   --bg:#F1F4F9; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#56637A; --rule:#D3DBE7; --accent:#1446A0; --brand:#0E2A5C; --green:#0B6B3A; --flagred:#D62828; --gold:#C9962B; --signal:#E2A21C; --signal-ink:#3A2700;
@@ -263,6 +262,13 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
   #src-list{columns:1}
 }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important;scroll-behavior:auto!important} }
+#by-tabs{margin:10px 0 6px;flex-wrap:wrap}
+#beyond .ticket h3{margin-top:0}
+.lowhead{font-weight:600;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--green) 10%,var(--surface))}
+.lowhead.warn{background:color-mix(in srgb,var(--gold) 18%,var(--surface))}
+.lowlist{padding-left:1.3em;display:grid;gap:12px}
+.lowlist li span{display:block}
+.find{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;margin:8px 0 12px}
 </style>
 </head>
 <body>
@@ -324,6 +330,12 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
     </div>
   </section>
 
+  <section class="section panel" id="beyond">
+    <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
+    <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
+    <div id="by-body"></div>
+  </section>
+
   <section class="section duo">
     <div class="panel" id="quiz-panel">
       <h2 data-t="compH"></h2>
@@ -338,7 +350,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 
   <section class="section panel" id="pvt">
     <h2 data-t="pvtH"></h2><p class="muted" data-t="pvtSub"></p>
-    <div id="pvt-list" class="indgrid"></div>
+    <input id="f-find" type="search" class="find" aria-label="Search jobs"><div id="pvt-list" class="indgrid"></div>
   </section>
 
   <section class="section duo">
@@ -354,7 +366,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
   <section class="section">
     <h2 style="font-size:1.3rem;font-weight:800" data-t="srcH"></h2>
     <p class="disc" data-t="disc"></p>
-    <ul id="src-list"></ul>
+    <p class="muted" data-t="checked"></p><ul id="src-list"></ul>
   </section>
 
   <footer><span><a href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span></footer>
@@ -992,6 +1004,56 @@ UNIS.push({n:"Islamic University of Technology (IUT)",ty:"intl_eng",k:"intl"},{n
 const PVT_DATE=["21 Oct 2026","২১ অক্টোবর ২০২৬"];
 const PVT_MARKET={"pvt_bank": [30, 4, 17000, 27000, "Bachelor's or Master's in any discipline (MBA often preferred)", "যেকোনো বিষয়ে স্নাতক বা স্নাতকোত্তর (প্রায়ই এমবিএ অগ্রাধিকার)", ["Business Development", "Market Research", "Sales Performance Analysis"]], "accountant": [61, 6, 16000, 29000, "BBA / MBA in Accounting, Finance or Banking", "হিসাববিজ্ঞান, ফিন্যান্স বা ব্যাংকিংয়ে বিবিএ / এমবিএ", ["Financial Reporting", "Financial Analysis", "Accounting Software"]], "audit": [15, 4, 19000, 51000, "BBA / MBA / MCom in Accounting; CA (CC) preferred", "হিসাববিজ্ঞানে বিবিএ / এমবিএ / এমকম; সিএ (সিসি) অগ্রাধিকার", ["Audit reporting", "Internal Control", "Inventory Audit"]], "network": [10, 3, 18000, 43000, "BSc in CSE / EEE / IT, or Diploma in Engineering (Computer)", "সিএসই / ইইই / আইটিতে বিএসসি, অথবা ডিপ্লোমা ইঞ্জিনিয়ারিং (কম্পিউটার)", ["Network Troubleshooting", "Network Monitoring", "Mikrotik"]], "civil_site": [15, 4, 17000, 32000, "Diploma in Civil Engineering most often; BSc Civil also accepted", "বেশিরভাগ ক্ষেত্রে সিভিলে ডিপ্লোমা; সিভিলে বিএসসি-ও গ্রহণযোগ্য", ["Site Supervision", "AutoCAD 2D/3D", "Project Management"]], "electrical": [18, 1, null, null, "BSc in EEE, or Diploma in Electrical Engineering", "ইইইতে বিএসসি, অথবা ইলেকট্রিক্যালে ডিপ্লোমা", ["Preventive Maintenance", "Electrical Installation", "BOQ"]], "mech": [17, 1, null, null, "BSc (Mechanical / EEE) or Diploma in Engineering", "বিএসসি (মেকানিক্যাল / ইইই) অথবা ডিপ্লোমা ইঞ্জিনিয়ারিং", ["Preventive Maintenance", "Spare parts", "Electrical Maintenance"]], "architect": [33, 6, 16000, 30000, "Bachelor of Architecture (B.Arch)", "ব্যাচেলর অব আর্কিটেকচার (বি.আর্ক)", ["AutoCAD 2D/3D", "SketchUp", "Lumion"]], "merch": [26, 4, 15000, 28000, "BSc in Textile Engineering / Apparel Manufacturing, or any Bachelor's", "টেক্সটাইল ইঞ্জিনিয়ারিং / অ্যাপারেল ম্যানুফ্যাকচারিংয়ে বিএসসি, বা যেকোনো স্নাতক", ["Merchandising", "Buyer Communication", "Order Management"]], "ie": [7, 3, 23000, 45000, "BSc in Industrial & Production / Textile / EEE Engineering", "ইন্ডাস্ট্রিয়াল ও প্রোডাকশন / টেক্সটাইল / ইইই ইঞ্জিনিয়ারিংয়ে বিএসসি", ["Line balancing", "Process Improvement"]], "compliance": [19, 2, 25000, 34000, "BBA / MBA (HRM preferred) or Master's in any discipline", "বিবিএ / এমবিএ (এইচআরএম অগ্রাধিকার) বা যেকোনো বিষয়ে স্নাতকোত্তর", ["Compliance Audit", "Human Resource Management"]], "pharmacist": [12, 3, 15000, 23000, "Diploma in Pharmacy or B.Pharm, with Pharmacy Council of Bangladesh registration", "ডিপ্লোমা ইন ফার্মেসি বা বি.ফার্ম, বাংলাদেশ ফার্মেসি কাউন্সিলের নিবন্ধনসহ", ["Pharmaceutical Product Management", "Stock Management"]], "qc": [16, 3, 20000, 30000, "B.Pharm, or MSc in Chemistry / Microbiology / Biochemistry", "বি.ফার্ম, অথবা রসায়ন / মাইক্রোবায়োলজি / বায়োকেমিস্ট্রিতে এমএসসি", ["Quality Control", "Quality Assurance", "SOP Compliance"]], "mpo": [82, 3, 15000, 28000, "Graduate in any discipline; science graduates preferred", "যেকোনো বিষয়ে স্নাতক; বিজ্ঞানে স্নাতক অগ্রাধিকার", ["Sales Target Achievement", "Product Promotion"]], "doctor": [86, 3, 36000, 56000, "MBBS with BMDC registration", "বিএমডিসি নিবন্ধনসহ এমবিবিএস", ["Patient Care", "Patient Assessment", "Medical Treatment"]], "program": [9, 3, 15000, 32000, "Bachelor's in any discipline; Master's often preferred", "যেকোনো বিষয়ে স্নাতক; প্রায়ই স্নাতকোত্তর অগ্রাধিকার", ["Project Planning", "Program Organizing", "Analytical Skill"]], "dm": [55, 8, 20000, 31000, "Bachelor's (any subject); proven results matter more than the degree", "স্নাতক (যেকোনো বিষয়); ডিগ্রির চেয়ে প্রমাণিত কাজের ফল বেশি গুরুত্বপূর্ণ", ["Social Media Marketing", "Google Ads", "Content Creation"]], "sales": [76, 4, 14000, 26000, "Bachelor's, often BBA in Marketing", "স্নাতক, প্রায়ই মার্কেটিংয়ে বিবিএ", ["Business Development", "Sales Target Achievement", "Market Research"]], "hr": [50, 6, 19000, 30000, "BBA / MBA in HRM or Management", "এইচআরএম বা ম্যানেজমেন্টে বিবিএ / এমবিএ", ["Recruitment & Selection", "Payroll Management", "HRIS"]], "teacher": [57, 5, 14000, 27000, "Bachelor's or Master's in the subject taught (private / English-medium schools)", "যে বিষয় পড়াবেন তাতে স্নাতক বা স্নাতকোত্তর (বেসরকারি / ইংলিশ মিডিয়াম স্কুল)", ["Lesson Planning", "Classroom Management", "Curriculum Development"]], "lecturer": [33, 2, 19000, 22000, "4-year Honours plus Master's in the subject (listings are mostly private colleges)", "বিষয়ে ৪ বছরের অনার্সসহ স্নাতকোত্তর (তালিকার বেশিরভাগ বেসরকারি কলেজ)", ["Teaching", "Lesson Planning"]], "content": [35, 5, 15000, 30000, "Bachelor's in any subject; strong writing samples", "যেকোনো বিষয়ে স্নাতক; ভালো লেখার নমুনা", ["Content Writing", "SEO", "Content Creation"]], "designer": [38, 7, 15000, 35000, "HSC, Diploma or Bachelor's; a portfolio decides", "এইচএসসি, ডিপ্লোমা বা স্নাতক; পোর্টফোলিওই আসল", ["Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro"]], "legal": [12, 3, 23000, 33000, "LLB (LLM preferred); Bar Council membership preferred", "এলএলবি (এলএলএম অগ্রাধিকার); বার কাউন্সিল সদস্যপদ অগ্রাধিকার", ["Legal Drafting", "Legal Documentation", "Case Management"]], "nurse": [18, 3, 12000, 16000, "BSc or Diploma in Nursing Science & Midwifery, registered with the Nursing Council", "নার্সিং কাউন্সিলে নিবন্ধিত বিএসসি বা ডিপ্লোমা ইন নার্সিং সায়েন্স অ্যান্ড মিডওয়াইফারি", ["Patient Care", "ICU/NICU Nursing"]], "fashion_d": [10, 2, 21000, 34000, "BSc / BA in Fashion Design", "ফ্যাশন ডিজাইনে বিএসসি / বিএ", ["Fashion Design", "Product Development", "Adobe Illustrator"]], "hotel": [32, 5, 12000, 20000, "HSC or Bachelor's; good English", "এইচএসসি বা স্নাতক; ভালো ইংরেজি", ["Front Desk", "Reception", "Administration"]], "cs": [63, 5, 15000, 20000, "Bachelor's in any discipline (some accept HSC)", "যেকোনো বিষয়ে স্নাতক (কিছু ক্ষেত্রে এইচএসসি)", ["Customer Service", "Call Center Operation", "Complaint Resolution"]], "brand": [13, 4, 17000, 28000, "Graduate in any discipline; BBA in Marketing preferred", "যেকোনো বিষয়ে স্নাতক; মার্কেটিংয়ে বিবিএ অগ্রাধিকার", ["Brand Promotion", "Market Research", "Customer Relationship"]], "tso": [28, 2, 20000, 29000, "BBA / BBS or any Bachelor's", "বিবিএ / বিবিএস বা যেকোনো স্নাতক", ["Territory Sales", "Sales Target Achievement", "Competitor Analysis"]], "research": [27, 6, 19000, 39000, "BSc in Statistics / Economics, or BBA in Marketing", "পরিসংখ্যান / অর্থনীতিতে বিএসসি, বা মার্কেটিংয়ে বিবিএ", ["Market Research", "Competitor Analysis", "Market Audit"]], "retail": [23, 2, 18000, 27000, "Bachelor's; retail or store experience helps", "স্নাতক; রিটেইল বা স্টোরের অভিজ্ঞতা সহায়ক", ["Stock Management", "Inventory Control"]], "scm_ex": [16, 3, 13000, 26000, "BBA / MBA in Supply Chain or Business; some ask BSc / Diploma Engineering", "সাপ্লাই চেইন বা ব্যবসায় বিবিএ / এমবিএ; কিছু ক্ষেত্রে বিএসসি / ডিপ্লোমা ইঞ্জিনিয়ারিং", ["Procurement", "Vendor Management", "Inventory Management"]], "commercial": [14, 2, 24000, 42000, "BBA / BBS or any Bachelor's", "বিবিএ / বিবিএস বা যেকোনো স্নাতক", ["Export/Import through L/C", "Customs Clearance"]], "fin_analyst": [13, 2, 23000, 44000, "BBA / MBA in Finance or Accounting", "ফিন্যান্স বা হিসাববিজ্ঞানে বিবিএ / এমবিএ", ["Financial Reporting", "Financial Analysis"]], "uiux": [4, 4, 24000, 60000, "Bachelor's (often CSE) plus UI/UX training and a portfolio", "স্নাতক (প্রায়ই সিএসই), সঙ্গে ইউআই/ইউএক্স প্রশিক্ষণ ও পোর্টফোলিও", ["UI/UX Design", "Web Design", "HTML & CSS"]], "planner": [3, 1, null, null, "BSc in Urban & Regional Planning", "নগর ও অঞ্চল পরিকল্পনায় বিএসসি", ["GIS", "Urban Planning", "AutoCAD"]], "vet_off": [3, 0, null, null, "Doctor of Veterinary Medicine (DVM)", "ডক্টর অব ভেটেরিনারি মেডিসিন (ডিভিএম)", ["Clinical skill", "Medical Record Keeping"]], "physio": [10, 0, null, null, "Diploma in Medical Technology (Physiotherapy) or Bachelor of Physiotherapy (BPT)", "ডিপ্লোমা ইন মেডিকেল টেকনোলজি (ফিজিওথেরাপি) বা ব্যাচেলর অব ফিজিওথেরাপি (বিপিটি)", ["Physiotherapy", "Patient Assessment"]]};
 
+/* ===== Beyond your degree: higher study, diploma/technical, low CGPA ===== */
+const SRC2 = {
+  B1:{t:"Prothom Alo: 47th BCS applicant Q&A (Dec 2024)",u:"https://www.prothomalo.com/chakri/chakri-suggestion/0g9b3gwc07"},
+  B2:{t:"BUET IICT: M.Sc./M.Engg. (ICT) admission rules",u:"https://iict.buet.ac.bd/?page_id=76"},
+  B3:{t:"Dhaka Tribune: BD students spent $667.77m abroad in FY25 (Sep 2025)",u:"https://www.dhakatribune.com/business/390989/bd-students-spend-667.77m-in-fy25-to-study"},
+  B4:{t:"Open Doors: Bangladesh fact sheet 2025",u:"https://opendoorsdata.org/wp-content/uploads/2026/01/OD_Bangladesh_Fact-Sheet-2025.pdf"},
+  B5:{t:"The Financial Express: Fully funded international programmes (Nov 2025)",u:"https://thefinancialexpress.com.bd/education/fully-funded-intl-programmes-open-doors-to-bangladeshi-students"},
+  B6:{t:"DUET admission (diploma engineers only)",u:"https://admission.duetbd.org"},
+  B7:{t:"Jagonews24: BSc vs diploma engineers, sub-assistant engineer posts (Aug 2025)",u:"https://www.jagonews24.com/en/education/news/85157"},
+  B8:{t:"The Financial Express: Skilled labour migration, Japan / Korea / Malaysia (Aug 2023)",u:"https://thefinancialexpress.com.bd/economy/bangladesh/bd-still-slow-to-exploit-prospects-of-skilled-labour-migration"},
+  B9:{t:"The Business Standard: Bangladesh prepares workers for Japan SSW (Apr 2026)",u:"https://www.tbsnews.net/bangladesh/bangladesh-prepares-send-manpower-japan-under-ssw-category-1423636"},
+  B10:{t:"The Daily Star: Korea opens EPS sectors to Bangladeshi workers",u:"https://www.thedailystar.net/business/economy/news/korea-opens-fisheries-construction-sectors-bangladeshi-workers-3549561"},
+  B11:{t:"UNB: German Opportunity Card for Bangladeshis",u:"https://unb.com.bd/news/tag/129336"},
+  B12:{t:"Bdjobs.com entry-level listings, sampled 21 Oct 2026",u:"https://bdjobs.com/h/jobs"},
+  B13:{t:"Prothom Alo: 47th BCS final results, 2,167 cadre posts vacant (Jun 2026)",u:"https://en.prothomalo.com/youth/employment/wct409dbvh"}
+};
+/* Tree nodes: [en, bn, children|null, info] ; info = {req:[en,bn], pay:[en,bn], s:"B#"} */
+const BEYOND = {
+ higher:{en:"After bachelor's",bn:"স্নাতকের পর",root:["Bachelor's done","স্নাতক সম্পন্ন"],tree:[
+  ["In Bangladesh","বাংলাদেশে",[
+    ["Master's (MA / MSS / MSc / MBS)","স্নাতকোত্তর (এমএ / এমএসএস / এমএসসি / এমবিএস)",null,{req:["Usually 1 year after a 4-year Honours, 2 years after a 3-year Pass degree. With a 3-year Pass degree you need a Master's to sit for BCS.","৪ বছরের অনার্সের পর সাধারণত ১ বছর, ৩ বছরের পাসের পর ২ বছর। ৩ বছরের পাস ডিগ্রি থাকলে বিসিএসে বসতে স্নাতকোত্তর লাগে।"],pay:["No fixed pay rise. It helps for teaching, research, some circulars and a better final result.","বেতনে নির্দিষ্ট বৃদ্ধি নেই। শিক্ষকতা, গবেষণা, কিছু বিজ্ঞপ্তি ও ভালো ফলাফলের জন্য সহায়ক।"],s:"B1"}],
+    ["MBA / Executive MBA","এমবিএ / এক্সিকিউটিভ এমবিএ",null,{req:["Open to any bachelor's at most universities. Executive and evening MBAs are for people already working; check UGC approval of the programme.","বেশিরভাগ বিশ্ববিদ্যালয়ে যেকোনো স্নাতক আবেদন করতে পারেন। এক্সিকিউটিভ ও ইভিনিং এমবিএ কর্মজীবীদের জন্য; প্রোগ্রামটি ইউজিসি অনুমোদিত কিনা দেখে নিন।"],pay:["Helps move from technical to management roles; pay depends on the employer.","টেকনিক্যাল থেকে ম্যানেজমেন্ট পদে যেতে সহায়ক; বেতন প্রতিষ্ঠানভেদে আলাদা।"],s:"S16"}],
+    ["PGD (Postgraduate Diploma)","পিজিডি (স্নাতকোত্তর ডিপ্লোমা)",null,{req:["Usually 1 year, often evening classes for working people (e.g. ICT, HRM, management). At BUET IICT a PGD in ICT/IT with GPA 2.65 can lead into the M.Sc. (ICT).","সাধারণত ১ বছর, প্রায়ই কর্মজীবীদের জন্য সন্ধ্যাকালীন ক্লাস (যেমন আইসিটি, এইচআরএম, ম্যানেজমেন্ট)। বুয়েট আইআইসিটিতে জিপিএ ২.৬৫ সহ আইসিটি/আইটিতে পিজিডি থাকলে এমএসসি (আইসিটি)-তে ভর্তি হওয়া যায়।"],pay:["A fast way to switch field or add a skill without a second degree.","দ্বিতীয় ডিগ্রি ছাড়াই ক্ষেত্র বদলানো বা দক্ষতা যোগ করার দ্রুত উপায়।"],s:"B2"}],
+    ["Professional qualifications (CA, ACCA, CMA)","পেশাগত যোগ্যতা (সিএ, এসিসিএ, সিএমএ)",null,{req:["Exam-based; CA in Bangladesh goes through ICAB articleship. Your CGPA matters less than passing the papers.","পরীক্ষাভিত্তিক; বাংলাদেশে সিএ হয় আইসিএবি-র আর্টিকেলশিপের মাধ্যমে। এখানে সিজিপিএর চেয়ে পেপার পাস করাই আসল।"],pay:["Qualified accountants move into audit, finance manager and CFO tracks.","যোগ্যতা অর্জনের পর অডিট, ফিন্যান্স ম্যানেজার ও সিএফও পথে যাওয়া যায়।"],s:"S22"}]
+  ]],
+  ["Abroad","বিদেশে",[
+    ["Master's abroad","বিদেশে স্নাতকোত্তর",null,{req:["52,799 Bangladeshis went abroad for tertiary study in 2023. Top countries: USA, UK, Canada, Malaysia, Germany. Each university sets its own English test score and CGPA; check the programme page.","২০২৩ সালে ৫২,৭৯৯ জন বাংলাদেশি উচ্চশিক্ষায় বিদেশে গেছেন। শীর্ষ দেশ: যুক্তরাষ্ট্র, যুক্তরাজ্য, কানাডা, মালয়েশিয়া, জার্মানি। ইংরেজি পরীক্ষার স্কোর ও সিজিপিএর শর্ত প্রতিটি বিশ্ববিদ্যালয় নিজে ঠিক করে; প্রোগ্রামের পেজ দেখুন।"],pay:["Bangladeshi students spent a record $667.77 million abroad in FY25. Plan funding before applying.","২০২৪-২৫ অর্থবছরে বাংলাদেশি শিক্ষার্থীরা বিদেশে রেকর্ড ৬৬৭.৭৭ মিলিয়ন ডলার খরচ করেছেন। আবেদনের আগে খরচের পরিকল্পনা করুন।"],s:"B3"}],
+    ["USA (graduate study)","যুক্তরাষ্ট্র (স্নাতকোত্তর)",null,{req:["20,156 Bangladeshi students in the US in 2024/25; 64.6% are graduate students. Many fund it with assistantships.","২০২৪-২৫ সালে যুক্তরাষ্ট্রে ২০,১৫৬ জন বাংলাদেশি শিক্ষার্থী; ৬৪.৬% স্নাতকোত্তর পর্যায়ে। অনেকে অ্যাসিস্ট্যান্টশিপ দিয়ে খরচ চালান।"],pay:["Funding: teaching or research assistantships; varies by university.","খরচ: টিচিং বা রিসার্চ অ্যাসিস্ট্যান্টশিপ; বিশ্ববিদ্যালয়ভেদে ভিন্ন।"],s:"B4"}],
+    ["Fully funded scholarships","সম্পূর্ণ বৃত্তি",null,{req:["Examples: Erasmus Mundus (EU), Fulbright (USA), Global Korea Scholarship, MEXT (Japan), Australia Awards, Türkiye (master's under 30), Chinese Government (CSC), Finland. Joint Japan/World Bank and ADB-Japan need 2+ years of work experience.","উদাহরণ: ইরাসমাস মুন্ডুস (ইইউ), ফুলব্রাইট (যুক্তরাষ্ট্র), গ্লোবাল কোরিয়া স্কলারশিপ, মেক্সট (জাপান), অস্ট্রেলিয়া অ্যাওয়ার্ডস, তুরস্ক (স্নাতকোত্তরে ৩০-এর নিচে), চীনা সরকারি বৃত্তি (সিএসসি), ফিনল্যান্ড। জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপানে ২ বছরের বেশি কাজের অভিজ্ঞতা লাগে।"],pay:["Usually cover tuition and living costs. Deadlines are mostly December to April.","সাধারণত টিউশন ও থাকা-খাওয়ার খরচ বহন করে। আবেদনের সময় মূলত ডিসেম্বর থেকে এপ্রিল।"],s:"B5"}]
+  ]]
+ ]},
+ diploma:{en:"Diploma & technical",bn:"ডিপ্লোমা ও কারিগরি",root:["Diploma / technical","ডিপ্লোমা / কারিগরি"],tree:[
+  ["Jobs in Bangladesh","বাংলাদেশে চাকরি",[
+    ["Sub-Assistant Engineer (govt)","উপসহকারী প্রকৌশলী (সরকারি)",null,{req:["These posts are filled by diploma engineers. Check each circular for grade, age and subject.","এই পদগুলো ডিপ্লোমা প্রকৌশলীদের দিয়ে পূরণ হয়। গ্রেড, বয়স ও বিষয়ের শর্ত প্রতিটি বিজ্ঞপ্তিতে দেখুন।"],pay:["Government pay scale grade as per circular.","বিজ্ঞপ্তি অনুযায়ী সরকারি বেতন স্কেলের গ্রেড।"],s:"B7"}],
+    ["Site / maintenance engineer (private)","সাইট / মেইনটেন্যান্স ইঞ্জিনিয়ার (বেসরকারি)",null,{req:["Most entry-level civil site jobs on Bdjobs ask for a Diploma in Civil; electrical and maintenance jobs accept a diploma or BSc.","বিডিজবসে এন্ট্রি লেভেলের বেশিরভাগ সিভিল সাইট চাকরিতে সিভিলে ডিপ্লোমা চাওয়া হয়; ইলেকট্রিক্যাল ও মেইনটেন্যান্সে ডিপ্লোমা বা বিএসসি চলে।"],pay:["Site engineer: about ৳17k–32k a month at entry (Bdjobs listings).","সাইট ইঞ্জিনিয়ার: শুরুতে মাসে প্রায় ১৭–৩২ হাজার টাকা (বিডিজবস বিজ্ঞপ্তি)।"],s:"B12"}],
+    ["Nursing / medical technology","নার্সিং / মেডিকেল টেকনোলজি",null,{req:["Diploma in Nursing Science & Midwifery with Nursing Council registration; DMT for lab, radiology and physiotherapy.","নার্সিং কাউন্সিলে নিবন্ধনসহ ডিপ্লোমা ইন নার্সিং সায়েন্স অ্যান্ড মিডওয়াইফারি; ল্যাব, রেডিওলজি ও ফিজিওথেরাপির জন্য ডিএমটি।"],pay:["Staff nurse, private hospitals: about ৳12k–16k a month at entry (Bdjobs listings).","বেসরকারি হাসপাতালে স্টাফ নার্স: শুরুতে মাসে প্রায় ১২–১৬ হাজার টাকা (বিডিজবস বিজ্ঞপ্তি)।"],s:"B12"}]
+  ]],
+  ["Study further","আরও পড়াশোনা",[
+    ["BSc at DUET (public)","ডুয়েটে বিএসসি (সরকারি)",null,{req:["DUET's undergraduate engineering and architecture seats are only for diploma engineers, through its own admission test.","ডুয়েটের স্নাতক প্রকৌশল ও স্থাপত্য আসন শুধু ডিপ্লোমা প্রকৌশলীদের জন্য, নিজস্ব ভর্তি পরীক্ষার মাধ্যমে।"],pay:["A BSc opens Assistant Engineer and BCS technical cadre posts.","বিএসসি থাকলে সহকারী প্রকৌশলী ও বিসিএস কারিগরি ক্যাডারে আবেদন করা যায়।"],s:"B6"}],
+    ["Evening BSc at private universities","বেসরকারি বিশ্ববিদ্যালয়ে সান্ধ্য বিএসসি",null,{req:["Several UGC-approved private universities run BSc programmes for working diploma holders. Check the programme's UGC approval first.","ইউজিসি অনুমোদিত কয়েকটি বেসরকারি বিশ্ববিদ্যালয় কর্মজীবী ডিপ্লোমাধারীদের জন্য বিএসসি চালায়। আগে প্রোগ্রামের ইউজিসি অনুমোদন দেখে নিন।"],pay:["Work and study together; fees vary.","কাজের পাশাপাশি পড়া যায়; খরচ প্রতিষ্ঠানভেদে আলাদা।"],s:"S16"}]
+  ]],
+  ["Work abroad (skilled)","বিদেশে দক্ষ কর্মী",[
+    ["Japan (SSW)","জাপান (এসএসডব্লিউ)",null,{req:["Specified Skilled Worker: Japanese N4 plus a skills test, no fixed education requirement. Japan aims to hire 820,000 SSW workers by March 2029. 53 government Technical Training Centres teach Japanese.","স্পেসিফায়েড স্কিলড ওয়ার্কার: জাপানি এন৪ ও দক্ষতা পরীক্ষা, নির্দিষ্ট শিক্ষাগত শর্ত নেই। জাপান ২০২৯ সালের মার্চের মধ্যে ৮,২০,০০০ এসএসডব্লিউ কর্মী নিতে চায়। ৫৩টি সরকারি কারিগরি প্রশিক্ষণ কেন্দ্রে জাপানি ভাষা শেখানো হয়।"],pay:["About ৳1–2 lakh a month (2023 report).","মাসে প্রায় ১–২ লাখ টাকা (২০২৩ সালের প্রতিবেদন)।"],s:"B9"}],
+    ["South Korea (EPS / E-7)","দক্ষিণ কোরিয়া (ইপিএস / ই-৭)",null,{req:["EPS: pass the EPS Korean language test; sectors open to Bangladesh include manufacturing, shipbuilding, fisheries and construction. E-7 (skilled): 2–5 years' experience as welder, pipe fitter, etc.","ইপিএস: ইপিএস কোরিয়ান ভাষা পরীক্ষায় পাস; বাংলাদেশের জন্য খোলা খাত উৎপাদন, জাহাজ নির্মাণ, মৎস্য ও নির্মাণ। ই-৭ (দক্ষ): ওয়েল্ডার, পাইপ ফিটার ইত্যাদি পেশায় ২–৫ বছরের অভিজ্ঞতা।"],pay:["E-7: about ৳2.5 lakh a month, migration cost about ৳5.5 lakh (2023 report).","ই-৭: মাসে প্রায় ২.৫ লাখ টাকা, যাওয়ার খরচ প্রায় ৫.৫ লাখ টাকা (২০২৩ সালের প্রতিবেদন)।"],s:"B10"}],
+    ["Germany (Opportunity Card)","জার্মানি (অপরচুনিটি কার্ড)",null,{req:["A recognised degree or at least 2 years of vocational training, German A1 or English B2 (IELTS 5.5–6.5), and 6 points (qualification, experience, language, age).","স্বীকৃত ডিগ্রি বা কমপক্ষে ২ বছরের বৃত্তিমূলক প্রশিক্ষণ, জার্মান এ১ বা ইংরেজি বি২ (আইইএলটিএস ৫.৫–৬.৫), এবং ৬ পয়েন্ট (যোগ্যতা, অভিজ্ঞতা, ভাষা, বয়স)।"],pay:["Lets you look for skilled work in Germany; pay follows German rates.","জার্মানিতে দক্ষ কাজ খোঁজার সুযোগ; বেতন জার্মান হারে।"],s:"B11"}],
+    ["Malaysia & Middle East","মালয়েশিয়া ও মধ্যপ্রাচ্য",null,{req:["Go only through BMET-registered channels. Skilled workers earn far more and often pay less to migrate than unskilled workers.","শুধু বিএমইটি নিবন্ধিত মাধ্যমে যান। দক্ষ কর্মীরা অদক্ষদের চেয়ে অনেক বেশি আয় করেন এবং প্রায়ই কম খরচে যান।"],pay:["Malaysia skilled: about ৳70k–1 lakh a month vs about ৳35k unskilled (2023 report).","মালয়েশিয়ায় দক্ষ কর্মী মাসে প্রায় ৭০ হাজার–১ লাখ টাকা, অদক্ষ প্রায় ৩৫ হাজার (২০২৩ সালের প্রতিবেদন)।"],s:"B8"}]
+  ]]
+ ]}
+};
+
 /* ===== BCGO Career Map — app ===== */
 const T = {
   brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["Join the BCGO community","BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, share job circulars and get career advice from students and professionals across Bangladesh. Free, one click.","প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি শেয়ার করুন, আর সারা দেশের শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে ক্যারিয়ার পরামর্শ নিন। বিনামূল্যে, এক ক্লিকেই।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
@@ -1049,6 +1111,12 @@ const T = {
   afterHsc:["Jobs right after HSC","এইচএসসির পরই চাকরি"],dipRoutes:["Diploma routes","ডিপ্লোমা রুট"],
   tapUnfold:["Tap a career to unfold its road. Tap a branch to fold it.","ক্যারিয়ারে চাপ দিলে পুরো পথ খুলে যাবে। শাখায় চাপ দিলে গুটিয়ে যাবে।"],
   openH:["Open to graduates of any subject","যেকোনো বিষয়ের স্নাতকের জন্য উন্মুক্ত"],
+  byH:["Beyond your degree","ডিগ্রির পরে কী"],
+  bySub:["Higher study, diploma and technical routes in Bangladesh and abroad. Tap any box for requirements and pay.","দেশে ও বিদেশে উচ্চশিক্ষা, ডিপ্লোমা ও কারিগরি পথ। শর্ত ও বেতন দেখতে যেকোনো বাক্সে চাপুন।"],
+  tabHigher:["After bachelor's","স্নাতকের পর"], tabDip:["Diploma & technical","ডিপ্লোমা ও কারিগরি"],
+  byLow:["Low CGPA?","সিজিপিএ কম?"],
+  req:["Requirement","শর্ত"], payL:["Pay / cost","বেতন / খরচ"], tapBox:["Tap a box on the map to see details.","বিস্তারিত দেখতে ম্যাপের একটি বাক্সে চাপুন।"],
+  findPh:["Search jobs, e.g. bank, nurse, engineer","চাকরি খুঁজুন, যেমন ব্যাংক, নার্স, ইঞ্জিনিয়ার"], checked:["Last checked against sources: 21 Oct 2026. Rules change; always confirm with the latest circular.","সর্বশেষ উৎস যাচাই: ২১ অক্টোবর ২০২৬। নিয়ম বদলায়; সবসময় সর্বশেষ বিজ্ঞপ্তি দেখে নিন।"],
   pvtH:["Private industry jobs","বেসরকারি খাতের চাকরি"],
   pvtSub:["Every private-sector role on the map, grouped by industry. Tap one to see its road, skills and year-by-year plan. With a degree selected, each shows whether it fits you.","ম্যাপের সব বেসরকারি খাতের পদ, শিল্পখাত অনুযায়ী সাজানো। পথ, দক্ষতা ও বছরভিত্তিক পরিকল্পনা দেখতে চাপ দিন। ডিগ্রি বাছাই করা থাকলে প্রতিটি পদ আপনার সঙ্গে মেলে কিনা তা-ও দেখাবে।"],
   openSub:["These recruitments do not ask for a specific subject. Competition is heavy and result cut-offs apply, so preparation matters more than your major.","এসব নিয়োগে নির্দিষ্ট বিষয় চাওয়া হয় না। প্রতিযোগিতা অনেক বেশি এবং ফলাফলের শর্ত আছে, তাই বিষয়ের চেয়ে প্রস্তুতি বেশি গুরুত্বপূর্ণ।"],
@@ -1495,7 +1563,39 @@ function renderPvt(){
   for(const sk of Object.keys(SECTORS)){ const ids=Object.keys(ROLES).filter(id=>ROLES[id].sec===sk&&ROLES[id].t!=="pub"); if(!ids.length) continue;
     h+=`<div class="ind" style="--lc:var(${SECTORS[sk].c})"><h3><span class="sw"></span>${esc(L([SECTORS[sk].en,SECTORS[sk].bn]))} <span class="cnt">${N(ids.length)}</span></h3><div class="ichips">`+
       ids.map(id=>{const S=deg?status(id).s:"na"; return `<button type="button" class="ichip s-${S}" data-show="${id}">${esc(nm(ROLES[id]))}</button>`;}).join("")+`</div></div>`; }
-  $("#pvt-list").innerHTML=h;
+  $("#pvt-list").innerHTML=h; const f=$("#f-find"); if(f){ f.placeholder=t("findPh"); filterJobs(); }
+}
+function filterJobs(){ const q=($("#f-find").value||"").trim().toLowerCase(); document.querySelectorAll("#pvt-list .ind").forEach(g=>{ let any=0; g.querySelectorAll(".ichip").forEach(c=>{ const id=c.dataset.show, r=ROLES[id]; const hit=!q||(r.en+" "+r.bn).toLowerCase().includes(q); c.hidden=!hit; any+=hit; }); g.hidden=!any; }); }
+/* ---- beyond your degree ---- */
+st.bt="higher"; st.bsel=null;
+function bxNode(tab,path,n){ const [en,bn,kids,info]=n; const lab=st.lang==="bn"?bn:en;
+  if(kids) return li(`<span class="node br" style="background:var(--accent)">${esc(lab)}</span>`, kids.map((k,i)=>bxNode(tab,path+"."+i,k)).join(""));
+  return li(`<button type="button" class="node role${st.bsel===path?" on":""}" style="--lc:var(--green)" data-bx="${path}">${esc(lab)}</button>`); }
+function bxFind(path){ const [tab,...ix]=path.split("."); let n=null, arr=BEYOND[tab].tree; for(const i of ix){ n=arr[+i]; arr=n[2]||[]; } return n; }
+function lowAdvice(){
+  const c=num(st.cg); const low=c!=null&&c<3;
+  const P=[
+   ["Lead with skills, not grades","গ্রেড নয়, দক্ষতা দেখান",["Most private employers on Bdjobs list skills and experience before CGPA. Build a portfolio, certificates or an internship record you can show.","বিডিজবসে বেশিরভাগ বেসরকারি নিয়োগকারী সিজিপিএর আগে দক্ষতা ও অভিজ্ঞতা চায়। দেখানোর মতো পোর্টফোলিও, সার্টিফিকেট বা ইন্টার্নশিপ তৈরি করুন।"],"B12"],
+   ["BCS has no CGPA cut-off","বিসিএসে সিজিপিএর সীমা নেই",["You can sit for BCS with any class or division the circular accepts. In the 47th BCS, 2,167 cadre posts stayed vacant, mostly technical and professional, so subject skill counts.","বিজ্ঞপ্তিতে গ্রহণযোগ্য যেকোনো শ্রেণি/বিভাগ নিয়ে বিসিএস দেওয়া যায়। ৪৭তম বিসিএসে ২,১৬৭টি ক্যাডার পদ খালি ছিল, বেশিরভাগ কারিগরি ও পেশাগত, তাই বিষয়ের দক্ষতা গুরুত্বপূর্ণ।"],"B13"],
+   ["Exam-based qualifications","পরীক্ষাভিত্তিক যোগ্যতা",["CA, ACCA and CMA judge you on papers passed, not your old CGPA.","সিএ, এসিসিএ ও সিএমএ-তে পুরোনো সিজিপিএ নয়, পেপার পাস দেখা হয়।"],"S22"],
+   ["PGD, then Master's","আগে পিজিডি, পরে স্নাতকোত্তর",["A one-year PGD adds a fresh, better result. At BUET IICT a PGD with GPA 2.65 opens the M.Sc. (ICT).","এক বছরের পিজিডি নতুন ও ভালো ফলাফল যোগ করে। বুয়েট আইআইসিটিতে জিপিএ ২.৬৫ সহ পিজিডি থাকলে এমএসসি (আইসিটি)-র পথ খোলে।"],"B2"],
+   ["Work first, scholarship later","আগে চাকরি, পরে বৃত্তি",["Joint Japan/World Bank and ADB-Japan scholarships want 2+ years of work experience; experience can outweigh grades.","জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপান বৃত্তিতে ২ বছরের বেশি অভিজ্ঞতা লাগে; অভিজ্ঞতা গ্রেডের চেয়ে বেশি গুরুত্ব পেতে পারে।"],"B5"],
+   ["Skilled work abroad","বিদেশে দক্ষ কাজ",["Japan SSW needs Japanese N4 and a skills test, not a CGPA. Germany's Opportunity Card counts language, experience and age.","জাপানের এসএসডব্লিউতে সিজিপিএ নয়, জাপানি এন৪ ও দক্ষতা পরীক্ষা লাগে। জার্মানির অপরচুনিটি কার্ডে ভাষা, অভিজ্ঞতা ও বয়স গোনা হয়।"],"B9"]];
+  const head = c==null ? L(["Enter your CGPA above to get advice for your result.","আপনার ফলাফল অনুযায়ী পরামর্শ পেতে ওপরে সিজিপিএ লিখুন।"])
+    : low ? fill(["Your CGPA {c} is below first class (3.00). Some bank and university-teacher circulars ask for first class, but these routes do not depend on it:","আপনার সিজিপিএ {c} প্রথম শ্রেণির (৩.০০) নিচে। কিছু ব্যাংক ও বিশ্ববিদ্যালয় শিক্ষক বিজ্ঞপ্তিতে প্রথম শ্রেণি চাওয়া হয়, তবে নিচের পথগুলো এর ওপর নির্ভর করে না:"],{c:N(c.toFixed(2))})
+    : fill(["Your CGPA {c} counts as first class. If a friend has a lower result, these routes work for them:","আপনার সিজিপিএ {c} প্রথম শ্রেণি হিসেবে গণ্য। কোনো বন্ধুর ফল কম হলে এই পথগুলো তার জন্য কাজ করে:"],{c:N(c.toFixed(2))});
+  return `<p class="lowhead ${low?"warn":""}">${esc(head)}</p><ol class="lowlist">`+P.map(([en,bn,d,s])=>`<li><b>${esc(st.lang==="bn"?bn:en)}</b><span>${esc(L(d))}</span>${bxSrc(s)}</li>`).join("")+`</ol>`;
+}
+function bxSrc(k){ const s=SRC2[k]||SRC[k]; return s?`<a class="src" href="${s.u}" target="_blank" rel="noopener">${t("src")}: ${esc(s.t)}</a>`:""; }
+function renderBeyond(){
+  document.querySelectorAll("#by-tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.bt===st.bt));
+  if(st.bt==="low"){ $("#by-body").innerHTML=`<div class="lowbox">${lowAdvice()}</div>`; return; }
+  const B=BEYOND[st.bt];
+  const tree=`<div class="tree"><span class="node root">${esc(L(B.root))}</span><ul>${B.tree.map((n,i)=>bxNode(st.bt,st.bt+"."+i,n)).join("")}</ul></div>`;
+  let d=`<p class="muted">${t("tapBox")}</p>`;
+  if(st.bsel&&st.bsel.startsWith(st.bt)){ const n=bxFind(st.bsel), I=n[3];
+    d=`<h3>${esc(st.lang==="bn"?n[1]:n[0])}</h3><p><b>${t("req")}:</b> ${esc(L(I.req))}</p><p><b>${t("payL")}:</b> ${esc(L(I.pay))}</p>${bxSrc(I.s)}`; }
+  $("#by-body").innerHTML=`<div class="mapgrid"><div>${tree}</div><aside><div class="ticket">${d}</div></aside></div>`;
 }
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
@@ -1505,10 +1605,10 @@ function renderGrades(){
    + tb(st.lang==="bn"?"বিশ্ববিদ্যালয়: নম্বরের শতাংশ থেকে শ্রেণি":"University: class from percentage of marks",rows2,"S11",
      st.lang==="bn"?"৪ স্কেলে সিজিপিএ ৩.০০ বা বেশি প্রথম শ্রেণি হিসেবে গণ্য। এর নিচের শ্রেণির সীমা বিশ্ববিদ্যালয়ভেদে আলাদা, তাই সনদ বা বিশ্ববিদ্যালয়ের নিয়ম দেখুন।":"On a 4-point scale, CGPA 3.00 or above counts as first class. Lower bands differ by university, so check your transcript or university rules.");
 }
-function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
+function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); }
-function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); }
+function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); }
 
 function select(key, scroll){
   st.sel=key; renderMap(); renderDetail();
@@ -1522,6 +1622,8 @@ document.addEventListener("click",e=>{
   const b=e.target.closest("button,[data-role],[data-pre]"); if(!b) return;
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
+  if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
+  if(b.dataset.bx){ st.bsel=b.dataset.bx; renderBeyond(); return; }
   if(b.dataset.s){ st.sector=b.dataset.s; renderMap(); return; }
   if(b.dataset.v){ st.view=b.dataset.v; renderMap(); return; }
   if(b.dataset.fold){ const k=b.dataset.fold; st.fold.has(k)?st.fold.delete(k):st.fold.add(k); renderMap(); return; }
@@ -1545,10 +1647,12 @@ document.addEventListener("change",e=>{
   else if(id==="f-check"){ st.check=e.target.value; renderChecker(); }
 });
 document.addEventListener("input",e=>{
+  if(e.target.id==="f-find"){ filterJobs(); return; }
   const m=e.target.id.match(/^f-(ssc|hsc|cg|mcg)$/); if(!m) return;
-  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz();
+  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond();
 });
 
+if(matchMedia("(max-width: 600px)").matches) st.view="lines";
 /* example starting state: an Economics Honours graduate with realistic results */
 st.ssc="4.50"; st.hsc="4.17"; st.cg="3.12";
 firstSel(); renderAll();
