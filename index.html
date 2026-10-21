@@ -18,7 +18,7 @@
 <style>
 /* Layout: a transit map. Picker on top ("where you stand"), lines on the left, the selected route's ticket on the right. */
 :root{
-  --bg:#F1F4F9; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#56637A; --rule:#D3DBE7; --accent:#1446A0; --brand:#0E2A5C; --green:#0B6B3A; --flagred:#D62828; --gold:#C9962B; --signal:#E2A21C; --signal-ink:#3A2700;
+  --bg:#F7F5F0; --surface:#FFFFFF; --ink:#1E2633; --muted:#5B6474; --rule:#E3DED4; --accent:#1446A0; --brand:#0E2A5C; --green:#0B6B3A; --flagred:#D62828; --gold:#C9962B; --signal:#E2A21C; --signal-ink:#3A2700;
   --ok:#137A4C; --warn:#A86700; --bad:#B23A2E; --info:#1E5AA0;
   --l-gov:#0A6B4B; --l-bank:#1E5AA0; --l-it:#6E45C0; --l-eng:#C0442C; --l-health:#0C8585; --l-rmg:#C77200; --l-ngo:#5F8420; --l-mkt:#B9347F; --l-edu:#8A6526; --l-media:#41566B; --l-law:#7C1F2C; --l-agri:#3B8634; --l-def:#2F4A7A; --l-fmcg:#A33E8E; --l-scm:#356D8C; --l-tel:#5248B5;
   --f-disp:"Inter","Anek Bangla","Hind Siliguri",system-ui,sans-serif; --f-body:"Inter","Hind Siliguri","Anek Bangla",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -34,7 +34,7 @@
   --l-gov:#3FB688; --l-bank:#5D9BEA; --l-it:#A587EA; --l-eng:#EE7A60; --l-health:#3CC0C0; --l-rmg:#F0A23A; --l-ngo:#9CC358; --l-mkt:#EC72B6; --l-edu:#D0A562; --l-media:#8FA7C0; --l-law:#E0707F; --l-agri:#78C46E; --l-def:#8EA6D8; --l-fmcg:#E07CCB; --l-scm:#79B6D6; --l-tel:#9C93F0; color-scheme:dark }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);padding-inline:16px;padding-block:0 48px}
+body{background:var(--bg);color:var(--ink);font:17px/1.7 var(--f-body);padding-inline:16px;padding-block:0 48px}
 .wrap{max-width:1200px;margin:0 auto}
 a{color:var(--accent)}
 h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.2;text-wrap:balance;margin:0}
@@ -288,6 +288,30 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .abgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px}
 .abgrid a{display:block;border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--surface);color:var(--ink);text-decoration:none}
 .abgrid a b{color:var(--accent)}.abgrid a span{display:block;font-size:.9rem;margin-top:3px}
+.panel,.picker{border-radius:18px;box-shadow:0 1px 2px rgba(30,38,51,.04),0 6px 20px rgba(30,38,51,.04)}
+.wizard{border:2px solid color-mix(in srgb,var(--green) 55%,var(--rule));max-width:860px;margin-inline:auto}
+.wprog{height:8px;border-radius:99px;background:var(--rule);overflow:hidden;margin-top:14px}
+.wprog span{display:block;height:100%;background:var(--green);border-radius:99px;transition:width .3s ease}
+.wstep{margin:6px 0 0;font-size:.9rem;font-weight:600;color:var(--green)}
+.wq{margin:16px 0 12px;font-size:1.25rem}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:12px}
+.wgrid.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:440px}
+.wcard{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px 10px;min-height:110px;border:1.5px solid var(--rule);border-radius:16px;background:var(--surface);color:var(--ink);font:inherit;font-weight:600;cursor:pointer;transition:border-color .15s,transform .15s}
+.wcard:hover{border-color:var(--green);transform:translateY(-2px)}
+.wcard:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wic{font-size:2.1rem;line-height:1}
+.wres{margin-top:14px;padding:18px;border-radius:16px;background:color-mix(in srgb,var(--gold) 9%,var(--surface));border:1.5px solid color-mix(in srgb,var(--gold) 45%,var(--rule))}
+.wres h3{margin:14px 0 8px}
+.wpicks{display:flex;flex-wrap:wrap;gap:6px}.wpick{font-size:.85rem;padding:4px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--rule)}
+.wjobs{display:flex;flex-wrap:wrap;gap:8px}.wjob{background:var(--brand);color:#fff;border-radius:999px;padding:7px 15px;font-weight:700}
+.wsteps{padding-left:1.4em;display:grid;gap:8px}
+.wbtns,.wnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.wbtn{border:0;border-radius:999px;padding:10px 18px;background:var(--green);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.wbtn.alt{background:var(--accent)}.wbtn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--rule)}
+.qnav a.hot{background:var(--green);color:#fff;border-color:var(--green)}
+.moreh{margin:36px 0 10px;padding-top:20px;border-top:2px dashed var(--rule);text-align:center}
+@media (prefers-reduced-motion: reduce){.wcard,.wprog span{transition:none}.wcard:hover{transform:none}}
+@media (max-width:600px){.hero .stat,.hero .tagline{display:none}.wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wcard{min-height:100px;font-size:.95rem}}
 </style>
 </head>
 <body>
@@ -298,12 +322,19 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
     <div class="stat"><b id="stat-n">13.54%</b><span data-t="stat"></span><a href="https://en.prothomalo.com/youth/employment/so8x8pjh13" target="_blank" rel="noopener" data-t="statSrc"></a></div>
   </section>
+
+  <section class="section panel wizard" id="wizard">
+    <h2>🧭 <span data-t="wzH"></span></h2><p class="muted" data-t="wzSub"></p>
+    <div id="wiz-body"></div>
+  </section>
+
+  <div class="moreh"><h2 data-t="moreH"></h2><p class="muted" data-t="moreSub"></p></div>
 
   <section class="picker" id="start" aria-labelledby="where-h">
     <h2 id="where-h" data-t="where"></h2>
@@ -1223,9 +1254,8 @@ const ABROAD=[
 /* ===== BCGO Career Map — app ===== */
 const T = {
   brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["Join the BCGO community","BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, share job circulars and get career advice from students and professionals across Bangladesh. Free, one click.","প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি শেয়ার করুন, আর সারা দেশের শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে ক্যারিয়ার পরামর্শ নিন। বিনামূল্যে, এক ক্লিকেই।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
-  h1:["Your education is a station. See where the lines go.","আপনার পড়াশোনা একটি স্টেশন। দেখুন কোন পথ কোথায় যায়।"],
-  sub:["Pick what you studied and enter your results. The map shows which Bangladeshi jobs match your subject directly, which are open to any subject, which you can reach by adding skills, and where your GPA or CGPA meets the cut-off. In school or college? It shows which degrees your subjects open first.",
-       "আপনি কী পড়েছেন তা বেছে নিন এবং ফলাফল দিন। ম্যাপে দেখবেন বাংলাদেশের কোন চাকরি সরাসরি আপনার বিষয়ের সঙ্গে মেলে, কোনটিতে যেকোনো বিষয়ে আবেদন করা যায়, কোনটিতে বাড়তি দক্ষতা দিয়ে পৌঁছানো যায়, আর কোথায় আপনার জিপিএ বা সিজিপিএ শর্ত পূরণ করে। স্কুল বা কলেজে পড়ছেন? তাহলে আগে দেখাবে আপনার বিষয়গুলো কোন কোন ডিগ্রির পথ খোলে।"],
+  h1:["Find out what you can become.","জেনে নিন আপনি কী হতে পারেন।"],
+  sub:["Free career guide for Bangladeshi students and job seekers. Start with 3 easy taps below.","বাংলাদেশের শিক্ষার্থী ও চাকরিপ্রার্থীদের জন্য বিনামূল্যে ক্যারিয়ার গাইড। নিচে ৩টি সহজ চাপ দিয়ে শুরু করুন।"],
   stat:["of university graduates were unemployed in 2024 (Labour Force Survey 2024), the highest of any education level. About 885,000 people.","বিশ্ববিদ্যালয় পাস করাদের মধ্যে বেকারত্ব ২০২৪ সালে (শ্রমশক্তি জরিপ ২০২৪), যা সব শিক্ষাস্তরের মধ্যে সর্বোচ্চ। প্রায় ৮ লাখ ৮৫ হাজার মানুষ।"],
   statSrc:["BBS Labour Force Survey","বিবিএস শ্রমশক্তি জরিপ"],
   where:["Where are you now?","আপনি এখন কোথায় আছেন?"],
@@ -1278,6 +1308,11 @@ const T = {
   tapUnfold:["Tap a career to unfold its road. Tap a branch to fold it.","ক্যারিয়ারে চাপ দিলে পুরো পথ খুলে যাবে। শাখায় চাপ দিলে গুটিয়ে যাবে।"],
   openH:["Jobs for any subject","যেকোনো বিষয়ের জন্য চাকরি"],
   nav1:["Your details","আপনার তথ্য"],nav2:["Your jobs","আপনার চাকরি"],nav3:["Study more","আরও পড়াশোনা"],nav4:["Low CGPA","সিজিপিএ কম"],nav5:["Private jobs","বেসরকারি চাকরি"],nav6:["Quiz","কুইজ"],nav7:["GPA help","জিপিএ সাহায্য"],
+  wzH:["Start here: find your path in 3 easy steps","এখান থেকে শুরু: ৩টি সহজ ধাপে নিজের পথ খুঁজুন"],
+  wzSub:["Just tap. No typing needed.","শুধু চাপ দিন। কিছু লিখতে হবে না।"],
+  moreH:["Want more detail? Everything is below","আরও বিস্তারিত চান? সব নিচে আছে"],
+  moreSub:["Enter your results to see which jobs fit you, with rules, pay and sources.","আপনার ফলাফল দিন, দেখুন কোন চাকরি আপনার জন্য, সঙ্গে শর্ত, বেতন ও উৎস।"],
+  navS:["Start here","এখান থেকে শুরু"],
   navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Free abroad","বিনা খরচে বিদেশ"],
   gH:["Not sure which way to go? Start from your result","কোন পথে যাবেন বুঝতে পারছেন না? ফলাফল থেকে শুরু করুন"],
   gSub:["Uses the GPA and CGPA you entered above. In Bangladesh results open or close some doors, so start there, then pick by interest.","ওপরে দেওয়া জিপিএ ও সিজিপিএ ব্যবহার করে। বাংলাদেশে ফলাফল কিছু দরজা খোলে বা বন্ধ করে, তাই এখান থেকে শুরু করুন, তারপর আগ্রহ অনুযায়ী বাছুন।"],
@@ -1833,6 +1868,53 @@ function renderAbroad(){
   $("#ab-sub").textContent=fill(["Official pages only, no agents needed. Checked {d}; updated every two months.","শুধু অফিসিয়াল পেজ, এজেন্ট লাগে না। যাচাই {d}; প্রতি দুই মাসে হালনাগাদ।"],{d:ABROAD_DATE});
   $("#ab-list").innerHTML=ABROAD.map(([en,bn,de,db,u])=>`<a href="${u}" target="_blank" rel="noopener"><b>${esc(L([en,bn]))}</b><span>${esc(L([de,db]))}</span></a>`).join("");
 }
+
+/* ---- Start here: 3-step guide (one question per screen, progress bar, Back) ---- */
+st.w={stage:null,like:null,place:null};
+const WSTAGE=[["school","🎒","In school (class 4–10)","স্কুলে পড়ি (৪র্থ–১০ম শ্রেণি)"],["college","📘","In college (HSC / A Level)","কলেজে পড়ি (এইচএসসি / এ লেভেল)"],["uni","🎓","At university or graduated","বিশ্ববিদ্যালয়ে পড়ি বা পাস করেছি"],["dip","🛠️","Diploma / polytechnic","ডিপ্লোমা / পলিটেকনিক"]];
+const WLIKE={
+ help:["❤️","Helping sick people","অসুস্থ মানুষকে সাহায্য","health",["Doctor","Nurse","Pharmacist"],["ডাক্তার","নার্স","ফার্মাসিস্ট"],["Take the Science group. Biology, Chemistry and Physics are a must.","বিজ্ঞান বিভাগ নিন। জীববিজ্ঞান, রসায়ন ও পদার্থবিজ্ঞান অবশ্যই।"]],
+ uniform:["🎖️","Uniform and serving the country","ইউনিফর্ম পরে দেশের সেবা","army",["Army officer","Navy officer","Air Force pilot"],["সেনা কর্মকর্তা","নৌ কর্মকর্তা","বিমানবাহিনীর পাইলট"],["Get top GPA in SSC and HSC (army asks 5.00 in one, 4.50+ in the other). Stay fit and play sports.","এসএসসি ও এইচএসসিতে সেরা জিপিএ রাখুন (সেনাবাহিনীতে একটিতে ৫.০০, অন্যটিতে ৪.৫০+ লাগে)। শরীর ফিট রাখুন, খেলাধুলা করুন।"]],
+ govt:["🏛️","Working for the government","সরকারের হয়ে কাজ","govt",["BCS cadre (admin, police, foreign service)","Bangladesh Bank officer","Government officer"],["বিসিএস ক্যাডার (প্রশাসন, পুলিশ, পররাষ্ট্র)","বাংলাদেশ ব্যাংক কর্মকর্তা","সরকারি কর্মকর্তা"],["Any group works. Read newspapers; learn Bangla, English, maths and general knowledge well.","যেকোনো বিভাগে চলবে। পত্রিকা পড়ুন; বাংলা, ইংরেজি, গণিত ও সাধারণ জ্ঞান ভালো করে শিখুন।"]],
+ numbers:["🔢","Numbers and money","সংখ্যা ও টাকাপয়সা","bank",["Banker","Chartered Accountant (CA)","Finance officer"],["ব্যাংকার","চার্টার্ড অ্যাকাউন্ট্যান্ট (সিএ)","ফিন্যান্স অফিসার"],["Take Business Studies (or Science). Be strong in maths and accounting.","ব্যবসায় শিক্ষা (বা বিজ্ঞান) নিন। গণিত ও হিসাববিজ্ঞানে ভালো হোন।"]],
+ machines:["💻","Computers and machines","কম্পিউটার ও যন্ত্র","tech",["Software engineer","Engineer","Network engineer"],["সফটওয়্যার ইঞ্জিনিয়ার","প্রকৌশলী","নেটওয়ার্ক ইঞ্জিনিয়ার"],["Take Science. Be strong in maths, physics and ICT. Start simple coding early.","বিজ্ঞান বিভাগ নিন। গণিত, পদার্থ ও আইসিটিতে ভালো হোন। আগে থেকেই সহজ কোডিং শুরু করুন।"]],
+ rules:["⚖️","Rules and fairness","নিয়মকানুন ও ন্যায়বিচার","law",["Lawyer","Judge","Legal officer"],["আইনজীবী","বিচারক","লিগ্যাল অফিসার"],["Any group works. Read a lot; practise writing and speaking in Bangla and English.","যেকোনো বিভাগে চলবে। বেশি পড়ুন; বাংলা ও ইংরেজিতে লেখা ও বলার অভ্যাস করুন।"]],
+ teach:["📚","Teaching others","অন্যকে পড়ানো","teach",["School teacher","College teacher","University teacher"],["স্কুল শিক্ষক","কলেজ শিক্ষক","বিশ্ববিদ্যালয় শিক্ষক"],["Pick the subject you love and get good results in it. Practise by teaching friends.","যে বিষয় ভালোবাসেন সেটি নিন, তাতে ভালো ফল করুন। বন্ধুদের পড়িয়ে অভ্যাস করুন।"]],
+ talk:["🗣️","Talking, selling, leading","কথা বলা, বিক্রি, নেতৃত্ব","mnc",["Multinational manager","Sales manager","Brand manager"],["বহুজাতিক কোম্পানির ম্যানেজার","সেলস ম্যানেজার","ব্র্যান্ড ম্যানেজার"],["Any group works. Speak good English; join clubs and debate; lead school events.","যেকোনো বিভাগে চলবে। ভালো ইংরেজি বলুন; ক্লাব ও বিতর্কে যোগ দিন; স্কুলের অনুষ্ঠানে নেতৃত্ব দিন।"]],
+ create:["🎨","Drawing, writing, videos","আঁকা, লেখা, ভিডিও","skill",["Designer","Content creator","Digital marketer"],["ডিজাইনার","কনটেন্ট ক্রিয়েটর","ডিজিটাল মার্কেটার"],["Any group works. Make something every week and keep it in a portfolio.","যেকোনো বিভাগে চলবে। প্রতি সপ্তাহে কিছু বানান, পোর্টফোলিওতে জমা রাখুন।"]],
+ people:["🤝","Helping society","সমাজের সেবা","ngo",["NGO officer","Researcher","Development worker"],["এনজিও কর্মকর্তা","গবেষক","উন্নয়নকর্মী"],["Any group works. Volunteer; learn English and basic data skills.","যেকোনো বিভাগে চলবে। স্বেচ্ছাসেবা করুন; ইংরেজি ও সাধারণ ডেটা দক্ষতা শিখুন।"]]
+};
+function wPlan(){
+  const {stage,like,place}=st.w, W=WLIKE[like], bn=st.lang==="bn"; const steps=[];
+  if(stage==="school") steps.push(L(W[6]), L(["Focus on SSC and HSC results. In Bangladesh, good results open more doors later.","এসএসসি ও এইচএসসির ফলে মন দিন। বাংলাদেশে ভালো ফল পরে অনেক দরজা খুলে দেয়।"]));
+  if(stage==="college") steps.push(L(W[6]), L(["Prepare for the university admission test in the subject that leads to this job.","যে বিষয় এই পেশায় নিয়ে যায়, সেই বিষয়ে বিশ্ববিদ্যালয় ভর্তি পরীক্ষার প্রস্তুতি নিন।"]));
+  if(stage==="uni") steps.push(L(["Open the career map and check the exact rules and pay.","ক্যারিয়ার ম্যাপ খুলে সঠিক শর্ত ও বেতন দেখুন।"]), L(["Do an internship and learn the skills job ads ask for.","ইন্টার্নশিপ করুন, আর চাকরির বিজ্ঞাপনে যে দক্ষতা চায় তা শিখুন।"]), L(["Low CGPA? It is not the end. See the Low CGPA plan.","সিজিপিএ কম? শেষ নয়। সিজিপিএ কম অংশটি দেখুন।"]));
+  if(stage==="dip") steps.push(L(["Work as a diploma engineer or technician, or study further for a BSc (DUET or an evening BSc).","ডিপ্লোমা ইঞ্জিনিয়ার বা টেকনিশিয়ান হিসেবে কাজ করুন, বা বিএসসি পড়ুন (ডুয়েট বা সান্ধ্য বিএসসি)।"]));
+  if(place==="abroad") steps.push(L(["Learn English well (IELTS) or another language (Japanese, Korean, German).","ভালো ইংরেজি শিখুন (আইইএলটিএস) বা অন্য ভাষা (জাপানি, কোরিয়ান, জার্মান)।"]), L(["Keep results high and apply for free (fully funded) scholarships. Never pay fake agents.","ভালো ফল রাখুন আর বিনা খরচের (সম্পূর্ণ) বৃত্তিতে আবেদন করুন। ভুয়া এজেন্টকে টাকা দেবেন না।"]));
+  else steps.push(L(["Staying in Bangladesh: try both government (BCS) and private jobs, so you have two chances.","দেশে থাকলে: সরকারি (বিসিএস) ও বেসরকারি দুটোই চেষ্টা করুন, তাহলে দুটি সুযোগ থাকবে।"]));
+  const jobs=(bn?W[5]:W[4]).map(j=>`<span class="wjob">${esc(j)}</span>`).join("");
+  const btns=[`<button type="button" class="wbtn" data-gt="${stage==="dip"?"tech":W[3]}">${esc(L(["See this career map","এই ক্যারিয়ার ম্যাপ দেখুন"]))} →</button>`];
+  if(stage==="dip") btns.push(`<button type="button" class="wbtn alt" data-wgo="dip">${esc(L(["Diploma routes","ডিপ্লোমার পথ"]))} →</button>`);
+  if(stage==="uni") btns.push(`<button type="button" class="wbtn alt" data-wgo="low">${esc(L(["Low CGPA plan","সিজিপিএ কম হলে"]))} →</button>`);
+  if(place==="abroad") btns.push(`<button type="button" class="wbtn alt" data-wgo="abroad">${esc(L(["Free scholarships","বিনা খরচের বৃত্তি"]))} →</button>`);
+  const S=WSTAGE.find(x=>x[0]===stage);
+  const picked=[S[1]+" "+L([S[2],S[3]]), W[0]+" "+L([W[1],W[2]]), place==="abroad"?"🌍 "+L(["Abroad","বিদেশে"]):"🇧🇩 "+L(["Bangladesh","বাংলাদেশে"])].map(x=>`<span class="wpick">${esc(x)}</span>`).join("");
+  return `<div class="wres"><div class="wpicks">${picked}</div><h3>${esc(L(["You could become:","আপনি হতে পারেন:"]))}</h3><div class="wjobs">${jobs}</div>
+   <h3>${esc(L(["Your plan, step by step:","আপনার পরিকল্পনা, ধাপে ধাপে:"]))}</h3><ol class="wsteps">${steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+   <div class="wbtns">${btns.join("")}</div></div>`;
+}
+function renderWizard(){
+  const w=st.w, step=!w.stage?1:!w.like?2:!w.place?3:4;
+  const bar=`<div class="wprog" aria-hidden="true"><span style="width:${Math.min(step-1,3)/3*100}%"></span></div><p class="wstep">${esc(step<4?fill(["Step {n} of 3","৩টি ধাপের {n} নম্বর"],{n:N(step)}):L(["Done! Here is your plan","শেষ! এই আপনার পরিকল্পনা"]))}</p>`;
+  const card=(attr,k,ic,lab,on)=>`<button type="button" class="wcard" ${attr}="${k}" aria-pressed="${on}"><span class="wic">${ic}</span>${esc(lab)}</button>`;
+  let body="";
+  if(step===1) body=`<h3 class="wq">${esc(L(["Where are you now?","আপনি এখন কোথায়?"]))}</h3><div class="wgrid">`+WSTAGE.map(([k,ic,en,bn])=>card("data-ws",k,ic,L([en,bn]),w.stage===k)).join("")+`</div>`;
+  else if(step===2) body=`<h3 class="wq">${esc(L(["What do you like most?","আপনার সবচেয়ে ভালো লাগে কী?"]))}</h3><div class="wgrid">`+Object.keys(WLIKE).map(k=>card("data-wl",k,WLIKE[k][0],L([WLIKE[k][1],WLIKE[k][2]]),false)).join("")+`</div>`;
+  else if(step===3) body=`<h3 class="wq">${esc(L(["Where do you want to build your life?","কোথায় জীবন গড়তে চান?"]))}</h3><div class="wgrid two">`+card("data-wp","bd","🇧🇩",L(["In Bangladesh","বাংলাদেশে"]),false)+card("data-wp","abroad","🌍",L(["Abroad","বিদেশে"]),false)+`</div>`;
+  else body=wPlan();
+  const nav=step>1?`<div class="wnav"><button type="button" class="wbtn ghost" data-wback="1">← ${esc(L(["Back","পেছনে"]))}</button>${step===4?`<button type="button" class="wbtn ghost" data-wreset="1">↺ ${esc(L(["Start again","আবার শুরু"]))}</button>`:""}</div>`:"";
+  $("#wiz-body").innerHTML=bar+body+nav;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -1843,7 +1925,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); }
 
 function select(key, scroll){
@@ -1860,6 +1942,12 @@ document.addEventListener("click",e=>{
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
   if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
+  if(b.dataset.ws){ st.w.stage=b.dataset.ws; renderWizard(); return; }
+  if(b.dataset.wl){ st.w.like=b.dataset.wl; renderWizard(); return; }
+  if(b.dataset.wp){ st.w.place=b.dataset.wp; renderWizard(); $("#wizard").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+  if(b.dataset.wback){ const w=st.w; if(w.place) w.place=null; else if(w.like) w.like=null; else w.stage=null; renderWizard(); return; }
+  if(b.dataset.wreset){ st.w={stage:null,like:null,place:null}; renderWizard(); $("#wizard").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+  if(b.dataset.wgo){ const g=b.dataset.wgo; if(g==="abroad"){ $("#abroad").scrollIntoView({behavior:smooth(),block:"start"}); } else { st.bt=g==="low"?"low":"diploma"; renderBeyond(); $("#beyond").scrollIntoView({behavior:smooth(),block:"start"}); } return; }
   if(b.dataset.tt){ st.tr=b.dataset.tt; st.tsel=null; st.topen=new Set(); renderTracks(); return; }
   if(b.dataset.tf){ const k=b.dataset.tf; st.topen.has(k)?st.topen.delete(k):st.topen.add(k); renderTracks(); return; }
   if(b.dataset.ts){ st.tsel=b.dataset.ts; renderTracks(); if(matchMedia("(max-width: 900px)").matches) $("#tr-body .ticket").scrollIntoView({behavior:smooth(),block:"center"}); return; }
