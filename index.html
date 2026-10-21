@@ -322,7 +322,6 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .mbar{position:absolute;left:0;bottom:0;height:4px;width:var(--p);background:var(--green)}
 .mmeta{font-size:.85rem;color:var(--muted)}.mmiss{font-size:.85rem;color:var(--accent)}
 .wreal{margin:12px 0 0;padding:10px 12px;border-left:4px solid var(--gold);background:var(--surface);border-radius:8px}
-.giscus{margin-top:14px}
 .fbmain{display:flex;align-items:center;gap:14px;margin:14px 0 6px;padding:16px 18px;border-radius:16px;background:#1877F2;color:#fff;text-decoration:none;font-size:1.1rem}
 .fbmain:hover{filter:brightness(1.07)}.fbmain b{display:block}.fbmain small{display:block;font-size:.88rem;opacity:.92;font-weight:500}
 .fbmain>span:last-child{margin-left:auto;font-size:1.4rem}
@@ -450,9 +449,6 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <h2>💬 <span data-t="fH"></span></h2><p data-t="fSub"></p>
     <p class="muted" data-t="fRules"></p>
     <a class="fbmain" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><span class="fbic" aria-hidden="true">f</span><span><b data-t="fFb"></b><small data-t="fFbSub"></small></span><span aria-hidden="true">→</span></a>
-    <h3 class="fother" data-t="fOther"></h3>
-    <p class="hint" id="forum-note"></p>
-    <div id="giscus" class="giscus"></div>
   </section>
 
   <section class="section joinbox">
@@ -1349,9 +1345,6 @@ const T = {
   fSub:["Tell us what is wrong, what is missing, or your own career story. Every month we read the comments and update the site.","কী ভুল, কী নেই, বা আপনার নিজের ক্যারিয়ারের গল্প জানান। প্রতি মাসে মন্তব্য পড়ে সাইট হালনাগাদ করা হয়।"],
   fFb:["Post in our Facebook group","আমাদের ফেসবুক গ্রুপে লিখুন"],
   fFbSub:["Easiest way: share your opinion, questions or story with the community","সবচেয়ে সহজ উপায়: কমিউনিটিতে আপনার মতামত, প্রশ্ন বা গল্প জানান"],
-  fOther:["Or comment here on the website (needs a GitHub account)","অথবা এখানে ওয়েবসাইটেই মন্তব্য করুন (গিটহাব অ্যাকাউন্ট লাগবে)"],
-  fGh:["Sign in with GitHub below to comment.","মন্তব্য করতে নিচে গিটহাব দিয়ে সাইন ইন করুন।"],
-  fWait:["The comment box is being set up. Meanwhile, please post in our Facebook group.","মন্তব্যের বক্স চালু হচ্ছে। এর মধ্যে আমাদের ফেসবুক গ্রুপে লিখুন।"],
   fRules:["Be respectful. No ads, no personal phone numbers, no agent offers.","সম্মান বজায় রাখুন। বিজ্ঞাপন, ব্যক্তিগত ফোন নম্বর বা এজেন্টের অফার নয়।"],
   navS:["Start here","এখান থেকে শুরু"],
   navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Scholarships abroad","বিদেশে বৃত্তি"],
@@ -1984,16 +1977,6 @@ function renderMatch(){
   const ctx=deg?L(["Only jobs your degree and results allow are counted.","শুধু আপনার ডিগ্রি ও ফলাফলে যেসব চাকরি সম্ভব সেগুলোই গোনা হয়েছে।"]):"";
   $("#match-out").innerHTML=(ctx?`<p class="hint">${esc(ctx)}</p>`:"")+h;
 }
-/* ---- forum (Giscus: GitHub Discussions). Fill GISCUS ids to switch on. ---- */
-const GISCUS={repo:"syedmargubelahi/careermap",repoId:"R_kgDOVRy2dg",category:"General",categoryId:"DIC_kwDOVRy2ds4DJRlo"};
-let giscusOn=false;
-function renderForum(){
-  const ok=GISCUS.repoId&&GISCUS.categoryId&&location.hostname.endsWith("github.io");
-  $("#forum-note").textContent=ok?t("fGh"):t("fWait");
-  if(ok&&!giscusOn){ giscusOn=true; const s=document.createElement("script"); s.src="https://giscus.app/client.js"; s.async=true; s.crossOrigin="anonymous";
-    const o={"data-repo":GISCUS.repo,"data-repo-id":GISCUS.repoId,"data-category":GISCUS.category,"data-category-id":GISCUS.categoryId,"data-mapping":"specific","data-term":"BCGO Career Map forum","data-reactions-enabled":"1","data-emit-metadata":"0","data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":st.lang==="bn"?"bn":"en","data-loading":"lazy"};
-    for(const k in o) s.setAttribute(k,o[k]); $("#giscus").appendChild(s); }
-}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -2004,7 +1987,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderForum(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
