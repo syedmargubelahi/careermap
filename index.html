@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BCGO Career Map</title>
+<meta name="description" content="BCGO Career Map: free career roadmap for Bangladeshi students and graduates. Match your degree and GPA/CGPA to BCS, bank, government and private jobs, with salary ranges, eligibility and a year-by-year plan. বাংলাদেশের শিক্ষার্থীদের জন্য বিনামূল্যে ক্যারিয়ার ম্যাপ।">
+<meta property="og:title" content="BCGO Career Map">
+<meta property="og:description" content="আপনার পড়াশোনা একটি স্টেশন। দেখুন কোন পথ কোথায় যায়। Free career map for every subject: government and private jobs in Bangladesh and abroad.">
+<meta property="og:image" content="https://syedmargubelahi.github.io/careermap/cover.png">
+<meta property="og:url" content="https://syedmargubelahi.github.io/careermap/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='11' fill='%230B6B3A'/%3E%3Ccircle cx='20' cy='22' r='6.2' fill='%23D62828'/%3E%3Cellipse cx='22' cy='22' rx='17' ry='6.5' fill='none' stroke='%23C9962B' stroke-width='2' transform='rotate(-25 22 22)'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;650;800&family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box}[hidden]{display:none!important}img{max-width:100%}body{margin:0}
+/* Layout: a transit map. Picker on top ("where you stand"), lines on the left, the selected route's ticket on the right. */
+:root{
+  --bg:#F1F4F9; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#56637A; --rule:#D3DBE7; --accent:#1446A0; --brand:#0E2A5C; --green:#0B6B3A; --flagred:#D62828; --gold:#C9962B; --signal:#E2A21C; --signal-ink:#3A2700;
+  --ok:#137A4C; --warn:#A86700; --bad:#B23A2E; --info:#1E5AA0;
+  --l-gov:#0A6B4B; --l-bank:#1E5AA0; --l-it:#6E45C0; --l-eng:#C0442C; --l-health:#0C8585; --l-rmg:#C77200; --l-ngo:#5F8420; --l-mkt:#B9347F; --l-edu:#8A6526; --l-media:#41566B; --l-law:#7C1F2C; --l-agri:#3B8634; --l-def:#2F4A7A; --l-fmcg:#A33E8E; --l-scm:#356D8C; --l-tel:#5248B5;
+  --f-disp:"Inter","Anek Bangla","Hind Siliguri",system-ui,sans-serif; --f-body:"Inter","Hind Siliguri","Anek Bangla",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0B111C; --surface:#131C2B; --ink:#E6ECF5; --muted:#9AA7BC; --rule:#26324A; --accent:#7FA9F5; --brand:#B4CBF5; --green:#4FC283; --flagred:#F06A6A; --gold:#E3B95A; --signal:#F2B83A; --signal-ink:#2A1C00;
+  --ok:#4CC88C; --warn:#F0B347; --bad:#F07A6C; --info:#6FA8F0;
+  --l-gov:#3FB688; --l-bank:#5D9BEA; --l-it:#A587EA; --l-eng:#EE7A60; --l-health:#3CC0C0; --l-rmg:#F0A23A; --l-ngo:#9CC358; --l-mkt:#EC72B6; --l-edu:#D0A562; --l-media:#8FA7C0; --l-law:#E0707F; --l-agri:#78C46E; --l-def:#8EA6D8; --l-fmcg:#E07CCB; --l-scm:#79B6D6; --l-tel:#9C93F0; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0B111C; --surface:#131C2B; --ink:#E6ECF5; --muted:#9AA7BC; --rule:#26324A; --accent:#7FA9F5; --brand:#B4CBF5; --green:#4FC283; --flagred:#F06A6A; --gold:#E3B95A; --signal:#F2B83A; --signal-ink:#2A1C00;
+  --ok:#4CC88C; --warn:#F0B347; --bad:#F07A6C; --info:#6FA8F0;
+  --l-gov:#3FB688; --l-bank:#5D9BEA; --l-it:#A587EA; --l-eng:#EE7A60; --l-health:#3CC0C0; --l-rmg:#F0A23A; --l-ngo:#9CC358; --l-mkt:#EC72B6; --l-edu:#D0A562; --l-media:#8FA7C0; --l-law:#E0707F; --l-agri:#78C46E; --l-def:#8EA6D8; --l-fmcg:#E07CCB; --l-scm:#79B6D6; --l-tel:#9C93F0; color-scheme:dark }
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1200px;margin:0 auto}
+a{color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.2;text-wrap:balance;margin:0}
+.muted{color:var(--muted)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px 8px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-disp);font-weight:800;font-size:1.15rem;letter-spacing:.01em}
+.brand{text-decoration:none;color:inherit;min-width:0}
+.logo{width:44px;height:44px;flex:none;display:block}
+.logo .lg-bg{fill:var(--green)} .logo .lg-ring{stroke:#fff;opacity:.35} .logo .lg-orbit{stroke:var(--gold)} .logo .lg-red{fill:var(--flagred)} .logo .lg-dot{fill:var(--gold)}
+.wm{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.wm b{font-family:"Inter",var(--f-disp);font-weight:800;font-size:1.08rem;letter-spacing:-.005em}
+.wm-bc{color:var(--brand)} .wm-go{color:var(--green)}
+.wm>span{font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.topr{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.join{display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:var(--surface);text-decoration:none;font-weight:600;font-size:.88rem;padding:7px 14px;border-radius:999px}
+.join:hover{filter:brightness(1.12)}
+.tagline{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:.85rem;font-weight:600;color:var(--brand)}
+.tagline span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:7px;vertical-align:middle}
+.brand small{font-weight:500;color:var(--muted);font-size:.85rem}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{border:0;background:none;padding:4px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:32px;align-items:end;padding-block:20px 20px}
+.hero h1{font-size:clamp(1.8rem,4.2vw,3.1rem);font-weight:800;letter-spacing:-.01em}
+.hero p{max-width:62ch;color:var(--muted);margin:14px 0 0}
+.stat{border-left:4px solid var(--signal);padding:4px 0 4px 16px}
+.stat b{display:block;font-family:var(--f-mono);font-size:2.4rem;font-weight:500;line-height:1;color:var(--ink)}
+.stat span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.stat a{font-size:.8rem}
+
+/* picker */
+.picker{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+.picker h2{font-size:1.15rem;grid-column:1/-1;display:flex;align-items:center;gap:10px}
+.picker h2::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 30%,transparent)}
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fld+ .fld{margin-top:14px}
+label,.lbl{font-size:.82rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
+select,input[type=number]{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:9px 10px;min-width:0}
+input[type=number]{font-family:var(--f-mono)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--rule);background:var(--bg);border-radius:999px;padding:4px 12px;font-size:.88rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.chips.opt .chip{font-size:.82rem}
+.gpa{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center}
+.gpa label{grid-column:1/-1}
+.grade{font-size:.78rem;padding:2px 8px;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
+.g1{color:var(--ok)}.g2{color:var(--info)}.g3{color:var(--warn)}.g0{color:var(--bad)}
+.hint{font-size:.8rem;color:var(--muted);margin:6px 0 0}
+.warnline{color:var(--warn)}
+
+/* map */
+.section{margin-top:40px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.sh h2{font-size:1.6rem;font-weight:800}
+.sh p{margin:4px 0 0;color:var(--muted);max-width:62ch}
+.tools{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:.9rem}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:5px 12px;cursor:pointer;font-size:.88rem}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.tools label{display:flex;gap:6px;align-items:center;font-weight:500;color:var(--ink);font-size:.88rem}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+.grp-h{display:flex;align-items:center;gap:10px;margin:18px 0 6px;font-size:1rem}
+.grp-h:first-child{margin-top:0}
+.cnt{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);font-weight:400}
+.line{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:10px 12px 6px;margin-bottom:8px;cursor:pointer;transition:border-color .15s, box-shadow .15s}
+.line:hover{border-color:var(--lc)}
+.line.on{border-color:var(--lc);box-shadow:inset 4px 0 0 var(--lc)}
+.lh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+.lh .ln{font-family:var(--f-disp);font-weight:650;font-size:1rem;color:var(--ink)}
+.lh .pay{margin-left:auto;font-family:var(--f-mono);color:var(--ink);font-size:.8rem}
+.lh .miss{color:var(--warn)}
+.sw{width:10px;height:10px;border-radius:2px;background:var(--lc);display:inline-block;flex:none}
+.track{display:flex;overflow-x:auto;padding:10px 0 6px;scrollbar-width:thin}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;flex:1 0 120px;min-width:120px;text-align:center;padding:0 4px}
+.stop::before{content:"";position:absolute;top:8px;right:50%;width:100%;height:5px;background:var(--lc);opacity:.35;transition:opacity .3s}
+.stop:first-child::before{display:none}
+.dot{width:21px;height:21px;border-radius:50%;border:5px solid var(--lc);background:var(--surface);position:relative;z-index:1;transition:background .3s}
+.stop.origin .dot{background:var(--signal);border-color:var(--signal-ink)}
+.stop.entry .dot{border-width:6px}
+.sl{margin-top:6px;font-size:.84rem;line-height:1.3;font-weight:500}
+.stop.entry .sl{font-weight:600}
+.ss{font-size:.74rem;color:var(--muted);line-height:1.25}
+.line.on .stop::before{opacity:1}
+.line.on .stop:not(.origin) .dot{background:var(--lc)}
+.line.on .stop:nth-child(2)::before,.line.on .stop:nth-child(2) .dot{transition-delay:.05s}
+.line.on .stop:nth-child(3)::before,.line.on .stop:nth-child(3) .dot{transition-delay:.2s}
+.line.on .stop:nth-child(4)::before,.line.on .stop:nth-child(4) .dot{transition-delay:.35s}
+
+/* mind map */
+.tree{display:flex;align-items:center;overflow-x:auto;padding:12px 4px 20px;scrollbar-width:thin}
+.tree ul{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
+.tree ul::before{content:"";position:absolute;left:0;top:50%;width:26px;border-top:2px solid var(--rule)}
+.tree li{position:relative;display:flex;align-items:center;padding:4px 0 4px 22px}
+.tree li::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:2px solid var(--rule)}
+.tree li:first-child::before{top:50%}
+.tree li:last-child::before{bottom:50%}
+.tree li:only-child::before{display:none}
+.tree li::after{content:"";position:absolute;left:0;top:50%;width:22px;border-top:2px solid var(--rule)}
+.tree li.path > ul::before,.tree li.lad::before,.tree li.lad::after,.tree li.lad > ul::before{border-color:var(--lc)}
+.tree li.path::after{border-color:var(--lc);border-top-width:3px}
+.node{border:1px solid var(--rule);background:var(--surface);border-radius:10px;padding:7px 11px;max-width:212px;font-size:.86rem;line-height:1.3;text-align:left;cursor:pointer;flex:none;display:flex;flex-direction:column;gap:2px}
+.node.root{background:var(--signal);color:var(--signal-ink);border:0;border-radius:16px;padding:12px 16px;font-family:var(--f-disp);font-weight:800;font-size:1.1rem;cursor:default;max-width:160px}
+.node.root small{font-family:var(--f-body);font-weight:500;font-size:.78rem;opacity:.85}
+.node.br{flex-direction:row;align-items:center;gap:8px;font-weight:600;color:var(--surface);border:0;border-radius:999px;padding:6px 12px;white-space:nowrap}
+.b-direct,.b-ready{background:var(--ok)}.b-open,.b-anyg{background:var(--info)}.b-cond,.b-bridge,.b-missing{background:var(--warn)}.b-gpa{background:var(--bad)}
+.nc{font-family:var(--f-mono);font-size:.74rem;background:color-mix(in srgb,var(--surface) 25%,transparent);border-radius:999px;padding:0 7px}
+.car{font-family:var(--f-mono);opacity:.9}
+.node.role{border-left:5px solid var(--lc)}
+.node.role:hover{border-color:var(--lc)}
+.node.role.on{border-color:var(--lc);box-shadow:0 0 0 2px var(--lc)}
+.nt{font-weight:600}
+.np{font-size:.74rem;color:var(--muted)}
+.np.miss{color:var(--warn)}
+.node.lad{border:2px solid var(--lc);background:color-mix(in srgb,var(--lc) 10%,var(--surface));font-weight:500;cursor:default;animation:unfold .35s ease-out both;animation-delay:var(--d,0ms)}
+button.node.lad{cursor:pointer}
+@keyframes unfold{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+
+/* quiz */
+.lead{color:var(--muted);margin:6px 0 4px}
+.qbar{height:6px;border-radius:3px;background:var(--rule);overflow:hidden;margin-top:12px}
+.qbar span{display:block;height:100%;background:var(--signal);transition:width .3s}
+.qn{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);margin:10px 0 2px}
+.qq{font-size:1.25rem;font-weight:650;margin-bottom:12px}
+.qopts{display:grid;gap:8px}
+.qopt{text-align:left;border:1px solid var(--rule);background:var(--bg);border-radius:10px;padding:11px 14px;cursor:pointer;font-size:.95rem}
+.qopt:hover{border-color:var(--accent)}
+.qopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
+.btn.sm{padding:6px 12px;font-size:.88rem}
+.qres{margin:8px 0 14px}
+.chip.static{cursor:default;background:var(--surface)}
+.fit{display:block;width:100%;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.fit span{display:block;height:100%;background:var(--lc)}
+
+/* action plan */
+.plan{list-style:none;margin:6px 0 0;padding:0;border-left:3px solid var(--lc,var(--accent));}
+.plan>li{position:relative;padding:0 0 12px 16px}
+.plan>li::before{content:"";position:absolute;left:-8px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:3px solid var(--lc,var(--accent))}
+.plan>li:first-child::before{background:var(--signal);border-color:var(--signal)}
+.pl{font-weight:700;font-size:.88rem}
+.plan ul{margin:4px 0 0;padding-left:18px;font-size:.9rem}
+.plan ul li{margin-bottom:3px}
+.planb{font-size:.9rem;margin-top:6px}
+.lnk{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font:inherit}
+/* private industry list */
+.indgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:14px}
+.ind h3{font-size:1rem;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.ichips{display:flex;flex-wrap:wrap;gap:6px}
+.ichip{border:1px solid var(--rule);border-left:4px solid var(--lc);background:var(--bg);border-radius:8px;padding:5px 10px;font-size:.84rem;text-align:left;cursor:pointer}
+.ichip:hover{border-color:var(--lc)}
+.ichip.s-blocked{opacity:.45}
+.ichip.s-direct{box-shadow:inset 0 -2px 0 var(--ok)}
+.mkt{background:color-mix(in srgb,var(--accent) 7%,var(--surface));border:1px solid var(--rule);border-radius:10px;padding:10px 12px}
+.mk-sal{font-size:1.15rem;margin:0}
+.mk-n{font-size:.8rem;margin:2px 0 6px}
+/* pills */
+.pill{display:inline-block;font-family:var(--f-body);font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:999px;color:var(--surface);white-space:nowrap}
+.p-direct,.p-ready{background:var(--ok)}.p-open,.p-anyg{background:var(--info)}.p-bridge,.p-cond,.p-missing{background:var(--warn)}.p-gpa,.p-blocked{background:var(--bad)}.p-na{display:none}
+
+/* detail ticket */
+#detail-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.ticket{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;max-height:calc(100vh - 40px);overflow:auto}
+.d-sec{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);letter-spacing:.02em}
+.d-title{font-size:1.4rem;font-weight:800;margin:6px 0 12px}
+.ticket h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:18px 0 4px;font-family:var(--f-body);font-weight:600}
+.ticket p{margin:4px 0}
+.verdict{border-radius:10px;padding:10px 12px;background:color-mix(in srgb,var(--bg) 70%,transparent);border:1px solid var(--rule)}
+.verdict p{margin:6px 0 0;font-size:.92rem}
+.v-direct,.v-ready{border-color:var(--ok)}.v-open,.v-anyg{border-color:var(--info)}.v-bridge,.v-cond,.v-missing{border-color:var(--warn)}.v-gpa,.v-blocked{border-color:var(--bad)}
+.verdict.big p{font-size:1rem}
+.d-route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;font-size:.85rem}
+.d-route span{border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+.d-route span.me{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
+.d-route i{width:14px;height:3px;background:var(--lc,var(--accent));border-radius:2px}
+.sk{margin:4px 0;padding-left:18px}
+.src{display:block;font-size:.76rem;color:var(--muted);margin-top:4px}
+.res.ok{color:var(--ok);font-weight:600}.res.no{color:var(--bad);font-weight:600}
+.btn{margin-top:16px;border:0;background:var(--accent);color:var(--surface);border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600}
+.btn.ghost{background:none;border:1px solid var(--accent);color:var(--accent)}
+
+/* two-up sections */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;min-width:0}
+.panel h2{font-size:1.3rem;font-weight:800}
+.panel>p{color:var(--muted);margin:6px 0 14px}
+#check-out{margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:16px}
+.card{display:flex;flex-direction:column;gap:6px;align-items:flex-start;text-align:left;background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--lc);border-radius:var(--r);padding:12px;cursor:pointer}
+.card strong{font-family:var(--f-disp);font-weight:650;line-height:1.25}
+.card .muted{font-size:.8rem}
+.prefrow{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.orow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 2px;cursor:pointer}
+.orow:last-child{border-bottom:0}
+.orow .on{flex:1;min-width:0;font-weight:500}
+.orow small{display:block;color:var(--muted);font-weight:400}
+.orow .pay{font-family:var(--f-mono);font-size:.82rem;white-space:nowrap}
+.gt{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:6px}
+caption{text-align:left;font-weight:600;font-size:.9rem;padding-bottom:4px}
+td{border-top:1px solid var(--rule);padding:7px 4px;font-size:.92rem}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+#grades{display:grid;gap:16px}
+#src-list{columns:2;column-gap:32px;padding-left:18px;font-size:.88rem}
+#src-list li{break-inside:avoid;margin-bottom:6px}
+.disc{color:var(--muted);max-width:80ch}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.85rem;color:var(--muted)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:20px}
+  .picker{grid-template-columns:minmax(0,1fr)}
+  .mapgrid{grid-template-columns:minmax(0,1fr)}
+  #detail-wrap{position:static}
+  .ticket{max-height:none}
+  .duo{grid-template-columns:minmax(0,1fr)}
+  #src-list{columns:1}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
+    <div class="topr"><a class="join" href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
+  </header>
+
+  <section class="hero">
+    <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
+    <div class="stat"><b id="stat-n">13.54%</b><span data-t="stat"></span><a href="https://en.prothomalo.com/youth/employment/so8x8pjh13" target="_blank" rel="noopener" data-t="statSrc"></a></div>
+  </section>
+
+  <section class="picker" aria-labelledby="where-h">
+    <h2 id="where-h" data-t="where"></h2>
+    <div>
+      <div class="fld"><label for="f-uni" data-t="uni"></label><select id="f-uni"></select></div>
+      <p class="hint" id="uni-hint" hidden></p>
+      <div class="fld"><label for="f-level" data-t="level"></label><select id="f-level"></select></div>
+      <p class="hint" id="mad-hint" data-t="madNote" hidden></p>
+    </div>
+    <div>
+      <div id="pre-wrap">
+        <div class="fld"><label for="f-group" data-t="group"></label><select id="f-group"></select></div>
+        <div class="fld"><span class="lbl" data-t="subjectsPick"></span><div class="chips" id="subj-main"></div></div>
+        <div class="fld"><span class="lbl" data-t="more"></span><div class="chips opt" id="subj-opt"></div></div>
+      </div>
+      <div id="deg-wrap" hidden>
+        <div class="fld"><label for="f-subject" data-t="subject"></label><select id="f-subject"></select></div>
+      </div>
+    </div>
+    <div>
+      <span class="lbl" data-t="results"></span>
+      <div class="fld gpa" style="margin-top:8px"><label for="f-ssc" data-t="sscG"></label><input id="f-ssc" type="number" min="1" max="5" step="0.01" inputmode="decimal" placeholder="4.50"><span id="b-ssc"></span></div>
+      <div class="fld gpa" id="w-hsc"><label for="f-hsc" data-t="hscG"></label><input id="f-hsc" type="number" min="1" max="5" step="0.01" inputmode="decimal" placeholder="4.25"><span id="b-hsc"></span></div>
+      <div class="fld gpa" id="w-cg"><label for="f-cg" data-t="cg"></label><input id="f-cg" type="number" min="1" max="4" step="0.01" inputmode="decimal" placeholder="3.20"><span id="b-cg"></span></div>
+      <div class="fld gpa" id="w-mcg"><label for="f-mcg" data-t="mcg"></label><input id="f-mcg" type="number" min="1" max="4" step="0.01" inputmode="decimal" placeholder="3.40"><span id="b-mcg"></span></div>
+      <p class="hint" id="ol-hint" data-t="olHint" hidden></p>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="sh">
+      <div><h2 id="map-h"></h2><p id="map-hint"></p></div>
+      <div class="tools">
+        <div class="seg" id="view-f" role="group"><button type="button" data-v="mind" data-t="viewMind"></button><button type="button" data-v="lines" data-t="viewLines"></button></div>
+        <span id="deg-tools" class="tools">
+          <span class="seg" id="sector-f" role="group"><button type="button" data-s="all" data-t="all"></button><button type="button" data-s="pub" data-t="pub"></button><button type="button" data-s="priv" data-t="priv"></button></span>
+          <label><input type="checkbox" id="f-bridge"> <span data-t="showBridge"></span></label>
+        </span>
+      </div>
+    </div>
+    <div class="mapgrid">
+      <div id="lines"></div>
+      <aside id="detail-wrap"><div class="ticket" id="detail" aria-live="polite"></div></aside>
+    </div>
+  </section>
+
+  <section class="section duo">
+    <div class="panel" id="quiz-panel">
+      <h2 data-t="compH"></h2>
+      <div id="quiz"></div>
+    </div>
+    <div class="panel">
+      <h2 data-t="checkH"></h2><p data-t="checkSub"></p>
+      <div class="fld"><label for="f-check" data-t="job"></label><select id="f-check"></select></div>
+      <div id="check-out"></div>
+    </div>
+  </section>
+
+  <section class="section panel" id="pvt">
+    <h2 data-t="pvtH"></h2><p class="muted" data-t="pvtSub"></p>
+    <div id="pvt-list" class="indgrid"></div>
+  </section>
+
+  <section class="section duo">
+    <div class="panel"><h2 data-t="openH"></h2><p data-t="openSub"></p><div id="open-list"></div></div>
+    <div class="panel"><h2 data-t="gradeH"></h2><p data-t="gradeSub"></p><div id="grades"></div></div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:1.3rem;font-weight:800" data-t="srcH"></h2>
+    <p class="disc" data-t="disc"></p>
+    <ul id="src-list"></ul>
+  </section>
+
+  <footer><span><a href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span></footer>
+</div>
+<script>
+/* ===== BCGO Career Map — data ===== */
+const SRC = {
+  S1:{t:"Prothom Alo: 9th pay scale, new recruits (Sep 2026)",u:"https://en.prothomalo.com/bangladesh/4gty9kvozo"},
+  S2:{t:"The Daily Star: Bangladesh Bank minimum entry pay for private bankers (2022)",u:"https://www.thedailystar.net/business/economy/banks/news/tk-39000-salary-entry-level-private-bankers-2943901"},
+  S3:{t:"Multiplier: Salaries in Bangladesh by role (2026)",u:"https://www.usemultiplier.com/?p=182950"},
+  S4:{t:"Paylab: Average monthly salary by sector, Bangladesh",u:"https://www.paylab.com/bd/salaryinfo"},
+  S5:{t:"UNB: Bangladesh Bank Assistant Director circular (2023)",u:"https://unb.com.bd/category/Business/bangladesh-bank-recruitment-circular-2023-bangladesh-bank-will-hire-100-assistant-directors/118185"},
+  S6:{t:"Prothom Alo: State-owned banks officer (cash) circular",u:"https://en.prothomalo.com/youth/employment/5-banks-to-recruit-1439-officers"},
+  S7:{t:"Prothom Alo: 47th BCS applicant Q&A, four-year degree required (Dec 2024)",u:"https://www.prothomalo.com/chakri/chakri-suggestion/0g9b3gwc07"},
+  S8:{t:"Prothom Alo: Graduate unemployment, BBS Labour Force Survey",u:"https://en.prothomalo.com/youth/employment/so8x8pjh13"},
+  S9:{t:"East West University notice: Mercantile Bank MTO circular (2024)",u:"https://www.ewubd.edu/notice-details/mercantile-bank-management-trainee-officer-mto-job-circular-2024"},
+  S10:{t:"The Financial Express: GPA to division conversion (2009 rule)",u:"https://today.thefinancialexpress.com.bd/metro-news/new-scale-for-ssc-hsc-tests-results?amp=true"},
+  S11:{t:"The Daily Star: Govt adjusts class/division with grading system",u:"https://www.thedailystar.net/node/490210"},
+  S13:{t:"Ittefaq: Science, humanities and business groups restored",u:"https://en.ittefaq.com.bd/9268/science-humanities-and-business-studies"},
+  S15:{t:"UGC: List of public universities (official)",u:"http://ugc-universities.gov.bd/"},
+  S16:{t:"UGC: List of private universities (official)",u:"http://www.ugc-universities.gov.bd/private-universities"},
+  S17:{t:"UGC: List of international universities (official)",u:"http://www.ugc-universities.gov.bd/international-universities"},
+  S18:{t:"Dhaka Tribune: Gazette raises BCS maximum age to 32 (Dec 2024)",u:"https://www.dhakatribune.com/bangladesh/367871/gazette-published-increasing-the-maximum-age-for"},
+  S19:{t:"Prothom Alo: Finance Division notification, Service (Salary and Allowances) Order 2026 (Sep 2026)",u:"https://en.prothomalo.com/bangladesh/xti7ukuxv0"},
+  S20:{t:"Jugantor: Bangladesh Bank AD circular, age 21–32 (Jul 2026)",u:"https://www.jugantor.com/job-seek/1123685"},
+  S21:{t:"Prothom Alo: Govt banks officer (general) circular, two first divisions required",u:"https://en.prothomalo.com/youth/jobs/jobs-circular-for-2046-vacant-posts-in-govt-banks-published"},
+  S22:{t:"Bdjobs.com: live job circulars (entry-level sample)",u:"https://bdjobs.com/h/jobs"},
+  S14:{t:"Dhaka Tribune: What madrasa students learn (Dakhil to Kamil)",u:"https://www.dhakatribune.com/bangladesh/bangladesh-others/135884/what-are-madrasa-students-actually-learning"}
+};
+
+/* Salary records: en / bn long text, short chip, source */
+const PAY = {
+  grade9:{s:"S1",short:["৳44,000 basic","মূল ৳৪৪,০০০"],
+    en:"Basic Tk 44,000 under the 9th National Pay Scale (Grade 9), notified by the Finance Division in September 2026. It is phased in: Tk 30,800 from July 2026, Tk 37,400 from January 2027, full from July 2027. Once the new allowances start (January 2028) a new Grade 9 officer in Dhaka gets about Tk 70,000 in total.",
+    bn:"৯ম জাতীয় বেতন স্কেলে গ্রেড ৯-এর মূল বেতন ৪৪,০০০ টাকা; অর্থ বিভাগ সেপ্টেম্বর ২০২৬-এ প্রজ্ঞাপন জারি করেছে। ধাপে ধাপে কার্যকর: জুলাই ২০২৬ থেকে ৩০,৮০০, জানুয়ারি ২০২৭ থেকে ৩৭,৪০০, জুলাই ২০২৭ থেকে পূর্ণ। নতুন ভাতা চালু হলে (জানুয়ারি ২০২৮) ঢাকায় নতুন কর্মকর্তা মোট প্রায় ৭০,০০০ টাকা পাবেন।"},
+  grade10:{s:"S1",short:["৳32,000 basic","মূল ৳৩২,০০০"],
+    en:"Grade 10 posts start at Tk 32,000 basic under the 9th Pay Scale (Tk 16,000 under the 2015 scale), phased in during 2026–27. Once new allowances start in 2028, total pay at entry is above Tk 50,000.",
+    bn:"৯ম বেতন স্কেলে গ্রেড ১০-এর শুরুর মূল বেতন ৩২,০০০ টাকা (২০১৫ স্কেলে ছিল ১৬,০০০), ২০২৬–২৭ সালে ধাপে ধাপে কার্যকর। ২০২৮ সালে নতুন ভাতা চালু হলে শুরুতেই মোট বেতন ৫০,০০০ টাকার বেশি।"},
+  grade13:{s:"S1",short:["৳24,000 basic","মূল ৳২৪,০০০"],
+    en:"Grade 13 starts at Tk 24,000 basic under the 9th Pay Scale (was Tk 11,000). A newly recruited primary assistant teacher's total pay will be close to Tk 40,000 from 2028.",
+    bn:"৯ম বেতন স্কেলে গ্রেড ১৩-এর শুরুর মূল বেতন ২৪,০০০ টাকা (আগে ছিল ১১,০০০)। ২০২৮ থেকে নতুন নিয়োগপ্রাপ্ত প্রাথমিক সহকারী শিক্ষকের মোট বেতন প্রায় ৪০,০০০ টাকা হবে।"},
+  pvtbank:{s:"S2",short:["min ৳39,000","ন্যূনতম ৳৩৯,০০০"],
+    en:"Bangladesh Bank minimum: at least Tk 28,000 a month during probation and at least Tk 39,000 in total after confirmation (2022 circular).",
+    bn:"বাংলাদেশ ব্যাংকের নির্ধারিত ন্যূনতম: শিক্ষানবিশকালে মাসে অন্তত ২৮,০০০ টাকা, স্থায়ী হওয়ার পর মোট অন্তত ৩৯,০০০ টাকা (২০২২ সালের সার্কুলার)।"},
+  software:{s:"S3",short:["৳25k–47k","৳২৫–৪৭ হাজার"],
+    en:"Entry-level software engineers: about Tk 25,000–47,000 a month (2026 estimate).",
+    bn:"এন্ট্রি লেভেল সফটওয়্যার ইঞ্জিনিয়ার: মাসে আনুমানিক ২৫,০০০–৪৭,০০০ টাকা (২০২৬ সালের হিসাব)।"},
+  none:{s:null,short:["Varies","ভিন্ন ভিন্ন"],
+    en:"No reliable public figure for this role. Check the salary stated in each circular.",
+    bn:"এই পদের নির্ভরযোগ্য প্রকাশ্য তথ্য নেই। প্রতিটি বিজ্ঞপ্তিতে উল্লেখিত বেতন দেখে নিন।"}
+};
+/* Paylab sector averages (all experience levels) */
+const PAYLAB = {p_it:[37057,"IT"],p_bank:[30923,"Banking"],p_pharma:[26686,"Pharmaceutical"],p_textile:[14657,"Textile, leather & apparel"],p_constr:[32330,"Construction & real estate"],p_elec:[25152,"Electrical & power engineering"],p_mech:[24025,"Mechanical engineering"],p_mkt:[23750,"Marketing, advertising & PR"],p_hr:[24580,"Human resources"],p_fin:[24807,"Economy, finance & accountancy"],p_edu:[20053,"Education, science & research"],p_journ:[20720,"Journalism & media"],p_law:[28927,"Law & legislation"],p_agri:[19377,"Agriculture & food"],p_med:[23485,"Medicine & social care"]};
+const PAYLAB_BN = {p_it:"আইটি",p_bank:"ব্যাংকিং",p_pharma:"ওষুধশিল্প",p_textile:"টেক্সটাইল ও পোশাক",p_constr:"নির্মাণ ও আবাসন",p_elec:"বৈদ্যুতিক ও বিদ্যুৎ প্রকৌশল",p_mech:"যন্ত্র প্রকৌশল",p_mkt:"মার্কেটিং, বিজ্ঞাপন ও পিআর",p_hr:"মানবসম্পদ",p_fin:"অর্থনীতি, অর্থায়ন ও হিসাব",p_edu:"শিক্ষা ও গবেষণা",p_journ:"সাংবাদিকতা ও গণমাধ্যম",p_law:"আইন",p_agri:"কৃষি ও খাদ্য",p_med:"চিকিৎসা ও সমাজসেবা"};
+for (const k in PAYLAB){ const [v,name]=PAYLAB[k]; const f=v.toLocaleString("en-US");
+  PAY[k]={s:"S4",short:["avg ৳"+f+" (sector)","খাতের গড় ৳"+f],
+    en:`Sector average across all experience levels: about Tk ${f} a month (${name}, Paylab survey). Entry pay is usually lower than this.`,
+    bn:`সব অভিজ্ঞতার স্তর মিলিয়ে খাতের গড়: মাসে প্রায় ${f} টাকা (${PAYLAB_BN[k]}, পেল্যাব জরিপ)। শুরুর বেতন সাধারণত এর চেয়ে কম।`};
+}
+
+const SECTORS = {
+  gov:{en:"Government",bn:"সরকারি চাকরি",c:"--l-gov"},
+  bank:{en:"Banking & Finance",bn:"ব্যাংক ও আর্থিক খাত",c:"--l-bank"},
+  it:{en:"IT & Software",bn:"আইটি ও সফটওয়্যার",c:"--l-it"},
+  eng:{en:"Engineering & Power",bn:"প্রকৌশল ও বিদ্যুৎ",c:"--l-eng"},
+  health:{en:"Pharma & Health",bn:"ওষুধ ও স্বাস্থ্য",c:"--l-health"},
+  rmg:{en:"RMG & Textile",bn:"তৈরি পোশাক ও টেক্সটাইল",c:"--l-rmg"},
+  ngo:{en:"Development & NGO",bn:"উন্নয়ন ও এনজিও",c:"--l-ngo"},
+  mkt:{en:"Marketing & Sales",bn:"মার্কেটিং ও বিক্রয়",c:"--l-mkt"},
+  edu:{en:"Education",bn:"শিক্ষা",c:"--l-edu"},
+  media:{en:"Media & Creative",bn:"গণমাধ্যম ও সৃজনশীল কাজ",c:"--l-media"},
+  law:{en:"Law & Justice",bn:"আইন ও বিচার",c:"--l-law"},
+  agri:{en:"Agriculture",bn:"কৃষি",c:"--l-agri"},
+  def:{en:"Defence & Aviation",bn:"প্রতিরক্ষা ও এভিয়েশন",c:"--l-def"},
+  fmcg:{en:"FMCG, Retail & E-commerce",bn:"এফএমসিজি, রিটেইল ও ই-কমার্স",c:"--l-fmcg"},
+  scm:{en:"Supply Chain & Logistics",bn:"সাপ্লাই চেইন ও লজিস্টিকস",c:"--l-scm"},
+  tel:{en:"Telecom & Tech Services",bn:"টেলিকম ও প্রযুক্তি সেবা",c:"--l-tel"}
+};
+
+const DGRP = {eng:["Engineering & Architecture","প্রকৌশল ও স্থাপত্য"],life:["Health & Life Sciences","স্বাস্থ্য ও জীববিজ্ঞান"],sci:["Natural Sciences","বিজ্ঞান"],bus:["Business","ব্যবসায়"],arts:["Arts, Humanities & Social Sciences","কলা, মানবিক ও সমাজবিজ্ঞান"],law:["Law","আইন"],agri:["Agriculture","কৃষি"],isl:["Islamic Studies","ইসলামি শিক্ষা"]};
+
+/* Disciplines. req: subject tags university admission usually needs; good: helpful tags */
+const DISC = {
+  cse:{g:"eng",en:"Computer Science & Engineering (CSE)",bn:"কম্পিউটার সায়েন্স ও ইঞ্জিনিয়ারিং (CSE)",req:["phy","math"],good:["chem","cs"]},
+  eee:{g:"eng",en:"Electrical & Electronic Engineering (EEE)",bn:"ইলেকট্রিক্যাল ও ইলেকট্রনিক ইঞ্জিনিয়ারিং (EEE)",req:["phy","math","chem"],good:[]},
+  civil:{g:"eng",en:"Civil Engineering",bn:"সিভিল ইঞ্জিনিয়ারিং",req:["phy","math","chem"],good:[]},
+  me:{g:"eng",en:"Mechanical Engineering",bn:"মেকানিক্যাল ইঞ্জিনিয়ারিং",req:["phy","math","chem"],good:[]},
+  textile:{g:"eng",en:"Textile Engineering",bn:"টেক্সটাইল ইঞ্জিনিয়ারিং",req:["phy","math","chem"],good:[]},
+  arch:{g:"eng",en:"Architecture",bn:"স্থাপত্য (আর্কিটেকচার)",req:["phy","math"],good:["art"]},
+  mbbs:{g:"life",en:"Medicine (MBBS)",bn:"মেডিসিন (এমবিবিএস)",req:["bio","chem","phy"],good:[]},
+  pharmacy:{g:"life",en:"Pharmacy",bn:"ফার্মেসি",req:["chem","bio"],good:["phy","math"]},
+  microbio:{g:"life",en:"Microbiology / Biochemistry",bn:"মাইক্রোবায়োলজি / বায়োকেমিস্ট্রি",req:["bio","chem"],good:[]},
+  nursing:{g:"life",en:"Nursing",bn:"নার্সিং",req:["bio","chem"],good:[]},
+  psych:{g:"life",en:"Psychology",bn:"মনোবিজ্ঞান",req:[],good:["psych","bio"]},
+  physics_math:{g:"sci",en:"Physics / Mathematics / Statistics",bn:"পদার্থবিজ্ঞান / গণিত / পরিসংখ্যান",req:["math"],good:["phy"]},
+  chem:{g:"sci",en:"Chemistry",bn:"রসায়ন",req:["chem"],good:["math"]},
+  acc_fin:{g:"bus",en:"Accounting / Finance",bn:"হিসাববিজ্ঞান / ফিন্যান্স",req:[],good:["acc","bus","math"]},
+  mkt_mgmt:{g:"bus",en:"Marketing / Management / HRM",bn:"মার্কেটিং / ম্যানেজমেন্ট / এইচআরএম",req:[],good:["bus"]},
+  econ:{g:"bus",en:"Economics",bn:"অর্থনীতি",req:[],good:["econ","math"]},
+  english:{g:"arts",en:"English",bn:"ইংরেজি",req:[],good:["eng","lit"]},
+  socsci:{g:"arts",en:"Sociology / Political Science / Public Administration",bn:"সমাজবিজ্ঞান / রাষ্ট্রবিজ্ঞান / লোকপ্রশাসন",req:[],good:["soc"]},
+  mass_comm:{g:"arts",en:"Mass Communication & Journalism",bn:"গণযোগাযোগ ও সাংবাদিকতা",req:[],good:["eng"]},
+  design:{g:"arts",en:"Fine Arts / Graphic Design",bn:"চারুকলা / গ্রাফিক ডিজাইন",req:[],good:["art"]},
+  law:{g:"law",en:"Law (LLB)",bn:"আইন (এলএলবি)",req:[],good:["law","eng"]},
+  agri:{g:"agri",en:"Agriculture",bn:"কৃষি",req:["bio","chem"],good:["agri"]},
+  vet:{g:"agri",en:"Veterinary Science (DVM)",bn:"ভেটেরিনারি সায়েন্স (ডিভিএম)",req:["bio","chem"],good:[]},
+  fisheries:{g:"agri",en:"Fisheries",bn:"মৎস্যবিজ্ঞান",req:["bio","chem"],good:[]},
+  dental:{g:"life",en:"Dentistry (BDS)",bn:"দন্তচিকিৎসা (বিডিএস)",req:["bio","chem","phy"],good:[]},
+  medtech:{g:"life",en:"Physiotherapy / Medical Technology",bn:"ফিজিওথেরাপি / মেডিকেল টেকনোলজি",req:["bio","chem"],good:[]},
+  pubhealth:{g:"life",en:"Public Health",bn:"জনস্বাস্থ্য",req:[],good:["bio"]},
+  nutrition:{g:"life",en:"Food & Nutrition",bn:"খাদ্য ও পুষ্টি",req:["chem"],good:["bio"]},
+  planning:{g:"eng",en:"Urban & Regional Planning",bn:"নগর ও অঞ্চল পরিকল্পনা",req:["phy","math"],good:["soc"]},
+  maritime:{g:"eng",en:"Marine / Naval Architecture / Nautical Science",bn:"মেরিন / নেভাল আর্কিটেকচার / নটিক্যাল সায়েন্স",req:["phy","math"],good:["chem"]},
+  aero:{g:"eng",en:"Aeronautical / Aerospace Engineering",bn:"অ্যারোনটিক্যাল / অ্যারোস্পেস ইঞ্জিনিয়ারিং",req:["phy","math","chem"],good:[]},
+  fashion:{g:"arts",en:"Fashion Design & Apparel",bn:"ফ্যাশন ডিজাইন ও অ্যাপারেল",req:[],good:["art"]},
+  music:{g:"arts",en:"Music / Theatre / Dance",bn:"সংগীত / নাট্যকলা / নৃত্য",req:[],good:["art"]},
+  tourism:{g:"bus",en:"Tourism & Hospitality",bn:"ট্যুরিজম ও হসপিটালিটি",req:[],good:["bus","eng"]},
+  educ:{g:"arts",en:"Education (BEd / MEd)",bn:"শিক্ষা (বিএড / এমএড)",req:[],good:[]},
+  physed:{g:"arts",en:"Physical Education & Sports Science",bn:"শারীরিক শিক্ষা ও ক্রীড়াবিজ্ঞান",req:[],good:["bio"]},
+  islamic:{g:"isl",en:"Islamic Studies / Arabic",bn:"ইসলামিক স্টাডিজ / আরবি",req:[],good:["isl"]}
+};
+const ALLD = Object.keys(DISC);
+const ENGD = ["cse","eee","civil","me","textile","arch"];
+
+/* Skill dictionary */
+const SK = {
+  ga:["General knowledge & current affairs","সাধারণ জ্ঞান ও সাম্প্রতিক বিষয়"],
+  math:["Math & mental ability","গণিত ও মানসিক দক্ষতা"],
+  eng:["English writing & speaking","ইংরেজিতে লেখা ও বলা"],
+  bangla:["Bangla language & literature","বাংলা ভাষা ও সাহিত্য"],
+  bank:["Banking basics (credit, deposits, KYC)","ব্যাংকিংয়ের মৌলিক বিষয় (ঋণ, আমানত, কেওয়াইসি)"],
+  excel:["Excel & spreadsheets","এক্সেল ও স্প্রেডশিট"],
+  acc:["Accounting & IFRS basics","হিসাববিজ্ঞান ও আইএফআরএস"],
+  erp:["ERP software (e.g. SAP, Tally)","ইআরপি সফটওয়্যার (যেমন SAP, Tally)"],
+  prog:["Programming in one language, done well","একটি প্রোগ্রামিং ভাষায় ভালো দক্ষতা"],
+  dsa:["Data structures & algorithms","ডেটা স্ট্রাকচার ও অ্যালগরিদম"],
+  git:["Git & a GitHub portfolio","গিট ও গিটহাব পোর্টফোলিও"],
+  test:["Manual & automated testing","ম্যানুয়াল ও অটোমেটেড টেস্টিং"],
+  sql:["SQL","এসকিউএল"],
+  viz:["Power BI or Tableau dashboards","পাওয়ার বিআই বা ট্যাবলো ড্যাশবোর্ড"],
+  stats:["Statistics","পরিসংখ্যান"],
+  net:["Networking (CCNA level)","নেটওয়ার্কিং (CCNA পর্যায়)"],
+  cad:["AutoCAD","অটোক্যাড"],
+  d3:["Revit / SketchUp","রেভিট / স্কেচআপ"],
+  estim:["Estimation & site supervision","এস্টিমেশন ও সাইট তত্ত্বাবধান"],
+  power:["Power systems & electrical safety","পাওয়ার সিস্টেম ও বৈদ্যুতিক নিরাপত্তা"],
+  maint:["Maintenance & lean production","রক্ষণাবেক্ষণ ও লিন প্রোডাকশন"],
+  garment:["Fabric, costing & buyer handling","ফ্যাব্রিক, কস্টিং ও বায়ার সামলানো"],
+  ie:["Time study & line balancing","টাইম স্টাডি ও লাইন ব্যালান্সিং"],
+  labour:["Bangladesh Labour Act & buyer codes","বাংলাদেশ শ্রম আইন ও বায়ার কোড"],
+  gmp:["GMP & quality documentation","জিএমপি ও কোয়ালিটি ডকুমেন্টেশন"],
+  lab:["Lab instruments (HPLC etc.)","ল্যাব যন্ত্রপাতি (HPLC ইত্যাদি)"],
+  present:["Presentation & persuasion","উপস্থাপন ও বোঝানোর দক্ষতা"],
+  clinical:["Clinical skills","ক্লিনিক্যাল দক্ষতা"],
+  counsel:["Counselling & active listening","কাউন্সেলিং ও মনোযোগী শোনা"],
+  proposal:["Proposal & report writing","প্রস্তাবনা ও রিপোর্ট লেখা"],
+  field:["Field coordination","মাঠপর্যায়ের সমন্বয়"],
+  survey:["Survey tools (KoBo, ODK)","সার্ভে টুল (KoBo, ODK)"],
+  ads:["Facebook & Google Ads","ফেসবুক ও গুগল অ্যাডস"],
+  seo:["SEO & analytics","এসইও ও অ্যানালিটিক্স"],
+  copy:["Copywriting","কপিরাইটিং"],
+  sales:["Negotiation & CRM","দরকষাকষি ও সিআরএম"],
+  hr:["Recruitment & payroll","নিয়োগ ও পে-রোল"],
+  teach:["Lesson planning & classroom skills","পাঠ পরিকল্পনা ও শ্রেণি পরিচালনা"],
+  research:["Research & publications","গবেষণা ও প্রকাশনা"],
+  report:["News writing & fact-checking","সংবাদ লেখা ও তথ্য যাচাই"],
+  draft:["Legal drafting","আইনি খসড়া প্রণয়ন"],
+  lawkn:["Bangladesh laws & procedure","বাংলাদেশের আইন ও কার্যপ্রণালী"],
+  agro:["Crop, soil & extension work","ফসল, মাটি ও সম্প্রসারণ কাজ"],
+  adobe:["Photoshop, Illustrator, Figma","ফটোশপ, ইলাস্ট্রেটর, ফিগমা"],
+  folio:["A portfolio (e.g. Behance)","পোর্টফোলিও (যেমন বিহান্স)"]
+};
+
+const WHERE = {
+  gov:[["BPSC (BCS circulars)","https://bpsc.gov.bd"],["Teletalk all jobs","https://alljobs.teletalk.com.bd"]],
+  bb:[["Bangladesh Bank e-Recruitment","https://erecruitment.bb.org.bd"]],
+  pvt:[["Bdjobs","https://www.bdjobs.com"],["LinkedIn Jobs","https://www.linkedin.com/jobs/"]],
+  ngo:[["Bdjobs","https://www.bdjobs.com"],["ReliefWeb Jobs","https://reliefweb.int/jobs"]],
+  bjsc:[["Bangladesh Judicial Service Commission","https://bjsc.gov.bd"]],
+  def:[["ISSB (Inter Services Selection Board)",""],["Teletalk all jobs","https://alljobs.teletalk.com.bd"]]
+};
+
+/* Roles.
+  rule: any | relevant | skills | licensed
+  req4: needs 4-yr Honours or Master's  engr: engineer post (diploma -> SAE)
+  res: result rule key   t: pub | priv | both   int: interests */
+const GENNOTE=["Master's, or a 4-year Bachelor's after HSC, in any subject. Age 21–32 for all candidates, with no limit on attempts (BCS rules amended December 2024). Three stages: preliminary, written, viva. Each circular sets its own result rules (for example, limits on third division), so read it before applying.","এইচএসসির পর ৪ বছরের স্নাতক বা মাস্টার্স, যেকোনো বিষয়। সব প্রার্থীর বয়স ২১–৩২, অংশগ্রহণের সংখ্যায় কোনো সীমা নেই (ডিসেম্বর ২০২৪-এ বিসিএস বিধি সংশোধিত)। তিন ধাপ: প্রিলিমিনারি, লিখিত, মৌখিক। ফলাফলের শর্ত (যেমন তৃতীয় বিভাগ সংক্রান্ত) প্রতিটি বিজ্ঞপ্তিতে আলাদা, আবেদনের আগে পড়ে নিন।"];
+const TECHNOTE=["This technical cadre accepts only the matching degree. Age 21–32. Check the circular for result rules.","এই কারিগরি ক্যাডারে শুধু সংশ্লিষ্ট ডিগ্রি গ্রহণযোগ্য। বয়স ২১–৩২। ফলাফলের শর্ত বিজ্ঞপ্তিতে দেখে নিন।"];
+const ROLES = {
+  bcs_admin:{sec:"gov",en:"BCS Administration (Assistant Commissioner)",bn:"বিসিএস প্রশাসন (সহকারী কমিশনার)",rule:"any",direct:[],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Upazila Nirbahi Officer (UNO)","উপজেলা নির্বাহী অফিসার (ইউএনও)"],["Deputy Secretary","উপসচিব"]],sk:["ga","math","eng","bangla"],int:["rules","lead","people"],note:GENNOTE,ns:"S18"},
+  bcs_police:{sec:"gov",en:"BCS Police (Assistant Superintendent)",bn:"বিসিএস পুলিশ (সহকারী পুলিশ সুপার)",rule:"any",direct:["law","socsci"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Additional SP","অতিরিক্ত পুলিশ সুপার"],["Superintendent of Police","পুলিশ সুপার"]],sk:["ga","eng","lawkn"],int:["rules","lead"],
+    note:["Any subject, age 21–32. Police cadre candidates must also meet physical fitness standards.","যেকোনো বিষয়, বয়স ২১–৩২। পুলিশ ক্যাডারে শারীরিক যোগ্যতার মানও পূরণ করতে হয়।"],ns:"S7"},
+  bcs_foreign:{sec:"gov",en:"BCS Foreign Affairs (Assistant Secretary)",bn:"বিসিএস পররাষ্ট্র (সহকারী সচিব)",rule:"any",direct:["english","socsci","econ","law"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Counsellor at a mission","দূতাবাসে কাউন্সেলর"],["Ambassador","রাষ্ট্রদূত"]],sk:["eng","ga","present"],int:["people","rules","writing"],note:GENNOTE,ns:"S18"},
+  bcs_tax:{sec:"gov",en:"BCS Taxation (Assistant Commissioner of Taxes)",bn:"বিসিএস কর (সহকারী কর কমিশনার)",rule:"any",direct:["acc_fin","econ"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Deputy Commissioner of Taxes","উপ কর কমিশনার"],["Commissioner of Taxes","কর কমিশনার"]],sk:["acc","ga","math"],int:["numbers","rules"],note:GENNOTE,ns:"S18"},
+  bcs_customs:{sec:"gov",en:"BCS Customs & Excise (Assistant Commissioner)",bn:"বিসিএস শুল্ক ও আবগারি (সহকারী কমিশনার)",rule:"any",direct:["acc_fin","econ"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Deputy Commissioner","উপ কমিশনার"],["Commissioner","কমিশনার"]],sk:["ga","math","eng"],int:["numbers","rules"],note:GENNOTE,ns:"S18"},
+  bcs_audit:{sec:"gov",en:"BCS Audit & Accounts",bn:"বিসিএস নিরীক্ষা ও হিসাব",rule:"any",direct:["acc_fin"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Senior officer","জ্যেষ্ঠ কর্মকর্তা"],["Director","পরিচালক"]],sk:["acc","excel","ga"],int:["numbers","rules"],note:GENNOTE,ns:"S18"},
+  bcs_info:{sec:"gov",en:"BCS Information",bn:"বিসিএস তথ্য",rule:"any",direct:["mass_comm","english"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Senior officer","জ্যেষ্ঠ কর্মকর্তা"],["Director","পরিচালক"]],sk:["report","bangla","eng"],int:["writing","people"],note:GENNOTE,ns:"S18"},
+  bcs_health:{sec:"gov",en:"BCS Health (Assistant Surgeon)",bn:"বিসিএস স্বাস্থ্য (সহকারী সার্জন)",rule:"licensed",direct:["mbbs"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Specialist / Consultant","বিশেষজ্ঞ / কনসালট্যান্ট"],["Civil Surgeon","সিভিল সার্জন"]],sk:["clinical","ga"],int:["science","helping"],note:TECHNOTE},
+  bcs_rnh:{sec:"gov",en:"BCS Roads & Highways (Assistant Engineer)",bn:"বিসিএস সড়ক ও জনপথ (সহকারী প্রকৌশলী)",rule:"relevant",direct:["civil"],bridge:[],req4:1,engr:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Executive Engineer","নির্বাহী প্রকৌশলী"],["Superintending Engineer","তত্ত্বাবধায়ক প্রকৌশলী"]],sk:["cad","estim","ga"],int:["build","rules"],note:TECHNOTE},
+  bcs_pwd:{sec:"gov",en:"BCS Public Works (Assistant Engineer / Architect)",bn:"বিসিএস গণপূর্ত (সহকারী প্রকৌশলী / স্থপতি)",rule:"relevant",direct:["civil","eee","arch"],bridge:[],req4:1,engr:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Executive Engineer","নির্বাহী প্রকৌশলী"],["Chief Engineer","প্রধান প্রকৌশলী"]],sk:["cad","estim","ga"],int:["build","creative"],note:TECHNOTE},
+  bcs_agri:{sec:"gov",en:"BCS Agriculture (Agriculture Extension Officer)",bn:"বিসিএস কৃষি (কৃষি সম্প্রসারণ কর্মকর্তা)",rule:"relevant",direct:["agri"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Upazila Agriculture Officer","উপজেলা কৃষি কর্মকর্তা"],["Deputy Director","উপপরিচালক"]],sk:["agro","ga"],int:["nature","science"],note:TECHNOTE},
+  bcs_livestock:{sec:"gov",en:"BCS Livestock (Veterinary Surgeon)",bn:"বিসিএস প্রাণিসম্পদ (ভেটেরিনারি সার্জন)",rule:"relevant",direct:["vet"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Upazila Livestock Officer","উপজেলা প্রাণিসম্পদ কর্মকর্তা"],["District Livestock Officer","জেলা প্রাণিসম্পদ কর্মকর্তা"]],sk:["clinical","ga"],int:["nature","science","helping"],note:TECHNOTE},
+  bcs_fisheries:{sec:"gov",en:"BCS Fisheries (Fisheries Officer)",bn:"বিসিএস মৎস্য (মৎস্য কর্মকর্তা)",rule:"relevant",direct:["fisheries"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Upazila Fisheries Officer","উপজেলা মৎস্য কর্মকর্তা"],["District Fisheries Officer","জেলা মৎস্য কর্মকর্তা"]],sk:["agro","ga"],int:["nature","science"],note:TECHNOTE},
+  bcs_education:{sec:"gov",en:"BCS General Education: Lecturer, Govt College",bn:"বিসিএস সাধারণ শিক্ষা: প্রভাষক, সরকারি কলেজ",rule:"relevant",direct:["physics_math","chem","acc_fin","mkt_mgmt","econ","english","socsci","microbio","psych","islamic","design"],bridge:[],req4:1,t:"pub",pay:"grade9",where:"gov",
+    ladder:[["Assistant Professor","সহকারী অধ্যাপক"],["Professor","অধ্যাপক"]],sk:["teach","ga","eng"],int:["teaching"],
+    note:["Govt college lecturer posts are subject-specific: you teach the subject you studied.","সরকারি কলেজের প্রভাষক পদ বিষয়ভিত্তিক: যে বিষয়ে পড়েছেন, সেটিই পড়াবেন।"]},
+  bb_ad:{sec:"bank",en:"Bangladesh Bank Assistant Director",bn:"বাংলাদেশ ব্যাংক সহকারী পরিচালক",rule:"any",direct:[],bridge:[],req4:1,res:"bbad",t:"pub",pay:"grade9",where:"bb",
+    ladder:[["Deputy Director","উপপরিচালক"],["Director","পরিচালক"]],sk:["math","eng","ga","bank"],int:["numbers","rules"],
+    note:["4-year Honours or Master's in any subject (the ICT track needs a computing or EEE degree). The 2023 circular asked for first division or class in at least two exams from SSC upward and no third division anywhere. Age 21–32 in the 2026 circular.","যেকোনো বিষয়ে ৪ বছরের অনার্স বা মাস্টার্স (আইসিটি পদে কম্পিউটার বা ইইই ডিগ্রি লাগে)। ২০২৩ সালের বিজ্ঞপ্তিতে এসএসসি থেকে অন্তত দুটি পরীক্ষায় প্রথম বিভাগ/শ্রেণি চাওয়া হয়েছিল, কোথাও তৃতীয় বিভাগ চলবে না। ২০২৬ সালের বিজ্ঞপ্তিতে বয়স ২১–৩২।"],ns:"S20"},
+  state_bank:{sec:"bank",en:"Officer, State-owned Banks",bn:"অফিসার, রাষ্ট্রায়ত্ত ব্যাংক",rule:"any",direct:[],bridge:[],req4:1,res:"statebank",t:"pub",pay:"grade10",where:"bb",
+    ladder:[["Principal Officer","প্রিন্সিপাল অফিসার"],["Branch Manager","শাখা ব্যবস্থাপক"]],sk:["math","eng","ga","bank"],int:["numbers","people"],
+    note:["Combined recruitment for Sonali, Janata, Agrani, Rupali and other state-owned banks. 4-year Honours or Master's in any discipline, no third division or class. Circulars ask for first division or class in at least one exam (cash) or two exams (general officer).","সোনালী, জনতা, অগ্রণী, রূপালীসহ রাষ্ট্রায়ত্ত ব্যাংকের সমন্বিত নিয়োগ। যেকোনো বিষয়ে ৪ বছরের অনার্স বা মাস্টার্স, তৃতীয় বিভাগ/শ্রেণি চলবে না। বিজ্ঞপ্তিভেদে অন্তত একটি (ক্যাশ) বা দুটি (সাধারণ অফিসার) পরীক্ষায় প্রথম বিভাগ/শ্রেণি চাওয়া হয়।"],ns:"S6"},
+  pvt_bank:{sec:"bank",en:"Management Trainee Officer, Private Bank",bn:"ম্যানেজমেন্ট ট্রেইনি অফিসার, বেসরকারি ব্যাংক",rule:"any",direct:["acc_fin","econ","mkt_mgmt"],bridge:[],req4:1,res:"pvtbank",t:"priv",pay:"pvtbank",where:"pvt",
+    ladder:[["Relationship / Credit Officer","রিলেশনশিপ / ক্রেডিট অফিসার"],["Branch Manager","শাখা ব্যবস্থাপক"]],sk:["bank","excel","eng","present"],int:["numbers","people"],
+    note:["Most private banks accept any discipline for MTO and Trainee Officer posts. Result cut-offs are set by each bank and are often high.","অধিকাংশ বেসরকারি ব্যাংক এমটিও ও ট্রেইনি অফিসার পদে যেকোনো বিষয় গ্রহণ করে। ফলাফলের শর্ত প্রতিটি ব্যাংক নিজে ঠিক করে, এবং তা প্রায়ই বেশ উঁচু।"],ns:"S9"},
+  accountant:{sec:"bank",en:"Accounts Executive",bn:"অ্যাকাউন্টস এক্সিকিউটিভ",rule:"relevant",direct:["acc_fin"],bridge:["econ","mkt_mgmt"],t:"priv",pay:"p_fin",where:"pvt",
+    ladder:[["Senior Accountant","সিনিয়র অ্যাকাউন্ট্যান্ট"],["Finance Manager","ফিন্যান্স ম্যানেজার"]],sk:["acc","excel","erp"],int:["numbers","rules"]},
+  audit:{sec:"bank",en:"Audit Associate / CA Article Student",bn:"অডিট অ্যাসোসিয়েট / সিএ আর্টিকেল স্টুডেন্ট",rule:"relevant",direct:["acc_fin"],bridge:["econ","mkt_mgmt","physics_math","cse"],t:"priv",pay:"p_fin",where:"pvt",
+    ladder:[["Chartered Accountant (ICAB)","চার্টার্ড অ্যাকাউন্ট্যান্ট (আইসিএবি)"],["CFO","সিএফও"]],sk:["acc","excel","eng"],int:["numbers","rules"],
+    note:["Becoming a Chartered Accountant goes through ICAB articleship and exams.","চার্টার্ড অ্যাকাউন্ট্যান্ট হতে আইসিএবি-র আর্টিকেলশিপ ও পরীক্ষা পার হতে হয়।"]},
+  software:{sec:"it",en:"Junior Software Engineer",bn:"জুনিয়র সফটওয়্যার ইঞ্জিনিয়ার",rule:"skills",direct:["cse"],bridge:[],t:"priv",pay:"software",where:"pvt",
+    ladder:[["Software Engineer","সফটওয়্যার ইঞ্জিনিয়ার"],["Senior / Tech Lead","সিনিয়র / টেক লিড"]],sk:["prog","dsa","git","sql"],int:["tech","creative"]},
+  qa:{sec:"it",en:"SQA Engineer",bn:"এসকিউএ ইঞ্জিনিয়ার",rule:"skills",direct:["cse"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior SQA Engineer","সিনিয়র এসকিউএ ইঞ্জিনিয়ার"],["QA Lead","কিউএ লিড"]],sk:["test","sql","prog"],int:["tech","rules"]},
+  data:{sec:"it",en:"Junior Data Analyst / MIS Executive",bn:"জুনিয়র ডেটা অ্যানালিস্ট / এমআইএস এক্সিকিউটিভ",rule:"skills",direct:["physics_math","cse","econ"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Data Analyst","ডেটা অ্যানালিস্ট"],["Analytics Manager","অ্যানালিটিক্স ম্যানেজার"]],sk:["excel","sql","viz","stats"],int:["numbers","tech"]},
+  network:{sec:"it",en:"Network / System Engineer",bn:"নেটওয়ার্ক / সিস্টেম ইঞ্জিনিয়ার",rule:"relevant",direct:["cse","eee"],bridge:["physics_math"],t:"both",pay:"p_it",where:"pvt",
+    ladder:[["System Administrator","সিস্টেম অ্যাডমিনিস্ট্রেটর"],["IT Manager","আইটি ম্যানেজার"]],sk:["net","prog"],int:["tech","build"]},
+  civil_site:{sec:"eng",en:"Site Engineer (Civil)",bn:"সাইট ইঞ্জিনিয়ার (সিভিল)",rule:"relevant",direct:["civil"],bridge:[],engr:1,t:"both",pay:"p_constr",where:"pvt",
+    ladder:[["Project Engineer","প্রজেক্ট ইঞ্জিনিয়ার"],["Project Manager","প্রজেক্ট ম্যানেজার"]],sk:["cad","estim"],int:["build","lead"]},
+  electrical:{sec:"eng",en:"Electrical / Power Plant Engineer",bn:"ইলেকট্রিক্যাল / পাওয়ার প্ল্যান্ট ইঞ্জিনিয়ার",rule:"relevant",direct:["eee"],bridge:[],engr:1,t:"both",pay:"p_elec",where:"pvt",
+    ladder:[["Shift Engineer","শিফট ইঞ্জিনিয়ার"],["Plant Manager","প্ল্যান্ট ম্যানেজার"]],sk:["power","cad"],int:["build","tech"]},
+  mech:{sec:"eng",en:"Maintenance / Production Engineer",bn:"মেইনটেন্যান্স / প্রোডাকশন ইঞ্জিনিয়ার",rule:"relevant",direct:["me"],bridge:["eee","textile"],engr:1,t:"priv",pay:"p_mech",where:"pvt",
+    ladder:[["Senior Engineer","সিনিয়র ইঞ্জিনিয়ার"],["Factory Manager","ফ্যাক্টরি ম্যানেজার"]],sk:["maint","cad"],int:["build"]},
+  architect:{sec:"eng",en:"Junior Architect",bn:"জুনিয়র আর্কিটেক্ট",rule:"relevant",direct:["arch"],bridge:[],t:"priv",pay:"p_constr",where:"pvt",
+    ladder:[["Architect","আর্কিটেক্ট"],["Principal Architect","প্রিন্সিপাল আর্কিটেক্ট"]],sk:["cad","d3","folio"],int:["build","creative"]},
+  merch:{sec:"rmg",en:"Assistant Merchandiser",bn:"সহকারী মার্চেন্ডাইজার",rule:"skills",direct:["textile"],bridge:[],t:"priv",pay:"p_textile",where:"pvt",
+    ladder:[["Merchandiser","মার্চেন্ডাইজার"],["Merchandising Manager","মার্চেন্ডাইজিং ম্যানেজার"]],sk:["garment","eng","excel"],int:["people","creative","numbers"]},
+  ie:{sec:"rmg",en:"IE / Production Planning Executive",bn:"আইই / প্রোডাকশন প্ল্যানিং এক্সিকিউটিভ",rule:"relevant",direct:["textile","me"],bridge:["physics_math","eee"],t:"priv",pay:"p_textile",where:"pvt",
+    ladder:[["IE Manager","আইই ম্যানেজার"],["Production Manager","প্রোডাকশন ম্যানেজার"]],sk:["ie","excel"],int:["numbers","build"]},
+  compliance:{sec:"rmg",en:"Compliance Officer",bn:"কমপ্লায়েন্স অফিসার",rule:"relevant",direct:["law","socsci","textile"],bridge:["english","mkt_mgmt","psych"],t:"priv",pay:"p_textile",where:"pvt",
+    ladder:[["Compliance Manager","কমপ্লায়েন্স ম্যানেজার"],["Head of Sustainability","সাসটেইনেবিলিটি প্রধান"]],sk:["labour","eng","proposal"],int:["rules","helping"]},
+  pharmacist:{sec:"health",en:"Production / QA Pharmacist",bn:"প্রোডাকশন / কিউএ ফার্মাসিস্ট",rule:"licensed",direct:["pharmacy"],bridge:[],t:"priv",pay:"p_pharma",where:"pvt",
+    ladder:[["Senior Executive","সিনিয়র এক্সিকিউটিভ"],["Plant / QA Manager","প্ল্যান্ট / কিউএ ম্যানেজার"]],sk:["gmp","lab"],int:["science"],
+    note:["B.Pharm plus registration with the Pharmacy Council of Bangladesh.","বি.ফার্ম এবং বাংলাদেশ ফার্মেসি কাউন্সিলে নিবন্ধন।"]},
+  qc:{sec:"health",en:"QC Officer (Pharma / Food)",bn:"কিউসি অফিসার (ওষুধ / খাদ্য)",rule:"relevant",direct:["chem","microbio","pharmacy"],bridge:["agri"],t:"priv",pay:"p_pharma",where:"pvt",
+    ladder:[["Senior QC Officer","সিনিয়র কিউসি অফিসার"],["QC Manager","কিউসি ম্যানেজার"]],sk:["lab","gmp"],int:["science","rules"]},
+  mpo:{sec:"health",en:"Medical Promotion Officer",bn:"মেডিকেল প্রমোশন অফিসার",rule:"any",direct:["pharmacy","microbio","chem"],bridge:[],t:"priv",pay:"p_pharma",where:"pvt",
+    ladder:[["Area Manager","এরিয়া ম্যানেজার"],["Product Manager","প্রোডাক্ট ম্যানেজার"]],sk:["present","sales"],int:["people","science"],
+    note:["Usually open to any graduate; a science background is preferred. Expect a lot of field travel.","সাধারণত যেকোনো স্নাতক আবেদন করতে পারেন; বিজ্ঞানের ব্যাকগ্রাউন্ড অগ্রাধিকার পায়। মাঠপর্যায়ে প্রচুর ভ্রমণ করতে হয়।"]},
+  doctor:{sec:"health",en:"Medical Officer",bn:"মেডিকেল অফিসার",rule:"licensed",direct:["mbbs"],bridge:[],t:"both",pay:"p_med",where:"pvt",
+    ladder:[["Specialist (FCPS / MD / MS)","বিশেষজ্ঞ (এফসিপিএস / এমডি / এমএস)"],["Consultant / Professor","কনসালট্যান্ট / অধ্যাপক"]],sk:["clinical"],int:["science","helping"],
+    note:["MBBS plus BMDC registration after internship.","এমবিবিএস এবং ইন্টার্নশিপ শেষে বিএমডিসি নিবন্ধন।"]},
+  counselor:{sec:"health",en:"Counselling Psychologist (trainee)",bn:"কাউন্সেলিং সাইকোলজিস্ট (প্রশিক্ষণার্থী)",rule:"relevant",direct:["psych"],bridge:["socsci"],t:"both",pay:"none",where:"ngo",
+    ladder:[["Psychologist","সাইকোলজিস্ট"],["Clinical Lead","ক্লিনিক্যাল লিড"]],sk:["counsel","research"],int:["helping","people","science"],
+    note:["Clinical or counselling practice usually needs a specialised Master's (MS or MPhil) and supervised hours.","ক্লিনিক্যাল বা কাউন্সেলিং প্র্যাকটিসে সাধারণত বিশেষায়িত মাস্টার্স (এমএস বা এমফিল) এবং তত্ত্বাবধানে কাজের অভিজ্ঞতা লাগে।"]},
+  program:{sec:"ngo",en:"Program / Project Officer",bn:"প্রোগ্রাম / প্রজেক্ট অফিসার",rule:"relevant",direct:["socsci","econ"],bridge:["english","agri","mass_comm","law","mkt_mgmt","acc_fin","physics_math","psych","islamic"],t:"priv",pay:"none",where:"ngo",
+    ladder:[["Project Manager","প্রজেক্ট ম্যানেজার"],["Country Program Lead","কান্ট্রি প্রোগ্রাম লিড"]],sk:["proposal","field","eng"],int:["helping","people","lead"]},
+  meo:{sec:"ngo",en:"M&E Officer",bn:"এমঅ্যান্ডই অফিসার",rule:"relevant",direct:["socsci","econ","physics_math"],bridge:["agri","mkt_mgmt","cse","english","mass_comm","psych"],t:"priv",pay:"none",where:"ngo",
+    ladder:[["M&E Specialist","এমঅ্যান্ডই বিশেষজ্ঞ"],["MEAL Manager","এমইএএল ম্যানেজার"]],sk:["survey","stats","excel"],int:["numbers","helping"]},
+  dm:{sec:"mkt",en:"Digital Marketing Executive",bn:"ডিজিটাল মার্কেটিং এক্সিকিউটিভ",rule:"skills",direct:["mkt_mgmt","mass_comm"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Digital Marketing Manager","ডিজিটাল মার্কেটিং ম্যানেজার"],["Head of Marketing","মার্কেটিং প্রধান"]],sk:["ads","seo","copy"],int:["creative","tech","writing"]},
+  sales:{sec:"mkt",en:"Sales / Business Development Executive",bn:"সেলস / বিজনেস ডেভেলপমেন্ট এক্সিকিউটিভ",rule:"any",direct:["mkt_mgmt"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Territory / Key Account Manager","টেরিটরি / কি-অ্যাকাউন্ট ম্যানেজার"],["Head of Sales","বিক্রয় প্রধান"]],sk:["sales","present","excel"],int:["people","lead"]},
+  hr:{sec:"mkt",en:"HR Executive",bn:"এইচআর এক্সিকিউটিভ",rule:"relevant",direct:["mkt_mgmt"],bridge:["socsci","english","law","econ","mass_comm","psych"],t:"priv",pay:"p_hr",where:"pvt",
+    ladder:[["HR Manager","এইচআর ম্যানেজার"],["Head of HR","এইচআর প্রধান"]],sk:["hr","labour","excel"],int:["people","rules"]},
+  teacher:{sec:"edu",en:"School Teacher (subject teacher)",bn:"স্কুল শিক্ষক (বিষয়ভিত্তিক)",rule:"relevant",direct:["english","physics_math","chem","acc_fin","econ","microbio","socsci","cse","islamic","design","psych","educ"],bridge:["mkt_mgmt","physed","music","nutrition","mass_comm","eee","civil","me","agri","law","pharmacy","textile","arch"],t:"both",pay:"p_edu",where:"pvt",
+    ladder:[["Senior Teacher","সিনিয়র শিক্ষক"],["Head Teacher / Principal","প্রধান শিক্ষক / অধ্যক্ষ"]],sk:["teach","eng"],int:["teaching","helping"],
+    note:["Teaching posts in non-government (MPO) schools and colleges need the NTRCA teacher registration certificate. English-medium and private schools hire directly.","বেসরকারি (এমপিওভুক্ত) স্কুল-কলেজে শিক্ষক হতে এনটিআরসিএ শিক্ষক নিবন্ধন সনদ লাগে। ইংলিশ মিডিয়াম ও বেসরকারি স্কুল সরাসরি নিয়োগ দেয়।"]},
+  lecturer:{sec:"edu",en:"Lecturer, Private University",bn:"প্রভাষক, বেসরকারি বিশ্ববিদ্যালয়",rule:"relevant",direct:ALLD,bridge:[],req4:1,res:"lecturer",t:"priv",pay:"none",where:"pvt",
+    ladder:[["Assistant Professor (after PhD / publications)","সহকারী অধ্যাপক (পিএইচডি / প্রকাশনার পর)"],["Professor","অধ্যাপক"]],sk:["research","teach"],int:["teaching","science"],
+    note:["You teach your own subject. A strong CGPA and often a Master's are expected.","নিজের বিষয়েই পড়াবেন। ভালো সিজিপিএ এবং প্রায়ই মাস্টার্স প্রত্যাশিত।"]},
+  journalist:{sec:"media",en:"Staff Reporter / Sub-editor",bn:"স্টাফ রিপোর্টার / সহ-সম্পাদক",rule:"skills",direct:["mass_comm"],bridge:[],t:"priv",pay:"p_journ",where:"pvt",
+    ladder:[["Senior Reporter","সিনিয়র রিপোর্টার"],["Editor","সম্পাদক"]],sk:["report","eng","bangla"],int:["writing","people"]},
+  content:{sec:"media",en:"Content Writer / Copywriter",bn:"কনটেন্ট রাইটার / কপিরাইটার",rule:"skills",direct:["english","mass_comm"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Content Lead","কনটেন্ট লিড"],["Creative Director","ক্রিয়েটিভ ডিরেক্টর"]],sk:["copy","seo","eng"],int:["writing","creative"]},
+  designer:{sec:"media",en:"Graphic Designer",bn:"গ্রাফিক ডিজাইনার",rule:"skills",direct:["design","arch"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Senior Designer","সিনিয়র ডিজাইনার"],["Art Director","আর্ট ডিরেক্টর"]],sk:["adobe","folio"],int:["creative","tech"]},
+  advocate:{sec:"law",en:"Junior Advocate (District Court)",bn:"জুনিয়র আইনজীবী (জেলা আদালত)",rule:"licensed",direct:["law"],bridge:[],t:"priv",pay:"p_law",where:"pvt",
+    ladder:[["High Court Advocate","হাইকোর্টের আইনজীবী"],["Senior Advocate","জ্যেষ্ঠ আইনজীবী"]],sk:["draft","lawkn"],int:["rules","people"],
+    note:["LLB, then enrolment with the Bangladesh Bar Council (written exam and viva) before you can practise.","এলএলবির পর প্র্যাকটিস করতে বাংলাদেশ বার কাউন্সিলে তালিকাভুক্তি (লিখিত ও মৌখিক পরীক্ষা) লাগে।"]},
+  legal:{sec:"law",en:"Legal Officer (bank / corporate)",bn:"লিগ্যাল অফিসার (ব্যাংক / কর্পোরেট)",rule:"licensed",direct:["law"],bridge:[],t:"priv",pay:"p_law",where:"pvt",
+    ladder:[["Legal Manager","লিগ্যাল ম্যানেজার"],["Head of Legal","আইন বিভাগ প্রধান"]],sk:["draft","lawkn","eng"],int:["rules","writing"]},
+  judicial:{sec:"law",en:"Assistant Judge",bn:"সহকারী জজ",rule:"licensed",direct:["law"],bridge:[],req4:1,t:"pub",pay:"none",where:"bjsc",
+    ladder:[["Senior Assistant Judge","সিনিয়র সহকারী জজ"],["District Judge","জেলা জজ"]],sk:["lawkn","draft"],int:["rules"],
+    note:["Recruited by the Bangladesh Judicial Service Commission. An LLB is required.","নিয়োগ দেয় বাংলাদেশ জুডিশিয়াল সার্ভিস কমিশন। এলএলবি আবশ্যক।"]},
+  police_si:{sec:"gov",en:"Sub-Inspector, Bangladesh Police",bn:"উপপরিদর্শক (এসআই), বাংলাদেশ পুলিশ",rule:"any",direct:["law","socsci"],bridge:[],t:"pub",pay:"grade10",where:"gov",
+    ladder:[["Inspector","পরিদর্শক"],["ASP (by promotion)","সহকারী পুলিশ সুপার (পদোন্নতিতে)"]],sk:["ga","lawkn","eng"],int:["rules","people"],
+    note:["A bachelor's degree in any subject plus physical standards. Check each police circular for age, height and result rules.","যেকোনো বিষয়ে স্নাতক ডিগ্রি এবং শারীরিক মান। বয়স, উচ্চতা ও ফলাফলের শর্ত প্রতিটি পুলিশ বিজ্ঞপ্তিতে দেখে নিন।"]},
+  primary_teacher:{sec:"edu",en:"Assistant Teacher, Govt Primary School",bn:"সহকারী শিক্ষক, সরকারি প্রাথমিক বিদ্যালয়",rule:"any",direct:[],bridge:[],t:"pub",pay:"grade13",where:"gov",
+    ladder:[["Head Teacher (Grade 10)","প্রধান শিক্ষক (গ্রেড ১০)"]],sk:["teach","bangla","math"],int:["teaching","helping"],
+    note:["Grade 13 post. 80% of head teacher posts are filled by promotion from assistant teachers. Check the Directorate of Primary Education circular for degree and class rules.","গ্রেড ১৩-এর পদ। প্রধান শিক্ষকের ৮০% পদ সহকারী শিক্ষকদের পদোন্নতি দিয়ে পূরণ হয়। ডিগ্রি ও শ্রেণির শর্ত প্রাথমিক শিক্ষা অধিদপ্তরের বিজ্ঞপ্তিতে দেখে নিন।"],ns:"S1"},
+  nurse:{sec:"health",en:"Senior Staff Nurse",bn:"সিনিয়র স্টাফ নার্স",rule:"licensed",direct:["nursing"],bridge:[],dip:1,t:"both",pay:"grade10",where:"gov",
+    ladder:[["Nursing Supervisor","নার্সিং সুপারভাইজার"],["Nursing Superintendent","নার্সিং সুপারিনটেনডেন্ট"]],sk:["clinical","eng"],int:["helping","science"],
+    note:["BSc in Nursing or a Diploma in Nursing Science & Midwifery, plus registration with the Bangladesh Nursing and Midwifery Council.","বিএসসি ইন নার্সিং বা ডিপ্লোমা ইন নার্সিং সায়েন্স অ্যান্ড মিডওয়াইফারি, এবং বাংলাদেশ নার্সিং ও মিডওয়াইফারি কাউন্সিলে নিবন্ধন।"]},
+  vet_off:{sec:"agri",en:"Veterinary Surgeon / Livestock Officer",bn:"ভেটেরিনারি সার্জন / প্রাণিসম্পদ কর্মকর্তা",rule:"licensed",direct:["vet"],bridge:[],t:"both",pay:"none",where:"pvt",
+    ladder:[["Senior Veterinary Officer","সিনিয়র ভেটেরিনারি অফিসার"],["Farm / Technical Manager","ফার্ম / টেকনিক্যাল ম্যানেজার"]],sk:["clinical","agro"],int:["nature","science","helping"],
+    note:["DVM plus registration with the Bangladesh Veterinary Council.","ডিভিএম এবং বাংলাদেশ ভেটেরিনারি কাউন্সিলে নিবন্ধন।"]},
+  fish_off:{sec:"agri",en:"Aquaculture / Fisheries Executive",bn:"অ্যাকুয়াকালচার / মৎস্য এক্সিকিউটিভ",rule:"relevant",direct:["fisheries"],bridge:["agri","microbio","vet"],t:"priv",pay:"p_agri",where:"pvt",
+    ladder:[["Senior Executive","সিনিয়র এক্সিকিউটিভ"],["Farm / Hatchery Manager","ফার্ম / হ্যাচারি ম্যানেজার"]],sk:["agro","lab"],int:["nature","science"]},
+  freelancer:{sec:"media",en:"Freelancer (design, development, writing, marketing)",bn:"ফ্রিল্যান্সার (ডিজাইন, ডেভেলপমেন্ট, লেখা, মার্কেটিং)",rule:"skills",direct:["cse","design"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Top-rated freelancer","টপ-রেটেড ফ্রিল্যান্সার"],["Own agency","নিজস্ব এজেন্সি"]],sk:["folio","eng","adobe"],int:["creative","tech","writing"],
+    note:["Clients hire on portfolio and reviews, not on degree. Payments from abroad need a bank or mobile account that can receive foreign remittance.","ক্লায়েন্ট ডিগ্রি নয়, পোর্টফোলিও ও রিভিউ দেখে কাজ দেয়। বিদেশ থেকে টাকা আনতে বৈদেশিক রেমিট্যান্স গ্রহণযোগ্য ব্যাংক বা মোবাইল অ্যাকাউন্ট লাগে।"]},
+  cabin:{sec:"def",en:"Cabin Crew",bn:"কেবিন ক্রু",rule:"any",direct:[],bridge:[],after:"hsc",req:[],t:"both",pay:"none",where:"pvt",
+    ladder:[["Senior Cabin Crew","সিনিয়র কেবিন ক্রু"],["Cabin Supervisor / Purser","কেবিন সুপারভাইজার / পার্সার"]],sk:["eng","present"],int:["people","helping"],
+    note:["Airlines usually accept HSC or a degree in any subject, with age, height and fitness rules in each circular.","এয়ারলাইনগুলো সাধারণত যেকোনো বিষয়ে এইচএসসি বা স্নাতক গ্রহণ করে; বয়স, উচ্চতা ও শারীরিক সক্ষমতার শর্ত প্রতিটি বিজ্ঞপ্তিতে থাকে।"]},
+  cpl:{sec:"def",en:"Commercial Pilot (CPL training)",bn:"বাণিজ্যিক পাইলট (সিপিএল প্রশিক্ষণ)",rule:"skills",direct:[],bridge:[],after:"hsc",req:["phy","math"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["First Officer","ফার্স্ট অফিসার"],["Captain","ক্যাপ্টেন"]],sk:["math","eng"],int:["tech","build"],
+    note:["Training happens at a CAAB-approved flying school after HSC with Physics and Maths. It is expensive and needs a Class 1 medical.","এইচএসসিতে পদার্থবিজ্ঞান ও গণিত থাকলে বেবিচক-অনুমোদিত ফ্লাইং স্কুলে প্রশিক্ষণ নেওয়া যায়। খরচ অনেক বেশি এবং ক্লাস ১ মেডিকেল লাগে।"]},
+  army:{sec:"def",en:"Army Officer Cadet (BMA Long Course)",bn:"সেনা অফিসার ক্যাডেট (বিএমএ লং কোর্স)",rule:"any",direct:[],bridge:[],after:"hsc",req:[],grad:0,t:"pub",pay:"none",where:"def",
+    ladder:[["Second Lieutenant","সেকেন্ড লেফটেন্যান্ট"],["Major","মেজর"]],sk:["ga","eng"],int:["lead","rules"],
+    note:["Apply after HSC through the ISSB selection process. Age, height, marital status and GPA limits are set in each circular.","এইচএসসির পর আইএসএসবি বাছাইয়ের মাধ্যমে আবেদন। বয়স, উচ্চতা, বৈবাহিক অবস্থা ও জিপিএর শর্ত প্রতিটি বিজ্ঞপ্তিতে থাকে।"]},
+  navy:{sec:"def",en:"Navy Officer Cadet",bn:"নৌবাহিনী অফিসার ক্যাডেট",rule:"any",direct:[],bridge:[],after:"hsc",req:[],grad:0,t:"pub",pay:"none",where:"def",
+    ladder:[["Sub-Lieutenant","সাব-লেফটেন্যান্ট"],["Commander","কমান্ডার"]],sk:["ga","eng","math"],int:["lead","build"],
+    note:["Apply after HSC through ISSB. Some branches ask for Physics and Maths; read the circular.","এইচএসসির পর আইএসএসবির মাধ্যমে আবেদন। কিছু শাখায় পদার্থবিজ্ঞান ও গণিত লাগে; বিজ্ঞপ্তি দেখে নিন।"]},
+  af_pilot:{sec:"def",en:"Air Force Officer Cadet (GD Pilot)",bn:"বিমানবাহিনী অফিসার ক্যাডেট (জিডি পাইলট)",rule:"any",direct:[],bridge:[],after:"hsc",req:["phy","math"],grad:0,t:"pub",pay:"none",where:"def",
+    ladder:[["Flying Officer","ফ্লাইং অফিসার"],["Squadron Leader","স্কোয়াড্রন লিডার"]],sk:["math","eng"],int:["tech","lead"],
+    note:["Apply after HSC with Physics and Maths through ISSB, with strict medical and eyesight standards.","এইচএসসিতে পদার্থবিজ্ঞান ও গণিত থাকলে আইএসএসবির মাধ্যমে আবেদন; চিকিৎসা ও দৃষ্টিশক্তির কঠোর মান আছে।"]},
+  dentist:{sec:"health",en:"Dental Surgeon",bn:"ডেন্টাল সার্জন",rule:"licensed",direct:["dental"],bridge:[],t:"both",pay:"p_med",where:"pvt",
+    ladder:[["Specialist (MDS / FCPS)","বিশেষজ্ঞ (এমডিএস / এফসিপিএস)"],["Consultant / Own practice","কনসালট্যান্ট / নিজস্ব চেম্বার"]],sk:["clinical"],int:["science","helping"],
+    note:["BDS plus BMDC registration after internship.","বিডিএস এবং ইন্টার্নশিপ শেষে বিএমডিসি নিবন্ধন।"]},
+  physio:{sec:"health",en:"Physiotherapist / Medical Technologist",bn:"ফিজিওথেরাপিস্ট / মেডিকেল টেকনোলজিস্ট",rule:"relevant",direct:["medtech"],bridge:[],dip:1,t:"both",pay:"p_med",where:"pvt",
+    ladder:[["Senior Therapist / Technologist","সিনিয়র থেরাপিস্ট / টেকনোলজিস্ট"],["Department In-charge","বিভাগীয় ইনচার্জ"]],sk:["clinical"],int:["helping","science"]},
+  nutritionist:{sec:"health",en:"Nutritionist / Dietitian",bn:"পুষ্টিবিদ / ডায়েটিশিয়ান",rule:"relevant",direct:["nutrition"],bridge:["microbio","pubhealth"],t:"both",pay:"p_med",where:"pvt",
+    ladder:[["Senior Nutritionist","সিনিয়র পুষ্টিবিদ"],["Nutrition Program Manager","পুষ্টি কর্মসূচি ব্যবস্থাপক"]],sk:["counsel","research"],int:["helping","science"]},
+  ph_officer:{sec:"ngo",en:"Public Health Officer",bn:"জনস্বাস্থ্য কর্মকর্তা",rule:"relevant",direct:["pubhealth","mbbs","nursing"],bridge:["microbio","nutrition","socsci","pharmacy"],t:"both",pay:"none",where:"ngo",
+    ladder:[["Public Health Specialist","জনস্বাস্থ্য বিশেষজ্ঞ"],["Health Program Manager","স্বাস্থ্য কর্মসূচি ব্যবস্থাপক"]],sk:["survey","stats","proposal"],int:["helping","science","numbers"]},
+  planner:{sec:"eng",en:"Urban Planner",bn:"নগর পরিকল্পনাবিদ",rule:"relevant",direct:["planning"],bridge:["civil","arch"],t:"both",pay:"p_constr",where:"pvt",
+    ladder:[["Senior Planner","সিনিয়র পরিকল্পনাবিদ"],["Chief Town Planner","প্রধান নগর পরিকল্পনাবিদ"]],sk:["cad","survey"],int:["build","rules"]},
+  marine:{sec:"def",en:"Marine Engineer / Deck Officer (Merchant Navy)",bn:"মেরিন ইঞ্জিনিয়ার / ডেক অফিসার (মার্চেন্ট নেভি)",rule:"licensed",direct:["maritime"],bridge:["me"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Second Engineer / Chief Officer","সেকেন্ড ইঞ্জিনিয়ার / চিফ অফিসার"],["Chief Engineer / Master (Captain)","চিফ ইঞ্জিনিয়ার / মাস্টার (ক্যাপ্টেন)"]],sk:["maint","eng"],int:["build","tech"],
+    note:["Sea-going posts need a Certificate of Competency from the Department of Shipping after sea service.","সমুদ্রগামী পদে সমুদ্রসেবার পর নৌপরিবহন অধিদপ্তরের সার্টিফিকেট অব কম্পিটেন্সি লাগে।"]},
+  aircraft:{sec:"def",en:"Aircraft Maintenance Engineer",bn:"এয়ারক্রাফট মেইনটেন্যান্স ইঞ্জিনিয়ার",rule:"relevant",direct:["aero"],bridge:["eee","me"],t:"both",pay:"none",where:"pvt",
+    ladder:[["Licensed Engineer (CAAB)","লাইসেন্সপ্রাপ্ত ইঞ্জিনিয়ার (বেবিচক)"],["Chief Engineer","চিফ ইঞ্জিনিয়ার"]],sk:["maint","eng"],int:["build","tech"]},
+  fashion_d:{sec:"rmg",en:"Fashion Designer",bn:"ফ্যাশন ডিজাইনার",rule:"skills",direct:["fashion"],bridge:[],t:"priv",pay:"p_textile",where:"pvt",
+    ladder:[["Senior Designer","সিনিয়র ডিজাইনার"],["Design Head / Own label","ডিজাইন প্রধান / নিজস্ব ব্র্যান্ড"]],sk:["adobe","garment","folio"],int:["creative"]},
+  hotel:{sec:"mkt",en:"Hotel / Tourism Executive",bn:"হোটেল / ট্যুরিজম এক্সিকিউটিভ",rule:"relevant",direct:["tourism"],bridge:["mkt_mgmt","english"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Front Office / Sales Manager","ফ্রন্ট অফিস / সেলস ম্যানেজার"],["General Manager","জেনারেল ম্যানেজার"]],sk:["eng","present","sales"],int:["people","helping"]},
+  artist:{sec:"media",en:"Performing Artist / Arts Instructor",bn:"পারফর্মিং আর্টিস্ট / শিল্পকলা প্রশিক্ষক",rule:"skills",direct:["music"],bridge:[],t:"both",pay:"none",where:"pvt",
+    ladder:[["Senior Artist","সিনিয়র শিল্পী"],["Director / Choreographer","পরিচালক / কোরিওগ্রাফার"]],sk:["folio","teach"],int:["creative","people"]},
+  coach:{sec:"edu",en:"Sports Coach / Physical Education Teacher",bn:"ক্রীড়া প্রশিক্ষক / শারীরিক শিক্ষা শিক্ষক",rule:"relevant",direct:["physed"],bridge:[],t:"both",pay:"p_edu",where:"pvt",
+    ladder:[["Head Coach","প্রধান প্রশিক্ষক"],["Sports Director","ক্রীড়া পরিচালক"]],sk:["teach"],int:["teaching","people"]},
+  frontend:{sec:"it",en:"Frontend / Web Developer",bn:"ফ্রন্টএন্ড / ওয়েব ডেভেলপার",rule:"skills",direct:["cse"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Frontend Engineer", "সিনিয়র ফ্রন্টএন্ড ইঞ্জিনিয়ার"], ["Engineering Manager", "ইঞ্জিনিয়ারিং ম্যানেজার"]],sk:["prog", "git", "adobe"],int:["tech", "creative"]},
+  mobile:{sec:"it",en:"Mobile App Developer (Android / iOS / Flutter)",bn:"মোবাইল অ্যাপ ডেভেলপার (অ্যান্ড্রয়েড / আইওএস / ফ্লাটার)",rule:"skills",direct:["cse"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Mobile Engineer", "সিনিয়র মোবাইল ইঞ্জিনিয়ার"], ["Tech Lead", "টেক লিড"]],sk:["prog", "git", "dsa"],int:["tech"]},
+  uiux:{sec:"it",en:"UI/UX Designer",bn:"ইউআই/ইউএক্স ডিজাইনার",rule:"skills",direct:["design", "cse"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Product Designer", "সিনিয়র প্রোডাক্ট ডিজাইনার"], ["Design Lead", "ডিজাইন লিড"]],sk:["adobe", "folio", "research"],int:["creative", "tech", "people"]},
+  devops:{sec:"it",en:"DevOps / Cloud Engineer",bn:"ডেভঅপস / ক্লাউড ইঞ্জিনিয়ার",rule:"skills",direct:["cse", "eee"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior DevOps Engineer", "সিনিয়র ডেভঅপস ইঞ্জিনিয়ার"], ["Infrastructure Lead", "ইনফ্রাস্ট্রাকচার লিড"]],sk:["net", "prog", "git"],int:["tech", "build"]},
+  security:{sec:"it",en:"Cybersecurity Analyst",bn:"সাইবার সিকিউরিটি অ্যানালিস্ট",rule:"skills",direct:["cse", "eee"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Security Engineer", "সিকিউরিটি ইঞ্জিনিয়ার"], ["Head of Information Security", "তথ্য নিরাপত্তা প্রধান"]],sk:["net", "prog"],int:["tech", "rules"]},
+  datasci:{sec:"it",en:"Data Scientist / ML Engineer",bn:"ডেটা সায়েন্টিস্ট / এমএল ইঞ্জিনিয়ার",rule:"skills",direct:["cse", "physics_math"],bridge:["econ"],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Data Scientist", "সিনিয়র ডেটা সায়েন্টিস্ট"], ["Head of Data", "ডেটা প্রধান"]],sk:["prog", "stats", "sql"],int:["numbers", "tech", "science"]},
+  pm:{sec:"it",en:"Product / Project Manager (Tech)",bn:"প্রোডাক্ট / প্রজেক্ট ম্যানেজার (টেক)",rule:"skills",direct:["cse", "mkt_mgmt"],bridge:[],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Product Manager", "সিনিয়র প্রোডাক্ট ম্যানেজার"], ["Head of Product", "প্রোডাক্ট প্রধান"]],sk:["present", "excel", "research"],int:["lead", "tech", "people"]},
+  rf:{sec:"tel",en:"RF / Network Operations Engineer (Telecom)",bn:"আরএফ / নেটওয়ার্ক অপারেশনস ইঞ্জিনিয়ার (টেলিকম)",rule:"relevant",direct:["eee", "cse"],bridge:["physics_math"],t:"priv",pay:"p_it",where:"pvt",
+    ladder:[["Senior Engineer", "সিনিয়র ইঞ্জিনিয়ার"], ["Network Manager", "নেটওয়ার্ক ম্যানেজার"]],sk:["net", "power"],int:["tech", "build"]},
+  cs:{sec:"tel",en:"Customer Service / Contact Centre Executive",bn:"কাস্টমার সার্ভিস / কন্টাক্ট সেন্টার এক্সিকিউটিভ",rule:"any",direct:[],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Team Leader", "টিম লিডার"], ["Customer Experience Manager", "কাস্টমার এক্সপেরিয়েন্স ম্যানেজার"]],sk:["eng", "present"],int:["people", "helping"]},
+  key:{sec:"tel",en:"Corporate / Key Account Manager",bn:"কর্পোরেট / কি-অ্যাকাউন্ট ম্যানেজার",rule:"any",direct:["mkt_mgmt"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Senior Key Account Manager", "সিনিয়র কি-অ্যাকাউন্ট ম্যানেজার"], ["Head of Enterprise Sales", "এন্টারপ্রাইজ সেলস প্রধান"]],sk:["sales", "present", "excel"],int:["people", "lead", "numbers"]},
+  brand:{sec:"fmcg",en:"Brand Executive / Management Trainee (FMCG)",bn:"ব্র্যান্ড এক্সিকিউটিভ / ম্যানেজমেন্ট ট্রেইনি (এফএমসিজি)",rule:"any",direct:["mkt_mgmt", "econ"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Brand Manager", "ব্র্যান্ড ম্যানেজার"], ["Marketing Director", "মার্কেটিং ডিরেক্টর"]],sk:["present", "excel", "research"],int:["creative", "people", "lead"]},
+  tso:{sec:"fmcg",en:"Territory Sales Officer (FMCG)",bn:"টেরিটরি সেলস অফিসার (এফএমসিজি)",rule:"any",direct:[],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Area Sales Manager", "এরিয়া সেলস ম্যানেজার"], ["Regional Sales Manager", "রিজিওনাল সেলস ম্যানেজার"]],sk:["sales", "excel"],int:["people", "lead"]},
+  research:{sec:"fmcg",en:"Market Research Executive",bn:"মার্কেট রিসার্চ এক্সিকিউটিভ",rule:"relevant",direct:["mkt_mgmt", "econ", "socsci", "physics_math"],bridge:["psych", "mass_comm"],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Research Manager", "রিসার্চ ম্যানেজার"], ["Insights Director", "ইনসাইটস ডিরেক্টর"]],sk:["survey", "stats", "excel"],int:["numbers", "people"]},
+  ecom:{sec:"fmcg",en:"E-commerce / Category Executive",bn:"ই-কমার্স / ক্যাটাগরি এক্সিকিউটিভ",rule:"any",direct:["mkt_mgmt"],bridge:[],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Category Manager", "ক্যাটাগরি ম্যানেজার"], ["Head of E-commerce", "ই-কমার্স প্রধান"]],sk:["excel", "ads", "sql"],int:["numbers", "tech", "people"]},
+  retail:{sec:"fmcg",en:"Retail Store / Outlet Manager",bn:"রিটেইল স্টোর / আউটলেট ম্যানেজার",rule:"any",direct:[],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Area Manager", "এরিয়া ম্যানেজার"], ["Retail Operations Head", "রিটেইল অপারেশনস প্রধান"]],sk:["sales", "excel"],int:["people", "lead"]},
+  scm_ex:{sec:"scm",en:"Supply Chain / Procurement Executive",bn:"সাপ্লাই চেইন / প্রকিউরমেন্ট এক্সিকিউটিভ",rule:"relevant",direct:["mkt_mgmt", "me", "textile"],bridge:["acc_fin", "econ", "eee", "civil"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Supply Chain Manager", "সাপ্লাই চেইন ম্যানেজার"], ["Head of Supply Chain", "সাপ্লাই চেইন প্রধান"]],sk:["excel", "erp", "sales"],int:["numbers", "build", "lead"]},
+  logistics:{sec:"scm",en:"Logistics / Shipping & Freight Executive",bn:"লজিস্টিকস / শিপিং ও ফ্রেইট এক্সিকিউটিভ",rule:"any",direct:["maritime", "mkt_mgmt"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Logistics Manager", "লজিস্টিকস ম্যানেজার"], ["Head of Logistics", "লজিস্টিকস প্রধান"]],sk:["excel", "eng", "erp"],int:["numbers", "people"]},
+  commercial:{sec:"scm",en:"Commercial / Import-Export (L/C) Executive",bn:"কমার্শিয়াল / আমদানি-রপ্তানি (এলসি) এক্সিকিউটিভ",rule:"relevant",direct:["acc_fin", "mkt_mgmt"],bridge:["econ", "textile", "law"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Commercial Manager", "কমার্শিয়াল ম্যানেজার"], ["Head of Commercial", "কমার্শিয়াল প্রধান"]],sk:["bank", "excel", "eng"],int:["numbers", "rules"]},
+  fin_analyst:{sec:"bank",en:"Financial Analyst / Investment Analyst",bn:"ফিন্যান্সিয়াল অ্যানালিস্ট / ইনভেস্টমেন্ট অ্যানালিস্ট",rule:"relevant",direct:["acc_fin", "econ"],bridge:["physics_math", "mkt_mgmt"],t:"priv",pay:"p_fin",where:"pvt",
+    ladder:[["Senior Analyst", "সিনিয়র অ্যানালিস্ট"], ["Finance Manager / CFO", "ফিন্যান্স ম্যানেজার / সিএফও"]],sk:["excel", "acc", "stats"],int:["numbers"]},
+  tax:{sec:"bank",en:"Tax & VAT Consultant / Executive",bn:"কর ও ভ্যাট কনসালট্যান্ট / এক্সিকিউটিভ",rule:"relevant",direct:["acc_fin", "law"],bridge:["econ"],t:"priv",pay:"p_fin",where:"pvt",
+    ladder:[["Tax Manager", "ট্যাক্স ম্যানেজার"], ["Tax Partner / Own practice", "ট্যাক্স পার্টনার / নিজস্ব প্র্যাকটিস"]],sk:["acc", "lawkn", "excel"],int:["numbers", "rules"]},
+  insurance:{sec:"bank",en:"Insurance Executive / Underwriter",bn:"বিমা এক্সিকিউটিভ / আন্ডাররাইটার",rule:"any",direct:["acc_fin", "physics_math"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Senior Underwriter", "সিনিয়র আন্ডাররাইটার"], ["Branch / Department Head", "শাখা / বিভাগীয় প্রধান"]],sk:["excel", "sales"],int:["numbers", "people"]},
+  mfs:{sec:"bank",en:"Digital Finance / MFS Executive",bn:"ডিজিটাল ফিন্যান্স / এমএফএস এক্সিকিউটিভ",rule:"any",direct:["acc_fin", "cse", "mkt_mgmt"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Product / Operations Manager", "প্রোডাক্ট / অপারেশনস ম্যানেজার"], ["Head of Digital Finance", "ডিজিটাল ফিন্যান্স প্রধান"]],sk:["excel", "sql", "present"],int:["numbers", "tech"]},
+  qs:{sec:"eng",en:"Quantity Surveyor / Estimation Engineer",bn:"কোয়ান্টিটি সার্ভেয়ার / এস্টিমেশন ইঞ্জিনিয়ার",rule:"relevant",direct:["civil"],bridge:["arch"],t:"priv",pay:"p_constr",where:"pvt",
+    ladder:[["Senior QS", "সিনিয়র কিউএস"], ["Contracts Manager", "কন্ট্রাক্টস ম্যানেজার"]],sk:["estim", "cad", "excel"],int:["numbers", "build"]},
+  interior:{sec:"eng",en:"Interior Designer",bn:"ইন্টেরিয়র ডিজাইনার",rule:"skills",direct:["arch", "design"],bridge:[],t:"priv",pay:"p_constr",where:"pvt",
+    ladder:[["Senior Interior Designer", "সিনিয়র ইন্টেরিয়র ডিজাইনার"], ["Design Studio Owner", "ডিজাইন স্টুডিওর মালিক"]],sk:["cad", "d3", "folio"],int:["creative", "build"]},
+  hse:{sec:"eng",en:"Health, Safety & Environment (HSE) Officer",bn:"স্বাস্থ্য, নিরাপত্তা ও পরিবেশ (এইচএসই) অফিসার",rule:"relevant",direct:["civil", "me", "chem", "eee"],bridge:["textile", "pubhealth"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["HSE Manager", "এইচএসই ম্যানেজার"], ["Head of HSE", "এইচএসই প্রধান"]],sk:["labour", "proposal"],int:["rules", "helping", "build"]},
+  qa_rmg:{sec:"rmg",en:"Quality Assurance / Quality Controller (Garments)",bn:"কোয়ালিটি অ্যাসিউরেন্স / কোয়ালিটি কন্ট্রোলার (গার্মেন্টস)",rule:"relevant",direct:["textile", "fashion"],bridge:["chem", "me"],t:"priv",pay:"p_textile",where:"pvt",
+    ladder:[["QA Manager", "কিউএ ম্যানেজার"], ["Head of Quality", "কোয়ালিটি প্রধান"]],sk:["garment", "excel"],int:["rules", "build"]},
+  sustain:{sec:"rmg",en:"Sustainability / ESG Executive",bn:"সাসটেইনেবিলিটি / ইএসজি এক্সিকিউটিভ",rule:"relevant",direct:["socsci", "chem", "textile", "civil"],bridge:["econ", "mkt_mgmt", "law"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Sustainability Manager", "সাসটেইনেবিলিটি ম্যানেজার"], ["Head of ESG", "ইএসজি প্রধান"]],sk:["proposal", "labour", "eng"],int:["helping", "rules", "nature"]},
+  regulatory:{sec:"health",en:"Regulatory Affairs Executive (Pharma)",bn:"রেগুলেটরি অ্যাফেয়ার্স এক্সিকিউটিভ (ওষুধ)",rule:"relevant",direct:["pharmacy"],bridge:["chem", "microbio"],t:"priv",pay:"p_pharma",where:"pvt",
+    ladder:[["Regulatory Manager", "রেগুলেটরি ম্যানেজার"], ["Head of Regulatory Affairs", "রেগুলেটরি অ্যাফেয়ার্স প্রধান"]],sk:["gmp", "proposal", "eng"],int:["rules", "science"]},
+  video:{sec:"media",en:"Video Editor / Content Creator",bn:"ভিডিও এডিটর / কনটেন্ট ক্রিয়েটর",rule:"skills",direct:["mass_comm", "design"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Senior Editor / Producer", "সিনিয়র এডিটর / প্রডিউসার"], ["Creative Head / Own channel", "ক্রিয়েটিভ প্রধান / নিজস্ব চ্যানেল"]],sk:["adobe", "folio", "copy"],int:["creative", "tech"]},
+  pr:{sec:"media",en:"PR & Communications Executive",bn:"পিআর ও কমিউনিকেশনস এক্সিকিউটিভ",rule:"relevant",direct:["mass_comm", "english"],bridge:["mkt_mgmt", "socsci"],t:"priv",pay:"p_mkt",where:"pvt",
+    ladder:[["Communications Manager", "কমিউনিকেশনস ম্যানেজার"], ["Head of Corporate Affairs", "কর্পোরেট অ্যাফেয়ার্স প্রধান"]],sk:["copy", "eng", "present"],int:["writing", "people"]},
+  consult:{sec:"ngo",en:"Research / Development Consultant (junior)",bn:"রিসার্চ / ডেভেলপমেন্ট কনসালট্যান্ট (জুনিয়র)",rule:"relevant",direct:["econ", "socsci"],bridge:["physics_math", "pubhealth", "agri"],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Consultant", "কনসালট্যান্ট"], ["Principal Consultant / Own firm", "প্রিন্সিপাল কনসালট্যান্ট / নিজস্ব ফার্ম"]],sk:["research", "stats", "proposal"],int:["numbers", "writing", "helping"]},
+  admin:{sec:"mkt",en:"Admin & Operations Executive",bn:"অ্যাডমিন ও অপারেশনস এক্সিকিউটিভ",rule:"any",direct:[],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Admin Manager", "অ্যাডমিন ম্যানেজার"], ["Head of Operations", "অপারেশনস প্রধান"]],sk:["excel", "eng"],int:["rules", "lead"]},
+  entrepreneur:{sec:"fmcg",en:"Entrepreneur / Startup Founder",bn:"উদ্যোক্তা / স্টার্টআপ প্রতিষ্ঠাতা",rule:"any",direct:[],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Growing business", "ব্যবসা বড় করা"], ["Established company", "প্রতিষ্ঠিত কোম্পানি"]],sk:["sales", "excel", "present"],int:["lead", "creative", "people"]},
+  ground:{sec:"def",en:"Airline Ground Operations / Ticketing Executive",bn:"এয়ারলাইন গ্রাউন্ড অপারেশনস / টিকেটিং এক্সিকিউটিভ",rule:"any",direct:["tourism"],bridge:[],t:"priv",pay:"none",where:"pvt",
+    ladder:[["Duty Manager", "ডিউটি ম্যানেজার"], ["Station Manager", "স্টেশন ম্যানেজার"]],sk:["eng", "present"],int:["people", "helping"]},
+  agri_off:{sec:"agri",en:"Agriculture Officer / Agronomist",bn:"কৃষি কর্মকর্তা / অ্যাগ্রোনমিস্ট",rule:"relevant",direct:["agri"],bridge:["microbio","chem"],t:"both",pay:"p_agri",where:"pvt",
+    ladder:[["Senior Agronomist","সিনিয়র অ্যাগ্রোনমিস্ট"],["Regional Manager","আঞ্চলিক ব্যবস্থাপক"]],sk:["agro","present"],int:["nature","science"]}
+};
+
+/* Interests for the compass */
+const INTERESTS = {
+  numbers:["Numbers & money","সংখ্যা ও টাকাপয়সা"],people:["Talking to people","মানুষের সঙ্গে কথা বলা"],tech:["Computers & tech","কম্পিউটার ও প্রযুক্তি"],
+  build:["Building & machines","নির্মাণ ও যন্ত্রপাতি"],writing:["Writing & language","লেখালেখি ও ভাষা"],science:["Lab & science","ল্যাব ও বিজ্ঞান"],
+  helping:["Helping & social impact","মানুষকে সাহায্য ও সামাজিক কাজ"],rules:["Rules, law & order","নিয়মকানুন, আইন ও শৃঙ্খলা"],creative:["Design & creativity","ডিজাইন ও সৃজনশীলতা"],
+  teaching:["Teaching & explaining","শেখানো ও বোঝানো"],nature:["Nature & farming","প্রকৃতি ও কৃষি"],lead:["Leading & managing","নেতৃত্ব ও ব্যবস্থাপনা"]
+};
+
+/* ---- Pre-university curricula: subjects with tags ---- */
+const SUBJ = {
+  phy:["Physics","পদার্থবিজ্ঞান",["phy"]],chem:["Chemistry","রসায়ন",["chem"]],bio:["Biology","জীববিজ্ঞান",["bio"]],hbio:["Human Biology","হিউম্যান বায়োলজি",["bio"]],
+  hmath:["Higher Mathematics","উচ্চতর গণিত",["math"]],gmath:["Mathematics","গণিত",[]],amath:["Additional Mathematics","অ্যাডিশনাল ম্যাথমেটিক্স",["math"]],
+  math:["Mathematics","ম্যাথমেটিক্স",["math"]],pmath:["Pure Mathematics","পিওর ম্যাথমেটিক্স",["math"]],fmath:["Further Mathematics","ফারদার ম্যাথমেটিক্স",["math"]],stat:["Statistics","পরিসংখ্যান",["math"]],
+  acc:["Accounting","হিসাববিজ্ঞান",["acc"]],fin:["Finance & Banking","ফিন্যান্স ও ব্যাংকিং",["bus"]],ent:["Business Entrepreneurship","ব্যবসায় উদ্যোগ",["bus"]],
+  bom:["Business Organisation & Management","ব্যবসায় সংগঠন ও ব্যবস্থাপনা",["bus"]],fbi:["Finance, Banking & Insurance","ফিন্যান্স, ব্যাংকিং ও বিমা",["bus"]],pmm:["Production Management & Marketing","উৎপাদন ব্যবস্থাপনা ও বিপণন",["bus"]],
+  bus:["Business Studies","বিজনেস স্টাডিজ",["bus"]],com:["Commerce","কমার্স",["bus"]],econ:["Economics","অর্থনীতি",["econ"]],
+  hist:["History","ইতিহাস",["soc"]],geo:["Geography","ভূগোল",["soc"]],civ:["Civics","পৌরনীতি",["soc"]],logic:["Logic","যুক্তিবিদ্যা",["soc"]],soc:["Sociology","সমাজবিজ্ঞান",["soc"]],sw:["Social Work","সমাজকর্ম",["soc"]],
+  psych:["Psychology","মনোবিজ্ঞান",["psych"]],ihc:["Islamic History & Culture","ইসলামের ইতিহাস ও সংস্কৃতি",["isl","soc"]],isl:["Islamic Studies","ইসলাম শিক্ষা",["isl"]],
+  agri:["Agriculture Studies","কৃষিশিক্ষা",["agri"]],home:["Home Science","গার্হস্থ্য বিজ্ঞান",[]],art:["Art & Design","আর্ট অ্যান্ড ডিজাইন",["art"]],artc:["Arts & Crafts","চারু ও কারুকলা",["art"]],
+  englang:["English Language","ইংলিশ ল্যাঙ্গুয়েজ",["eng"]],englit:["English Literature","ইংলিশ লিটারেচার",["eng","lit"]],bdst:["Bangladesh Studies","বাংলাদেশ স্টাডিজ",["soc"]],
+  cs:["Computer Science","কম্পিউটার সায়েন্স",["cs"]],ict:["ICT","তথ্য ও যোগাযোগ প্রযুক্তি",["cs"]],law:["Law","ল",["law"]],
+  quran:["Qur'an & Tajwid","কুরআন মাজিদ ও তাজবিদ",["isl"]],hadith:["Hadith","হাদিস শরিফ",["isl"]],fiqh:["Fiqh","ফিকহ",["isl"]],arabic:["Arabic","আরবি",["isl"]],
+  v_comp:["Computer & IT trade","কম্পিউটার ও আইটি ট্রেড",["cs","t_cse"]],v_elec:["Electrical trade","ইলেকট্রিক্যাল ট্রেড",["t_eee"]],v_civil:["Civil construction trade","সিভিল কনস্ট্রাকশন ট্রেড",["t_civil"]],
+  v_mech:["Machine tools / Automotive trade","মেশিন টুলস / অটোমোটিভ ট্রেড",["t_me"]],v_text:["Dyeing, knitting & garments trade","ডাইং, নিটিং ও গার্মেন্টস ট্রেড",["t_textile"]],v_agri:["Agro-based trade","কৃষিভিত্তিক ট্রেড",["agri"]]
+};
+/* groups per curriculum; first list preselected */
+const NAT_SSC = {science:["phy","chem","bio","hmath"],business:["acc","fin","ent"],humanities:["hist","geo","civ","econ"],_opt:["agri","home","ict","artc"]};
+const NAT_HSC = {science:["phy","chem","bio","hmath"],business:["acc","bom","fbi","pmm"],humanities:["econ","civ","hist","logic"],_opt:["stat","psych","soc","sw","geo","ihc","isl","agri","home","artc","econ","ict"]};
+const MAD = {science:["phy","chem","bio","hmath"],madrasa_gen:["quran","hadith","fiqh","arabic"],_opt:["hist","civ","econ","geo","ict","agri","home"]};
+const VOC = {vocational:["v_comp"],_opt:["v_elec","v_civil","v_mech","v_text","v_agri","ict"]};
+const VOCH = {vocational:["v_comp"],bm:["acc","bom","econ"],_opt:["v_elec","v_civil","v_mech","v_text","v_agri","fbi","ict"]};
+const OLEV = {science:["phy","chem","bio","amath"],business:["acc","bus","com","econ"],humanities:["englit","soc","bdst","art"],_opt:["gmath","englang","cs","psych","hist","geo"]};
+const ALEV = {science:["phy","chem","math","bio"],business:["acc","bus","econ","math"],humanities:["englit","psych","soc","law"],_opt:["hbio","pmath","fmath","englang","art","cs","hist"]};
+const GROUPNAME = {science:["Science","বিজ্ঞান"],business:["Business Studies","ব্যবসায় শিক্ষা"],humanities:["Humanities / Arts","মানবিক / কলা"],madrasa_gen:["General (Islamic studies)","সাধারণ (ইসলামি শিক্ষা)"],vocational:["Vocational (trade)","ভোকেশনাল (ট্রেড)"],bm:["Business Management (BM)","বিজনেস ম্যানেজমেন্ট (বিএম)"]};
+
+/* Levels */
+const HONS_SUBJ = ["acc_fin","mkt_mgmt","econ","english","socsci","mass_comm","design","psych","physics_math","chem","microbio","cse","islamic","agri"];
+const ENG_SUBJ = ["cse","eee","civil","me","textile","maritime","aero"];
+/* Degree catalogue. grp: dip | pass | hons | prof | mast | res */
+const DEG = [
+  ["dip_eng","dip","diploma","Diploma in Engineering","ডিপ্লোমা ইন ইঞ্জিনিয়ারিং",["cse","eee","civil","me","textile","arch","maritime"]],
+  ["dip_agri","dip","diploma","Diploma in Agriculture / Fisheries / Livestock","ডিপ্লোমা ইন এগ্রিকালচার / ফিশারিজ / লাইভস্টক",["agri","fisheries","vet"]],
+  ["dip_nurse","dip","diploma","Diploma in Nursing Science & Midwifery","ডিপ্লোমা ইন নার্সিং সায়েন্স অ্যান্ড মিডওয়াইফারি",["nursing"]],
+  ["dip_med","dip","diploma","Diploma in Medical Technology / Physiotherapy (DMT)","ডিপ্লোমা ইন মেডিকেল টেকনোলজি / ফিজিওথেরাপি (ডিএমটি)",["medtech"]],
+  ["ba_pass","pass","pass","Bachelor of Arts \u2013 Pass (BA Pass)","ব্যাচেলর অব আর্টস – পাস (বিএ পাস)",["english","socsci","islamic","econ","music"]],
+  ["bss_pass","pass","pass","Bachelor of Social Science \u2013 Pass (BSS Pass)","ব্যাচেলর অব সোশ্যাল সায়েন্স – পাস (বিএসএস পাস)",["socsci","econ"]],
+  ["bbs_pass","pass","pass","Bachelor of Business Studies \u2013 Pass (BBS Pass)","ব্যাচেলর অব বিজনেস স্টাডিজ – পাস (বিবিএস পাস)",["acc_fin","mkt_mgmt"]],
+  ["bsc_pass","pass","pass","Bachelor of Science \u2013 Pass (BSc Pass)","ব্যাচেলর অব সায়েন্স – পাস (বিএসসি পাস)",["physics_math","chem","microbio"]],
+  ["fazil_pass","pass","pass","Fazil \u2013 Pass (madrasa degree)","ফাজিল – পাস (মাদ্রাসা স্নাতক)",["islamic"]],
+  ["ba","hons","hons","Bachelor of Arts \u2013 Honours (BA Hons)","ব্যাচেলর অব আর্টস – অনার্স (বিএ অনার্স)",["english","islamic","socsci","mass_comm","music","design","physed"]],
+  ["bss","hons","hons","Bachelor of Social Science \u2013 Honours (BSS Hons)","ব্যাচেলর অব সোশ্যাল সায়েন্স – অনার্স (বিএসএস অনার্স)",["socsci","econ","mass_comm","psych"]],
+  ["bba","hons","hons","Bachelor of Business Administration (BBA)","ব্যাচেলর অব বিজনেস অ্যাডমিনিস্ট্রেশন (বিবিএ)",["acc_fin","mkt_mgmt","tourism"]],
+  ["bbs","hons","hons","Bachelor of Business Studies \u2013 Honours (BBS Hons)","ব্যাচেলর অব বিজনেস স্টাডিজ – অনার্স (বিবিএস অনার্স)",["acc_fin","mkt_mgmt"]],
+  ["bsc","hons","hons","Bachelor of Science \u2013 Honours (BSc Hons / BS)","ব্যাচেলর অব সায়েন্স – অনার্স (বিএসসি অনার্স / বিএস)",["physics_math","chem","microbio","psych","econ","cse","nutrition","pubhealth"]],
+  ["bfa","hons","hons","Bachelor of Fine Arts (BFA)","ব্যাচেলর অব ফাইন আর্টস (বিএফএ)",["design","music"]],
+  ["llb","hons","hons","Bachelor of Laws \u2013 Honours (LLB Hons)","ব্যাচেলর অব লজ – অনার্স (এলএলবি অনার্স)",["law"]],
+  ["bed","hons","hons","Bachelor of Education (BEd)","ব্যাচেলর অব এডুকেশন (বিএড)",["educ"]],
+  ["bped","hons","hons","Bachelor of Physical Education (BPEd)","ব্যাচেলর অব ফিজিক্যাল এডুকেশন (বিপিএড)",["physed"]],
+  ["fazil_hons","hons","hons","Fazil \u2013 Honours (madrasa degree)","ফাজিল – অনার্স (মাদ্রাসা স্নাতক)",["islamic"]],
+  ["bsce","prof","hons","Bachelor of Science in Engineering (BSc Engg: CSE, EEE, Civil, ME\u2026)","ব্যাচেলর অব সায়েন্স ইন ইঞ্জিনিয়ারিং (বিএসসি ইঞ্জি: সিএসই, ইইই, সিভিল, এমই…)",ENG_SUBJ],
+  ["barch","prof","hons","Bachelor of Architecture (B.Arch)","ব্যাচেলর অব আর্কিটেকচার (বি.আর্ক)",["arch"]],
+  ["burp","prof","hons","Bachelor of Urban & Regional Planning (BURP)","ব্যাচেলর অব আরবান অ্যান্ড রিজিওনাল প্ল্যানিং (বিইউআরপি)",["planning"]],
+  ["mbbs","prof","hons","Bachelor of Medicine & Bachelor of Surgery (MBBS)","ব্যাচেলর অব মেডিসিন অ্যান্ড ব্যাচেলর অব সার্জারি (এমবিবিএস)",["mbbs"]],
+  ["bds","prof","hons","Bachelor of Dental Surgery (BDS)","ব্যাচেলর অব ডেন্টাল সার্জারি (বিডিএস)",["dental"]],
+  ["bpharm","prof","hons","Bachelor of Pharmacy \u2013 Honours (B.Pharm)","ব্যাচেলর অব ফার্মেসি – অনার্স (বি.ফার্ম)",["pharmacy"]],
+  ["bscn","prof","hons","Bachelor of Science in Nursing (BSc Nursing)","ব্যাচেলর অব সায়েন্স ইন নার্সিং (বিএসসি নার্সিং)",["nursing"]],
+  ["bpt","prof","hons","Bachelor of Science in Physiotherapy / Medical Technology (BPT / BSc MT)","ব্যাচেলর অব সায়েন্স ইন ফিজিওথেরাপি / মেডিকেল টেকনোলজি (বিপিটি / বিএসসি এমটি)",["medtech"]],
+  ["bph","prof","hons","Bachelor of Science in Public Health (BSc PH)","ব্যাচেলর অব সায়েন্স ইন পাবলিক হেলথ (বিএসসি পিএইচ)",["pubhealth"]],
+  ["bscag","prof","hons","Bachelor of Science in Agriculture \u2013 Honours (BSc Ag)","ব্যাচেলর অব সায়েন্স ইন এগ্রিকালচার – অনার্স (বিএসসি এজি)",["agri"]],
+  ["dvm","prof","hons","Doctor of Veterinary Medicine (DVM)","ডক্টর অব ভেটেরিনারি মেডিসিন (ডিভিএম)",["vet"]],
+  ["bscfish","prof","hons","Bachelor of Science in Fisheries \u2013 Honours (BSc Fisheries)","ব্যাচেলর অব সায়েন্স ইন ফিশারিজ – অনার্স (বিএসসি ফিশারিজ)",["fisheries"]],
+  ["bsctex","prof","hons","Bachelor of Science in Textile Engineering (BSc TE)","ব্যাচেলর অব সায়েন্স ইন টেক্সটাইল ইঞ্জিনিয়ারিং (বিএসসি টিই)",["textile"]],
+  ["bscfd","prof","hons","Bachelor of Science in Fashion Design & Technology (BSc FDT)","ব্যাচেলর অব সায়েন্স ইন ফ্যাশন ডিজাইন অ্যান্ড টেকনোলজি (বিএসসি এফডিটি)",["fashion"]],
+  ["bmar","prof","hons","Bachelor of Science in Naval Architecture / Marine / Nautical Science (BSc)","ব্যাচেলর অব সায়েন্স ইন নেভাল আর্কিটেকচার / মেরিন / নটিক্যাল সায়েন্স (বিএসসি)",["maritime"]],
+  ["baero","prof","hons","Bachelor of Science in Aeronautical / Aerospace Engineering (BSc AE)","ব্যাচেলর অব সায়েন্স ইন অ্যারোনটিক্যাল / অ্যারোস্পেস ইঞ্জিনিয়ারিং (বিএসসি এই)",["aero"]],
+  ["ma","mast","masters","Master of Arts (MA)","মাস্টার অব আর্টস (এমএ)",["english","islamic","socsci","mass_comm","music","design"]],
+  ["mss","mast","masters","Master of Social Science (MSS)","মাস্টার অব সোশ্যাল সায়েন্স (এমএসএস)",["socsci","econ","mass_comm","psych"]],
+  ["mba","mast","masters","Master of Business Administration (MBA)","মাস্টার অব বিজনেস অ্যাডমিনিস্ট্রেশন (এমবিএ)",["acc_fin","mkt_mgmt","tourism"]],
+  ["emba","mast","masters","Executive / Evening Master of Business Administration (EMBA)","এক্সিকিউটিভ / ইভিনিং মাস্টার অব বিজনেস অ্যাডমিনিস্ট্রেশন (ইএমবিএ)",["acc_fin","mkt_mgmt"]],
+  ["mbs","mast","masters","Master of Business Studies (MBS)","মাস্টার অব বিজনেস স্টাডিজ (এমবিএস)",["acc_fin","mkt_mgmt"]],
+  ["msc","mast","masters","Master of Science (MSc / MS)","মাস্টার অব সায়েন্স (এমএসসি / এমএস)",["physics_math","chem","microbio","psych","cse","agri","fisheries","vet","nutrition","pubhealth"]],
+  ["msce","mast","masters","Master of Science in Engineering / Master of Engineering (MSc Engg / MEngg)","মাস্টার অব সায়েন্স ইন ইঞ্জিনিয়ারিং / মাস্টার অব ইঞ্জিনিয়ারিং (এমএসসি ইঞ্জি / এমইঞ্জি)",ENG_SUBJ],
+  ["march","mast","masters","Master of Architecture / Master of Urban & Regional Planning (M.Arch / MURP)","মাস্টার অব আর্কিটেকচার / মাস্টার অব আরবান অ্যান্ড রিজিওনাল প্ল্যানিং (এম.আর্ক / এমইউআরপি)",["arch","planning"]],
+  ["mph","mast","masters","Master of Public Health (MPH)","মাস্টার অব পাবলিক হেলথ (এমপিএইচ)",["pubhealth","mbbs","nursing"]],
+  ["medpg","mast","masters","Doctor of Medicine / Master of Surgery / Master of Dental Surgery / Fellowship (MD / MS / MDS / FCPS)","ডক্টর অব মেডিসিন / মাস্টার অব সার্জারি / মাস্টার অব ডেন্টাল সার্জারি / ফেলোশিপ (এমডি / এমএস / এমডিএস / এফসিপিএস)",["mbbs","dental"]],
+  ["mpharm","mast","masters","Master of Pharmacy (M.Pharm)","মাস্টার অব ফার্মেসি (এম.ফার্ম)",["pharmacy"]],
+  ["llm","mast","masters","Master of Laws (LLM)","মাস্টার অব লজ (এলএলএম)",["law"]],
+  ["mfa","mast","masters","Master of Fine Arts (MFA)","মাস্টার অব ফাইন আর্টস (এমএফএ)",["design","music"]],
+  ["med","mast","masters","Master of Education (MEd)","মাস্টার অব এডুকেশন (এমএড)",["educ"]],
+  ["kamil","mast","masters","Kamil (madrasa master's degree)","কামিল (মাদ্রাসা স্নাতকোত্তর)",["islamic"]],
+  ["mphil","res","masters","Master of Philosophy (MPhil)","মাস্টার অব ফিলোসফি (এমফিল)",null],
+  ["phd","res","masters","Doctor of Philosophy (PhD)","ডক্টর অব ফিলোসফি (পিএইচডি)",null]
+];
+const LEVELS = [
+  {id:"ssc",cat:"sec",stage:"ssc",cur:NAT_SSC,en:"SSC (General, national curriculum)",bn:"এসএসসি (সাধারণ, জাতীয় শিক্ষাক্রম)",next:["HSC","এইচএসসি"]},
+  {id:"dakhil",cat:"sec",stage:"ssc",cur:MAD,en:"Dakhil (Alia madrasa)",bn:"দাখিল (আলিয়া মাদ্রাসা)",next:["Alim","আলিম"]},
+  {id:"ssc_voc",cat:"sec",stage:"ssc",cur:VOC,en:"SSC (Vocational)",bn:"এসএসসি (ভোকেশনাল)",next:["HSC (Vocational)","এইচএসসি (ভোকেশনাল)"]},
+  {id:"olevel",cat:"sec",stage:"ssc",cur:OLEV,en:"O Level / IGCSE (English medium)",bn:"ও লেভেল / আইজিসিএসই (ইংলিশ মিডিয়াম)",next:["A Level","এ লেভেল"]},
+  {id:"hsc",cat:"hs",stage:"hsc",cur:NAT_HSC,en:"HSC (General, national curriculum)",bn:"এইচএসসি (সাধারণ, জাতীয় শিক্ষাক্রম)"},
+  {id:"alim",cat:"hs",stage:"hsc",cur:MAD,en:"Alim (Alia madrasa)",bn:"আলিম (আলিয়া মাদ্রাসা)"},
+  {id:"hsc_voc",cat:"hs",stage:"hsc",cur:VOCH,en:"HSC (Vocational / Business Management)",bn:"এইচএসসি (ভোকেশনাল / বিজনেস ম্যানেজমেন্ট)"},
+  {id:"alevel",cat:"hs",stage:"hsc",cur:ALEV,en:"A Level / IAL (English medium)",bn:"এ লেভেল / আইএএল (ইংলিশ মিডিয়াম)"},
+];
+DEG.forEach(([id,grp,mode,en,bn,subj])=>LEVELS.push({id,cat:"deg",grp,mode,en,bn,subj:subj||ALLD}));
+const DGRPN = {dip:["Diploma (polytechnic / institute)","ডিপ্লোমা (পলিটেকনিক / ইনস্টিটিউট)"],pass:["Bachelor's Pass (3-year)","স্নাতক পাস (৩ বছর)"],hons:["Bachelor's Honours (4-year)","স্নাতক অনার্স (৪ বছর)"],prof:["Professional bachelor's","পেশাগত স্নাতক"],mast:["Master's & postgraduate","স্নাতকোত্তর"],res:["Research degrees","গবেষণা ডিগ্রি"]};
+const LCAT = {sec:["Secondary (Class 10)","মাধ্যমিক (দশম শ্রেণি)"],hs:["Higher secondary (Class 12)","উচ্চমাধ্যমিক (দ্বাদশ শ্রেণি)"],deg:["Diploma, university & professional","ডিপ্লোমা, বিশ্ববিদ্যালয় ও পেশাগত"]};
+
+/* ---- Career quiz: each option adds interest points (i) and/or preferences (p) ---- */
+const QUIZ = [
+  {q:["A free afternoon. What do you end up doing?","হঠাৎ একটা ফাঁকা বিকেল। শেষমেশ কী করেন?"],o:[
+    [["Fixing a gadget or building something","কোনো যন্ত্র সারাই বা কিছু বানানো"],{build:2,tech:1}],
+    [["Reading, writing or making content","পড়া, লেখা বা কনটেন্ট বানানো"],{writing:2,creative:1}],
+    [["Organising something with friends","বন্ধুদের নিয়ে কিছু আয়োজন করা"],{people:2,lead:1}],
+    [["Volunteering or helping someone","স্বেচ্ছাসেবা বা কাউকে সাহায্য করা"],{helping:2}]]},
+  {q:["Which class did you actually enjoy?","কোন ক্লাসটা আসলে ভালো লাগত?"],o:[
+    [["Maths or Accounting","গণিত বা হিসাববিজ্ঞান"],{numbers:2}],
+    [["Science: Biology, Chemistry, Physics","বিজ্ঞান: জীববিজ্ঞান, রসায়ন, পদার্থবিজ্ঞান"],{science:2}],
+    [["Language, History or Social Science","ভাষা, ইতিহাস বা সমাজবিজ্ঞান"],{writing:1,rules:1,people:1}],
+    [["Art, Design or ICT","আর্ট, ডিজাইন বা আইসিটি"],{creative:2,tech:1}]]},
+  {q:["Friends usually come to you for…","বন্ধুরা সাধারণত আপনার কাছে আসে…"],o:[
+    [["Help understanding a topic","কোনো বিষয় বুঝে নিতে"],{teaching:2}],
+    [["Settling an argument fairly","ঝগড়া ন্যায্যভাবে মেটাতে"],{rules:2,lead:1}],
+    [["Phone, laptop or app trouble","ফোন, ল্যাপটপ বা অ্যাপের সমস্যায়"],{tech:2}],
+    [["Advice when life gets hard","জীবনের কঠিন সময়ে পরামর্শ নিতে"],{helping:2,people:1}]]},
+  {q:["Where would you rather work every day?","প্রতিদিন কোথায় কাজ করতে চান?"],o:[
+    [["A government office with fixed hours","নির্দিষ্ট সময়ের সরকারি অফিস"],{},{pub:2}],
+    [["A fast-growing private company","দ্রুত বাড়তে থাকা বেসরকারি প্রতিষ্ঠান"],{lead:1},{priv:2}],
+    [["Outdoors, in the field or with communities","মাঠপর্যায়ে, বাইরে বা মানুষের মাঝে"],{nature:1,helping:1}],
+    [["My own desk, studio or remote","নিজের ডেস্ক, স্টুডিও বা ঘরে বসে"],{creative:1,tech:1},{priv:1}]]},
+  {q:["What matters most in your first job?","প্রথম চাকরিতে আপনার কাছে সবচেয়ে জরুরি কী?"],o:[
+    [["Security and respect","নিরাপত্তা ও সম্মান"],{rules:1},{pub:2}],
+    [["Fast income growth","দ্রুত আয় বাড়া"],{numbers:1,lead:1},{priv:1}],
+    [["Doing good for society","সমাজের জন্য ভালো কিছু করা"],{helping:2}],
+    [["Freedom to create","নিজের মতো সৃষ্টি করার স্বাধীনতা"],{creative:2}]]},
+  {q:["Faced with a hard problem, you…","কঠিন সমস্যায় পড়লে আপনি…"],o:[
+    [["Open a spreadsheet and look at the data","স্প্রেডশিট খুলে ডেটা দেখেন"],{numbers:2,tech:1}],
+    [["Test things hands-on until it works","হাতে-কলমে চেষ্টা করেন, যতক্ষণ না হয়"],{build:1,science:2}],
+    [["Talk it through with people","মানুষের সঙ্গে আলোচনা করেন"],{people:2}],
+    [["Write a plan and follow it","পরিকল্পনা লিখে সেই মতো এগোন"],{writing:1,lead:1,rules:1}]]},
+  {q:["Animals, crops, rivers and the outdoors?","প্রাণী, ফসল, নদী, প্রকৃতি?"],o:[
+    [["I love it","খুব ভালো লাগে"],{nature:3}],
+    [["It's fine","মন্দ না"],{nature:1}],
+    [["Not for me","আমার জন্য না"],{}]]},
+  {q:["More study or licensing exams after your degree?","ডিগ্রির পর আরও পড়াশোনা বা লাইসেন্স পরীক্ষা?"],o:[
+    [["Yes, if the career is worth it","হ্যাঁ, ক্যারিয়ার ভালো হলে"],{science:1},{study:1}],
+    [["Maybe a short course","হয়তো ছোট কোনো কোর্স"],{}],
+    [["No, I want to start working soon","না, তাড়াতাড়ি কাজ শুরু করতে চাই"],{},{nostudy:1}]]}
+];
+
+
+/* ---- UGC universities ---- */
+/* typical degrees by university type (not a verified per-university programme list) */
+const UTYPE = {
+  gen:{en:"General university",bn:"সাধারণ বিশ্ববিদ্যালয়",d:["ba", "bss", "bba", "bsc", "bfa", "llb", "bpharm", "bsce", "ma", "mss", "mba", "emba", "msc", "llm", "mfa", "mphil", "phd"]},
+  stem:{en:"Science & technology university",bn:"বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",d:["bsc", "bsce", "bba", "bss", "ba", "bpharm", "ma", "mss", "mba", "msc", "msce", "mphil", "phd"]},
+  eng:{en:"Engineering university",bn:"প্রকৌশল বিশ্ববিদ্যালয়",d:["bsce", "barch", "burp", "msce", "march", "mphil", "phd"]},
+  agri:{en:"Agricultural university",bn:"কৃষি বিশ্ববিদ্যালয়",d:["bscag", "dvm", "bscfish", "bsc", "msc", "mba", "mphil", "phd"]},
+  med:{en:"Medical university (with affiliated colleges)",bn:"মেডিকেল বিশ্ববিদ্যালয় (অধিভুক্ত কলেজসহ)",d:["mbbs", "bds", "bscn", "bpt", "bph", "mph", "medpg", "mphil", "phd"]},
+  vet:{en:"Veterinary & animal sciences university",bn:"ভেটেরিনারি ও প্রাণিবিজ্ঞান বিশ্ববিদ্যালয়",d:["dvm", "bscfish", "bsc", "msc", "mphil", "phd"]},
+  tex:{en:"Textile university",bn:"টেক্সটাইল বিশ্ববিদ্যালয়",d:["bsctex", "msce", "mba"]},
+  mar:{en:"Maritime university",bn:"মেরিটাইম বিশ্ববিদ্যালয়",d:["bmar", "bsce", "bba", "msce", "msc", "mba"]},
+  ict:{en:"Frontier technology (ICT) university",bn:"ফ্রন্টিয়ার টেকনোলজি (আইসিটি) বিশ্ববিদ্যালয়",d:["bsce", "msce"]},
+  aero:{en:"Aviation & aerospace university",bn:"এভিয়েশন ও অ্যারোস্পেস বিশ্ববিদ্যালয়",d:["baero", "bsce", "bba", "msce", "mba"]},
+  nu:{en:"Affiliating university (colleges nationwide)",bn:"অধিভুক্তকারী বিশ্ববিদ্যালয় (সারা দেশের কলেজ)",d:["ba_pass", "bss_pass", "bbs_pass", "bsc_pass", "ba", "bss", "bbs", "bsc", "bba", "bed", "bped", "llb", "ma", "mss", "mbs", "msc", "med", "mphil", "phd"]},
+  open:{en:"Open (distance) university",bn:"উন্মুক্ত (দূরশিক্ষণ) বিশ্ববিদ্যালয়",d:["ba", "bss", "bba", "bsc", "bed", "ma", "mss", "mba", "med", "mphil", "phd"]},
+  isl:{en:"Islamic Arabic university (madrasa degrees)",bn:"ইসলামি আরবি বিশ্ববিদ্যালয় (মাদ্রাসা ডিগ্রি)",d:["fazil_pass", "fazil_hons", "kamil", "mphil", "phd"]},
+  pvt:{en:"Private university",bn:"বেসরকারি বিশ্ববিদ্যালয়",d:["bba", "ba", "bss", "bsc", "bsce", "llb", "bpharm", "mba", "emba", "ma", "llm", "msc", "mph"]},
+  pvt_tech:{en:"Private science & technology university",bn:"বেসরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",d:["bsce", "barch", "bsc", "bba", "ba", "llb", "bpharm", "msce", "msc", "mba", "ma"]},
+  pvt_health:{en:"Private health sciences university",bn:"বেসরকারি স্বাস্থ্যবিজ্ঞান বিশ্ববিদ্যালয়",d:["bpharm", "bscn", "bph", "bpt", "bsc", "mph", "mpharm"]},
+  pvt_creative:{en:"Private creative arts university",bn:"বেসরকারি সৃজনশীল শিল্পকলা বিশ্ববিদ্যালয়",d:["bfa", "ba", "bscfd", "bba", "bsce", "mfa", "mba", "ma"]},
+  pvt_fashion:{en:"Private fashion & apparel university",bn:"বেসরকারি ফ্যাশন ও অ্যাপারেল বিশ্ববিদ্যালয়",d:["bscfd", "bsctex", "bba", "mba"]},
+  pvt_agri:{en:"Private agricultural university",bn:"বেসরকারি কৃষি বিশ্ববিদ্যালয়",d:["bscag", "bscfish", "dvm", "bba", "msc"]},
+  intl_eng:{en:"International university (engineering)",bn:"আন্তর্জাতিক বিশ্ববিদ্যালয় (প্রকৌশল)",d:["bsce", "bba", "msce", "mba", "phd"]},
+  intl_lib:{en:"International university (liberal arts)",bn:"আন্তর্জাতিক বিশ্ববিদ্যালয় (লিবারেল আর্টস)",d:["ba", "bsc", "ma"]}
+};
+/* Public: official UGC list (ugc-universities.gov.bd), 61 universities */
+const UNI_PUB = [
+ ["University of Dhaka","gen"],["University of Rajshahi","gen"],["Bangladesh Agricultural University","agri"],["Bangladesh University of Engineering & Technology (BUET)","eng"],
+ ["University of Chittagong","gen"],["Jahangirnagar University","gen"],["Islamic University, Bangladesh","gen"],["Shahjalal University of Science & Technology","stem"],
+ ["Khulna University","gen"],["National University","nu"],["Bangladesh Open University","open"],["Bangladesh Medical University","med"],
+ ["Gazipur Agricultural University","agri"],["Hajee Mohammad Danesh Science & Technology University","stem"],["Mawlana Bhashani Science & Technology University","stem"],["Patuakhali Science and Technology University","stem"],
+ ["Sher-e-Bangla Agricultural University","agri"],["Chittagong University of Engineering & Technology (CUET)","eng"],["Rajshahi University of Engineering & Technology (RUET)","eng"],["Khulna University of Engineering & Technology (KUET)","eng"],
+ ["Dhaka University of Engineering & Technology (DUET)","eng"],["Noakhali Science & Technology University","stem"],["Jagannath University","gen"],["Comilla University","gen"],
+ ["Jatiya Kabi Kazi Nazrul Islam University","gen"],["Chittagong Veterinary and Animal Sciences University","vet"],["Sylhet Agricultural University","agri"],["Jessore University of Science & Technology","stem"],
+ ["Pabna University of Science and Technology","stem"],["Begum Rokeya University, Rangpur","gen"],["Bangladesh University of Professionals","gen"],["Gopalganj Science & Technology University","stem"],
+ ["Bangladesh University of Textiles (BUTEX)","tex"],["University of Barishal","gen"],["Rangamati Science and Technology University","stem"],["Bangladesh Maritime University","mar"],
+ ["Islamic Arabic University","isl"],["Chittagong Medical University","med"],["Rajshahi Medical University","med"],["Rabindra University, Bangladesh","gen"],
+ ["University of Frontier Technology, Bangladesh","ict"],["Netrokona University","gen"],["Khulna Agricultural University","agri"],["Jamalpur Science and Technology University","stem"],
+ ["Sylhet Medical University","med"],["Aviation and Aerospace University, Bangladesh","aero"],["Chandpur Science and Technology University","stem"],["Kishoreganj University","gen"],
+ ["Habiganj Agricultural University","agri"],["Khulna Medical University","med"],["Kurigram Agricultural University","agri"],["Sunamganj Science and Technology University","stem"],
+ ["Pirojpur Science & Technology University","stem"],["Naogaon University","gen"],["Meherpur University","gen"],["University of Bogura","gen"],
+ ["Dhaka Central University","gen"],["Thakurgaon University","gen"],["Lakshmipur Science & Technology University","stem"],["Narayanganj Science and Technology University","stem"],
+ ["Shariatpur Agricultural University","agri"]
+];
+/* Private: official UGC list (ugc-universities.gov.bd/private-universities), 117 universities */
+const UNI_PVT_NAMES = ["North South University", "University of Science & Technology Chittagong", "Independent University, Bangladesh", "Central Women's University", "International University of Business Agriculture & Technology", "International Islamic University Chittagong", "Ahsanullah University of Science and Technology", "American International University-Bangladesh", "East West University", "University of Asia Pacific", "Gono Bishwabidyalay", "The People's University of Bangladesh", "Asian University of Bangladesh", "Dhaka International University", "Manarat International University", "BRAC University", "Bangladesh University", "Leading University", "BGC Trust University Bangladesh", "Sylhet International University", "University of Development Alternative", "Premier University", "Southeast University", "Daffodil International University", "Stamford University Bangladesh", "State University of Bangladesh (SUB)", "City University", "Prime University", "Northern University Bangladesh", "Southern University Bangladesh", "Green University of Bangladesh", "Pundra University of Science & Technology", "World University of Bangladesh", "Shanto-Mariam University of Creative Technology", "The Millennium University", "Eastern University", "Metropolitan University", "Uttara University", "United International University", "University of South Asia", "Victoria University of Bangladesh", "Bangladesh University of Business & Technology (BUBT)", "Presidency University", "University of Information Technology & Sciences", "Primeasia University", "Royal University of Dhaka", "University of Liberal Arts Bangladesh", "Atish Dipankar University of Science & Technology", "Bangladesh Islami University", "ASA University Bangladesh", "East Delta University", "European University of Bangladesh", "Varendra University", "Hamdard University Bangladesh", "BGMEA University of Fashion & Technology (BUFT)", "North East University Bangladesh", "First Capital University of Bangladesh", "Ishakha International University, Bangladesh", "Z.H Sikder University of Science & Technology", "Exim Bank Agricultural University, Bangladesh", "North Western University", "Khwaja Yunus Ali University", "Sonargaon University", "Feni University", "Britannia University", "Port City International University", "Bangladesh University of Health Sciences", "Chittagong Independent University", "Notre Dame University Bangladesh", "Times University, Bangladesh", "North Bengal International University", "Fareast International University", "Rajshahi Science & Technology University (RSTU), Natore", "Brahmaputra International University", "Cox's Bazar International University", "R. P. Shaha University", "German University Bangladesh", "Global University Bangladesh", "CCN University of Science & Technology", "Bangladesh Army University of Science and Technology (BAUST), Saidpur", "Bangladesh Army University of Engineering and Technology (BAUET), Qadirabad", "Bangladesh Army International University of Science & Technology (BAIUST), Comilla", "University of Scholars", "Canadian University of Bangladesh", "N.P.I University of Bangladesh", "Northern University of Business & Technology, Khulna", "Rabindra Maitree University, Kushtia", "University of Creative Technology, Chittagong", "Central University of Science and Technology", "Tagore University of Creative Arts", "University of Global Village", "Rupayan A.K.M Shamsuzzoha University", "Anwer Khan Modern University", "ZNRF University of Management Sciences", "Ahsania Mission University of Science and Technology", "Khulna Khan Bahadur Ahsanullah University", "Bandarban University", "Shah Makhdum Management University, Rajshahi", "Trust University, Barishal", "International Standard University", "University of Brahmanbaria", "University of Skill Enrichment and Technology", "Microland University of Science and Technology", "R.T.M Al-Kabir Technical University", "Dr. Momtaz Begum University of Science and Technology (MUST)", "Chattogram BGMEA University of Fashion and Technology", "Bangladesh Army University of Science and Technology, Khulna", "Teesta University, Rangpur", "International Islami University of Science and Technology Bangladesh (IIUSTB)", "Lalon University of Science and Arts", "Justice Abu Zafar Siddiquie Science and Technology University, Kushtia", "Grameen University", "IBAIS University", "The University of Comilla", "Queens University", "America Bangladesh University", "Eco University of Science and Technology (EUST)"];
+/* UGC compliance notes (from UGC's private university page) */
+const UNI_NOTE = {"Victoria University of Bangladesh": ["UGC note: unapproved building or campus.", "ইউজিসির নোট: অননুমোদিত ভবন বা ক্যাম্পাস।"], "The People's University of Bangladesh": ["UGC note: no treasurer or pro-VC appointed.", "ইউজিসির নোট: ট্রেজারার ও প্রো-ভিসি নিয়োগ নেই।"], "Southern University Bangladesh": ["UGC note: admission suspension withdrawn under a court stay; cases pending.", "ইউজিসির নোট: আদালতের স্থগিতাদেশে ভর্তি স্থগিতের আদেশ প্রত্যাহার; মামলা চলমান।"], "European University of Bangladesh": ["UGC note: trustee ownership dispute, admitting above approved seats, and a campus on less land than the law requires.", "ইউজিসির নোট: ট্রাস্টি বোর্ডের মালিকানা বিরোধ, অনুমোদিত আসনের বেশি ভর্তি, এবং আইনে নির্ধারিত পরিমাণের কম জমিতে ক্যাম্পাস।"], "BGMEA University of Fashion & Technology (BUFT)": ["UGC note: Bachelor of Apparel Merchandising & Management and BA in Fashion Studies approved from 10 March 2020.", "ইউজিসির নোট: ব্যাচেলর অব অ্যাপারেল মার্চেন্ডাইজিং অ্যান্ড ম্যানেজমেন্ট এবং বিএ ইন ফ্যাশন স্টাডিজ ১০ মার্চ ২০২০ থেকে অনুমোদিত।"], "Global University Bangladesh": ["UGC: new admissions to all programmes stopped from January 2026 until further notice. Current students continue.", "ইউজিসি: পরবর্তী নির্দেশনা না দেওয়া পর্যন্ত জানুয়ারি ২০২৬ থেকে সব প্রোগ্রামে নতুন ভর্তি বন্ধ। চলমান শিক্ষার্থীদের কার্যক্রম চলবে।"], "Rupayan A.K.M Shamsuzzoha University": ["UGC: academic programmes have not started yet.", "ইউজিসি: একাডেমিক কার্যক্রম এখনো শুরু হয়নি।"], "Shah Makhdum Management University, Rajshahi": ["UGC: academic programmes have not started yet.", "ইউজিসি: একাডেমিক কার্যক্রম এখনো শুরু হয়নি।"], "Microland University of Science and Technology": ["UGC: academic programmes have not started yet.", "ইউজিসি: একাডেমিক কার্যক্রম এখনো শুরু হয়নি।"], "Justice Abu Zafar Siddiquie Science and Technology University, Kushtia": ["UGC: academic programmes have not started yet.", "ইউজিসি: একাডেমিক কার্যক্রম এখনো শুরু হয়নি।"], "University of Skill Enrichment and Technology": ["UGC: all academic and administrative activities closed from 29 September 2026.", "ইউজিসি: ২৯/০৯/২০২৬ থেকে সব একাডেমিক ও প্রশাসনিক কার্যক্রম বন্ধ।"], "IBAIS University": ["UGC note: the university currently has no approved address.", "ইউজিসির নোট: বিশ্ববিদ্যালয়টির বর্তমানে কোনো অনুমোদিত ঠিকানা নেই।"], "The University of Comilla": ["UGC: shut down in 2006 and not permitted to restart academic activities.", "ইউজিসি: ২০০৬ সালে বন্ধ, পুনরায় শিক্ষা কার্যক্রম শুরুর অনুমতি দেওয়া হয়নি।"], "Queens University": ["UGC note: conditional approval (2015); compliance deadline expired.", "ইউজিসির নোট: শর্তসাপেক্ষ অনুমোদন (২০১৫); শর্ত পূরণের সময়সীমা পেরিয়ে গেছে।"], "America Bangladesh University": ["UGC: no approved campus, no legal authority; operations have no legal basis.", "ইউজিসি: অনুমোদিত ক্যাম্পাস ও বৈধ কর্তৃপক্ষ নেই; কার্যক্রমের আইনগত ভিত্তি নেই।"], "South Asian University": ["Listed by UGC as an international university; its campus is in New Delhi, India.", "ইউজিসির তালিকায় আন্তর্জাতিক বিশ্ববিদ্যালয়; এর ক্যাম্পাস ভারতের নয়াদিল্লিতে।"]};
+function pvtType(n){ if(/Al-Kabir Technical/i.test(n)) return "pvt_tech"; if(/Health Sciences/i.test(n)) return "pvt_health"; if(/Fashion/i.test(n)) return "pvt_fashion"; if(/Creative|Tagore/i.test(n)) return "pvt_creative";
+  if(/Agricultur/i.test(n)) return "pvt_agri"; if(/Science\s*(&|and)\s*Technology|Engineering|Technical|Technology/i.test(n)) return "pvt_tech"; return "pvt"; }
+const UNIS = [];
+UNI_PUB.forEach(([n,ty])=>UNIS.push({n,ty,k:"pub"}));
+UNI_PVT_NAMES.forEach(n=>UNIS.push({n,ty:pvtType(n),k:"pvt"}));
+UNIS.push({n:"Islamic University of Technology (IUT)",ty:"intl_eng",k:"intl"},{n:"Asian University for Women",ty:"intl_lib",k:"intl"},{n:"South Asian University",ty:"intl_lib",k:"intl"});
+
+/* Private job market: entry-level (≤2 yrs) listings on Bdjobs.com, sampled 21 Oct 2026.
+   [entry listings sampled, listings showing salary, salary low (25th pct of min), salary high (75th pct of max), education en, bn, skills] */
+const PVT_DATE=["21 Oct 2026","২১ অক্টোবর ২০২৬"];
+const PVT_MARKET={"pvt_bank": [30, 4, 17000, 27000, "Bachelor's or Master's in any discipline (MBA often preferred)", "যেকোনো বিষয়ে স্নাতক বা স্নাতকোত্তর (প্রায়ই এমবিএ অগ্রাধিকার)", ["Business Development", "Market Research", "Sales Performance Analysis"]], "accountant": [61, 6, 16000, 29000, "BBA / MBA in Accounting, Finance or Banking", "হিসাববিজ্ঞান, ফিন্যান্স বা ব্যাংকিংয়ে বিবিএ / এমবিএ", ["Financial Reporting", "Financial Analysis", "Accounting Software"]], "audit": [15, 4, 19000, 51000, "BBA / MBA / MCom in Accounting; CA (CC) preferred", "হিসাববিজ্ঞানে বিবিএ / এমবিএ / এমকম; সিএ (সিসি) অগ্রাধিকার", ["Audit reporting", "Internal Control", "Inventory Audit"]], "network": [10, 3, 18000, 43000, "BSc in CSE / EEE / IT, or Diploma in Engineering (Computer)", "সিএসই / ইইই / আইটিতে বিএসসি, অথবা ডিপ্লোমা ইঞ্জিনিয়ারিং (কম্পিউটার)", ["Network Troubleshooting", "Network Monitoring", "Mikrotik"]], "civil_site": [15, 4, 17000, 32000, "Diploma in Civil Engineering most often; BSc Civil also accepted", "বেশিরভাগ ক্ষেত্রে সিভিলে ডিপ্লোমা; সিভিলে বিএসসি-ও গ্রহণযোগ্য", ["Site Supervision", "AutoCAD 2D/3D", "Project Management"]], "electrical": [18, 1, null, null, "BSc in EEE, or Diploma in Electrical Engineering", "ইইইতে বিএসসি, অথবা ইলেকট্রিক্যালে ডিপ্লোমা", ["Preventive Maintenance", "Electrical Installation", "BOQ"]], "mech": [17, 1, null, null, "BSc (Mechanical / EEE) or Diploma in Engineering", "বিএসসি (মেকানিক্যাল / ইইই) অথবা ডিপ্লোমা ইঞ্জিনিয়ারিং", ["Preventive Maintenance", "Spare parts", "Electrical Maintenance"]], "architect": [33, 6, 16000, 30000, "Bachelor of Architecture (B.Arch)", "ব্যাচেলর অব আর্কিটেকচার (বি.আর্ক)", ["AutoCAD 2D/3D", "SketchUp", "Lumion"]], "merch": [26, 4, 15000, 28000, "BSc in Textile Engineering / Apparel Manufacturing, or any Bachelor's", "টেক্সটাইল ইঞ্জিনিয়ারিং / অ্যাপারেল ম্যানুফ্যাকচারিংয়ে বিএসসি, বা যেকোনো স্নাতক", ["Merchandising", "Buyer Communication", "Order Management"]], "ie": [7, 3, 23000, 45000, "BSc in Industrial & Production / Textile / EEE Engineering", "ইন্ডাস্ট্রিয়াল ও প্রোডাকশন / টেক্সটাইল / ইইই ইঞ্জিনিয়ারিংয়ে বিএসসি", ["Line balancing", "Process Improvement"]], "compliance": [19, 2, 25000, 34000, "BBA / MBA (HRM preferred) or Master's in any discipline", "বিবিএ / এমবিএ (এইচআরএম অগ্রাধিকার) বা যেকোনো বিষয়ে স্নাতকোত্তর", ["Compliance Audit", "Human Resource Management"]], "pharmacist": [12, 3, 15000, 23000, "Diploma in Pharmacy or B.Pharm, with Pharmacy Council of Bangladesh registration", "ডিপ্লোমা ইন ফার্মেসি বা বি.ফার্ম, বাংলাদেশ ফার্মেসি কাউন্সিলের নিবন্ধনসহ", ["Pharmaceutical Product Management", "Stock Management"]], "qc": [16, 3, 20000, 30000, "B.Pharm, or MSc in Chemistry / Microbiology / Biochemistry", "বি.ফার্ম, অথবা রসায়ন / মাইক্রোবায়োলজি / বায়োকেমিস্ট্রিতে এমএসসি", ["Quality Control", "Quality Assurance", "SOP Compliance"]], "mpo": [82, 3, 15000, 28000, "Graduate in any discipline; science graduates preferred", "যেকোনো বিষয়ে স্নাতক; বিজ্ঞানে স্নাতক অগ্রাধিকার", ["Sales Target Achievement", "Product Promotion"]], "doctor": [86, 3, 36000, 56000, "MBBS with BMDC registration", "বিএমডিসি নিবন্ধনসহ এমবিবিএস", ["Patient Care", "Patient Assessment", "Medical Treatment"]], "program": [9, 3, 15000, 32000, "Bachelor's in any discipline; Master's often preferred", "যেকোনো বিষয়ে স্নাতক; প্রায়ই স্নাতকোত্তর অগ্রাধিকার", ["Project Planning", "Program Organizing", "Analytical Skill"]], "dm": [55, 8, 20000, 31000, "Bachelor's (any subject); proven results matter more than the degree", "স্নাতক (যেকোনো বিষয়); ডিগ্রির চেয়ে প্রমাণিত কাজের ফল বেশি গুরুত্বপূর্ণ", ["Social Media Marketing", "Google Ads", "Content Creation"]], "sales": [76, 4, 14000, 26000, "Bachelor's, often BBA in Marketing", "স্নাতক, প্রায়ই মার্কেটিংয়ে বিবিএ", ["Business Development", "Sales Target Achievement", "Market Research"]], "hr": [50, 6, 19000, 30000, "BBA / MBA in HRM or Management", "এইচআরএম বা ম্যানেজমেন্টে বিবিএ / এমবিএ", ["Recruitment & Selection", "Payroll Management", "HRIS"]], "teacher": [57, 5, 14000, 27000, "Bachelor's or Master's in the subject taught (private / English-medium schools)", "যে বিষয় পড়াবেন তাতে স্নাতক বা স্নাতকোত্তর (বেসরকারি / ইংলিশ মিডিয়াম স্কুল)", ["Lesson Planning", "Classroom Management", "Curriculum Development"]], "lecturer": [33, 2, 19000, 22000, "4-year Honours plus Master's in the subject (listings are mostly private colleges)", "বিষয়ে ৪ বছরের অনার্সসহ স্নাতকোত্তর (তালিকার বেশিরভাগ বেসরকারি কলেজ)", ["Teaching", "Lesson Planning"]], "content": [35, 5, 15000, 30000, "Bachelor's in any subject; strong writing samples", "যেকোনো বিষয়ে স্নাতক; ভালো লেখার নমুনা", ["Content Writing", "SEO", "Content Creation"]], "designer": [38, 7, 15000, 35000, "HSC, Diploma or Bachelor's; a portfolio decides", "এইচএসসি, ডিপ্লোমা বা স্নাতক; পোর্টফোলিওই আসল", ["Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro"]], "legal": [12, 3, 23000, 33000, "LLB (LLM preferred); Bar Council membership preferred", "এলএলবি (এলএলএম অগ্রাধিকার); বার কাউন্সিল সদস্যপদ অগ্রাধিকার", ["Legal Drafting", "Legal Documentation", "Case Management"]], "nurse": [18, 3, 12000, 16000, "BSc or Diploma in Nursing Science & Midwifery, registered with the Nursing Council", "নার্সিং কাউন্সিলে নিবন্ধিত বিএসসি বা ডিপ্লোমা ইন নার্সিং সায়েন্স অ্যান্ড মিডওয়াইফারি", ["Patient Care", "ICU/NICU Nursing"]], "fashion_d": [10, 2, 21000, 34000, "BSc / BA in Fashion Design", "ফ্যাশন ডিজাইনে বিএসসি / বিএ", ["Fashion Design", "Product Development", "Adobe Illustrator"]], "hotel": [32, 5, 12000, 20000, "HSC or Bachelor's; good English", "এইচএসসি বা স্নাতক; ভালো ইংরেজি", ["Front Desk", "Reception", "Administration"]], "cs": [63, 5, 15000, 20000, "Bachelor's in any discipline (some accept HSC)", "যেকোনো বিষয়ে স্নাতক (কিছু ক্ষেত্রে এইচএসসি)", ["Customer Service", "Call Center Operation", "Complaint Resolution"]], "brand": [13, 4, 17000, 28000, "Graduate in any discipline; BBA in Marketing preferred", "যেকোনো বিষয়ে স্নাতক; মার্কেটিংয়ে বিবিএ অগ্রাধিকার", ["Brand Promotion", "Market Research", "Customer Relationship"]], "tso": [28, 2, 20000, 29000, "BBA / BBS or any Bachelor's", "বিবিএ / বিবিএস বা যেকোনো স্নাতক", ["Territory Sales", "Sales Target Achievement", "Competitor Analysis"]], "research": [27, 6, 19000, 39000, "BSc in Statistics / Economics, or BBA in Marketing", "পরিসংখ্যান / অর্থনীতিতে বিএসসি, বা মার্কেটিংয়ে বিবিএ", ["Market Research", "Competitor Analysis", "Market Audit"]], "retail": [23, 2, 18000, 27000, "Bachelor's; retail or store experience helps", "স্নাতক; রিটেইল বা স্টোরের অভিজ্ঞতা সহায়ক", ["Stock Management", "Inventory Control"]], "scm_ex": [16, 3, 13000, 26000, "BBA / MBA in Supply Chain or Business; some ask BSc / Diploma Engineering", "সাপ্লাই চেইন বা ব্যবসায় বিবিএ / এমবিএ; কিছু ক্ষেত্রে বিএসসি / ডিপ্লোমা ইঞ্জিনিয়ারিং", ["Procurement", "Vendor Management", "Inventory Management"]], "commercial": [14, 2, 24000, 42000, "BBA / BBS or any Bachelor's", "বিবিএ / বিবিএস বা যেকোনো স্নাতক", ["Export/Import through L/C", "Customs Clearance"]], "fin_analyst": [13, 2, 23000, 44000, "BBA / MBA in Finance or Accounting", "ফিন্যান্স বা হিসাববিজ্ঞানে বিবিএ / এমবিএ", ["Financial Reporting", "Financial Analysis"]], "uiux": [4, 4, 24000, 60000, "Bachelor's (often CSE) plus UI/UX training and a portfolio", "স্নাতক (প্রায়ই সিএসই), সঙ্গে ইউআই/ইউএক্স প্রশিক্ষণ ও পোর্টফোলিও", ["UI/UX Design", "Web Design", "HTML & CSS"]], "planner": [3, 1, null, null, "BSc in Urban & Regional Planning", "নগর ও অঞ্চল পরিকল্পনায় বিএসসি", ["GIS", "Urban Planning", "AutoCAD"]], "vet_off": [3, 0, null, null, "Doctor of Veterinary Medicine (DVM)", "ডক্টর অব ভেটেরিনারি মেডিসিন (ডিভিএম)", ["Clinical skill", "Medical Record Keeping"]], "physio": [10, 0, null, null, "Diploma in Medical Technology (Physiotherapy) or Bachelor of Physiotherapy (BPT)", "ডিপ্লোমা ইন মেডিকেল টেকনোলজি (ফিজিওথেরাপি) বা ব্যাচেলর অব ফিজিওথেরাপি (বিপিটি)", ["Physiotherapy", "Patient Assessment"]]};
+
+/* ===== BCGO Career Map — app ===== */
+const T = {
+  brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
+  h1:["Your education is a station. See where the lines go.","আপনার পড়াশোনা একটি স্টেশন। দেখুন কোন পথ কোথায় যায়।"],
+  sub:["Pick what you studied and enter your results. The map shows which Bangladeshi jobs match your subject directly, which are open to any subject, which you can reach by adding skills, and where your GPA or CGPA meets the cut-off. In school or college? It shows which degrees your subjects open first.",
+       "আপনি কী পড়েছেন তা বেছে নিন এবং ফলাফল দিন। ম্যাপে দেখবেন বাংলাদেশের কোন চাকরি সরাসরি আপনার বিষয়ের সঙ্গে মেলে, কোনটিতে যেকোনো বিষয়ে আবেদন করা যায়, কোনটিতে বাড়তি দক্ষতা দিয়ে পৌঁছানো যায়, আর কোথায় আপনার জিপিএ বা সিজিপিএ শর্ত পূরণ করে। স্কুল বা কলেজে পড়ছেন? তাহলে আগে দেখাবে আপনার বিষয়গুলো কোন কোন ডিগ্রির পথ খোলে।"],
+  stat:["of university graduates were unemployed in 2024 (Labour Force Survey 2024), the highest of any education level. About 885,000 people.","বিশ্ববিদ্যালয় পাস করাদের মধ্যে বেকারত্ব ২০২৪ সালে (শ্রমশক্তি জরিপ ২০২৪), যা সব শিক্ষাস্তরের মধ্যে সর্বোচ্চ। প্রায় ৮ লাখ ৮৫ হাজার মানুষ।"],
+  statSrc:["BBS Labour Force Survey","বিবিএস শ্রমশক্তি জরিপ"],
+  where:["Where are you now?","আপনি এখন কোথায় আছেন?"],
+  level:["Highest level completed or studying","সর্বশেষ শিক্ষাস্তর (চলমান হলেও)"],
+  uni:["University (optional)","বিশ্ববিদ্যালয় (ঐচ্ছিক)"],uniAny:["Any / not at university","যেকোনো / বিশ্ববিদ্যালয়ে নয়"],
+  uniHint:["The degree list now shows the degrees this type of university usually offers. Programmes differ by university, so confirm on its website.","ডিগ্রির তালিকায় এখন এ ধরনের বিশ্ববিদ্যালয় সাধারণত যেসব ডিগ্রি দেয়, সেগুলো দেখানো হচ্ছে। বিশ্ববিদ্যালয়ভেদে প্রোগ্রাম আলাদা, তাই তাদের ওয়েবসাইটে মিলিয়ে নিন।"],
+  group:["Group / stream","বিভাগ / শাখা"],
+  subjectsPick:["Your subjects (tap to add or remove)","আপনার বিষয় (যোগ বা বাদ দিতে চাপ দিন)"],
+  more:["Other subjects","অন্যান্য বিষয়"],
+  subject:["Your subject","আপনার বিষয়"],
+  results:["Your results","আপনার ফলাফল"],
+  sscG:["SSC / Dakhil / O Level GPA (out of 5)","এসএসসি / দাখিল / ও লেভেল জিপিএ (৫-এর মধ্যে)"],
+  hscG:["HSC / Alim / A Level GPA (out of 5)","এইচএসসি / আলিম / এ লেভেল জিপিএ (৫-এর মধ্যে)"],
+  cg:["Bachelor's or Diploma CGPA (out of 4)","স্নাতক বা ডিপ্লোমা সিজিপিএ (৪-এর মধ্যে)"],
+  mcg:["Master's CGPA (out of 4, optional)","মাস্টার্স সিজিপিএ (৪-এর মধ্যে, ঐচ্ছিক)"],
+  olHint:["O/A Level: use the GPA on your Education Board equivalence certificate.","ও/এ লেভেল: শিক্ষা বোর্ডের সমতা সনদে দেওয়া জিপিএ লিখুন।"],
+  div1:["First division","প্রথম বিভাগ"],div2:["Second division","দ্বিতীয় বিভাগ"],div3:["Third division","তৃতীয় বিভাগ"],
+  cl1:["First class","প্রথম শ্রেণি"],cl2:["Second class","দ্বিতীয় শ্রেণি"],cl3:["Third class","তৃতীয় শ্রেণি"],clF:["Below pass","পাস নম্বরের নিচে"],clNot:["Below first class","প্রথম শ্রেণির নিচে"],
+  mapH:["Your career map","আপনার ক্যারিয়ার ম্যাপ"],
+  mapHint:["Tap a line to see the route, pay, results rule and skills.","রুট, বেতন, ফলাফলের শর্ত ও দক্ষতা দেখতে একটি লাইনে চাপ দিন।"],
+  preH:["Next stations for your subjects","আপনার বিষয় থেকে পরের স্টেশন"],
+  preHint:["Each line is a degree. Green lines fit your subjects now. Tap one to see what it leads to.","প্রতিটি লাইন একটি ডিগ্রি। সবুজ লাইনগুলো এখনই আপনার বিষয়ের সঙ্গে মেলে। চাপ দিয়ে দেখুন কোথায় নিয়ে যায়।"],
+  showBridge:["Include routes that need extra skills","বাড়তি দক্ষতার রুটও দেখান"],
+  all:["All","সব"],pub:["Public","সরকারি"],priv:["Private","বেসরকারি"],both:["Public & private","সরকারি ও বেসরকারি"],
+  you:["You","আপনি"],
+  empty:["Select a line on the map.","ম্যাপ থেকে একটি লাইন বেছে নিন।"],
+  route:["Route","রুট"],pay:["Starting pay","শুরুর বেতন"],skills:["Skills to build","যে দক্ষতা গড়বেন"],rules:["Eligibility","যোগ্যতা"],resRule:["Results rule","ফলাফলের শর্ত"],
+  whereC:["Where circulars appear","কোথায় বিজ্ঞপ্তি পাবেন"],src:["Source","সূত্র"],
+  direct:["Direct match","সরাসরি মিল"],open:["Open to any subject","যেকোনো বিষয়ে আবেদনযোগ্য"],bridge:["Possible with extra skills","বাড়তি দক্ষতায় সম্ভব"],
+  cond:["Conditional","শর্তসাপেক্ষ"],gpa:["Results below the cut-off","ফলাফল শর্তের নিচে"],blocked:["Not eligible","আবেদনযোগ্য নয়"],
+  ready:["Your subjects fit","আপনার বিষয়ের সঙ্গে মেলে"],anyg:["Open to any group","যেকোনো বিভাগ থেকে সম্ভব"],missing:["Missing subjects","বিষয় ঘাটতি আছে"],
+  r_direct:["Your subject is what this role asks for.","এই পদে আপনার বিষয়টিই চাওয়া হয়।"],
+  r_open:["Circulars for this role accept a degree in any subject.","এই পদের বিজ্ঞপ্তিতে যেকোনো বিষয়ের ডিগ্রি গ্রহণযোগ্য।"],
+  r_bridge:["Your degree is not the usual match, but employers hire on proven skills. Build the skills below and show them with a portfolio or certificate.","আপনার বিষয় সাধারণত চাওয়া হয় না, তবে দক্ষতা দেখাতে পারলে নিয়োগ হয়। নিচের দক্ষতাগুলো অর্জন করুন এবং পোর্টফোলিও বা সার্টিফিকেট দিয়ে প্রমাণ দিন।"],
+  r_blocked:["This role requires a specific degree or a professional licence you do not have.","এই পদে নির্দিষ্ট ডিগ্রি বা পেশাগত লাইসেন্স লাগে, যা আপনার নেই।"],
+  r_pass:["These circulars usually need a 4-year Honours or a Master's. With a 3-year Pass degree, complete a Master's first.","এসব বিজ্ঞপ্তিতে সাধারণত ৪ বছরের অনার্স বা মাস্টার্স লাগে। ৩ বছরের পাস ডিগ্রি থাকলে আগে মাস্টার্স সম্পন্ন করুন।"],
+  r_dip:["Diploma engineers usually enter as Sub-Assistant Engineer. Engineer posts need a BSc.","ডিপ্লোমা প্রকৌশলীরা সাধারণত উপসহকারী প্রকৌশলী হিসেবে যোগ দেন। প্রকৌশলী পদে বিএসসি লাগে।"],
+  r_dipB:["This role needs a bachelor's degree.","এই পদে স্নাতক ডিগ্রি লাগে।"],
+  r_gpa:["Your subject qualifies, but your results miss this recruiter's cut-off.","আপনার বিষয় যোগ্য, তবে ফলাফল এই নিয়োগের শর্ত পূরণ করে না।"],
+  checkH:["Can I apply for this job?","আমি কি এই চাকরিতে আবেদন করতে পারব?"],
+  checkSub:["Choose any job to check it against your degree and results.","যেকোনো চাকরি বেছে নিন, আপনার ডিগ্রি ও ফলাফলের সঙ্গে মিলিয়ে দেখুন।"],
+  job:["Job","চাকরি"],
+  needDeg:["Choose a diploma, degree or higher level above to check job eligibility.","চাকরির যোগ্যতা দেখতে ওপরে ডিপ্লোমা, স্নাতক বা উচ্চতর স্তর বেছে নিন।"],
+  compH:["Career quiz: which lane suits you?","ক্যারিয়ার কুইজ: কোন পথ আপনার জন্য?"],
+  qOf:["Question {a} of {b}","প্রশ্ন {a} / {b}"],back:["Back","পেছনে"],retake:["Take the quiz again","আবার কুইজ দিন"],start:["Start the quiz","কুইজ শুরু করুন"],
+  topInt:["What you lean towards","আপনার ঝোঁক যেদিকে"],yourMatches:["Your best-fit careers","আপনার সবচেয়ে মানানসই ক্যারিয়ার"],fitPct:["fit","মিল"],
+  quizIntro:["Eight quick questions about what you enjoy and how you want to work. No right answers. The result ranks careers by fit and shows how far each is from what you studied, so you can see whether to stay in your lane or switch.","আপনার পছন্দ আর কাজের ধরন নিয়ে আটটি ছোট প্রশ্ন। কোনো সঠিক-ভুল উত্তর নেই। ফলাফলে ক্যারিয়ারগুলো মিল অনুযায়ী সাজানো থাকবে, আর দেখাবে আপনার পড়াশোনা থেকে প্রতিটি কতটা দূরে, যাতে বুঝতে পারেন নিজের পথে থাকবেন নাকি অন্য পথে যাবেন।"],
+  viewMind:["Mind map","মাইন্ড ম্যাপ"],viewLines:["Lines","লাইন"],
+  afterHsc:["Jobs right after HSC","এইচএসসির পরই চাকরি"],dipRoutes:["Diploma routes","ডিপ্লোমা রুট"],
+  tapUnfold:["Tap a career to unfold its road. Tap a branch to fold it.","ক্যারিয়ারে চাপ দিলে পুরো পথ খুলে যাবে। শাখায় চাপ দিলে গুটিয়ে যাবে।"],
+  openH:["Open to graduates of any subject","যেকোনো বিষয়ের স্নাতকের জন্য উন্মুক্ত"],
+  pvtH:["Private industry jobs","বেসরকারি খাতের চাকরি"],
+  pvtSub:["Every private-sector role on the map, grouped by industry. Tap one to see its road, skills and year-by-year plan. With a degree selected, each shows whether it fits you.","ম্যাপের সব বেসরকারি খাতের পদ, শিল্পখাত অনুযায়ী সাজানো। পথ, দক্ষতা ও বছরভিত্তিক পরিকল্পনা দেখতে চাপ দিন। ডিগ্রি বাছাই করা থাকলে প্রতিটি পদ আপনার সঙ্গে মেলে কিনা তা-ও দেখাবে।"],
+  openSub:["These recruitments do not ask for a specific subject. Competition is heavy and result cut-offs apply, so preparation matters more than your major.","এসব নিয়োগে নির্দিষ্ট বিষয় চাওয়া হয় না। প্রতিযোগিতা অনেক বেশি এবং ফলাফলের শর্ত আছে, তাই বিষয়ের চেয়ে প্রস্তুতি বেশি গুরুত্বপূর্ণ।"],
+  gradeH:["How GPA and CGPA convert","জিপিএ ও সিজিপিএ যেভাবে রূপান্তর হয়"],
+  gradeSub:["Government circulars still ask for 'division' and 'class'. These are the official conversions.","সরকারি বিজ্ঞপ্তিতে এখনো 'বিভাগ' ও 'শ্রেণি' চাওয়া হয়। নিচে আনুষ্ঠানিক রূপান্তর দেওয়া হলো।"],
+  srcH:["Sources and how to read this map","সূত্র ও ম্যাপটি যেভাবে পড়বেন"],
+  disc:["This is a guide, not a recruitment notice. Eligibility rules and cut-offs change with every circular, so always read the official notice before applying. University admission rules also differ by university and unit. Every salary figure is cited; sector averages cover all experience levels and are not entry pay. Nothing you enter here is stored or sent anywhere.",
+        "এটি একটি নির্দেশিকা, নিয়োগ বিজ্ঞপ্তি নয়। প্রতিটি বিজ্ঞপ্তিতে যোগ্যতা ও ফলাফলের শর্ত বদলাতে পারে, তাই আবেদনের আগে অবশ্যই আনুষ্ঠানিক বিজ্ঞপ্তি পড়ুন। বিশ্ববিদ্যালয় ও ইউনিটভেদে ভর্তির নিয়মও আলাদা। বেতনের প্রতিটি তথ্যের সূত্র দেওয়া আছে; খাতভিত্তিক গড় সব অভিজ্ঞতার স্তর মিলিয়ে, এটি শুরুর বেতন নয়। আপনি এখানে যা লেখেন, তা কোথাও সংরক্ষিত বা পাঠানো হয় না।"],
+  routes:["routes","টি রুট"],
+  openDeg:["Open this degree's career map","এই ডিগ্রির ক্যারিয়ার ম্যাপ খুলুন"],
+  needs:["Usually needs","সাধারণত লাগে"],have:["You have","আপনার আছে"],add:["Add","যোগ করুন"],helps:["Helps","সহায়ক"],
+  careers:["Careers it leads to","যে ক্যারিয়ারে নিয়ে যায়"],
+  noReq:["No specific school subjects required; any group can apply.","নির্দিষ্ট কোনো বিষয় লাগে না; যেকোনো বিভাগ থেকে আবেদন করা যায়।"],
+  adNote:["University admission rules vary. Science students can usually apply to business and arts units too; the reverse is rare.","বিশ্ববিদ্যালয়ভেদে ভর্তির নিয়ম আলাদা। বিজ্ঞানের শিক্ষার্থীরা সাধারণত ব্যবসায় ও কলা ইউনিটেও আবেদন করতে পারেন; উল্টোটা কম হয়।"],
+  viaDip:["via Diploma (polytechnic)","ডিপ্লোমা (পলিটেকনিক) হয়ে"],
+  dipNote:["Polytechnic diploma admission is open after SSC. GPA and group criteria are set each year by the Technical Education Board.","এসএসসির পর পলিটেকনিক ডিপ্লোমায় ভর্তি হওয়া যায়। জিপিএ ও বিভাগের শর্ত প্রতিবছর কারিগরি শিক্ষা বোর্ড নির্ধারণ করে।"],
+  dipLine:["Diploma","ডিপ্লোমা"],sae:["Sub-Assistant Engineer / Technologist","উপসহকারী প্রকৌশলী / টেকনোলজিস্ট"],
+  madNote:["Fazil and Kamil are treated as degree and master's equivalents. Check each circular for how it lists madrasa qualifications.","ফাজিল ও কামিল যথাক্রমে স্নাতক ও স্নাতকোত্তরের সমমান হিসেবে গণ্য। প্রতিটি বিজ্ঞপ্তিতে মাদ্রাসার যোগ্যতা কীভাবে লেখা আছে, তা দেখে নিন।"],
+  resNA:["Enter your results above to check this.","এটি যাচাই করতে ওপরে আপনার ফলাফল লিখুন।"],
+  resNone:["No verified common cut-off. Check the result rules in each circular.","যাচাইকৃত কোনো সাধারণ শর্ত নেই। প্রতিটি বিজ্ঞপ্তিতে ফলাফলের শর্ত দেখে নিন।"],
+  meets:["Meets","পূরণ করে"],fails:["Does not meet","পূরণ করে না"],
+  footer:["Bangladesh Career & Global Opportunities","বাংলাদেশ ক্যারিয়ার অ্যান্ড গ্লোবাল অপরচুনিটিজ"],
+  proto:["Prototype · October 2026","প্রোটোটাইপ · অক্টোবর ২০২৬"]
+};
+
+const st = {lang:"bn",uni:"",level:"bss",group:"science",subjects:new Set(),subject:"econ",ssc:"",hsc:"",cg:"",mcg:"",showBridge:true,sector:"all",sel:null,check:"bb_ad",view:"mind",fold:new Set(),qi:-1,ans:[]};
+try{ if(matchMedia("(max-width: 600px)").matches) st.view="mind"; }catch(e){}
+try{ const l=localStorage.getItem("bcgo-lang"); if(l==="en"||l==="bn") st.lang=l; }catch(e){}
+
+const L = a => a ? (st.lang==="bn" ? a[1] : a[0]) : "";
+const t = k => L(T[k]);
+const BND = "০১২৩৪৫৬৭৮৯";
+const N = s => st.lang==="bn" ? String(s).replace(/[0-9]/g,d=>BND[d]) : String(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $ = s => document.querySelector(s);
+const lvl = () => LEVELS.find(l=>l.id===st.level);
+const nm = o => st.lang==="bn" ? o.bn : o.en;
+
+/* ---- results ---- */
+const num = v => { const x=parseFloat(v); return isNaN(x)?null:x; };
+function divOf(g){ if(g==null) return null; if(g>=4) return 1; if(g>=3) return 2; if(g>=1) return 3; return 0; }   // S10 (2004 onward)
+function clsOf(c){ if(c==null) return null; if(c>=3) return 1; return 2; }  // CGPA 3.00 on a 4-point scale = first class (S10); lower bands vary by university
+function exams(){
+  const L0=lvl(), out=[];
+  const s=num(st.ssc); if(s!=null) out.push({k:"ssc",lvl:divOf(s),v:s});
+  if(L0.cat!=="sec" && L0.mode!=="diploma"){ const h=num(st.hsc); if(h!=null) out.push({k:"hsc",lvl:divOf(h),v:h}); }
+  if(L0.cat==="deg"){ const c=num(st.cg); if(c!=null) out.push({k:"cg",lvl:clsOf(c),v:c});
+    if(L0.mode==="masters"){ const m=num(st.mcg); if(m!=null) out.push({k:"mcg",lvl:clsOf(m),v:m}); } }
+  return out;
+}
+function expectedExams(){ const L0=lvl(); let n=1; if(L0.mode!=="diploma") n++; return n+1; } // ssc, hsc, bachelor
+const RES = {
+  bcs:{txt:["No more than one third division or class across your exams.","সব পরীক্ষা মিলিয়ে একাধিক তৃতীয় বিভাগ/শ্রেণি থাকলে অযোগ্য।"],s:"S7",
+       f:ex=>ex.filter(e=>e.lvl===3||e.lvl===0).length<=1},
+  bbad:{txt:["First division or class in at least two exams from SSC upward; no third division anywhere.","এসএসসি থেকে অন্তত দুটি পরীক্ষায় প্রথম বিভাগ/শ্রেণি; কোথাও তৃতীয় বিভাগ চলবে না।"],s:"S5",
+       f:ex=>ex.filter(e=>e.lvl===1).length>=2 && !ex.some(e=>e.lvl===3||e.lvl===0), need:2},
+  statebank:{txt:["No third division or class. At least one first division or class (cash officer) or two (general officer), depending on the circular. Checked here against the one-first rule.","তৃতীয় বিভাগ/শ্রেণি চলবে না। বিজ্ঞপ্তিভেদে অন্তত একটি (ক্যাশ অফিসার) বা দুটি (সাধারণ অফিসার) প্রথম বিভাগ/শ্রেণি। এখানে একটি প্রথম বিভাগের শর্তে যাচাই করা হয়েছে।"],s:"S21",
+       f:ex=>ex.some(e=>e.lvl===1) && !ex.some(e=>e.lvl===3||e.lvl===0)},
+  pvtbank:{txt:["Example from a 2024 private bank MTO circular: CGPA 3.00 (or first class) plus GPA 4.00 in SSC and HSC. Some banks ask for 4.50 or even 5.00.","২০২৪ সালের একটি বেসরকারি ব্যাংকের এমটিও বিজ্ঞপ্তির উদাহরণ: সিজিপিএ ৩.০০ (বা প্রথম শ্রেণি) এবং এসএসসি ও এইচএসসিতে জিপিএ ৪.০০। কিছু ব্যাংক ৪.৫০ বা ৫.০০-ও চায়।"],s:"S9",
+       f:ex=>{const g=k=>ex.find(e=>e.k===k); const a=g("ssc"),b=g("hsc"),c=g("cg"); return (!a||a.v>=4)&&(!b||b.v>=4)&&(!c||c.v>=3);}},
+  lecturer:{txt:["No fixed national cut-off, but universities shortlist on CGPA and usually expect first class.","জাতীয়ভাবে নির্দিষ্ট শর্ত নেই, তবে বিশ্ববিদ্যালয় সিজিপিএ দেখে বাছাই করে এবং সাধারণত প্রথম শ্রেণি প্রত্যাশা করে।"],s:null,
+       f:ex=>{const c=ex.find(e=>e.k==="cg"); return !c||c.lvl===1;}}
+};
+function resCheck(role){
+  if(!role.res) return {ok:null,none:true};
+  const r=RES[role.res], ex=exams();
+  if(ex.length===0) return {ok:null,r};
+  return {ok:r.f(ex),r,partial:ex.length<expectedExams()};
+}
+
+/* ---- eligibility ---- */
+function status(id){
+  const r=ROLES[id], L0=lvl(), d=st.subject;
+  if(L0.cat!=="deg") return {s:"na"};
+  let s; if(r.direct.includes(d)) s="direct"; else if(r.rule==="any") s="open"; else if(r.rule==="skills"||r.bridge.includes(d)) s="bridge"; else s="blocked";
+  let why=s==="direct"?"r_direct":s==="open"?"r_open":s==="bridge"?"r_bridge":"r_blocked";
+  if(L0.mode==="diploma"){
+    if(s==="direct"){ if(r.dip){ /* diploma accepted */ } else if(r.engr||r.req4){ s="cond"; why="r_dip"; } else { s="bridge"; why="r_bridge"; } }
+    else if(s==="open"){ s="blocked"; why="r_dipB"; }
+    if(r.req4 && s!=="blocked" && !r.engr){ s="blocked"; why="r_dipB"; }
+  } else if(L0.mode==="pass"){ if(r.req4 && s!=="blocked"){ s="cond"; why="r_pass"; } }
+  const rc=resCheck(r);
+  if(s!=="blocked" && rc.ok===false){ s="gpa"; why="r_gpa"; }
+  return {s,why,rc};
+}
+const ORDER = ["direct","open","cond","bridge","gpa"];
+function roleList(){
+  return Object.keys(ROLES).filter(id=>ROLES[id].grad!==0).map(id=>({id,...status(id)}))
+    .filter(x=>x.s!=="blocked" && (st.showBridge||x.s!=="bridge"))
+    .filter(x=>st.sector==="all" || ROLES[x.id].t===st.sector || ROLES[x.id].t==="both")
+    .sort((a,b)=>ORDER.indexOf(a.s)-ORDER.indexOf(b.s));
+}
+
+/* ---- pre-university readiness ---- */
+function tags(){ const s=new Set(); st.subjects.forEach(k=>(SUBJ[k]?.[2]||[]).forEach(x=>s.add(x))); return s; }
+function readiness(d){
+  const tg=tags(), D=DISC[d];
+  if(!D.req.length) return {s:"anyg",miss:[],have:D.good.filter(x=>tg.has(x))};
+  const miss=D.req.filter(x=>!tg.has(x));
+  return {s:miss.length?"missing":"ready",miss,have:D.req.filter(x=>tg.has(x))};
+}
+const TAGN = {phy:["Physics","পদার্থবিজ্ঞান"],chem:["Chemistry","রসায়ন"],bio:["Biology","জীববিজ্ঞান"],math:["Higher / Further Maths","উচ্চতর গণিত"],acc:["Accounting","হিসাববিজ্ঞান"],bus:["Business subjects","ব্যবসায় বিষয়"],econ:["Economics","অর্থনীতি"],eng:["English","ইংরেজি"],lit:["Literature","সাহিত্য"],soc:["Social sciences / history","সমাজবিজ্ঞান / ইতিহাস"],psych:["Psychology","মনোবিজ্ঞান"],law:["Law","আইন"],art:["Art & Design","আর্ট অ্যান্ড ডিজাইন"],cs:["Computer Science / ICT","কম্পিউটার সায়েন্স / আইসিটি"],isl:["Islamic studies / Arabic","ইসলামি শিক্ষা / আরবি"],agri:["Agriculture","কৃষি"]};
+function preLines(){
+  const L0=lvl(), tg=tags();
+  const lines=ALLD.map(d=>({d,...readiness(d)}));
+  const rank={ready:0,anyg:1,missing:2};
+  lines.sort((a,b)=>rank[a.s]-rank[b.s]);
+  // diploma lines for SSC stage, using vocational trade tags or science
+  const dips=[];
+  if(L0.stage==="ssc"){ ["cse","eee","civil","me","textile"].forEach(d=>dips.push({d,dip:1,s:tg.has("t_"+d)?"ready":"anyg",miss:[],have:[]})); dips.sort((a,b)=>rank[a.s]-rank[b.s]); }
+  if(L0.id==="hsc_voc"){ ["cse","eee","civil","me","textile"].forEach(d=>{ if(tg.has("t_"+d)) dips.push({d,dip:1,s:"ready",miss:[],have:[]}); }); }
+  return dips.length && (L0.id==="ssc_voc"||L0.id==="hsc_voc") ? dips.concat(lines) : lines.concat(dips);
+}
+function topRoles(d,n){ const a=Object.keys(ROLES).filter(id=>ROLES[id].direct.includes(d) && ROLES[id].direct.length<15);
+  a.sort((x,y)=>(ROLES[x].sec==="gov")-(ROLES[y].sec==="gov")); return a.slice(0,n); }
+function afterHscLines(){ const tg=tags(); return Object.keys(ROLES).filter(id=>ROLES[id].after==="hsc").map(id=>{const miss=(ROLES[id].req||[]).filter(x=>!tg.has(x)); return {id,s:(ROLES[id].req||[]).length?(miss.length?"missing":"ready"):"anyg",miss};}); }
+
+/* ---- render helpers ---- */
+const sc = id => `var(${SECTORS[ROLES[id].sec].c})`;
+const pill = s => `<span class="pill p-${s}">${t(s)}</span>`;
+const typeLbl = ty => ty==="both"?t("both"):ty==="pub"?t("pub"):t("priv");
+
+function renderStatic(){
+  $("#tagline").innerHTML=(st.lang==="bn"?T.tags[1]:T.tags[0]).map(x=>`<span>${esc(x)}</span>`).join("");
+  document.documentElement.lang = st.lang==="bn"?"bn":"en";
+  document.querySelectorAll("[data-t]").forEach(el=>el.textContent=t(el.dataset.t));
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===st.lang));
+  $("#stat-n").textContent = N("13.54%");
+}
+
+function renderPicker(){
+  const L0=lvl();
+  // university select
+  const U=st.uni!==""?UNIS[+st.uni]:null, allow=U?new Set(UTYPE[U.ty].d):null;
+  const kinds=[["pub",["Public universities (UGC)","সরকারি বিশ্ববিদ্যালয় (ইউজিসি)"]],["pvt",["Private universities","বেসরকারি বিশ্ববিদ্যালয়"]],["intl",["International universities","আন্তর্জাতিক বিশ্ববিদ্যালয়"]]];
+  $("#f-uni").innerHTML=`<option value="">${t("uniAny")}</option>`+kinds.map(([k,lb])=>`<optgroup label="${esc(L(lb))} (${N(UNIS.filter(u=>u.k===k).length)})">`+UNIS.map((u,i)=>u.k===k?`<option value="${i}"${String(i)===st.uni?" selected":""}>${esc(u.n)}</option>`:"").join("")+"</optgroup>").join("");
+  $("#uni-hint").hidden=!U;
+  if(U){ const nt=UNI_NOTE[U.n]; $("#uni-hint").innerHTML=`<strong>${esc(L([UTYPE[U.ty].en,UTYPE[U.ty].bn]))}.</strong> ${t("uniHint")}${nt?`<br><span class="warnline">${esc(L(nt))}</span>`:""}`; }
+  // level select
+  let h=""; for(const c of ["sec","hs"]){ h+=`<optgroup label="${esc(L(LCAT[c]))}">`+LEVELS.filter(l=>l.cat===c).map(l=>`<option value="${l.id}"${l.id===st.level?" selected":""}>${esc(nm(l))}</option>`).join("")+"</optgroup>"; }
+  for(const g of Object.keys(DGRPN)){ const items=LEVELS.filter(l=>l.cat==="deg"&&l.grp===g&&(!allow||g==="dip"||allow.has(l.id))); if(!items.length) continue;
+    h+=`<optgroup label="${esc(L(DGRPN[g]))}">`+items.map(l=>`<option value="${l.id}"${l.id===st.level?" selected":""}>${esc(nm(l))}</option>`).join("")+"</optgroup>"; }
+  $("#f-level").innerHTML=h;
+  const pre=L0.cat!=="deg";
+  $("#pre-wrap").hidden=!pre; $("#deg-wrap").hidden=pre;
+  if(pre){
+    const groups=Object.keys(L0.cur).filter(k=>k!=="_opt");
+    if(!groups.includes(st.group)) { st.group=groups[0]; st.subjects=new Set(L0.cur[st.group]); }
+    $("#f-group").innerHTML=groups.map(g=>`<option value="${g}"${g===st.group?" selected":""}>${esc(L(GROUPNAME[g]))}</option>`).join("");
+    const main=L0.cur[st.group], opt=[...new Set([...groups.filter(g=>g!==st.group).flatMap(g=>L0.cur[g]), ...L0.cur._opt])].filter(k=>!main.includes(k));
+    const chip=k=>`<button type="button" class="chip" data-subj="${k}" aria-pressed="${st.subjects.has(k)}">${esc(L(SUBJ[k]))}</button>`;
+    $("#subj-main").innerHTML=main.map(chip).join("");
+    $("#subj-opt").innerHTML=opt.map(chip).join("");
+  } else {
+    if(!L0.subj.includes(st.subject)) st.subject=L0.subj[0];
+    const byG={}; L0.subj.forEach(d=>(byG[DISC[d].g]=byG[DISC[d].g]||[]).push(d));
+    $("#f-subject").innerHTML=Object.keys(byG).map(g=>`<optgroup label="${esc(L(DGRP[g]))}">`+byG[g].map(d=>`<option value="${d}"${d===st.subject?" selected":""}>${esc(nm(DISC[d]))}</option>`).join("")+"</optgroup>").join("");
+  }
+  // results fields
+  $("#w-hsc").hidden = L0.cat==="sec" || L0.mode==="diploma";
+  $("#w-cg").hidden = L0.cat!=="deg";
+  $("#w-mcg").hidden = L0.mode!=="masters";
+  $("#ol-hint").hidden = !(["olevel","alevel"].includes(st.level));
+  $("#mad-hint").hidden = !(["fazil_pass","fazil_hons","kamil","dakhil","alim"].includes(st.level));
+  for(const k of ["ssc","hsc","cg","mcg"]){ const el=$("#f-"+k); if(el.value!==st[k]) el.value=st[k]; }
+  const badge=(k,isC)=>{ const v=num(st[k]); if(v==null) return ""; const l=isC?clsOf(v):divOf(v); const key=isC?["clF","cl1","clNot","cl3"][l]:["clF","div1","div2","div3"][l]; return `<span class="grade g${l}">${t(key)}</span>`; };
+  $("#b-ssc").innerHTML=badge("ssc"); $("#b-hsc").innerHTML=badge("hsc"); $("#b-cg").innerHTML=badge("cg",1); $("#b-mcg").innerHTML=badge("mcg",1);
+}
+
+function stop(label,cls="",sub=""){ return `<div class="stop ${cls}"><span class="dot"></span><span class="sl">${esc(label)}</span>${sub?`<span class="ss">${esc(sub)}</span>`:""}</div>`; }
+
+function groupHead(s,n){ return `<h3 class="grp-h">${pill(s)}<span class="cnt">${N(n)}${st.lang==="bn"?"":" "}${t("routes")}</span></h3>`; }
+const roleLabel = (id,x) => (lvl().mode==="diploma"&&x&&x.s==="cond") ? L(T.sae) : nm(ROLES[id]);
+
+function renderMap(){
+  const L0=lvl(), pre=L0.cat!=="deg";
+  $("#map-h").textContent = pre ? t("preH") : t("mapH");
+  $("#map-hint").textContent = (pre ? t("preHint") : t("mapHint")) + (st.view==="mind" ? " " + t("tapUnfold") : "");
+  $("#deg-tools").hidden = pre;
+  document.querySelectorAll("#sector-f button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===st.sector));
+  document.querySelectorAll("#view-f button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===st.view));
+  $("#f-bridge").checked = st.showBridge;
+  $("#lines").innerHTML = st.view==="mind" ? (pre ? mindPre() : mindDeg()) : (pre ? linesPre() : linesDeg());
+}
+
+/* ---------- mind map (horizontal tree) ---------- */
+const li = (inner, kids, cls="", style="") => `<li class="${cls}"${style?` style="${style}"`:""}>${inner}${kids?`<ul>${kids}</ul>`:""}</li>`;
+function brNode(key,s,label,n){ const f=st.fold.has(key); return `<button type="button" class="node br b-${s}" data-fold="${key}" aria-expanded="${!f}">${esc(label)}<span class="nc">${N(n)}</span><span class="car" aria-hidden="true">${f?"+":"−"}</span></button>`; }
+function ladderKids(id,x){ const r=ROLES[id]; let kids="", i=r.ladder.length;
+  // nest from the top rung down so the road reads left to right
+  for(let k=r.ladder.length-1;k>=0;k--){ kids = li(`<span class="node lad" style="--d:${(k+1)*90}ms">${esc(L(r.ladder[k]))}</span>`, kids, "lad"); }
+  return kids; }
+function roleNode(id,x){
+  const r=ROLES[id], on=st.sel===id;
+  const node=`<button type="button" class="node role${on?" on":""}" data-role="${id}" style="--lc:${sc(id)}"><span class="nt">${esc(roleLabel(id,x))}</span><span class="np">${esc(L([SECTORS[r.sec].en,SECTORS[r.sec].bn]))} · ${esc(N(payShort(id)))}</span></button>`;
+  return li(node, on?ladderKids(id,x):"", on?"path":"", `--lc:${sc(id)}`);
+}
+function mindDeg(){
+  const list=roleList(), L0=lvl();
+  if(!list.length) return `<p class="muted">${t("r_blocked")}</p>`;
+  let br="";
+  for(const s of ORDER){ const g=list.filter(x=>x.s===s); if(!g.length) continue;
+    const key="d-"+s;
+    br+=li(brNode(key,s,t(s),g.length), st.fold.has(key)?"":g.map(x=>roleNode(x.id,x)).join(""));
+  }
+  return `<div class="tree"><div class="node root">${esc(t("you"))}<small>${esc(nm(DISC[st.subject]))}</small><small>${esc(nm(L0).split(" (")[0])}</small></div><ul>${br}</ul></div>`;
+}
+function degNode(x){
+  const key=(x.dip?"dip:":"deg:")+x.d, on=st.sel===key, D=DISC[x.d];
+  const tr=topRoles(x.d,1)[0], lc=`var(${SECTORS[tr?ROLES[tr].sec:"edu"].c})`;
+  const node=`<button type="button" class="node role deg${on?" on":""}" data-pre="${key}" style="--lc:${lc}"><span class="nt">${esc(x.dip?L(T.dipLine)+": "+nm(D):nm(D))}</span>${x.s==="missing"?`<span class="np miss">${t("add")}: ${esc(x.miss.map(m=>L(TAGN[m])).join(", "))}</span>`:""}</button>`;
+  let kids="";
+  if(on){ const rs = x.dip ? [] : topRoles(x.d,4);
+    kids = x.dip ? li(`<span class="node lad" style="--d:90ms">${esc(L(T.sae))}</span>`,"","lad")
+                 : rs.map((id,i)=>li(`<button type="button" class="node lad" data-show="${id}" style="--d:${(i+1)*80}ms;--lc:${sc(id)}">${esc(nm(ROLES[id]))}</button>`,"","lad")).join(""); }
+  return li(node,kids,on?"path":"",`--lc:${lc}`);
+}
+function mindPre(){
+  const L0=lvl(), lines=preLines();
+  let br="";
+  const groups=[["ready",x=>!x.dip&&x.s==="ready"],["anyg",x=>!x.dip&&x.s==="anyg"],["missing",x=>!x.dip&&x.s==="missing"]];
+  const dip=lines.filter(x=>x.dip);
+  const voc=["ssc_voc","hsc_voc"].includes(L0.id);
+  if(voc && dip.length){ const key="p-dip"; br+=li(brNode(key,"ready",t("dipRoutes"),dip.length), st.fold.has(key)?"":dip.map(degNode).join("")); }
+  for(const [s,f] of groups){ const g=lines.filter(f); if(!g.length) continue; const key="p-"+s;
+    br+=li(brNode(key,s,t(s),g.length), st.fold.has(key)?"":g.map(degNode).join("")); }
+  if(!voc && dip.length){ const key="p-dip"; if(!st.fold.has(key)&&!st._dipInit){ st.fold.add(key); st._dipInit=1; }
+    br+=li(brNode(key,"anyg",t("dipRoutes"),dip.length), st.fold.has(key)?"":dip.map(degNode).join("")); }
+  if(L0.stage==="hsc"){ const a=afterHscLines(), key="p-after";
+    br+=li(brNode(key,"open",t("afterHsc"),a.length), st.fold.has(key)?"":a.map(x=>{ const r=ROLES[x.id], on=st.sel===x.id;
+      return li(`<button type="button" class="node role${on?" on":""}" data-role="${x.id}" style="--lc:${sc(x.id)}"><span class="nt">${esc(nm(r))}</span><span class="np${x.s==="missing"?" miss":""}">${x.s==="missing"?t("add")+": "+esc(x.miss.map(m=>L(TAGN[m])).join(", ")):esc(typeLbl(r.t))}</span></button>`, on?ladderKids(x.id):"", on?"path":"", `--lc:${sc(x.id)}`); }).join("")); }
+  const subs=[...st.subjects].slice(0,4).map(k=>L(SUBJ[k])).join(", ");
+  return `<div class="tree"><div class="node root">${esc(t("you"))}<small>${esc(nm(L0).split(" (")[0])} · ${esc(L(GROUPNAME[st.group]))}</small>${subs?`<small>${esc(subs)}${st.subjects.size>4?"…":""}</small>`:""}</div><ul>${br}</ul></div>`;
+}
+
+/* ---------- lines view ---------- */
+function linesPre(){
+  const L0=lvl(), lines=preLines(); let h="", last=null;
+  const youSub = L(GROUPNAME[st.group]);
+  lines.forEach(x=>{
+    const key=x.dip?"dip":x.s; if(key!==last){ h+= x.dip? `<h3 class="grp-h"><span class="pill p-anyg">${t("dipRoutes")}</span></h3>` : groupHead(x.s,lines.filter(y=>!y.dip&&y.s===x.s).length); last=key; }
+    const D=DISC[x.d], k=(x.dip?"dip:":"deg:")+x.d, tr=topRoles(x.d,1)[0];
+    const mid = L0.stage==="ssc" ? (x.dip ? L(T.viaDip) : L(L0.next)) : null;
+    h+=`<div class="line${st.sel===k?" on":""}" role="button" tabindex="0" data-pre="${k}" style="--lc:var(${SECTORS[tr?ROLES[tr].sec:"edu"].c})">
+      <div class="lh"><span class="ln">${esc(x.dip? L(T.dipLine)+": "+nm(D) : nm(D))}</span>${x.s==="missing"?`<span class="miss">${t("add")}: ${esc(x.miss.map(m=>L(TAGN[m])).join(", "))}</span>`:""}</div>
+      <div class="track">${stop(t("you"),"origin",youSub)}${mid?stop(mid,"",x.dip?"":youSub):""}${stop(x.dip?L(T.dipLine):nm(D))}${x.dip?stop(L(T.sae)):(tr?stop(nm(ROLES[tr])):"")}</div></div>`;
+  });
+  if(L0.stage==="hsc"){ const a=afterHscLines(); h+=`<h3 class="grp-h"><span class="pill p-open">${t("afterHsc")}</span></h3>`;
+    a.forEach(x=>{ const r=ROLES[x.id]; h+=`<div class="line${st.sel===x.id?" on":""}" role="button" tabindex="0" data-role="${x.id}" style="--lc:${sc(x.id)}">
+      <div class="lh"><span class="ln">${esc(nm(r))}</span>${x.s==="missing"?`<span class="miss">${t("add")}: ${esc(x.miss.map(m=>L(TAGN[m])).join(", "))}</span>`:""}</div>
+      <div class="track">${stop(t("you"),"origin",youSub)}${stop(nm(r),"entry")}${r.ladder.map(l=>stop(L(l))).join("")}</div></div>`; }); }
+  return h;
+}
+function payShort(id){ const m=PVT_MARKET[id]; if(m&&m[2]&&m[3]) return (st.lang==="bn"?"৳":"৳")+N(Math.round(m[2]/1000))+"–"+N(Math.round(m[3]/1000))+(st.lang==="bn"?" হাজার":"k"); return L(PAY[ROLES[id].pay].short); }
+function linesDeg(){
+  const list=roleList(); let h="", last=null;
+  if(!list.length) return `<p class="muted">${t("r_blocked")}</p>`;
+  list.forEach(x=>{
+    const r=ROLES[x.id];
+    if(x.s!==last){ h+=groupHead(x.s,list.filter(y=>y.s===x.s).length); last=x.s; }
+    h+=`<div class="line${st.sel===x.id?" on":""}" role="button" tabindex="0" data-role="${x.id}" style="--lc:${sc(x.id)}">
+      <div class="lh"><span class="sw"></span><span class="sec">${esc(L([SECTORS[r.sec].en,SECTORS[r.sec].bn]))} · ${typeLbl(r.t)}</span><span class="pay">${esc(N(payShort(x.id)))}</span></div>
+      <div class="track">${stop(t("you"),"origin",nm(DISC[st.subject]))}${stop(roleLabel(x.id,x),"entry")}${r.ladder.map(l=>stop(L(l))).join("")}</div></div>`;
+  });
+  return h;
+}
+
+function linkList(arr){ return arr.map(([n,u])=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(n)}</a>`:esc(n)).join(" · "); }
+function srcLink(k){ if(!k) return ""; const s=SRC[k]; return `<a class="src" href="${s.u}" target="_blank" rel="noopener">${t("src")}: ${esc(s.t)}</a>`; }
+
+
+/* ---------- year-by-year action plan ---------- */
+const PB = {
+  planH:["Your year-by-year plan","বছরভিত্তিক করণীয় পরিকল্পনা"],
+  y1:["Year 1","১ম বর্ষ"],y2:["Year 2","২য় বর্ষ"],y3:["Year 3","৩য় বর্ষ"],y4:["Final year","শেষ বর্ষ"],after:["After graduation","স্নাতকের পর"],
+  pre1:["Now (school / college)","এখন (স্কুল / কলেজ)"],pre2:["Admission year","ভর্তির বছর"],pre3:["At university","বিশ্ববিদ্যালয়ে"],
+  m3:["Next 3 months","আগামী ৩ মাস"],m6:["Next 6 months","আগামী ৬ মাস"],m12:["Within 1 year","১ বছরের মধ্যে"],
+  planB:["Plan B in parallel","পাশাপাশি বিকল্প পরিকল্পনা"],
+  thisTerm:["Start this semester","এই সেমিস্টার থেকেই শুরু"]
+};
+const PL = {
+  eng:["Build spoken and written English: read one English article a day and write short summaries.","ইংরেজিতে বলা ও লেখার দক্ষতা গড়ুন: প্রতিদিন একটি ইংরেজি লেখা পড়ে ছোট সারাংশ লিখুন।"],
+  excel:["Learn computer basics and Excel well (formulas, tables, charts).","কম্পিউটারের মৌলিক বিষয় ও এক্সেল ভালোভাবে শিখুন (ফর্মুলা, টেবিল, চার্ট)।"],
+  cgpa:["Protect your CGPA: aim for 3.00 or above, because many circulars use it as a cut-off.","সিজিপিএ ধরে রাখুন: ৩.০০ বা তার বেশি লক্ষ্য রাখুন, কারণ অনেক বিজ্ঞপ্তিতে এটি শর্ত হিসেবে থাকে।"],
+  start:["Start learning: {s}.","শেখা শুরু করুন: {s}।"],
+  deepen:["Go deeper in: {s}.","আরও গভীরে শিখুন: {s}।"],
+  club:["Join a club or volunteer group related to {sec}; take one small responsibility.","{sec}-সংশ্লিষ্ট কোনো ক্লাব বা স্বেচ্ছাসেবী দলে যুক্ত হোন; ছোট একটি দায়িত্ব নিন।"],
+  ga:["Read a national newspaper daily and keep notes on current affairs; this is the base of BCS and bank exams.","প্রতিদিন একটি জাতীয় দৈনিক পড়ুন ও সাম্প্রতিক বিষয়ের নোট রাখুন; এটিই বিসিএস ও ব্যাংক পরীক্ষার ভিত্তি।"],
+  intern:["Do an internship, field attachment or part-time job in {sec}.","{sec} খাতে ইন্টার্নশিপ, ফিল্ড অ্যাটাচমেন্ট বা খণ্ডকালীন কাজ করুন।"],
+  folio:["Build 2–3 real projects and put them in a portfolio; employers in this field hire on proof, not degree.","২–৩টি বাস্তব প্রজেক্ট করে পোর্টফোলিওতে রাখুন; এই খাতে ডিগ্রি নয়, প্রমাণ দেখে নিয়োগ হয়।"],
+  people:["Talk to 3 people already working as {role}: ask what the work is really like and what they would do differently.","{role} হিসেবে কাজ করছেন এমন ৩ জনের সঙ্গে কথা বলুন: কাজটা আসলে কেমন, আর তাঁরা কী অন্যভাবে করতেন, জেনে নিন।"],
+  cv:["Make a one-page CV and a LinkedIn profile; ask a working professional to review them.","এক পৃষ্ঠার সিভি ও লিংকডইন প্রোফাইল বানান; কর্মরত কাউকে দিয়ে দেখিয়ে নিন।"],
+  apply:["Apply for entry roles as {role} through {where}.","{where}-এর মাধ্যমে {role} পদে আবেদন করুন।"],
+  prep:["Start structured preparation for BCS / bank exams: Bangla, English, math, GK; take a weekly model test.","বিসিএস / ব্যাংক পরীক্ষার পরিকল্পিত প্রস্তুতি শুরু করুন: বাংলা, ইংরেজি, গণিত, সাধারণ জ্ঞান; সপ্তাহে একটি মডেল টেস্ট দিন।"],
+  sit:["Sit for the circulars as soon as you are eligible; most candidates need several attempts.","যোগ্য হলেই বিজ্ঞপ্তিতে আবেদন করুন; বেশিরভাগ প্রার্থীর কয়েকবার চেষ্টা লাগে।"],
+  license:["Plan for the licence or registration this career needs (see Eligibility above) and its exam dates.","এই ক্যারিয়ারে যে লাইসেন্স বা নিবন্ধন লাগে (ওপরে যোগ্যতা দেখুন) এবং তার পরীক্ষার সময় আগে থেকেই পরিকল্পনা করুন।"],
+  grow:["Aim for the next step: {next}. Keep learning: {s}.","পরের ধাপের লক্ষ্য রাখুন: {next}। শেখা চালিয়ে যান: {s}।"],
+  bridge:["Your degree is not the usual route, so take a recognised short course or certificate in {s} to prove the skill.","আপনার ডিগ্রি এই পথের প্রচলিত রুট নয়, তাই দক্ষতা প্রমাণে {s} বিষয়ে স্বীকৃত শর্ট কোর্স বা সার্টিফিকেট করুন।"],
+  preGroup:["Choose the group and subjects this path needs; if you are unsure, keep Science with Higher Maths, since it keeps the most doors open.","এই পথে যে বিভাগ ও বিষয় লাগে তা বেছে নিন; নিশ্চিত না হলে উচ্চতর গণিতসহ বিজ্ঞান রাখুন, এতে সবচেয়ে বেশি পথ খোলা থাকে।"],
+  preResult:["Keep SSC and HSC GPA at 4.00 or above; many circulars and admissions count school results.","এসএসসি ও এইচএসসিতে জিপিএ ৪.০০ বা তার বেশি রাখুন; অনেক বিজ্ঞপ্তি ও ভর্তিতে স্কুল-কলেজের ফল গোনা হয়।"],
+  preAdmit:["Target degrees that lead here (see the degree lines on the map) and prepare for those admission tests.","যে ডিগ্রিগুলো এই পথে নিয়ে যায় (ম্যাপের ডিগ্রি লাইন দেখুন) সেগুলো লক্ষ্য করে ভর্তি পরীক্ষার প্রস্তুতি নিন।"],
+  preSkill:["Start one skill early, at your own pace: {s}.","নিজের গতিতে আগেভাগেই একটি দক্ষতা শুরু করুন: {s}।"]
+};
+function fill(x,o){ return L(x).replace(/\{(\w+)\}/g,(m,k)=>o[k]); }
+function planFor(id){
+  const r=ROLES[id], L0=lvl(), S=status(id), sec=L([SECTORS[r.sec].en,SECTORS[r.sec].bn]);
+  const sk=r.sk.map(k=>L(SK[k])), o={s:sk[0], sec, role:nm(r), next:L(r.ladder[0]), where:WHERE[r.where].map(w=>w[0]).join(" / ")};
+  const gov=r.t==="pub", lic=r.rule==="licensed", proof=r.rule==="skills";
+  const rest=sk.slice(1).join(", ")||sk[0];
+  let steps;
+  if(L0.cat!=="deg"){
+    steps=[[PB.pre1,[PL.preGroup,PL.preResult,PL.eng]],[PB.pre2,[PL.preAdmit,PL.people]],[PB.pre3,[PL.cgpa,{f:PL.preSkill,o}]] ];
+  } else if(L0.mode==="masters"){
+    steps=[[PB.m3,[PL.cv,PL.people,{f:PL.start,o}]],[PB.m6,[proof?PL.folio:PL.intern,gov?PL.prep:{f:PL.apply,o}]],[PB.m12,[gov?PL.sit:{f:PL.grow,o:{...o,s:rest}}, lic?PL.license:null]]];
+  } else {
+    steps=[
+      [PB.y1,[PL.eng,PL.excel,PL.cgpa,{f:PL.start,o}]],
+      [PB.y2,[{f:PL.deepen,o:{...o,s:rest}},{f:PL.club,o},gov?PL.ga:null,S.s==="bridge"?{f:PL.bridge,o:{...o,s:rest}}:null]],
+      [PB.y3,[proof?PL.folio:{f:PL.intern,o},{f:PL.people,o},lic?PL.license:null]],
+      [PB.y4,[PL.cv,gov?PL.prep:{f:PL.apply,o}]],
+      [PB.after,[gov?PL.sit:null,{f:PL.grow,o:{...o,s:rest}}]]
+    ];
+  }
+  const txt=x=>!x?"":(x.f?fill(x.f,x.o):fill(x,o));
+  let h=`<h4>${L(PB.planH)}</h4><ol class="plan">`+steps.map(([lab,arr])=>`<li><span class="pl">${esc(L(lab))}</span><ul>${arr.filter(Boolean).map(x=>`<li>${esc(txt(x))}</li>`).join("")}</ul></li>`).join("")+`</ol>`;
+  if(gov){ const alt=Object.keys(ROLES).filter(k=>k!==id&&ROLES[k].sec===r.sec&&ROLES[k].t!=="pub"&&!["blocked"].includes(status(k).s)).slice(0,2);
+    const alt2=alt.length?alt:Object.keys(ROLES).filter(k=>ROLES[k].t!=="pub"&&["direct","open"].includes(status(k).s)).slice(0,2);
+    if(alt2.length) h+=`<p class="planb"><strong>${esc(L(PB.planB))}:</strong> ${alt2.map(k=>`<button type="button" class="lnk" data-show="${k}">${esc(nm(ROLES[k]))}</button>`).join(", ")}</p>`; }
+  return h;
+}
+
+function marketBlock(id){
+  const m=PVT_MARKET[id]; if(!m) return "";
+  const [n,ns,lo,hi,ee,eb,sk]=m, bn=st.lang==="bn", f=x=>N((x/1000).toLocaleString("en-US"))+(bn?" হাজার":"k");
+  let h=`<h4>${bn?"চাকরির বিজ্ঞপ্তি থেকে (বিডিজবস)":"From live job circulars (Bdjobs)"}</h4><div class="mkt">`;
+  if(lo&&hi) h+=`<p class="mk-sal"><strong>৳${f(lo)} – ৳${f(hi)}</strong> ${bn?"/ মাস":"/ month"}</p><p class="muted mk-n">${bn?`এন্ট্রি লেভেলের ${N(n)}টি বিজ্ঞপ্তির মধ্যে ${N(ns)}টিতে বেতন উল্লেখ ছিল`:`${ns} of ${n} entry-level listings stated a salary`}${ns<3?(bn?" · নমুনা ছোট, আনুমানিক ধরুন":" · small sample, treat as rough"):""}</p>`;
+  else h+=`<p class="muted mk-n">${bn?`এন্ট্রি লেভেলের ${N(n)}টি বিজ্ঞপ্তি পাওয়া গেছে, কিন্তু যথেষ্টগুলোতে বেতন উল্লেখ নেই।`:`${n} entry-level listings found, but too few stated a salary.`}</p>`;
+  h+=`<p><strong>${bn?"শিক্ষাগত যোগ্যতা যা চাওয়া হয়:":"Education asked for:"}</strong> ${esc(bn?eb:ee)}</p>`;
+  if(sk.length) h+=`<p><strong>${bn?"নিয়োগকর্তারা যে দক্ষতা চান:":"Skills employers list:"}</strong> ${esc(sk.join(", "))}</p>`;
+  h+=`<p class="muted mk-n">${bn?"এন্ট্রি লেভেল = ২ বছর বা কম অভিজ্ঞতা। নমুনা":"Entry level = 2 years' experience or less. Sampled"} ${esc(L(PVT_DATE))}. ${bn?"প্রতি মাসে হালনাগাদ হয়।":"Updated monthly."}</p></div>${srcLink("S22")}`;
+  return h;
+}
+function roleDetail(id, ctx){
+  const r=ROLES[id], S=status(id), L0=lvl();
+  let h=`<div class="d-sec" style="--lc:${sc(id)}"><span class="sw"></span>${esc(L([SECTORS[r.sec].en,SECTORS[r.sec].bn]))} · ${typeLbl(r.t)}</div>
+    <h3 class="d-title">${esc(nm(r))}</h3>`;
+  if(S.s!=="na"){ h+=`<div class="verdict v-${S.s}">${pill(S.s)}<p>${t(S.why)}</p></div>`; }
+  h+=`<div class="d-route" style="--lc:${sc(id)}">${[t("you"),(L0.mode==="diploma"&&S.s==="cond")?L(T.sae):nm(r),...r.ladder.map(L)].map((s,i)=>`<span class="${i?"":"me"}">${esc(s)}</span>`).join('<i aria-hidden="true"></i>')}</div>`;
+  if(r.note){ h+=`<h4>${t("rules")}</h4><p>${esc(L(r.note))}</p>${srcLink(r.ns)}`; }
+  const rc=resCheck(r);
+  h+=`<h4>${t("resRule")}</h4>`;
+  if(rc.none) h+=`<p>${t("resNone")}</p>`;
+  else { h+=`<p>${esc(N(L(rc.r.txt)))}</p>`;
+    if(L0.cat==="deg"){ h+= rc.ok==null?`<p class="muted">${t("resNA")}</p>`:`<p class="res ${rc.ok?"ok":"no"}">${rc.ok?"✓ "+t("meets"):"✕ "+t("fails")}</p>`; }
+    h+=srcLink(rc.r.s); }
+  h+=marketBlock(id);
+  const P=PAY[r.pay];
+  h+=`<h4>${t("pay")}</h4><p>${esc(L([P.en,P.bn]))}</p>${srcLink(P.s)}`;
+  h+=`<h4>${t("skills")}</h4><ul class="sk">${r.sk.map(k=>`<li>${esc(L(SK[k]))}</li>`).join("")}</ul>`;
+  h+=planFor(id);
+  h+=`<h4>${t("whereC")}</h4><p>${linkList(WHERE[r.where])}</p>`;
+  return h;
+}
+function degDetail(key){
+  const [kind,d]=key.split(":"), D=DISC[d], x=readiness(d), L0=lvl();
+  let h=`<div class="d-sec">${esc(L(DGRP[D.g]))}</div><h3 class="d-title">${esc(kind==="dip"?L(T.dipLine)+": "+nm(D):nm(D))}</h3>`;
+  if(kind==="dip"){ h+=`<div class="verdict v-anyg">${pill(tags().has("t_"+d)?"ready":"anyg")}<p>${t("dipNote")}</p></div>
+     <div class="d-route"><span class="me">${t("you")}</span><i></i><span>${esc(L(T.dipLine))}</span><i></i><span>${esc(L(T.sae))}</span><i></i><span>${esc(st.lang==="bn"?"বিএসসি (ঐচ্ছিক, পরে)":"BSc (optional, later)")}</span></div>`; }
+  else {
+    h+=`<div class="verdict v-${x.s}">${pill(x.s)}<p>${D.req.length?`${t("needs")}: ${esc(D.req.map(m=>L(TAGN[m])).join(", "))}.`:t("noReq")}</p></div>`;
+    if(x.miss.length) h+=`<p><strong>${t("add")}:</strong> ${esc(x.miss.map(m=>L(TAGN[m])).join(", "))}</p>`;
+    if(D.good.length) h+=`<p><strong>${t("helps")}:</strong> ${esc(D.good.map(m=>L(TAGN[m])).join(", "))}</p>`;
+    h+=`<p class="muted">${t("adNote")}</p>`;
+  }
+  const rs=topRoles(d,5);
+  if(rs.length){ h+=`<h4>${t("careers")}</h4><ul class="sk">${rs.map(id=>`<li>${esc(nm(ROLES[id]))} <span class="muted">· ${esc(N(L(PAY[ROLES[id].pay].short)))}</span></li>`).join("")}</ul>`; }
+  h+=`<button type="button" class="btn" data-go="${kind}:${d}">${t("openDeg")} →</button>`;
+  return h;
+}
+function renderDetail(){
+  const el=$("#detail");
+  if(!st.sel){ el.innerHTML=`<p class="muted">${t("empty")}</p>`; return; }
+  el.innerHTML = st.sel.includes(":") ? degDetail(st.sel) : roleDetail(st.sel);
+}
+
+function renderChecker(){
+  const opts=Object.keys(SECTORS).map(s=>`<optgroup label="${esc(L([SECTORS[s].en,SECTORS[s].bn]))}">`+Object.keys(ROLES).filter(id=>ROLES[id].sec===s).map(id=>`<option value="${id}"${id===st.check?" selected":""}>${esc(nm(ROLES[id]))}</option>`).join("")+"</optgroup>").join("");
+  $("#f-check").innerHTML=opts;
+  const out=$("#check-out");
+  if(lvl().cat!=="deg"){ out.innerHTML=`<p class="muted">${t("needDeg")}</p>`; return; }
+  const S=status(st.check), r=ROLES[st.check], rc=S.rc;
+  let h=`<div class="verdict big v-${S.s}">${pill(S.s)}<p>${t(S.why)}</p></div>`;
+  if(r.note) h+=`<p>${esc(L(r.note))}</p>`;
+  if(!rc.none){ h+=`<p><strong>${t("resRule")}:</strong> ${esc(N(L(rc.r.txt)))} ${rc.ok==null?`<span class="muted">${t("resNA")}</span>`:`<span class="res ${rc.ok?"ok":"no"}">${rc.ok?"✓ "+t("meets"):"✕ "+t("fails")}</span>`}</p>`; }
+  if(S.s==="bridge"||S.s==="cond") h+=`<p><strong>${t("skills")}:</strong> ${esc(r.sk.map(k=>L(SK[k])).join(", "))}</p>`;
+  h+=`<button type="button" class="btn ghost" data-show="${st.check}">${t("route")} →</button>`;
+  out.innerHTML=h;
+}
+
+function quizScores(){
+  const I={}, P={};
+  st.ans.forEach((oi,qi)=>{ const o=QUIZ[qi].o[oi]; if(!o) return; for(const k in o[1]) I[k]=(I[k]||0)+o[1][k]; if(o[2]) for(const k in o[2]) P[k]=(P[k]||0)+o[2][k]; });
+  return {I,P};
+}
+function renderQuiz(){
+  const out=$("#quiz");
+  if(st.qi<0){ out.innerHTML=`<p class="lead">${t("quizIntro")}</p><button type="button" class="btn" data-q="start">${t("start")} →</button>`; return; }
+  if(st.qi<QUIZ.length){
+    const Q=QUIZ[st.qi];
+    out.innerHTML=`<div class="qbar"><span style="width:${(st.qi/QUIZ.length)*100}%"></span></div>
+      <p class="qn">${esc(N(t("qOf").replace("{a}",st.qi+1).replace("{b}",QUIZ.length)))}</p>
+      <h3 class="qq">${esc(L(Q.q))}</h3>
+      <div class="qopts">${Q.o.map((o,i)=>`<button type="button" class="qopt" data-qa="${i}" aria-pressed="${st.ans[st.qi]===i}">${esc(L(o[0]))}</button>`).join("")}</div>
+      ${st.qi>0?`<button type="button" class="btn ghost sm" data-q="back">← ${t("back")}</button>`:""}`;
+    return;
+  }
+  const {I,P}=quizScores(), deg=lvl().cat==="deg";
+  const top=Object.keys(I).filter(k=>I[k]>0).sort((a,b)=>I[b]-I[a]).slice(0,4);
+  const rank={direct:0,open:1,cond:2,bridge:3,gpa:4,blocked:5,na:2};
+  let list=Object.keys(ROLES).filter(id=>!(deg&&ROLES[id].grad===0)).map(id=>{
+    const r=ROLES[id]; let sc0=r.int.reduce((a,k,i)=>a+(I[k]||0)*(i===0?1.2:1),0);
+    if(P.pub && (r.t==="pub"||r.t==="both")) sc0+=P.pub*.6;
+    if(P.priv && (r.t==="priv"||r.t==="both")) sc0+=P.priv*.6;
+    if(P.nostudy && (r.rule==="licensed"||id==="lecturer"||id==="counselor")) sc0-=2.5;
+    return {id,sc:sc0,S:status(id)}; }).filter(x=>x.sc>0);
+  const max=Math.max(...list.map(x=>x.sc),1);
+  list.sort((a,b)=>b.sc-a.sc || rank[a.S.s]-rank[b.S.s]); list=list.slice(0,8);
+  out.innerHTML=`<div class="qres"><span class="lbl">${t("topInt")}</span><div class="chips">${top.map(k=>`<span class="chip static">${esc(L(INTERESTS[k]))}</span>`).join("")}</div></div>
+    <span class="lbl">${t("yourMatches")}</span>
+    <div class="cards">${list.map(x=>{const r=ROLES[x.id], p=Math.round(x.sc/max*100); return `<button type="button" class="card" data-show="${x.id}" style="--lc:${sc(x.id)}">
+      <span class="d-sec"><span class="sw"></span>${esc(L([SECTORS[r.sec].en,SECTORS[r.sec].bn]))} · ${typeLbl(r.t)}</span>
+      <strong>${esc(nm(r))}</strong>
+      <span class="fit"><span style="width:${p}%"></span></span><span class="muted">${N(p)}% ${t("fitPct")}</span>
+      ${deg?pill(x.S.s):""}</button>`;}).join("")}</div>
+    <button type="button" class="btn ghost sm" data-q="restart">↻ ${t("retake")}</button>`;
+}
+
+function renderOpen(){
+  const ids=Object.keys(ROLES).filter(id=>ROLES[id].rule==="any");
+  $("#open-list").innerHTML=ids.map(id=>{const r=ROLES[id]; return `<button type="button" class="orow" data-show="${id}" style="--lc:${sc(id)}"><span class="sw"></span><span class="on">${esc(nm(r))}<small>${typeLbl(r.t)}</small></span><span class="pay">${esc(N(payShort(id)))}</span></button>`;}).join("");
+}
+function renderPvt(){
+  const deg=lvl().cat==="deg"; let h="";
+  for(const sk of Object.keys(SECTORS)){ const ids=Object.keys(ROLES).filter(id=>ROLES[id].sec===sk&&ROLES[id].t!=="pub"); if(!ids.length) continue;
+    h+=`<div class="ind" style="--lc:var(${SECTORS[sk].c})"><h3><span class="sw"></span>${esc(L([SECTORS[sk].en,SECTORS[sk].bn]))} <span class="cnt">${N(ids.length)}</span></h3><div class="ichips">`+
+      ids.map(id=>{const S=deg?status(id).s:"na"; return `<button type="button" class="ichip s-${S}" data-show="${id}">${esc(nm(ROLES[id]))}</button>`;}).join("")+`</div></div>`; }
+  $("#pvt-list").innerHTML=h;
+}
+function renderGrades(){
+  const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
+  const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
+  const tb=(cap,rows,s,foot)=>`<div class="gt"><table><caption>${cap}</caption>${rows.map(([a,b])=>`<tr><td class="mono">${N(a)}</td><td>${t(b)}</td></tr>`).join("")}</table>${foot?`<p class="hint">${foot}</p>`:""}${srcLink(s)}</div>`;
+  $("#grades").innerHTML = tb(st.lang==="bn"?"এসএসসি / এইচএসসি জিপিএ (২০০৪ থেকে)":"SSC / HSC GPA (2004 onward)",rows1,"S10")
+   + tb(st.lang==="bn"?"বিশ্ববিদ্যালয়: নম্বরের শতাংশ থেকে শ্রেণি":"University: class from percentage of marks",rows2,"S11",
+     st.lang==="bn"?"৪ স্কেলে সিজিপিএ ৩.০০ বা বেশি প্রথম শ্রেণি হিসেবে গণ্য। এর নিচের শ্রেণির সীমা বিশ্ববিদ্যালয়ভেদে আলাদা, তাই সনদ বা বিশ্ববিদ্যালয়ের নিয়ম দেখুন।":"On a 4-point scale, CGPA 3.00 or above counts as first class. Lower bands differ by university, so check your transcript or university rules.");
+}
+function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
+
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); }
+function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); }
+
+function select(key, scroll){
+  st.sel=key; renderMap(); renderDetail();
+  if(scroll && window.matchMedia("(max-width: 900px)").matches) $("#detail-wrap").scrollIntoView({behavior:smooth(), block:"start"});
+}
+function smooth(){ return matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"; }
+function firstSel(){ const L0=lvl(); if(L0.cat==="deg"){ const l=roleList(); st.sel=l[0]?.id||null; } else { const l=preLines(); st.sel=l[0]?((l[0].dip?"dip:":"deg:")+l[0].d):null; } }
+
+/* ---- events ---- */
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button,[data-role],[data-pre]"); if(!b) return;
+  if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
+  if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
+  if(b.dataset.s){ st.sector=b.dataset.s; renderMap(); return; }
+  if(b.dataset.v){ st.view=b.dataset.v; renderMap(); return; }
+  if(b.dataset.fold){ const k=b.dataset.fold; st.fold.has(k)?st.fold.delete(k):st.fold.add(k); renderMap(); return; }
+  if(b.dataset.q){ const q=b.dataset.q; if(q==="start"){st.qi=0;st.ans=[];} else if(q==="back"){st.qi=Math.max(0,st.qi-1);} else if(q==="restart"){st.qi=0;st.ans=[];} renderQuiz(); return; }
+  if(b.dataset.qa){ st.ans[st.qi]=+b.dataset.qa; st.qi++; renderQuiz(); if(st.qi>=QUIZ.length) $("#quiz-panel").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+  if(b.dataset.role){ select(b.dataset.role,true); return; }
+  if(b.dataset.pre){ select(b.dataset.pre,true); return; }
+  if(b.dataset.show){ const inMap=!!b.closest("#lines"); st.sel=b.dataset.show; renderMap(); renderDetail(); if(!inMap) $("#map").scrollIntoView({behavior:smooth(),block:"start"}); else if(matchMedia("(max-width: 900px)").matches) $("#detail-wrap").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+  if(b.dataset.go){ const [k,d]=b.dataset.go.split(":"); st.uni=""; const cand=LEVELS.filter(l=>l.cat==="deg"&&l.subj.includes(d)&&(k==="dip"?l.grp==="dip":(l.grp==="prof"||l.grp==="hons"))); st.level=(cand.find(l=>l.grp==="prof")||cand[0]||LEVELS.find(l=>l.id==="bss")).id; st.subject=d; firstSel(); refresh(); $("#map").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+});
+document.addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ") && e.target.matches("[data-role],[data-pre]")){ e.preventDefault(); e.target.click(); } });
+document.addEventListener("change",e=>{
+  const id=e.target.id;
+  if(id==="f-level"){ st.level=e.target.value; const L0=lvl(); if(L0.cat!=="deg"){ const g=Object.keys(L0.cur).filter(k=>k!=="_opt"); if(!g.includes(st.group)) st.group=g[0]; st.subjects=new Set(L0.cur[st.group]); } firstSel(); refresh(); }
+  else if(id==="f-uni"){ st.uni=e.target.value; const U=st.uni!==""?UNIS[+st.uni]:null, L0=lvl();
+    if(U && L0.cat==="deg" && L0.grp!=="dip" && !UTYPE[U.ty].d.includes(L0.id)){ st.level=UTYPE[U.ty].d[0]; }
+    firstSel(); refresh(); }
+  else if(id==="f-group"){ st.group=e.target.value; st.subjects=new Set(lvl().cur[st.group]); firstSel(); refresh(); }
+  else if(id==="f-subject"){ st.subject=e.target.value; firstSel(); refresh(); }
+  else if(id==="f-bridge"){ st.showBridge=e.target.checked; renderMap(); }
+  else if(id==="f-check"){ st.check=e.target.value; renderChecker(); }
+});
+document.addEventListener("input",e=>{
+  const m=e.target.id.match(/^f-(ssc|hsc|cg|mcg)$/); if(!m) return;
+  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz();
+});
+
+/* example starting state: an Economics Honours graduate with realistic results */
+st.ssc="4.50"; st.hsc="4.17"; st.cg="3.12";
+firstSel(); renderAll();
+
+</script>
+
+</body>
+</html>
