@@ -312,6 +312,15 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .moreh{margin:36px 0 10px;padding-top:20px;border-top:2px dashed var(--rule);text-align:center}
 @media (prefers-reduced-motion: reduce){.wcard,.wprog span{transition:none}.wcard:hover{transform:none}}
 @media (max-width:600px){.hero .stat,.hero .tagline{display:none}.wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wcard{min-height:100px;font-size:.95rem}}
+.skwrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.skwrap{grid-template-columns:minmax(0,1fr)}.skwrap aside{order:-1}}
+@media (min-width:901px){.skwrap aside{position:sticky;top:70px}}
+.skg{margin-bottom:12px}.skg .chips{margin-top:6px}
+.mlist{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.mrow{position:relative;display:grid;gap:2px;width:100%;text-align:left;border:1px solid var(--rule);border-radius:12px;padding:10px 12px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer;overflow:hidden}
+.mrow:hover{border-color:var(--green)}
+.mbar{position:absolute;left:0;bottom:0;height:4px;width:var(--p);background:var(--green)}
+.mmeta{font-size:.85rem;color:var(--muted)}.mmiss{font-size:.85rem;color:var(--accent)}
 </style>
 </head>
 <body>
@@ -322,7 +331,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -362,6 +371,11 @@ section[id],.panel[id]{scroll-margin-top:64px}
       <div class="fld gpa" id="w-mcg"><label for="f-mcg" data-t="mcg"></label><input id="f-mcg" type="number" min="1" max="4" step="0.01" inputmode="decimal" placeholder="3.40"><span id="b-mcg"></span></div>
       <p class="hint" id="ol-hint" data-t="olHint" hidden></p>
     </div>
+  </section>
+
+  <section class="section panel" id="skills">
+    <h2 data-t="skH"></h2><p class="muted" data-t="skSub"></p>
+    <div class="skwrap"><div id="sk-pick"></div><aside class="ticket"><h3 data-t="mH"></h3><div id="match-out" aria-live="polite"></div></aside></div>
   </section>
 
   <section class="section" id="map">
@@ -1312,6 +1326,8 @@ const T = {
   wzSub:["Just tap. No typing needed.","শুধু চাপ দিন। কিছু লিখতে হবে না।"],
   moreH:["Want more detail? Everything is below","আরও বিস্তারিত চান? সব নিচে আছে"],
   moreSub:["Enter your results to see which jobs fit you, with rules, pay and sources.","আপনার ফলাফল দিন, দেখুন কোন চাকরি আপনার জন্য, সঙ্গে শর্ত, বেতন ও উৎস।"],
+  navSk:["Your skills","আপনার দক্ষতা"],
+  skH:["Your skills: narrow it down","আপনার দক্ষতা: আরও নির্দিষ্ট করুন"],skSub:["Skills Bangladeshi employers ask for most. Tap what you can already do.","বাংলাদেশের নিয়োগকারীরা যে দক্ষতা সবচেয়ে বেশি চান। যা পারেন তাতে চাপ দিন।"],mH:["Best-fit jobs for you","আপনার জন্য সবচেয়ে মানানসই চাকরি"],
   navS:["Start here","এখান থেকে শুরু"],
   navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Free abroad","বিনা খরচে বিদেশ"],
   gH:["Not sure which way to go? Start from your result","কোন পথে যাবেন বুঝতে পারছেন না? ফলাফল থেকে শুরু করুন"],
@@ -1915,6 +1931,31 @@ function renderWizard(){
   const nav=step>1?`<div class="wnav"><button type="button" class="wbtn ghost" data-wback="1">← ${esc(L(["Back","পেছনে"]))}</button>${step===4?`<button type="button" class="wbtn ghost" data-wreset="1">↺ ${esc(L(["Start again","আবার শুরু"]))}</button>`:""}</div>`:"";
   $("#wiz-body").innerHTML=bar+body+nav;
 }
+
+/* ---- skills you have -> best matched jobs ---- */
+st.skills=new Set();
+const SKG=[["Office & everyday","অফিস ও দৈনন্দিন",["eng","excel","present","bangla","math","ga"]],
+ ["Business & finance","ব্যবসা ও ফিন্যান্স",["acc","bank","erp","sales","hr","stats"]],
+ ["Computers & data","কম্পিউটার ও ডেটা",["prog","dsa","git","sql","viz","test","net"]],
+ ["Engineering & factory","প্রকৌশল ও কারখানা",["cad","d3","estim","power","maint","garment","ie","labour","gmp","lab"]],
+ ["Marketing & creative","মার্কেটিং ও সৃজনশীল",["ads","seo","copy","adobe","folio","report"]],
+ ["People, law, health, teaching","মানুষ, আইন, স্বাস্থ্য, শিক্ষা",["teach","counsel","clinical","draft","lawkn","proposal","field","survey","research","agro"]]];
+function renderSkills(){
+  $("#sk-pick").innerHTML=SKG.map(([en,bn,ks])=>`<div class="skg"><span class="lbl">${esc(L([en,bn]))}</span><div class="chips">${ks.filter(k=>SK[k]).map(k=>`<button type="button" class="chip" data-sk="${k}" aria-pressed="${st.skills.has(k)}">${esc(L(SK[k]))}</button>`).join("")}</div></div>`).join("");
+}
+function renderMatch(){
+  const deg=lvl().cat==="deg"; const have=st.skills;
+  const rows=Object.keys(ROLES).map(id=>{ const r=ROLES[id]; let s="na"; if(deg){ try{ s=status(id).s; }catch(_){} if(s==="blocked") return null; }
+    const sk=[...new Set(r.sk||[])]; if(!sk.length) return null; const hit=sk.filter(k=>have.has(k)); return {id,sk,hit,s,sc:hit.length/sk.length+(s==="direct"?.15:0)}; }).filter(Boolean);
+  let h;
+  if(!have.size){ h=`<p class="muted">${esc(L(["Tap the skills you already have. Your best-fit jobs will appear here.","আপনার যে দক্ষতাগুলো আছে সেগুলোতে চাপ দিন। এখানে আপনার জন্য সবচেয়ে মানানসই চাকরি দেখাবে।"]))}</p>`; }
+  else { const top=rows.filter(x=>x.hit.length).sort((a,b)=>b.sc-a.sc||b.hit.length-a.hit.length).slice(0,8);
+    h=top.length?`<ol class="mlist">${top.map(x=>{ const r=ROLES[x.id], miss=x.sk.filter(k=>!have.has(k)).slice(0,3), pc=Math.round(x.hit.length/x.sk.length*100);
+      return `<li><button type="button" class="mrow" data-show="${x.id}"><span class="mbar" style="--p:${pc}%"></span><b>${esc(nm(r))}</b><span class="mmeta">${esc(L([SECTORS[r.sec].en,SECTORS[r.sec].bn]))} · ${esc(payShort(x.id))} · ${N(pc)}% ${esc(L(["match","মিল"]))}</span>${miss.length?`<span class="mmiss">${esc(L(["Learn next:","এরপর শিখুন:"]))} ${esc(miss.map(k=>L(SK[k])).join(", "))}</span>`:""}</button></li>`; }).join("")}</ol>`
+      :`<p class="muted">${esc(L(["No match yet. Add a few more skills.","এখনো মিল নেই। আরও কিছু দক্ষতা যোগ করুন।"]))}</p>`; }
+  const ctx=deg?L(["Only jobs your degree and results allow are counted.","শুধু আপনার ডিগ্রি ও ফলাফলে যেসব চাকরি সম্ভব সেগুলোই গোনা হয়েছে।"]):"";
+  $("#match-out").innerHTML=(ctx?`<p class="hint">${esc(ctx)}</p>`:"")+h;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -1925,8 +1966,8 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); }
-function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); }
+function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
   st.sel=key; renderMap(); renderDetail();
@@ -1942,6 +1983,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
   if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
+  if(b.dataset.sk){ const k=b.dataset.sk; st.skills.has(k)?st.skills.delete(k):st.skills.add(k); b.setAttribute("aria-pressed",st.skills.has(k)); renderMatch(); return; }
   if(b.dataset.ws){ st.w.stage=b.dataset.ws; renderWizard(); return; }
   if(b.dataset.wl){ st.w.like=b.dataset.wl; renderWizard(); return; }
   if(b.dataset.wp){ st.w.place=b.dataset.wp; renderWizard(); $("#wizard").scrollIntoView({behavior:smooth(),block:"start"}); return; }
@@ -1979,7 +2021,7 @@ document.addEventListener("change",e=>{
 document.addEventListener("input",e=>{
   if(e.target.id==="f-find"){ filterJobs(); return; }
   const m=e.target.id.match(/^f-(ssc|hsc|cg|mcg)$/); if(!m) return;
-  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond(); renderGuide();
+  st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond(); renderGuide(); renderMatch();
 });
 
 if(matchMedia("(max-width: 600px)").matches) st.view="lines";
