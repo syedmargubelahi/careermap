@@ -197,6 +197,10 @@ button.node.lad{cursor:pointer}
 .mkt{background:color-mix(in srgb,var(--accent) 7%,var(--surface));border:1px solid var(--rule);border-radius:10px;padding:10px 12px}
 .mk-sal{font-size:1.15rem;margin:0}
 .mk-n{font-size:.8rem;margin:2px 0 6px}
+.joinbox{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--brand);color:#fff;border-radius:16px;padding:24px 28px}
+.joinbox h2{font-size:1.4rem;font-weight:800;color:#fff}
+.joinbox p{margin:6px 0 0;opacity:.85;max-width:60ch}
+.join.big{background:var(--gold);color:#0E2A5C;font-size:1rem;padding:12px 22px}
 /* pills */
 .pill{display:inline-block;font-family:var(--f-body);font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:999px;color:var(--surface);white-space:nowrap}
 .p-direct,.p-ready{background:var(--ok)}.p-open,.p-anyg{background:var(--info)}.p-bridge,.p-cond,.p-missing{background:var(--warn)}.p-gpa,.p-blocked{background:var(--bad)}.p-na{display:none}
@@ -266,8 +270,8 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
-    <div class="topr"><a class="join" href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
+    <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
+    <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
 
   <section class="hero">
@@ -342,13 +346,18 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
     <div class="panel"><h2 data-t="gradeH"></h2><p data-t="gradeSub"></p><div id="grades"></div></div>
   </section>
 
+  <section class="section joinbox">
+    <div><h2 data-t="joinH"></h2><p data-t="joinP"></p></div>
+    <a class="join big" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a>
+  </section>
+
   <section class="section">
     <h2 style="font-size:1.3rem;font-weight:800" data-t="srcH"></h2>
     <p class="disc" data-t="disc"></p>
     <ul id="src-list"></ul>
   </section>
 
-  <footer><span><a href="https://www.facebook.com/groups/2040748023501148" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span></footer>
+  <footer><span><a href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span></footer>
 </div>
 <script>
 /* ===== BCGO Career Map — data ===== */
@@ -985,7 +994,7 @@ const PVT_MARKET={"pvt_bank": [30, 4, 17000, 27000, "Bachelor's or Master's in a
 
 /* ===== BCGO Career Map — app ===== */
 const T = {
-  brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
+  brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["Join the BCGO community","BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, share job circulars and get career advice from students and professionals across Bangladesh. Free, one click.","প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি শেয়ার করুন, আর সারা দেশের শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে ক্যারিয়ার পরামর্শ নিন। বিনামূল্যে, এক ক্লিকেই।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
   h1:["Your education is a station. See where the lines go.","আপনার পড়াশোনা একটি স্টেশন। দেখুন কোন পথ কোথায় যায়।"],
   sub:["Pick what you studied and enter your results. The map shows which Bangladeshi jobs match your subject directly, which are open to any subject, which you can reach by adding skills, and where your GPA or CGPA meets the cut-off. In school or college? It shows which degrees your subjects open first.",
        "আপনি কী পড়েছেন তা বেছে নিন এবং ফলাফল দিন। ম্যাপে দেখবেন বাংলাদেশের কোন চাকরি সরাসরি আপনার বিষয়ের সঙ্গে মেলে, কোনটিতে যেকোনো বিষয়ে আবেদন করা যায়, কোনটিতে বাড়তি দক্ষতা দিয়ে পৌঁছানো যায়, আর কোথায় আপনার জিপিএ বা সিজিপিএ শর্ত পূরণ করে। স্কুল বা কলেজে পড়ছেন? তাহলে আগে দেখাবে আপনার বিষয়গুলো কোন কোন ডিগ্রির পথ খোলে।"],
