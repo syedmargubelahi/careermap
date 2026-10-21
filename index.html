@@ -893,11 +893,13 @@ const LEVELS = [
   {id:"ssc",cat:"sec",stage:"ssc",cur:NAT_SSC,en:"SSC (General, national curriculum)",bn:"এসএসসি (সাধারণ, জাতীয় শিক্ষাক্রম)",next:["HSC","এইচএসসি"]},
   {id:"dakhil",cat:"sec",stage:"ssc",cur:MAD,en:"Dakhil (Alia madrasa)",bn:"দাখিল (আলিয়া মাদ্রাসা)",next:["Alim","আলিম"]},
   {id:"ssc_voc",cat:"sec",stage:"ssc",cur:VOC,en:"SSC (Vocational)",bn:"এসএসসি (ভোকেশনাল)",next:["HSC (Vocational)","এইচএসসি (ভোকেশনাল)"]},
-  {id:"olevel",cat:"sec",stage:"ssc",cur:OLEV,en:"O Level / IGCSE (English medium)",bn:"ও লেভেল / আইজিসিএসই (ইংলিশ মিডিয়াম)",next:["A Level","এ লেভেল"]},
+  {id:"olevel",cat:"sec",stage:"ssc",cur:OLEV,en:"Cambridge O Level / Cambridge IGCSE (English medium)",bn:"ক্যামব্রিজ ও লেভেল / ক্যামব্রিজ আইজিসিএসই (ইংলিশ মিডিয়াম)",next:["Cambridge International AS & A Level","ক্যামব্রিজ ইন্টারন্যাশনাল এএস ও এ লেভেল"]},
+  {id:"olevel_edx",cat:"sec",stage:"ssc",cur:OLEV,en:"Pearson Edexcel International GCSE (English medium)",bn:"পিয়ারসন এডেক্সেল ইন্টারন্যাশনাল জিসিএসই (ইংলিশ মিডিয়াম)",next:["Pearson Edexcel International A Level (IAL)","পিয়ারসন এডেক্সেল ইন্টারন্যাশনাল এ লেভেল (আইএএল)"]},
   {id:"hsc",cat:"hs",stage:"hsc",cur:NAT_HSC,en:"HSC (General, national curriculum)",bn:"এইচএসসি (সাধারণ, জাতীয় শিক্ষাক্রম)"},
   {id:"alim",cat:"hs",stage:"hsc",cur:MAD,en:"Alim (Alia madrasa)",bn:"আলিম (আলিয়া মাদ্রাসা)"},
   {id:"hsc_voc",cat:"hs",stage:"hsc",cur:VOCH,en:"HSC (Vocational / Business Management)",bn:"এইচএসসি (ভোকেশনাল / বিজনেস ম্যানেজমেন্ট)"},
-  {id:"alevel",cat:"hs",stage:"hsc",cur:ALEV,en:"A Level / IAL (English medium)",bn:"এ লেভেল / আইএএল (ইংলিশ মিডিয়াম)"},
+  {id:"alevel",cat:"hs",stage:"hsc",cur:ALEV,en:"Cambridge International AS & A Level (English medium)",bn:"ক্যামব্রিজ ইন্টারন্যাশনাল এএস ও এ লেভেল (ইংলিশ মিডিয়াম)"},
+  {id:"alevel_edx",cat:"hs",stage:"hsc",cur:ALEV,en:"Pearson Edexcel International A Level (IAL) (English medium)",bn:"পিয়ারসন এডেক্সেল ইন্টারন্যাশনাল এ লেভেল (আইএএল) (ইংলিশ মিডিয়াম)"},
 ];
 DEG.forEach(([id,grp,mode,en,bn,subj])=>LEVELS.push({id,cat:"deg",grp,mode,en,bn,subj:subj||ALLD}));
 const DGRPN = {dip:["Diploma (polytechnic / institute)","ডিপ্লোমা (পলিটেকনিক / ইনস্টিটিউট)"],pass:["Bachelor's Pass (3-year)","স্নাতক পাস (৩ বছর)"],hons:["Bachelor's Honours (4-year)","স্নাতক অনার্স (৪ বছর)"],prof:["Professional bachelor's","পেশাগত স্নাতক"],mast:["Master's & postgraduate","স্নাতকোত্তর"],res:["Research degrees","গবেষণা ডিগ্রি"]};
@@ -1077,7 +1079,7 @@ const T = {
   hscG:["HSC / Alim / A Level GPA (out of 5)","এইচএসসি / আলিম / এ লেভেল জিপিএ (৫-এর মধ্যে)"],
   cg:["Bachelor's or Diploma CGPA (out of 4)","স্নাতক বা ডিপ্লোমা সিজিপিএ (৪-এর মধ্যে)"],
   mcg:["Master's CGPA (out of 4, optional)","মাস্টার্স সিজিপিএ (৪-এর মধ্যে, ঐচ্ছিক)"],
-  olHint:["O/A Level: use the GPA on your Education Board equivalence certificate.","ও/এ লেভেল: শিক্ষা বোর্ডের সমতা সনদে দেওয়া জিপিএ লিখুন।"],
+  olHint:["Cambridge or Edexcel: enter the GPA on your Education Board equivalence certificate. Public universities and job circulars use that GPA; some universities also set minimum O/A Level grades, so check their admission notice.","ক্যামব্রিজ বা এডেক্সেল: শিক্ষা বোর্ডের সমতা সনদে দেওয়া জিপিএ লিখুন। সরকারি বিশ্ববিদ্যালয় ও চাকরির বিজ্ঞপ্তিতে ওই জিপিএই দেখা হয়; কিছু বিশ্ববিদ্যালয় ও/এ লেভেলের ন্যূনতম গ্রেডও ঠিক করে দেয়, তাই ভর্তি বিজ্ঞপ্তি দেখুন।"],
   div1:["First division","প্রথম বিভাগ"],div2:["Second division","দ্বিতীয় বিভাগ"],div3:["Third division","তৃতীয় বিভাগ"],
   cl1:["First class","প্রথম শ্রেণি"],cl2:["Second class","দ্বিতীয় শ্রেণি"],cl3:["Third class","তৃতীয় শ্রেণি"],clF:["Below pass","পাস নম্বরের নিচে"],clNot:["Below first class","প্রথম শ্রেণির নিচে"],
   mapH:["Your career map","আপনার ক্যারিয়ার ম্যাপ"],
@@ -1281,7 +1283,7 @@ function renderPicker(){
   $("#w-hsc").hidden = L0.cat==="sec" || L0.mode==="diploma";
   $("#w-cg").hidden = L0.cat!=="deg";
   $("#w-mcg").hidden = L0.mode!=="masters";
-  $("#ol-hint").hidden = !(["olevel","alevel"].includes(st.level));
+  $("#ol-hint").hidden = !(["olevel","alevel","olevel_edx","alevel_edx"].includes(st.level));
   $("#mad-hint").hidden = !(["fazil_pass","fazil_hons","kamil","dakhil","alim"].includes(st.level));
   for(const k of ["ssc","hsc","cg","mcg"]){ const el=$("#f-"+k); if(el.value!==st[k]) el.value=st[k]; }
   const badge=(k,isC)=>{ const v=num(st[k]); if(v==null) return ""; const l=isC?clsOf(v):divOf(v); const key=isC?["clF","cl1","clNot","cl3"][l]:["clF","div1","div2","div3"][l]; return `<span class="grade g${l}">${t(key)}</span>`; };
