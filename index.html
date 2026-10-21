@@ -269,6 +269,7 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 .lowlist{padding-left:1.3em;display:grid;gap:12px}
 .lowlist li span{display:block}
 .find{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;margin:8px 0 12px}
+.subtabs{margin:4px 0 10px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -1114,7 +1115,7 @@ const T = {
   byH:["Beyond your degree","ডিগ্রির পরে কী"],
   bySub:["Higher study, diploma and technical routes in Bangladesh and abroad. Tap any box for requirements and pay.","দেশে ও বিদেশে উচ্চশিক্ষা, ডিপ্লোমা ও কারিগরি পথ। শর্ত ও বেতন দেখতে যেকোনো বাক্সে চাপুন।"],
   tabHigher:["After bachelor's","স্নাতকের পর"], tabDip:["Diploma & technical","ডিপ্লোমা ও কারিগরি"],
-  byLow:["Low CGPA?","সিজিপিএ কম?"],
+  byLow:["Low CGPA comeback plan","কম সিজিপিএ: ঘুরে দাঁড়ানোর পথ"],
   req:["Requirement","শর্ত"], payL:["Pay / cost","বেতন / খরচ"], tapBox:["Tap a box on the map to see details.","বিস্তারিত দেখতে ম্যাপের একটি বাক্সে চাপুন।"],
   findPh:["Search jobs, e.g. bank, nurse, engineer","চাকরি খুঁজুন, যেমন ব্যাংক, নার্স, ইঞ্জিনিয়ার"], checked:["Last checked against sources: 21 Oct 2026. Rules change; always confirm with the latest circular.","সর্বশেষ উৎস যাচাই: ২১ অক্টোবর ২০২৬। নিয়ম বদলায়; সবসময় সর্বশেষ বিজ্ঞপ্তি দেখে নিন।"],
   pvtH:["Private industry jobs","বেসরকারি খাতের চাকরি"],
@@ -1572,19 +1573,34 @@ function bxNode(tab,path,n){ const [en,bn,kids,info]=n; const lab=st.lang==="bn"
   if(kids) return li(`<span class="node br" style="background:var(--accent)">${esc(lab)}</span>`, kids.map((k,i)=>bxNode(tab,path+"."+i,k)).join(""));
   return li(`<button type="button" class="node role${st.bsel===path?" on":""}" style="--lc:var(--green)" data-bx="${path}">${esc(lab)}</button>`); }
 function bxFind(path){ const [tab,...ix]=path.split("."); let n=null, arr=BEYOND[tab].tree; for(const i of ix){ n=arr[+i]; arr=n[2]||[]; } return n; }
+st.lt="skills";
+const LOWT={
+ skills:{n:["Skills to build","যে দক্ষতা গড়বেন"],items:[
+  ["Pick one job, learn what its ads ask for","একটি চাকরি বাছুন, বিজ্ঞাপনে যা চায় তা শিখুন",["Open 20 Bdjobs ads for the job you want and list the skills that repeat. Learn those first; that list matters more than your CGPA in private hiring.","যে চাকরি চান তার ২০টি বিডিজবস বিজ্ঞাপন খুলে বারবার আসা দক্ষতাগুলো লিখুন। আগে সেগুলো শিখুন; বেসরকারি নিয়োগে এই তালিকা সিজিপিএর চেয়ে বেশি গুরুত্বপূর্ণ।"],"B12"],
+  ["Excel, English and presentation","এক্সেল, ইংরেজি ও প্রেজেন্টেশন",["Employers in Bangladesh say graduates lack practical and communication skills. Spreadsheet work, clear written English and speaking in interviews are the cheapest fixes.","বাংলাদেশের নিয়োগকারীরা বলেন স্নাতকদের ব্যবহারিক ও যোগাযোগ দক্ষতার ঘাটতি আছে। স্প্রেডশিট, পরিষ্কার লিখিত ইংরেজি ও ইন্টারভিউয়ে কথা বলা সবচেয়ে কম খরচে শেখা যায়।"],"B12"],
+  ["A proof you can show","দেখানোর মতো প্রমাণ",["A portfolio (code on GitHub, designs, written reports), an internship letter or a recognised certificate gives the recruiter something to judge besides grades.","পোর্টফোলিও (গিটহাবে কোড, ডিজাইন, লেখা রিপোর্ট), ইন্টার্নশিপ সনদ বা স্বীকৃত সার্টিফিকেট থাকলে নিয়োগকারী গ্রেড ছাড়াও বিচার করার কিছু পান।"],"B12"],
+  ["A language for abroad","বিদেশের জন্য একটি ভাষা",["Japanese N4, Korean EPS-TOPIK or German A1 open work routes that do not look at CGPA at all.","জাপানি এন৪, কোরিয়ান ইপিএস-টপিক বা জার্মান এ১ এমন কাজের পথ খোলে যেখানে সিজিপিএ দেখাই হয় না।"],"B9"]]},
+ abroad:{n:["Abroad, if you can afford it","বিদেশ, খরচ জোগাতে পারলে",[]],items:[
+  ["Work first, then a funded master's","আগে চাকরি, পরে বৃত্তিতে স্নাতকোত্তর",["Joint Japan/World Bank and ADB-Japan scholarships need 2+ years of work. Two good years at work can matter more than an old CGPA.","জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপান বৃত্তিতে ২ বছরের বেশি কাজের অভিজ্ঞতা লাগে। কাজের দুটি ভালো বছর পুরোনো সিজিপিএর চেয়ে বেশি গুরুত্ব পেতে পারে।"],"B5"],
+  ["Self-funded master's","নিজ খরচে স্নাতকোত্তর",["Entry CGPA rules differ by university and country; check each programme page before paying any agent. Bangladeshi students spent $667.77 million abroad in FY25, so budget the full cost first.","ভর্তির সিজিপিএ শর্ত বিশ্ববিদ্যালয় ও দেশভেদে আলাদা; কোনো এজেন্টকে টাকা দেওয়ার আগে প্রোগ্রামের পেজ দেখুন। ২০২৪-২৫ অর্থবছরে বাংলাদেশি শিক্ষার্থীরা বিদেশে ৬৬৭.৭৭ মিলিয়ন ডলার খরচ করেছেন, তাই আগে পুরো খরচের হিসাব করুন।"],"B3"],
+  ["Germany Opportunity Card","জার্মানি অপরচুনিটি কার্ড",["Points come from qualification, experience, language and age, not CGPA. Needs German A1 or English B2.","পয়েন্ট আসে যোগ্যতা, অভিজ্ঞতা, ভাষা ও বয়স থেকে, সিজিপিএ থেকে নয়। জার্মান এ১ বা ইংরেজি বি২ লাগে।"],"B11"],
+  ["Japan SSW / Korea EPS","জাপান এসএসডব্লিউ / কোরিয়া ইপিএস",["Language and skills tests decide. Japan SSW pays about ৳1–2 lakh a month (2023 report). Go only through government or BMET-registered channels.","ভাষা ও দক্ষতা পরীক্ষাই আসল। জাপান এসএসডব্লিউতে মাসে প্রায় ১–২ লাখ টাকা (২০২৩ সালের প্রতিবেদন)। শুধু সরকারি বা বিএমইটি নিবন্ধিত মাধ্যমে যান।"],"B9"]]},
+ govt:{n:["Grow in Bangladesh: govt","দেশে এগোনো: সরকারি",[]],items:[
+  ["BCS does not use CGPA","বিসিএসে সিজিপিএ দেখা হয় না",["Age 21–32, any class or division the circular accepts. Results come from the preliminary, written and viva exams. In the 47th BCS, 2,167 cadre posts went unfilled.","বয়স ২১–৩২, বিজ্ঞপ্তিতে গ্রহণযোগ্য যেকোনো শ্রেণি/বিভাগ। ফল আসে প্রিলিমিনারি, লিখিত ও ভাইভা থেকে। ৪৭তম বিসিএসে ২,১৬৭টি ক্যাডার পদ পূরণ হয়নি।"],"B13"],
+  ["Start lower, rise inside","নিচ থেকে শুরু, ভেতরে ওঠা",["Grade 10 to 13 posts (e.g. office and field posts) start at about ৳24,000–32,000 basic. Many ministries promote from within, and you can keep sitting for BCS until 32.","১০ থেকে ১৩ গ্রেডের পদ (যেমন অফিস ও মাঠ পর্যায়ের পদ) মূল বেতন প্রায় ২৪,০০০–৩২,০০০ টাকা থেকে শুরু। অনেক মন্ত্রণালয়ে ভেতর থেকে পদোন্নতি হয়, আর ৩২ বছর পর্যন্ত বিসিএস দিতে থাকতে পারেন।"],"S19"],
+  ["Check bank circulars line by line","ব্যাংকের বিজ্ঞপ্তি লাইন ধরে পড়ুন",["Some government bank and Bangladesh Bank posts ask for first class or a limited number of second classes. Read the result rule before preparing.","কিছু সরকারি ব্যাংক ও বাংলাদেশ ব্যাংকের পদে প্রথম শ্রেণি বা সীমিত সংখ্যক দ্বিতীয় শ্রেণি চাওয়া হয়। প্রস্তুতির আগে ফলাফলের শর্ত পড়ুন।"],"S21"]]},
+ pvt:{n:["Grow in Bangladesh: private","দেশে এগোনো: বেসরকারি",[]],items:[
+  ["Get in, then switch","ঢুকুন, তারপর বদলান",["Your first job is a door. After 1–2 years, recruiters on Bdjobs ask for experience before CGPA, and moving company is often the fastest pay rise.","প্রথম চাকরি একটি দরজা। ১–২ বছর পর বিডিজবসের নিয়োগকারীরা সিজিপিএর আগে অভিজ্ঞতা চান, আর প্রতিষ্ঠান বদলানো প্রায়ই দ্রুত বেতন বাড়ানোর উপায়।"],"B12"],
+  ["Roles that hire on skill","দক্ষতায় নিয়োগ দেয় এমন পদ",["Sales, customer service, digital marketing, software and supply chain usually test you on the job, not the transcript. Check the private jobs list below for pay ranges.","সেলস, কাস্টমার সার্ভিস, ডিজিটাল মার্কেটিং, সফটওয়্যার ও সাপ্লাই চেইনে সাধারণত ট্রান্সক্রিপ্ট নয়, কাজ দিয়ে যাচাই হয়। বেতনের পরিসর নিচের বেসরকারি চাকরির তালিকায় দেখুন।"],"B12"],
+  ["Add a qualification while working","কাজের পাশাপাশি যোগ্যতা বাড়ান",["An evening MBA, a PGD or CA/ACCA/CMA papers give you a newer, stronger result for promotion and the next job.","সান্ধ্য এমবিএ, পিজিডি বা সিএ/এসিসিএ/সিএমএ পেপার পদোন্নতি ও পরের চাকরির জন্য নতুন ও শক্ত ফলাফল দেয়।"],"B2"]]}
+};
 function lowAdvice(){
   const c=num(st.cg); const low=c!=null&&c<3;
-  const P=[
-   ["Lead with skills, not grades","গ্রেড নয়, দক্ষতা দেখান",["Most private employers on Bdjobs list skills and experience before CGPA. Build a portfolio, certificates or an internship record you can show.","বিডিজবসে বেশিরভাগ বেসরকারি নিয়োগকারী সিজিপিএর আগে দক্ষতা ও অভিজ্ঞতা চায়। দেখানোর মতো পোর্টফোলিও, সার্টিফিকেট বা ইন্টার্নশিপ তৈরি করুন।"],"B12"],
-   ["BCS has no CGPA cut-off","বিসিএসে সিজিপিএর সীমা নেই",["You can sit for BCS with any class or division the circular accepts. In the 47th BCS, 2,167 cadre posts stayed vacant, mostly technical and professional, so subject skill counts.","বিজ্ঞপ্তিতে গ্রহণযোগ্য যেকোনো শ্রেণি/বিভাগ নিয়ে বিসিএস দেওয়া যায়। ৪৭তম বিসিএসে ২,১৬৭টি ক্যাডার পদ খালি ছিল, বেশিরভাগ কারিগরি ও পেশাগত, তাই বিষয়ের দক্ষতা গুরুত্বপূর্ণ।"],"B13"],
-   ["Exam-based qualifications","পরীক্ষাভিত্তিক যোগ্যতা",["CA, ACCA and CMA judge you on papers passed, not your old CGPA.","সিএ, এসিসিএ ও সিএমএ-তে পুরোনো সিজিপিএ নয়, পেপার পাস দেখা হয়।"],"S22"],
-   ["PGD, then Master's","আগে পিজিডি, পরে স্নাতকোত্তর",["A one-year PGD adds a fresh, better result. At BUET IICT a PGD with GPA 2.65 opens the M.Sc. (ICT).","এক বছরের পিজিডি নতুন ও ভালো ফলাফল যোগ করে। বুয়েট আইআইসিটিতে জিপিএ ২.৬৫ সহ পিজিডি থাকলে এমএসসি (আইসিটি)-র পথ খোলে।"],"B2"],
-   ["Work first, scholarship later","আগে চাকরি, পরে বৃত্তি",["Joint Japan/World Bank and ADB-Japan scholarships want 2+ years of work experience; experience can outweigh grades.","জয়েন্ট জাপান/বিশ্বব্যাংক ও এডিবি-জাপান বৃত্তিতে ২ বছরের বেশি অভিজ্ঞতা লাগে; অভিজ্ঞতা গ্রেডের চেয়ে বেশি গুরুত্ব পেতে পারে।"],"B5"],
-   ["Skilled work abroad","বিদেশে দক্ষ কাজ",["Japan SSW needs Japanese N4 and a skills test, not a CGPA. Germany's Opportunity Card counts language, experience and age.","জাপানের এসএসডব্লিউতে সিজিপিএ নয়, জাপানি এন৪ ও দক্ষতা পরীক্ষা লাগে। জার্মানির অপরচুনিটি কার্ডে ভাষা, অভিজ্ঞতা ও বয়স গোনা হয়।"],"B9"]];
-  const head = c==null ? L(["Enter your CGPA above to get advice for your result.","আপনার ফলাফল অনুযায়ী পরামর্শ পেতে ওপরে সিজিপিএ লিখুন।"])
-    : low ? fill(["Your CGPA {c} is below first class (3.00). Some bank and university-teacher circulars ask for first class, but these routes do not depend on it:","আপনার সিজিপিএ {c} প্রথম শ্রেণির (৩.০০) নিচে। কিছু ব্যাংক ও বিশ্ববিদ্যালয় শিক্ষক বিজ্ঞপ্তিতে প্রথম শ্রেণি চাওয়া হয়, তবে নিচের পথগুলো এর ওপর নির্ভর করে না:"],{c:N(c.toFixed(2))})
-    : fill(["Your CGPA {c} counts as first class. If a friend has a lower result, these routes work for them:","আপনার সিজিপিএ {c} প্রথম শ্রেণি হিসেবে গণ্য। কোনো বন্ধুর ফল কম হলে এই পথগুলো তার জন্য কাজ করে:"],{c:N(c.toFixed(2))});
-  return `<p class="lowhead ${low?"warn":""}">${esc(head)}</p><ol class="lowlist">`+P.map(([en,bn,d,s])=>`<li><b>${esc(st.lang==="bn"?bn:en)}</b><span>${esc(L(d))}</span>${bxSrc(s)}</li>`).join("")+`</ol>`;
+  const head = c==null ? L(["Enter your CGPA above and this advice adjusts to your result.","ওপরে সিজিপিএ লিখলে পরামর্শ আপনার ফল অনুযায়ী বদলাবে।"])
+    : low ? fill(["Your CGPA {c} is below first class (3.00). It closes a few doors, not the career. Choose the tab that fits your situation:","আপনার সিজিপিএ {c} প্রথম শ্রেণির (৩.০০) নিচে। এতে কিছু দরজা বন্ধ হয়, ক্যারিয়ার নয়। আপনার অবস্থার সঙ্গে মেলে এমন ট্যাব বেছে নিন:"],{c:N(c.toFixed(2))})
+    : fill(["Your CGPA {c} counts as first class. These routes still help if you are not getting the job you want:","আপনার সিজিপিএ {c} প্রথম শ্রেণি হিসেবে গণ্য। চাকরি না পেলে এই পথগুলো তবুও কাজে আসবে:"],{c:N(c.toFixed(2))});
+  const tabs=`<div class="seg subtabs" role="group">`+Object.keys(LOWT).map(k=>`<button type="button" data-lt="${k}" aria-pressed="${st.lt===k}">${esc(L(LOWT[k].n))}</button>`).join("")+`</div>`;
+  return `<p class="lowhead ${low?"warn":""}">${esc(head)}</p>${tabs}<ol class="lowlist">`+LOWT[st.lt].items.map(([en,bn,d,s])=>`<li><b>${esc(st.lang==="bn"?bn:en)}</b><span>${esc(L(d))}</span>${bxSrc(s)}</li>`).join("")+`</ol>`;
 }
 function bxSrc(k){ const s=SRC2[k]||SRC[k]; return s?`<a class="src" href="${s.u}" target="_blank" rel="noopener">${t("src")}: ${esc(s.t)}</a>`:""; }
 function renderBeyond(){
@@ -1623,6 +1639,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.l){ st.lang=b.dataset.l; try{localStorage.setItem("bcgo-lang",st.lang);}catch(_){} renderAll(); return; }
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
   if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
+  if(b.dataset.lt){ st.lt=b.dataset.lt; renderBeyond(); return; }
   if(b.dataset.bx){ st.bsel=b.dataset.bx; renderBeyond(); return; }
   if(b.dataset.s){ st.sector=b.dataset.s; renderMap(); return; }
   if(b.dataset.v){ st.view=b.dataset.v; renderMap(); return; }
