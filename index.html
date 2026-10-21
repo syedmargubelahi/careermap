@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BCGO Career Map</title>
-<meta name="description" content="BCGO Career Map: free career roadmap for Bangladeshi students and graduates. Match your degree and GPA/CGPA to BCS, bank, government and private jobs, with salary ranges, eligibility and a year-by-year plan. বাংলাদেশের শিক্ষার্থীদের জন্য বিনামূল্যে ক্যারিয়ার ম্যাপ।">
+<meta name="description" content="Confused about your career? BCGO Career Map shows your next step: what to study, which jobs fit your degree and results, and how to grow in Bangladesh or abroad. ক্যারিয়ার নিয়ে দ্বিধায়? এখান থেকেই শুরু।">
 <meta property="og:title" content="BCGO Career Map">
-<meta property="og:description" content="আপনার পড়াশোনা একটি স্টেশন। দেখুন কোন পথ কোথায় যায়। Free career map for every subject: government and private jobs in Bangladesh and abroad.">
+<meta property="og:description" content="ক্যারিয়ার নিয়ে দ্বিধায়? এখান থেকেই শুরু। Confused about your career? See your next step, in Bangladesh or abroad.">
 <meta property="og:image" content="https://syedmargubelahi.github.io/careermap/cover.png">
 <meta property="og:url" content="https://syedmargubelahi.github.io/careermap/">
 <meta name="twitter:card" content="summary_large_image">
@@ -321,6 +321,8 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .mrow:hover{border-color:var(--green)}
 .mbar{position:absolute;left:0;bottom:0;height:4px;width:var(--p);background:var(--green)}
 .mmeta{font-size:.85rem;color:var(--muted)}.mmiss{font-size:.85rem;color:var(--accent)}
+.wreal{margin:12px 0 0;padding:10px 12px;border-left:4px solid var(--gold);background:var(--surface);border-radius:8px}
+.giscus{margin-top:14px}
 </style>
 </head>
 <body>
@@ -331,7 +333,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -431,12 +433,20 @@ section[id],.panel[id]{scroll-margin-top:64px}
 
   <section class="section panel" id="pvt">
     <h2 data-t="pvtH"></h2><p class="muted" data-t="pvtSub"></p>
-    <input id="f-find" type="search" class="find" aria-label="Search jobs"><div id="pvt-list" class="indgrid"></div>
+    <div id="pvt-list" class="indgrid"></div>
   </section>
 
   <section class="section duo">
     <div class="panel"><h2 data-t="openH"></h2><p data-t="openSub"></p><div id="open-list"></div></div>
     <div class="panel" id="gpa"><h2 data-t="gradeH"></h2><p data-t="gradeSub"></p><div id="grades"></div></div>
+  </section>
+
+  <section class="section panel" id="forum">
+    <h2>💬 <span data-t="fH"></span></h2><p data-t="fSub"></p>
+    <p class="muted" data-t="fRules"></p>
+    <div class="wbtns"><a class="join big" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><span data-t="fFb"></span></a></div>
+    <p class="hint" id="forum-note"></p>
+    <div id="giscus" class="giscus"></div>
   </section>
 
   <section class="section joinbox">
@@ -1143,7 +1153,7 @@ const BEYOND = {
  ]}
 };
 
-/* ===== Career tracks (tabs), result guide, free abroad ===== */
+/* ===== Career tracks (tabs), result guide, scholarships abroad ===== */
 Object.assign(SRC2,{
   A1:{t:"Join Bangladesh Army (official recruitment site)",u:"https://joinbangladesharmy.army.mil.bd"},
   A2:{t:"UNB: Bangladesh Army BMA Long Course circular (2023)",u:"https://www.unb.com.bd/category/Business/recruitment-circular-in-bangladesh-army-2023/110728"},
@@ -1248,7 +1258,7 @@ const TRACKS={
    ["Freelancing","ফ্রিল্যান্সিং",null,I("One sellable skill (design, web, writing, video) plus a profile on global marketplaces. Start small, build reviews.","একটি বিক্রয়যোগ্য দক্ষতা (ডিজাইন, ওয়েব, লেখা, ভিডিও) আর আন্তর্জাতিক মার্কেটপ্লেসে প্রোফাইল। ছোট কাজে শুরু, রিভিউ বাড়ান।","Income depends on skill and clients; no fixed pay.","আয় দক্ষতা ও ক্লায়েন্টের ওপর নির্ভর করে; নির্দিষ্ট বেতন নেই।","B12")]]]
  ]}
 };
-/* Free study abroad: official pages. Re-checked every two months. */
+/* Scholarships abroad: official pages. Re-checked every two months. */
 const ABROAD_DATE="21 Oct 2026";
 const ABROAD=[
  ["Chevening (UK)","শেভেনিং (যুক্তরাজ্য)","1-year master's, fully funded. Needs 2 years of work experience.","১ বছরের মাস্টার্স, সম্পূর্ণ খরচ। ২ বছরের কাজের অভিজ্ঞতা লাগে।","https://www.chevening.org/scholarships/"],
@@ -1267,9 +1277,9 @@ const ABROAD=[
 
 /* ===== BCGO Career Map — app ===== */
 const T = {
-  brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["Join the BCGO community","BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, share job circulars and get career advice from students and professionals across Bangladesh. Free, one click.","প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি শেয়ার করুন, আর সারা দেশের শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে ক্যারিয়ার পরামর্শ নিন। বিনামূল্যে, এক ক্লিকেই।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
-  h1:["Find out what you can become.","জেনে নিন আপনি কী হতে পারেন।"],
-  sub:["Free career guide for Bangladeshi students and job seekers. Start with 3 easy taps below.","বাংলাদেশের শিক্ষার্থী ও চাকরিপ্রার্থীদের জন্য বিনামূল্যে ক্যারিয়ার গাইড। নিচে ৩টি সহজ চাপ দিয়ে শুরু করুন।"],
+  brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group","আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["Join the BCGO community","BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, share job circulars and get career advice from students and professionals across Bangladesh. One click to join.","প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি শেয়ার করুন, আর সারা দেশের শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে ক্যারিয়ার পরামর্শ নিন। এক ক্লিকেই যোগ দিন।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
+  h1:["Confused about your career? Start here.","ক্যারিয়ার নিয়ে দ্বিধায়? এখান থেকেই শুরু।"],
+  sub:["No more asking around. See your next step in one place: what to study, which jobs fit your results, and how to grow, in Bangladesh or abroad.","এখানে-ওখানে আর জিজ্ঞেস করতে হবে না। এক জায়গায় দেখুন পরের ধাপ: কী পড়বেন, আপনার ফলাফলে কোন চাকরি মানায়, আর দেশে বা বিদেশে কীভাবে এগোবেন।"],
   stat:["of university graduates were unemployed in 2024 (Labour Force Survey 2024), the highest of any education level. About 885,000 people.","বিশ্ববিদ্যালয় পাস করাদের মধ্যে বেকারত্ব ২০২৪ সালে (শ্রমশক্তি জরিপ ২০২৪), যা সব শিক্ষাস্তরের মধ্যে সর্বোচ্চ। প্রায় ৮ লাখ ৮৫ হাজার মানুষ।"],
   statSrc:["BBS Labour Force Survey","বিবিএস শ্রমশক্তি জরিপ"],
   where:["Where are you now?","আপনি এখন কোথায় আছেন?"],
@@ -1328,13 +1338,20 @@ const T = {
   moreSub:["Enter your results to see which jobs fit you, with rules, pay and sources.","আপনার ফলাফল দিন, দেখুন কোন চাকরি আপনার জন্য, সঙ্গে শর্ত, বেতন ও উৎস।"],
   navSk:["Your skills","আপনার দক্ষতা"],
   skH:["Your skills: narrow it down","আপনার দক্ষতা: আরও নির্দিষ্ট করুন"],skSub:["Skills Bangladeshi employers ask for most. Tap what you can already do.","বাংলাদেশের নিয়োগকারীরা যে দক্ষতা সবচেয়ে বেশি চান। যা পারেন তাতে চাপ দিন।"],mH:["Best-fit jobs for you","আপনার জন্য সবচেয়ে মানানসই চাকরি"],
+  navF:["Forum","ফোরাম"],
+  fH:["Community forum: share your opinion","কমিউনিটি ফোরাম: আপনার মতামত দিন"],
+  fSub:["Tell us what is wrong, what is missing, or your own career story. Every month we read the comments and update the site.","কী ভুল, কী নেই, বা আপনার নিজের ক্যারিয়ারের গল্প জানান। প্রতি মাসে মন্তব্য পড়ে সাইট হালনাগাদ করা হয়।"],
+  fFb:["Post in our Facebook group","আমাদের ফেসবুক গ্রুপে লিখুন"],
+  fGh:["Comment below (sign in with GitHub)","নিচে মন্তব্য করুন (গিটহাব দিয়ে সাইন ইন)"],
+  fWait:["The comment box is being set up. Meanwhile, please post in our Facebook group.","মন্তব্যের বক্স চালু হচ্ছে। এর মধ্যে আমাদের ফেসবুক গ্রুপে লিখুন।"],
+  fRules:["Be respectful. No ads, no personal phone numbers, no agent offers.","সম্মান বজায় রাখুন। বিজ্ঞাপন, ব্যক্তিগত ফোন নম্বর বা এজেন্টের অফার নয়।"],
   navS:["Start here","এখান থেকে শুরু"],
-  navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Free abroad","বিনা খরচে বিদেশ"],
+  navG:["Not sure?","বুঝতে পারছেন না?"],navT:["All careers","সব ক্যারিয়ার"],navA:["Scholarships abroad","বিদেশে বৃত্তি"],
   gH:["Not sure which way to go? Start from your result","কোন পথে যাবেন বুঝতে পারছেন না? ফলাফল থেকে শুরু করুন"],
   gSub:["Uses the GPA and CGPA you entered above. In Bangladesh results open or close some doors, so start there, then pick by interest.","ওপরে দেওয়া জিপিএ ও সিজিপিএ ব্যবহার করে। বাংলাদেশে ফলাফল কিছু দরজা খোলে বা বন্ধ করে, তাই এখান থেকে শুরু করুন, তারপর আগ্রহ অনুযায়ী বাছুন।"],
   trH:["All careers in Bangladesh","বাংলাদেশের সব ক্যারিয়ার"],
   trSub:["Pick a career. Tap a blue branch to open it, then tap a box for requirements and pay.","একটি ক্যারিয়ার বাছুন। নীল শাখায় চাপ দিয়ে খুলুন, তারপর বাক্সে চাপ দিয়ে শর্ত ও বেতন দেখুন।"],
-  abH:["Free study abroad (fully funded)","বিনা খরচে বিদেশে পড়াশোনা (সম্পূর্ণ বৃত্তি)"],
+  abH:["Global opportunities: fully funded scholarships","বৈশ্বিক সুযোগ: সম্পূর্ণ অর্থায়িত বৃত্তি"],
   openTr:["Open this career","এই ক্যারিয়ার খুলুন"],
   byH:["What next after your degree","ডিগ্রির পরে কী করবেন"],
   bySub:["Tap a box to see what you need and what it pays.","কী লাগবে আর কত বেতন, দেখতে একটি বাক্সে চাপুন।"],
@@ -1788,7 +1805,7 @@ function renderPvt(){
   for(const sk of Object.keys(SECTORS)){ const ids=Object.keys(ROLES).filter(id=>ROLES[id].sec===sk&&ROLES[id].t!=="pub"); if(!ids.length) continue;
     h+=`<div class="ind" style="--lc:var(${SECTORS[sk].c})"><h3><span class="sw"></span>${esc(L([SECTORS[sk].en,SECTORS[sk].bn]))} <span class="cnt">${N(ids.length)}</span></h3><div class="ichips">`+
       ids.map(id=>{const S=deg?status(id).s:"na"; return `<button type="button" class="ichip s-${S}" data-show="${id}">${esc(nm(ROLES[id]))}</button>`;}).join("")+`</div></div>`; }
-  $("#pvt-list").innerHTML=h; const f=$("#f-find"); if(f){ f.placeholder=t("findPh"); filterJobs(); }
+  $("#pvt-list").innerHTML=h;
 }
 function filterJobs(){ const q=($("#f-find").value||"").trim().toLowerCase(); document.querySelectorAll("#pvt-list .ind").forEach(g=>{ let any=0; g.querySelectorAll(".ichip").forEach(c=>{ const id=c.dataset.show, r=ROLES[id]; const hit=!q||(r.en+" "+r.bn).toLowerCase().includes(q); c.hidden=!hit; any+=hit; }); g.hidden=!any; }); }
 /* ---- beyond your degree ---- */
@@ -1887,7 +1904,7 @@ function renderAbroad(){
 
 /* ---- Start here: 3-step guide (one question per screen, progress bar, Back) ---- */
 st.w={stage:null,like:null,place:null};
-const WSTAGE=[["school","🎒","In school (class 4–10)","স্কুলে পড়ি (৪র্থ–১০ম শ্রেণি)"],["college","📘","In college (HSC / A Level)","কলেজে পড়ি (এইচএসসি / এ লেভেল)"],["uni","🎓","At university or graduated","বিশ্ববিদ্যালয়ে পড়ি বা পাস করেছি"],["dip","🛠️","Diploma / polytechnic","ডিপ্লোমা / পলিটেকনিক"]];
+const WSTAGE=[["school","🎒","In school (class 4–10)","স্কুলে পড়ি (৪র্থ–১০ম শ্রেণি)"],["after10","📝","Finished SSC / O Level / Dakhil","এসএসসি / ও লেভেল / দাখিল শেষ"],["college","📘","In college (HSC / A Level / Alim)","কলেজে পড়ি (এইচএসসি / এ লেভেল / আলিম)"],["uni","🎓","At university or graduated","বিশ্ববিদ্যালয়ে পড়ি বা পাস করেছি"],["dip","🛠️","Diploma / polytechnic","ডিপ্লোমা / পলিটেকনিক"]];
 const WLIKE={
  help:["❤️","Helping sick people","অসুস্থ মানুষকে সাহায্য","health",["Doctor","Nurse","Pharmacist"],["ডাক্তার","নার্স","ফার্মাসিস্ট"],["Take the Science group. Biology, Chemistry and Physics are a must.","বিজ্ঞান বিভাগ নিন। জীববিজ্ঞান, রসায়ন ও পদার্থবিজ্ঞান অবশ্যই।"]],
  uniform:["🎖️","Uniform and serving the country","ইউনিফর্ম পরে দেশের সেবা","army",["Army officer","Navy officer","Air Force pilot"],["সেনা কর্মকর্তা","নৌ কর্মকর্তা","বিমানবাহিনীর পাইলট"],["Get top GPA in SSC and HSC (army asks 5.00 in one, 4.50+ in the other). Stay fit and play sports.","এসএসসি ও এইচএসসিতে সেরা জিপিএ রাখুন (সেনাবাহিনীতে একটিতে ৫.০০, অন্যটিতে ৪.৫০+ লাগে)। শরীর ফিট রাখুন, খেলাধুলা করুন।"]],
@@ -1900,23 +1917,26 @@ const WLIKE={
  create:["🎨","Drawing, writing, videos","আঁকা, লেখা, ভিডিও","skill",["Designer","Content creator","Digital marketer"],["ডিজাইনার","কনটেন্ট ক্রিয়েটর","ডিজিটাল মার্কেটার"],["Any group works. Make something every week and keep it in a portfolio.","যেকোনো বিভাগে চলবে। প্রতি সপ্তাহে কিছু বানান, পোর্টফোলিওতে জমা রাখুন।"]],
  people:["🤝","Helping society","সমাজের সেবা","ngo",["NGO officer","Researcher","Development worker"],["এনজিও কর্মকর্তা","গবেষক","উন্নয়নকর্মী"],["Any group works. Volunteer; learn English and basic data skills.","যেকোনো বিভাগে চলবে। স্বেচ্ছাসেবা করুন; ইংরেজি ও সাধারণ ডেটা দক্ষতা শিখুন।"]]
 };
+const WREAL={"help": ["Real talk: MBBS takes 5 years plus a year of internship, and becoming a specialist takes years more. It suits people who truly care for patients, not only the title.", "বাস্তবতা: এমবিবিএসে ৫ বছর, তারপর ১ বছর ইন্টার্নশিপ, বিশেষজ্ঞ হতে আরও কয়েক বছর। শুধু পদবির জন্য নয়, যারা সত্যিই রোগীর যত্ন নিতে চান তাদের জন্য।"], "uniform": ["Real talk: marks get you to the door, but fitness, confidence and the ISSB interview decide. Life is disciplined and you can be posted anywhere in the country.", "বাস্তবতা: নম্বর দরজা পর্যন্ত নেয়, কিন্তু শারীরিক সক্ষমতা, আত্মবিশ্বাস আর আইএসএসবি ইন্টারভিউ সিদ্ধান্ত নেয়। জীবন শৃঙ্খলাবদ্ধ, দেশের যেকোনো জায়গায় পোস্টিং হতে পারে।"], "govt": ["Real talk: many BCS candidates prepare for years. Don't put life on hold; take a job while you prepare, so one bad year doesn't break you.", "বাস্তবতা: অনেকে বছরের পর বছর বিসিএসের প্রস্তুতি নেন। জীবন থামিয়ে রাখবেন না; প্রস্তুতির পাশাপাশি চাকরি করুন, যাতে একটা খারাপ বছর আপনাকে ভেঙে না দেয়।"], "numbers": ["Real talk: CA is hard and many take longer than planned to pass every paper, but qualified accountants are always in demand.", "বাস্তবতা: সিএ কঠিন, অনেকের সব পেপার পাস করতে পরিকল্পনার চেয়ে বেশি সময় লাগে, তবে যোগ্য হিসাববিদদের চাহিদা সবসময় থাকে।"], "machines": ["Real talk: in software, what you can build matters more than your university's name. Small projects done early beat certificates.", "বাস্তবতা: সফটওয়্যারে বিশ্ববিদ্যালয়ের নামের চেয়ে আপনি কী বানাতে পারেন সেটাই বড়। আগেভাগে করা ছোট প্রজেক্ট সার্টিফিকেটের চেয়ে কাজের।"], "rules": ["Real talk: new lawyers earn little for the first few years. Income grows as clients start trusting you, so patience is part of the job.", "বাস্তবতা: নতুন আইনজীবীদের প্রথম কয়েক বছর আয় কম। মক্কেলের আস্থা বাড়লে আয় বাড়ে, তাই ধৈর্য এই পেশার অংশ।"], "teach": ["Real talk: teaching pay starts modest, but it is stable and respected. Good results and a master's open college and university doors later.", "বাস্তবতা: শিক্ষকতায় শুরুর বেতন সাধারণ, তবে স্থিতিশীল ও সম্মানের। ভালো ফল ও মাস্টার্স থাকলে পরে কলেজ ও বিশ্ববিদ্যালয়ের দরজা খোলে।"], "talk": ["Real talk: sales and trainee jobs are tough at first, with monthly targets, but people who do well there often rise fastest in companies.", "বাস্তবতা: সেলস ও ট্রেইনি চাকরি শুরুতে কঠিন, প্রতি মাসে টার্গেট থাকে, কিন্তু যারা ভালো করেন তারা প্রায়ই কোম্পানিতে সবচেয়ে দ্রুত ওপরে ওঠেন।"], "create": ["Real talk: clients judge your work, not your certificate. First jobs may pay little; good reviews and a strong portfolio raise your rate.", "বাস্তবতা: ক্লায়েন্ট সার্টিফিকেট নয়, কাজ দেখে। প্রথম কাজগুলোতে আয় কম হতে পারে; ভালো রিভিউ ও পোর্টফোলিও আপনার রেট বাড়ায়।"], "people": ["Real talk: NGO jobs are often tied to projects with fixed end dates. Build skills that let you move from one project to the next.", "বাস্তবতা: এনজিওর চাকরি প্রায়ই নির্দিষ্ট মেয়াদের প্রকল্পের সঙ্গে যুক্ত। এমন দক্ষতা গড়ুন যাতে এক প্রকল্প থেকে আরেকটিতে যেতে পারেন।"]};
 function wPlan(){
   const {stage,like,place}=st.w, W=WLIKE[like], bn=st.lang==="bn"; const steps=[];
   if(stage==="school") steps.push(L(W[6]), L(["Focus on SSC and HSC results. In Bangladesh, good results open more doors later.","এসএসসি ও এইচএসসির ফলে মন দিন। বাংলাদেশে ভালো ফল পরে অনেক দরজা খুলে দেয়।"]));
+  if(stage==="after10") steps.push(L(["Now choose your HSC / A Level / Alim group. ","এখন এইচএসসি / এ লেভেল / আলিমের বিভাগ বাছুন। "])+L(W[6]), L(["O Level / IGCSE students: get the Education Board equivalence certificate before applying to colleges and universities.","ও লেভেল / আইজিসিএসই শিক্ষার্থীরা: কলেজ ও বিশ্ববিদ্যালয়ে আবেদনের আগে শিক্ষা বোর্ডের সমতা সনদ নিন।"]), L(["Results still matter: aim high in HSC / A Level.","ফল এখনো গুরুত্বপূর্ণ: এইচএসসি / এ লেভেলে ভালো ফলের লক্ষ্য রাখুন।"]));
   if(stage==="college") steps.push(L(W[6]), L(["Prepare for the university admission test in the subject that leads to this job.","যে বিষয় এই পেশায় নিয়ে যায়, সেই বিষয়ে বিশ্ববিদ্যালয় ভর্তি পরীক্ষার প্রস্তুতি নিন।"]));
   if(stage==="uni") steps.push(L(["Open the career map and check the exact rules and pay.","ক্যারিয়ার ম্যাপ খুলে সঠিক শর্ত ও বেতন দেখুন।"]), L(["Do an internship and learn the skills job ads ask for.","ইন্টার্নশিপ করুন, আর চাকরির বিজ্ঞাপনে যে দক্ষতা চায় তা শিখুন।"]), L(["Low CGPA? It is not the end. See the Low CGPA plan.","সিজিপিএ কম? শেষ নয়। সিজিপিএ কম অংশটি দেখুন।"]));
   if(stage==="dip") steps.push(L(["Work as a diploma engineer or technician, or study further for a BSc (DUET or an evening BSc).","ডিপ্লোমা ইঞ্জিনিয়ার বা টেকনিশিয়ান হিসেবে কাজ করুন, বা বিএসসি পড়ুন (ডুয়েট বা সান্ধ্য বিএসসি)।"]));
-  if(place==="abroad") steps.push(L(["Learn English well (IELTS) or another language (Japanese, Korean, German).","ভালো ইংরেজি শিখুন (আইইএলটিএস) বা অন্য ভাষা (জাপানি, কোরিয়ান, জার্মান)।"]), L(["Keep results high and apply for free (fully funded) scholarships. Never pay fake agents.","ভালো ফল রাখুন আর বিনা খরচের (সম্পূর্ণ) বৃত্তিতে আবেদন করুন। ভুয়া এজেন্টকে টাকা দেবেন না।"]));
+  if(place==="abroad") steps.push(L(["Learn English well (IELTS) or another language (Japanese, Korean, German).","ভালো ইংরেজি শিখুন (আইইএলটিএস) বা অন্য ভাষা (জাপানি, কোরিয়ান, জার্মান)।"]), L(["Keep results high and apply for fully funded scholarships. Never pay fake agents.","ভালো ফল রাখুন আর সম্পূর্ণ অর্থায়িত বৃত্তিতে আবেদন করুন। ভুয়া এজেন্টকে টাকা দেবেন না।"]));
   else steps.push(L(["Staying in Bangladesh: try both government (BCS) and private jobs, so you have two chances.","দেশে থাকলে: সরকারি (বিসিএস) ও বেসরকারি দুটোই চেষ্টা করুন, তাহলে দুটি সুযোগ থাকবে।"]));
   const jobs=(bn?W[5]:W[4]).map(j=>`<span class="wjob">${esc(j)}</span>`).join("");
   const btns=[`<button type="button" class="wbtn" data-gt="${stage==="dip"?"tech":W[3]}">${esc(L(["See this career map","এই ক্যারিয়ার ম্যাপ দেখুন"]))} →</button>`];
   if(stage==="dip") btns.push(`<button type="button" class="wbtn alt" data-wgo="dip">${esc(L(["Diploma routes","ডিপ্লোমার পথ"]))} →</button>`);
   if(stage==="uni") btns.push(`<button type="button" class="wbtn alt" data-wgo="low">${esc(L(["Low CGPA plan","সিজিপিএ কম হলে"]))} →</button>`);
-  if(place==="abroad") btns.push(`<button type="button" class="wbtn alt" data-wgo="abroad">${esc(L(["Free scholarships","বিনা খরচের বৃত্তি"]))} →</button>`);
+  if(place==="abroad") btns.push(`<button type="button" class="wbtn alt" data-wgo="abroad">${esc(L(["Scholarships abroad","বিদেশে বৃত্তি"]))} →</button>`);
   const S=WSTAGE.find(x=>x[0]===stage);
   const picked=[S[1]+" "+L([S[2],S[3]]), W[0]+" "+L([W[1],W[2]]), place==="abroad"?"🌍 "+L(["Abroad","বিদেশে"]):"🇧🇩 "+L(["Bangladesh","বাংলাদেশে"])].map(x=>`<span class="wpick">${esc(x)}</span>`).join("");
   return `<div class="wres"><div class="wpicks">${picked}</div><h3>${esc(L(["You could become:","আপনি হতে পারেন:"]))}</h3><div class="wjobs">${jobs}</div>
    <h3>${esc(L(["Your plan, step by step:","আপনার পরিকল্পনা, ধাপে ধাপে:"]))}</h3><ol class="wsteps">${steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+   <p class="wreal">💬 ${esc(L(WREAL[like]))}</p>${stage==="uni"?`<p class="wreal">💬 ${esc(L(["Real talk: many graduates wait for the perfect job and lose years. Those who move ahead usually take a first job, keep learning and keep applying.","বাস্তবতা: অনেক স্নাতক নিখুঁত চাকরির অপেক্ষায় বছর হারান। যারা এগিয়ে যান তারা সাধারণত প্রথম চাকরিটা নেন, শিখতে থাকেন আর আবেদন চালিয়ে যান।"]))}</p>`:""}
    <div class="wbtns">${btns.join("")}</div></div>`;
 }
 function renderWizard(){
@@ -1956,6 +1976,16 @@ function renderMatch(){
   const ctx=deg?L(["Only jobs your degree and results allow are counted.","শুধু আপনার ডিগ্রি ও ফলাফলে যেসব চাকরি সম্ভব সেগুলোই গোনা হয়েছে।"]):"";
   $("#match-out").innerHTML=(ctx?`<p class="hint">${esc(ctx)}</p>`:"")+h;
 }
+/* ---- forum (Giscus: GitHub Discussions). Fill GISCUS ids to switch on. ---- */
+const GISCUS={repo:"syedmargubelahi/careermap",repoId:"",category:"General",categoryId:""};
+let giscusOn=false;
+function renderForum(){
+  const ok=GISCUS.repoId&&GISCUS.categoryId&&location.hostname.endsWith("github.io");
+  $("#forum-note").textContent=ok?t("fGh"):t("fWait");
+  if(ok&&!giscusOn){ giscusOn=true; const s=document.createElement("script"); s.src="https://giscus.app/client.js"; s.async=true; s.crossOrigin="anonymous";
+    const o={"data-repo":GISCUS.repo,"data-repo-id":GISCUS.repoId,"data-category":GISCUS.category,"data-category-id":GISCUS.categoryId,"data-mapping":"specific","data-term":"BCGO Career Map forum","data-reactions-enabled":"1","data-emit-metadata":"0","data-input-position":"top","data-theme":"preferred_color_scheme","data-lang":st.lang==="bn"?"bn":"en","data-loading":"lazy"};
+    for(const k in o) s.setAttribute(k,o[k]); $("#giscus").appendChild(s); }
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -1966,7 +1996,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderForum(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
@@ -2019,7 +2049,6 @@ document.addEventListener("change",e=>{
   else if(id==="f-check"){ st.check=e.target.value; renderChecker(); }
 });
 document.addEventListener("input",e=>{
-  if(e.target.id==="f-find"){ filterJobs(); return; }
   const m=e.target.id.match(/^f-(ssc|hsc|cg|mcg)$/); if(!m) return;
   st[m[1]]=e.target.value; renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderBeyond(); renderGuide(); renderMatch();
 });

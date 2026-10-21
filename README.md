@@ -1,6 +1,6 @@
 # BCGO Career Map
 
-Free Bangla + English career roadmap for Bangladeshi students and graduates, by [Bangladesh Career & Global Opportunities](https://www.facebook.com/groups/bcgo.bd).
+Bangla + English career guidance for Bangladeshi students and graduates, by [Bangladesh Career & Global Opportunities](https://www.facebook.com/groups/bcgo.bd).
 
 Match your degree and GPA/CGPA to BCS, bank, government and private jobs, with salary ranges, eligibility and a year-by-year plan.
 
