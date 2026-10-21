@@ -7,3 +7,7 @@ Match your degree and GPA/CGPA to BCS, bank, government and private jobs, with s
 **Live site:** https://syedmargubelahi.github.io/careermap/
 
 Data is refreshed monthly from official gazettes, UGC and trusted sources.
+
+## Owner
+
+© 2026 Syed Margub Elahi. All rights reserved. BCGO Career Map is built, researched and maintained by Syed Margub Elahi.

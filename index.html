@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BCGO Career Map</title>
+<meta name="author" content="Syed Margub Elahi">
+<meta name="copyright" content="© 2026 Syed Margub Elahi">
 <meta name="description" content="Confused about your career? BCGO Career Map shows your next step: what to study, which jobs fit your degree and results, and how to grow in Bangladesh or abroad. ক্যারিয়ার নিয়ে দ্বিধায়? এখান থেকেই শুরু।">
 <meta property="og:title" content="BCGO Career Map">
 <meta property="og:description" content="ক্যারিয়ার নিয়ে দ্বিধায়? এখান থেকেই শুরু। Confused about your career? See your next step, in Bangladesh or abroad.">
@@ -350,6 +352,9 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .ktrades{display:flex;flex-wrap:wrap;gap:8px}.ktr{padding:8px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--rule);font-weight:600}
 .kbars{display:grid;gap:8px;margin:8px 0}.kbar{display:grid;grid-template-columns:minmax(0,9em) 1fr auto;gap:10px;align-items:center}
 .kb{height:12px;border-radius:99px;background:var(--rule);overflow:hidden}.kb i{display:block;height:100%;background:var(--green);border-radius:99px}
+.faq{border:1px solid var(--rule);border-radius:12px;padding:10px 14px;margin:8px 0;background:var(--surface)}
+.faq summary{cursor:pointer;font-weight:700}.faq p{margin:8px 0 4px}
+footer .own{flex-basis:100%;font-weight:600}
 </style>
 </head>
 <body>
@@ -360,7 +365,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div><button type="button" class="themebtn" id="theme-btn" aria-label="Light or dark mode"></button></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#jobcenter" data-t="navJ"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -427,6 +432,11 @@ section[id],.panel[id]{scroll-margin-top:64px}
   <section class="section panel" id="guide">
     <h2 data-t="gH"></h2><p class="muted" data-t="gSub"></p>
     <div id="guide-body"></div>
+  </section>
+
+  <section class="section panel" id="jobcenter">
+    <h2>💼 <span data-t="jH"></span></h2><p class="muted" data-t="jSub"></p>
+    <div id="j-body"></div>
   </section>
 
   <section class="section panel" id="tracks">
@@ -496,7 +506,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <p class="muted" data-t="checked"></p><ul id="src-list"></ul>
   </section>
 
-  <footer><span><a href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span></footer>
+  <footer><span><a href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" data-t="footer"></a> · <span data-t="slogan"></span></span><span data-t="proto"></span><span class="own" data-t="own"></span></footer>
 </div>
 <script>
 /* ===== BCGO Career Map — data ===== */
@@ -1357,6 +1367,31 @@ Object.assign(SRC2,{
   K5:{t:"Prothom Alo: trades taught at new upazila TTCs",u:"https://en.prothomalo.com/bangladesh/lt9izxsb4e"}
 });
 
+/* ===== Job center ===== */
+Object.assign(SRC2,{
+  J1:{t:"The Financial Express: What really happens when graduates enter the workforce (Jun 2026)",u:"https://thefinancialexpress.com.bd/article/what-really-happens-when-graduates-enter-the-workforce"},
+  J2:{t:"The Financial Express: How to build your CV with no experience (Nov 2024)",u:"https://thefinancialexpress.com.bd/article/how-to-build-your-cv-with-no-experience"},
+  J3:{t:"The Financial Express: Petrobangla warns against fake recruitment letters (Jul 2025)",u:"https://thefinancialexpress.com.bd/trade/petrobangla-issues-warning-against-fake-recruitment-letters"},
+  J4:{t:"Prothom Alo: 49th BCS circular, apply via BPSC / Teletalk (Oct 2025)",u:"https://en.prothomalo.com/youth/education/rbr9o2gltl"}
+});
+const JOBSITES=[
+ ["🏛️","BPSC: BCS and non-cadre circulars","পিএসসি: বিসিএস ও নন-ক্যাডার বিজ্ঞপ্তি","https://bpsc.gov.bd"],
+ ["📱","Teletalk: online applications for government jobs","টেলিটক: সরকারি চাকরির অনলাইন আবেদন","https://alljobs.teletalk.com.bd"],
+ ["🏦","Bangladesh Bank recruitment","বাংলাদেশ ব্যাংক নিয়োগ","https://erecruitment.bb.org.bd"],
+ ["🧑‍🏫","NTRCA: non-government teacher registration","এনটিআরসিএ: বেসরকারি শিক্ষক নিবন্ধন","https://www.ntrca.gov.bd"],
+ ["💼","Bdjobs: private sector jobs","বিডিজবস: বেসরকারি খাতের চাকরি","https://bdjobs.com"],
+ ["✈️","BMET: overseas employment and TTC training","বিএমইটি: বিদেশে কর্মসংস্থান ও টিটিসি প্রশিক্ষণ","http://www.bmet.gov.bd"]
+];
+const FAQ=[
+ [["Every job asks for experience. How do I get my first one?","সব চাকরিতেই অভিজ্ঞতা চায়। প্রথম চাকরিটা পাব কীভাবে?"],["Start where competition is lower: field roles, sales, and jobs outside Dhaka. Many fresh graduates avoid them, so you get chances faster and learn more. Do an internship properly (do real work, not just watch), and count university projects and club work as experience.","প্রতিযোগিতা যেখানে কম, সেখান থেকে শুরু করুন: মাঠের কাজ, সেলস, আর ঢাকার বাইরের চাকরি। অনেক নতুন স্নাতক এগুলো এড়িয়ে যান, তাই এখানে আপনি দ্রুত সুযোগ পাবেন আর বেশি শিখবেন। ইন্টার্নশিপে শুধু দেখে নয়, আসল কাজ করে শিখুন। বিশ্ববিদ্যালয়ের প্রজেক্ট আর ক্লাবের কাজও অভিজ্ঞতা হিসেবে দেখান।"],"J1"],
+ [["How do I write a CV with no experience?","অভিজ্ঞতা ছাড়া সিভি লিখব কীভাবে?"],["Keep it to one clean page. Write a short objective using words from the job ad. Turn your projects, presentations and club roles into proof of skills. List computer skills (Word, Excel, PowerPoint) honestly, and make a LinkedIn profile.","এক পৃষ্ঠায়, পরিষ্কার করে লিখুন। চাকরির বিজ্ঞাপনের শব্দ ব্যবহার করে ছোট একটি লক্ষ্য লিখুন। প্রজেক্ট, প্রেজেন্টেশন আর ক্লাবের দায়িত্বকে দক্ষতার প্রমাণ হিসেবে দেখান। কম্পিউটার দক্ষতা (ওয়ার্ড, এক্সেল, পাওয়ারপয়েন্ট) সৎভাবে লিখুন, আর একটি লিংকডইন প্রোফাইল বানান।"],"J2"],
+ [["Someone says they can get me a government job for money. Is it real?","কেউ বলছে টাকা দিলে সরকারি চাকরি করে দেবে। এটা কি সত্যি?"],["No. Government recruitment happens through official websites and exams; fees are paid only through the official Teletalk system. Fake appointment letters with real-looking seals are common. Never pay a middleman.","না। সরকারি নিয়োগ হয় অফিসিয়াল ওয়েবসাইট আর পরীক্ষার মাধ্যমে; ফি দিতে হয় শুধু অফিসিয়াল টেলিটক ব্যবস্থায়। আসলের মতো দেখতে সিলসহ ভুয়া নিয়োগপত্র প্রায়ই ঘোরে। কোনো দালালকে টাকা দেবেন না।"],"J3"],
+ [["Should I only prepare for BCS?","শুধু বিসিএসের প্রস্তুতিই কি নেব?"],["Prepare, but don't put everything on one exam. BCS takes a long time and seats are limited. Keep a job or a skill growing at the same time, so you are moving forward whatever the result.","প্রস্তুতি নিন, কিন্তু সবকিছু একটা পরীক্ষার ওপর ছেড়ে দেবেন না। বিসিএসে সময় লাগে, আসনও সীমিত। পাশাপাশি একটা চাকরি বা দক্ষতা গড়ে তুলুন, যাতে ফল যা-ই হোক, আপনি সামনে এগোতে থাকেন।"],"J4"],
+ [["My family wants one career, I want another. What do I do?","পরিবার একটা ক্যারিয়ার চায়, আমি অন্যটা চাই। কী করব?"],["Talk to them with a plan, not just a feeling: show the path, the cost, the pay and the time it takes, using this site. Families usually worry about security. If you show them a safe, step-by-step plan, they listen more. A middle path (study one, build skills in the other) often works.","শুধু ইচ্ছা নয়, একটা পরিকল্পনা নিয়ে কথা বলুন: এই সাইট থেকে পথ, খরচ, বেতন আর কত সময় লাগবে তা দেখান। পরিবার সাধারণত নিরাপত্তা নিয়ে চিন্তা করে। নিরাপদ, ধাপে ধাপে পরিকল্পনা দেখালে তারা বেশি শোনে। মাঝামাঝি পথও (একটা পড়া, অন্যটায় দক্ষতা গড়া) প্রায়ই কাজ করে।"],""],
+ [["Is a master's degree worth it?","মাস্টার্স করা কি লাভজনক?"],["For teaching, research and some government posts, yes. For most private jobs, one or two years of real experience often counts more. If you're unsure, work first and do an evening master's later.","শিক্ষকতা, গবেষণা আর কিছু সরকারি পদে হ্যাঁ। বেশিরভাগ বেসরকারি চাকরিতে এক-দুই বছরের আসল অভিজ্ঞতা প্রায়ই বেশি গুরুত্ব পায়। নিশ্চিত না হলে আগে চাকরি করুন, পরে সান্ধ্য মাস্টার্স করুন।"],"B1"],
+ [["I've been unemployed for a long time and I'm losing hope.","অনেক দিন ধরে বেকার, আশা হারিয়ে ফেলছি।"],["You are not alone: about 8.85 lakh university graduates were unemployed in 2024. It says more about the job market than about you. Set one small goal each week (one skill, one application, one person to talk to). And please talk to someone you trust; if it feels too heavy, an emotional support service like Kaan Pete Roi can listen.","আপনি একা নন: ২০২৪ সালে প্রায় ৮ লাখ ৮৫ হাজার বিশ্ববিদ্যালয় পাস মানুষ বেকার ছিলেন। এটা আপনার চেয়ে চাকরির বাজার সম্পর্কে বেশি বলে। প্রতি সপ্তাহে একটা ছোট লক্ষ্য রাখুন (একটা দক্ষতা, একটা আবেদন, একজনের সঙ্গে কথা)। আর বিশ্বাসের কারও সঙ্গে কথা বলুন; খুব ভারী লাগলে কান পেতে রই-এর মতো মানসিক সহায়তা সেবা আপনার কথা শুনবে।"],"J1"]
+];
+
 /* ===== BCGO Career Map — app ===== */
 const T = {
   brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group", "আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["You're not alone in this. Join the BCGO community", "এই পথে আপনি একা নন। BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, find job circulars, and get advice from students and professionals across Bangladesh who've been where you are.", "প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি পান, আর পরামর্শ নিন সারা দেশের সেই শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে, যারা একসময় ঠিক আপনার জায়গাতেই ছিলেন।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
@@ -1434,6 +1469,10 @@ const T = {
   navK:["Skills & work abroad","দক্ষতা ও বিদেশে কাজ"],
   kH:["Studies not your thing? Your skills can still take you far","পড়াশোনায় মন বসে না? হাতের দক্ষতাও আপনাকে অনেক দূর নিয়ে যেতে পারে"],
   kSub:["Not everyone is made for exams, and that's okay. With the right training and a recognised certificate, you can build a good income in Bangladesh or abroad.","সবাই পরীক্ষার জন্য তৈরি নয়, আর তাতে দোষের কিছু নেই। সঠিক প্রশিক্ষণ আর স্বীকৃত সনদ থাকলে দেশে বা বিদেশে ভালো আয় করা যায়।"],
+  navJ:["Job center","জব সেন্টার"],
+  jH:["Job center: where to look, and what people often ask","জব সেন্টার: কোথায় খুঁজবেন, আর সবাই যা জানতে চায়"],
+  jSub:["Real circulars come only from official places. Here they are, along with honest answers to the questions we hear most.","আসল বিজ্ঞপ্তি আসে শুধু অফিসিয়াল জায়গা থেকে। সেগুলো এখানে দিলাম, সঙ্গে সবচেয়ে বেশি আসা প্রশ্নগুলোর খোলামেলা উত্তর।"],
+  own:["© 2026 Syed Margub Elahi. All rights reserved. Built, researched and maintained by Syed Margub Elahi.","© ২০২৬ সৈয়দ মারগুব এলাহী। সর্বস্বত্ব সংরক্ষিত। তৈরি, গবেষণা ও রক্ষণাবেক্ষণ: সৈয়দ মারগুব এলাহী।"],
   navS:["Start here", "এখান থেকে শুরু"],
   navG:["Feeling lost?", "দিশেহারা লাগছে?"],navT:["All careers", "সব ক্যারিয়ার"],navA:["Scholarships abroad", "বিদেশে স্কলারশিপ"],
   gH:["Feeling lost? Let's start from your results", "দিশেহারা লাগছে? চলুন, আপনার রেজাল্ট থেকেই শুরু করি"],
@@ -1470,7 +1509,7 @@ const T = {
   resNone:["No verified common cut-off. Check the result rules in each circular.","যাচাইকৃত কোনো সাধারণ শর্ত নেই। প্রতিটি বিজ্ঞপ্তিতে ফলাফলের শর্ত দেখে নিন।"],
   meets:["Meets","পূরণ করে"],fails:["Does not meet","পূরণ করে না"],
   footer:["Bangladesh Career & Global Opportunities","বাংলাদেশ ক্যারিয়ার অ্যান্ড গ্লোবাল অপরচুনিটিজ"],
-  proto:["Prototype · October 2026","প্রোটোটাইপ · অক্টোবর ২০২৬"]
+  proto:["Last updated: October 2026","সর্বশেষ হালনাগাদ: অক্টোবর ২০২৬"]
 };
 
 const st = {lang:"bn",uni:"",level:"bss",group:"science",subjects:new Set(),subject:"econ",ssc:"",hsc:"",cg:"",mcg:"",showBridge:true,sector:"all",sel:null,check:"bb_ad",view:"mind",fold:new Set(),qi:-1,ans:[]};
@@ -2133,6 +2172,14 @@ function renderSkillTrain(){
    `<p class="wreal">💬 ${esc(L(["Honestly: many families lose money to fake promises of jobs abroad. A real certificate, a licensed agency and a BMET registration are your protection. Take your time; going safely matters more than going fast.","সত্যি কথা বলি: বিদেশে চাকরির ভুয়া প্রতিশ্রুতিতে অনেক পরিবার টাকা হারায়। আসল সনদ, লাইসেন্সধারী এজেন্সি আর বিএমইটি নিবন্ধনই আপনার সুরক্ষা। তাড়াহুড়ো করবেন না; দ্রুত যাওয়ার চেয়ে নিরাপদে যাওয়া বেশি জরুরি।"]))}</p>`+
    `<div class="wbtns"><button type="button" class="wbtn alt" data-wgo="dip">${esc(L(["Japan, Korea, Germany routes","জাপান, কোরিয়া, জার্মানির পথ"]))} →</button></div>`;
 }
+
+/* ---- job center ---- */
+function renderJobs(){
+  $("#j-body").innerHTML=`<h3 class="uh3">${esc(L(["Official places to find and apply for jobs","চাকরি খোঁজা ও আবেদনের অফিসিয়াল জায়গা"]))}</h3><div class="abgrid">${JOBSITES.map(([i,e,b,u])=>`<a href="${u}" target="_blank" rel="noopener"><b>${i} ${esc(L([e,b]))}</b><span>${esc(u.replace(/^https?:\/\/(www\.)?/,""))}</span></a>`).join("")}</div>`+
+   `<h3 class="uh3">${esc(L(["Questions people often ask","যে প্রশ্নগুলো সবাই প্রায়ই করে"]))}</h3>`+
+   FAQ.map(([q,ans,s],i)=>`<details class="faq"${i===0?" open":""}><summary>${esc(L(q))}</summary><p>${esc(L(ans))}</p>${s?bxSrc(s):""}</details>`).join("")+
+   `<div class="wbtns"><a class="join big" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener">${esc(L(["Ask your own question in our Facebook group","নিজের প্রশ্ন করুন আমাদের ফেসবুক গ্রুপে"]))} →</a></div>`;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -2143,7 +2190,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); renderSkillTrain(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); renderSkillTrain(); renderJobs(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
