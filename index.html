@@ -346,6 +346,10 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .pbox{margin-top:14px;padding:14px;border:1.5px solid var(--rule);border-radius:14px;background:var(--surface)}
 .pbox h3{margin:0 0 6px}.pbox h4{margin:12px 0 4px}.plist{margin:0;padding-left:1.2em;display:grid;gap:3px}
 .pdet{margin-top:8px}.pdet summary{cursor:pointer;color:var(--accent);font-weight:600}
+.kcard{border:1.5px solid var(--rule);border-radius:16px;padding:16px;background:var(--surface)}.kcard h3{margin:0 0 6px}.kcard p{margin:0 0 6px}
+.ktrades{display:flex;flex-wrap:wrap;gap:8px}.ktr{padding:8px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--rule);font-weight:600}
+.kbars{display:grid;gap:8px;margin:8px 0}.kbar{display:grid;grid-template-columns:minmax(0,9em) 1fr auto;gap:10px;align-items:center}
+.kb{height:12px;border-radius:99px;background:var(--rule);overflow:hidden}.kb i{display:block;height:100%;background:var(--green);border-radius:99px}
 </style>
 </head>
 <body>
@@ -356,7 +360,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div><button type="button" class="themebtn" id="theme-btn" aria-label="Light or dark mode"></button></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -435,6 +439,11 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
     <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
     <div id="by-body"></div>
+  </section>
+
+  <section class="section panel" id="skilltrain">
+    <h2>🛠️ <span data-t="kH"></span></h2><p class="muted" data-t="kSub"></p>
+    <div id="k-body"></div>
   </section>
 
   <section class="section panel" id="unisec">
@@ -1339,6 +1348,15 @@ const UPROG={
  "BRAC University":{s:"P5",sub:true,ug:["Anthropology","Architecture","Biotechnology","Business Administration","Economics","Electrical & Electronic Engineering","English","Information Technology / Computer Science","Law","Mathematics","Microbiology","Pharmacy","Physics"],pg:["Biotechnology","Business Administration","Childhood Development","Economics","Education","Electrical & Electronic Engineering","English","Governance and Development","Information Technology","Management","Procurement","Public Health"]}
 };
 
+/* ===== Skills training & work abroad (TVET) ===== */
+Object.assign(SRC2,{
+  K1:{t:"Daily Observer: BMET runs 104 TTCs and 6 IMTs, 55 trades (Jun 2026)",u:"https://observerbd.com/news/578769"},
+  K2:{t:"Banglapedia: Technical and Vocational Education and Training",u:"https://en.banglapedia.org/index.php/Technical_and_Vocational_Education_and_Training"},
+  K3:{t:"The Business Standard: Overseas employment 2025 by country and skill (Jan 2026)",u:"https://www.tbsnews.net/bangladesh/migration/overseas-employment-1127-2025-boosting-remittances-reserves-1323731"},
+  K4:{t:"Arab News: Saudi–Bangladesh skilled worker deal and Skill Verification Program (Oct 2025)",u:"https://www.arabnews.com/node/2618057/amp"},
+  K5:{t:"Prothom Alo: trades taught at new upazila TTCs",u:"https://en.prothomalo.com/bangladesh/lt9izxsb4e"}
+});
+
 /* ===== BCGO Career Map — app ===== */
 const T = {
   brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group", "আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["You're not alone in this. Join the BCGO community", "এই পথে আপনি একা নন। BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, find job circulars, and get advice from students and professionals across Bangladesh who've been where you are.", "প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি পান, আর পরামর্শ নিন সারা দেশের সেই শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে, যারা একসময় ঠিক আপনার জায়গাতেই ছিলেন।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
@@ -1413,6 +1431,9 @@ const T = {
   uH:["Public or private university? Let's compare honestly","সরকারি নাকি বেসরকারি বিশ্ববিদ্যালয়? চলুন, খোলামেলা তুলনা করি"],
   uSub:["Money is a real worry for most families, so here are the actual numbers, straight from university fee pages and national newspapers.","বেশিরভাগ পরিবারের কাছে খরচটা আসল দুশ্চিন্তা। তাই এখানে আসল হিসাবটা দিলাম, সরাসরি বিশ্ববিদ্যালয়ের ফি পেজ আর জাতীয় পত্রিকা থেকে।"],
   uTabC:["Cost comparison","খরচের তুলনা"],uTabP:["Public universities","সরকারি বিশ্ববিদ্যালয়"],uTabV:["Private universities","বেসরকারি বিশ্ববিদ্যালয়"],
+  navK:["Skills & work abroad","দক্ষতা ও বিদেশে কাজ"],
+  kH:["Studies not your thing? Your skills can still take you far","পড়াশোনায় মন বসে না? হাতের দক্ষতাও আপনাকে অনেক দূর নিয়ে যেতে পারে"],
+  kSub:["Not everyone is made for exams, and that's okay. With the right training and a recognised certificate, you can build a good income in Bangladesh or abroad.","সবাই পরীক্ষার জন্য তৈরি নয়, আর তাতে দোষের কিছু নেই। সঠিক প্রশিক্ষণ আর স্বীকৃত সনদ থাকলে দেশে বা বিদেশে ভালো আয় করা যায়।"],
   navS:["Start here", "এখান থেকে শুরু"],
   navG:["Feeling lost?", "দিশেহারা লাগছে?"],navT:["All careers", "সব ক্যারিয়ার"],navA:["Scholarships abroad", "বিদেশে স্কলারশিপ"],
   gH:["Feeling lost? Let's start from your results", "দিশেহারা লাগছে? চলুন, আপনার রেজাল্ট থেকেই শুরু করি"],
@@ -1997,6 +2018,7 @@ function wPlan(){
   else steps.push(L(["Staying in Bangladesh: try both government (BCS) and private jobs, so you have two chances.","দেশে থাকলে: সরকারি (বিসিএস) ও বেসরকারি দুটোই চেষ্টা করুন, তাহলে দুটি সুযোগ থাকবে।"]));
   const jobs=(bn?W[5]:W[4]).map(j=>`<span class="wjob">${esc(j)}</span>`).join("");
   const btns=[`<button type="button" class="wbtn" data-gt="${stage==="dip"?"tech":W[3]}">${esc(L(["Show me the full path","পুরো পথটা দেখান"]))} →</button>`];
+  if(stage==="dip"||place==="abroad") btns.push(`<button type="button" class="wbtn alt" data-wgo="skill">${esc(L(["Skills training & work abroad","দক্ষতা প্রশিক্ষণ ও বিদেশে কাজ"]))} →</button>`);
   if(stage==="dip") btns.push(`<button type="button" class="wbtn alt" data-wgo="dip">${esc(L(["Diploma routes","ডিপ্লোমার পথ"]))} →</button>`);
   if(stage==="uni") btns.push(`<button type="button" class="wbtn alt" data-wgo="low">${esc(L(["Low CGPA plan","সিজিপিএ কম হলে"]))} →</button>`);
   if(place==="abroad") btns.push(`<button type="button" class="wbtn alt" data-wgo="abroad">${esc(L(["Scholarships abroad","বিদেশে স্কলারশিপ"]))} →</button>`);
@@ -2087,6 +2109,30 @@ function renderUnis(){
   if(st.ut!=="cost"&&st.up) h+=progBlock(st.up);
   $("#u-body").innerHTML=h;
 }
+
+/* ---- skills training & work abroad ---- */
+function renderSkillTrain(){
+  const card=(ic,t1,body,src)=>`<div class="kcard"><h3>${ic} ${esc(L(t1))}</h3><p>${esc(L(body))}</p>${bxSrc(src)}</div>`;
+  const trades=[["⚡","Electrical & house wiring","ইলেকট্রিক্যাল ও হাউস ওয়্যারিং"],["🔧","Welding & fabrication","ওয়েল্ডিং ও ফেব্রিকেশন"],["🚗","Driving & auto mechanics","ড্রাইভিং ও অটো মেকানিক্স"],["❄️","Refrigeration & air conditioning","রেফ্রিজারেশন ও এয়ারকন্ডিশনিং"],["🏗️","Civil construction","সিভিল কনস্ট্রাকশন"],["💻","IT support technician","আইটি সাপোর্ট টেকনিশিয়ান"],["📟","Electronics","ইলেকট্রনিক্স"],["⚙️","Machine tools operation","মেশিন টুলস অপারেশন"],["🧵","Garments","গার্মেন্টস"]];
+  const dest=[["🇸🇦","Saudi Arabia","সৌদি আরব",750967],["🇶🇦","Qatar","কাতার",107397],["🇸🇬","Singapore","সিঙ্গাপুর",70004],["🇰🇼","Kuwait","কুয়েত",42657],["🇲🇻","Maldives","মালদ্বীপ",39970]];
+  const mx=dest[0][3];
+  const steps=[["Pick one trade that suits you and is in demand abroad.","এমন একটি ট্রেড বাছুন, যা আপনার ভালো লাগে আর বিদেশে চাহিদা আছে।"],
+   ["Train at a government TTC, polytechnic or technical school and college, and get a BTEB-recognised certificate.","সরকারি টিটিসি, পলিটেকনিক বা টেকনিক্যাল স্কুল অ্যান্ড কলেজে প্রশিক্ষণ নিন, আর বিটিইবি-স্বীকৃত সনদ নিন।"],
+   ["Going to Saudi Arabia? Pass the Saudi Skill Verification test, taken by computer at Bangladesh's TTCs.","সৌদি আরব যেতে চান? সৌদির স্কিল ভেরিফিকেশন পরীক্ষায় পাস করুন, যা বাংলাদেশের টিটিসিতে কম্পিউটারে নেওয়া হয়।"],
+   ["Register with BMET and go only through a licensed recruiting agency. Attend the pre-departure orientation.","বিএমইটিতে নিবন্ধন করুন, আর শুধু লাইসেন্সধারী রিক্রুটিং এজেন্সির মাধ্যমে যান। বিদেশ যাওয়ার আগের ওরিয়েন্টেশনে অংশ নিন।"],
+   ["Never pay a middleman (dalal) without papers, and never hand over your passport to an unknown person.","কাগজপত্র ছাড়া কোনো দালালকে টাকা দেবেন না, আর অপরিচিত কারও হাতে পাসপোর্ট দেবেন না।"]];
+  $("#k-body").innerHTML=`<div class="ucmp">`+
+   card("🏫",["Government Technical Training Centres (TTC)","সরকারি কারিগরি প্রশিক্ষণ কেন্দ্র (টিটিসি)"],["BMET runs 104 TTCs and 6 Institutes of Marine Technology, teaching 55 short and long job-focused trades. Over 1.2 million people train there every year.","বিএমইটির অধীনে ১০৪টি টিটিসি ও ৬টি ইনস্টিটিউট অব মেরিন টেকনোলজি আছে, যেখানে চাকরিমুখী ৫৫টি স্বল্প ও দীর্ঘমেয়াদি ট্রেড শেখানো হয়। প্রতি বছর ১২ লাখের বেশি মানুষ প্রশিক্ষণ নেন।"],"K1")+
+   card("📜",["Short courses (3–6 months)","স্বল্পমেয়াদি কোর্স (৩–৬ মাস)"],["BTEB's 360-hour basic trade courses cover 101 occupations, offered by more than 3,000 government and private institutes.","বিটিইবির ৩৬০ ঘণ্টার বেসিক ট্রেড কোর্সে ১০১টি পেশা শেখানো হয়, ৩,০০০-এর বেশি সরকারি ও বেসরকারি প্রতিষ্ঠানে।"],"K2")+
+   card("🛠️",["Polytechnics & technical colleges (longer)","পলিটেকনিক ও টেকনিক্যাল কলেজ (দীর্ঘমেয়াদি)"],["49 government polytechnics, 64 technical schools and colleges and over 500 private polytechnics offer the 4-year Diploma in Engineering and SSC/HSC Vocational.","৪৯টি সরকারি পলিটেকনিক, ৬৪টি টেকনিক্যাল স্কুল অ্যান্ড কলেজ এবং ৫০০-এর বেশি বেসরকারি পলিটেকনিকে ৪ বছরের ডিপ্লোমা ইন ইঞ্জিনিয়ারিং ও এসএসসি/এইচএসসি ভোকেশনাল পড়ানো হয়।"],"K2")+`</div>`+
+   `<h3 class="uh3">${esc(L(["Trades taught at TTCs","টিটিসিতে যেসব ট্রেড শেখানো হয়"]))}</h3><div class="ktrades">${trades.map(([i,e,b])=>`<span class="ktr">${i} ${esc(L([e,b]))}</span>`).join("")}</div>${bxSrc("K5")}`+
+   `<h3 class="uh3">${esc(L(["Where Bangladeshi workers went in 2025","২০২৫ সালে বাংলাদেশি কর্মীরা কোথায় গেছেন"]))}</h3><p class="muted">${esc(L(["Over 1.1 million workers went abroad in 2025. Only about 22% were skilled or professional, so a certificate makes you stand out.","২০২৫ সালে ১১ লাখের বেশি কর্মী বিদেশে গেছেন। এর মধ্যে মাত্র প্রায় ২২% দক্ষ বা পেশাজীবী, তাই সনদ থাকলে আপনি আলাদা হয়ে উঠবেন।"]))}</p>`+
+   `<div class="kbars">${dest.map(([f,e,b,n])=>`<div class="kbar"><span>${f} ${esc(L([e,b]))}</span><span class="kb"><i style="width:${Math.max(4,n/mx*100)}%"></i></span><b>${N(n.toLocaleString("en-IN"))}</b></div>`).join("")}</div>${bxSrc("K3")}`+
+   `<div class="ucmp">${card("💰",["Skill changes your pay","দক্ষতা বেতন বদলে দেয়"],["Less-skilled workers in Saudi Arabia often earn about ৳25,000–30,000 a month. Skilled workers in Malaysia earned about ৳70,000–1 lakh versus about ৳35,000 unskilled (2023 report).","সৌদি আরবে কম দক্ষ কর্মীরা প্রায়ই মাসে ২৫,০০০–৩০,০০০ টাকা পান। মালয়েশিয়ায় দক্ষ কর্মী প্রায় ৭০,০০০–১ লাখ, অদক্ষ প্রায় ৩৫,০০০ টাকা (২০২৩ সালের প্রতিবেদন)।"],"K3").replace("</div>",""+bxSrc("B8")+"</div>")}${card("✅",["Saudi Skill Verification Program","সৌদি স্কিল ভেরিফিকেশন প্রোগ্রাম"],["Saudi Arabia now tests and certifies skilled workers through Takamol. Bangladesh runs these computer-based tests at its TTCs; demand was about 30,000 certified workers a month (Oct 2025).","সৌদি আরব এখন তাকামলের মাধ্যমে দক্ষ কর্মীদের পরীক্ষা নিয়ে সনদ দেয়। বাংলাদেশের টিটিসিতে এই কম্পিউটারভিত্তিক পরীক্ষা হয়; চাহিদা ছিল মাসে প্রায় ৩০,০০০ সনদপ্রাপ্ত কর্মী (অক্টোবর ২০২৫)।"],"K4")}</div>`+
+   `<h3 class="uh3">${esc(L(["Your path, step by step","আপনার পথ, ধাপে ধাপে"]))}</h3><ol class="wsteps">${steps.map(s=>`<li>${esc(L(s))}</li>`).join("")}</ol>`+
+   `<p class="wreal">💬 ${esc(L(["Honestly: many families lose money to fake promises of jobs abroad. A real certificate, a licensed agency and a BMET registration are your protection. Take your time; going safely matters more than going fast.","সত্যি কথা বলি: বিদেশে চাকরির ভুয়া প্রতিশ্রুতিতে অনেক পরিবার টাকা হারায়। আসল সনদ, লাইসেন্সধারী এজেন্সি আর বিএমইটি নিবন্ধনই আপনার সুরক্ষা। তাড়াহুড়ো করবেন না; দ্রুত যাওয়ার চেয়ে নিরাপদে যাওয়া বেশি জরুরি।"]))}</p>`+
+   `<div class="wbtns"><button type="button" class="wbtn alt" data-wgo="dip">${esc(L(["Japan, Korea, Germany routes","জাপান, কোরিয়া, জার্মানির পথ"]))} →</button></div>`;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -2097,7 +2143,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); renderSkillTrain(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
@@ -2125,7 +2171,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.wp){ st.w.place=b.dataset.wp; renderWizard(); $("#wizard").scrollIntoView({behavior:smooth(),block:"start"}); return; }
   if(b.dataset.wback){ const w=st.w; if(w.place) w.place=null; else if(w.like) w.like=null; else w.stage=null; renderWizard(); return; }
   if(b.dataset.wreset){ st.w={stage:null,like:null,place:null}; renderWizard(); $("#wizard").scrollIntoView({behavior:smooth(),block:"start"}); return; }
-  if(b.dataset.wgo){ const g=b.dataset.wgo; if(g==="abroad"){ $("#abroad").scrollIntoView({behavior:smooth(),block:"start"}); } else { st.bt=g==="low"?"low":"diploma"; renderBeyond(); $("#beyond").scrollIntoView({behavior:smooth(),block:"start"}); } return; }
+  if(b.dataset.wgo){ const g=b.dataset.wgo; if(g==="skill"){ $("#skilltrain").scrollIntoView({behavior:smooth(),block:"start"}); } else if(g==="abroad"){ $("#abroad").scrollIntoView({behavior:smooth(),block:"start"}); } else { st.bt=g==="low"?"low":"diploma"; renderBeyond(); $("#beyond").scrollIntoView({behavior:smooth(),block:"start"}); } return; }
   if(b.dataset.tt){ st.tr=b.dataset.tt; st.tsel=null; st.topen=new Set(); renderTracks(); return; }
   if(b.dataset.tf){ const k=b.dataset.tf; st.topen.has(k)?st.topen.delete(k):st.topen.add(k); renderTracks(); return; }
   if(b.dataset.ts){ st.tsel=b.dataset.ts; renderTracks(); if(matchMedia("(max-width: 900px)").matches) $("#tr-body .ticket").scrollIntoView({behavior:smooth(),block:"center"}); return; }
