@@ -329,6 +329,20 @@ section[id],.panel[id]{scroll-margin-top:64px}
 .fother{margin:22px 0 4px;font-size:1rem;color:var(--muted)}
 .themebtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:.88rem;font-weight:600;cursor:pointer}
 .themebtn:hover{border-color:var(--accent)}
+.ucmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:12px 0}
+.ucard{border:1.5px solid var(--rule);border-radius:16px;padding:16px;background:var(--surface)}
+.ucard.pub{border-top:5px solid var(--green)}.ucard.pvt{border-top:5px solid var(--accent)}
+.ucard h3{margin:0 0 8px}.ucard dl{margin:0;display:grid;gap:4px}.ucard dt{font-weight:700;font-size:.9rem;color:var(--muted);margin-top:6px}.ucard dd{margin:0}
+.uh3{margin:22px 0 8px}
+.utable{margin-top:8px}.utable table{width:100%;border-collapse:collapse}
+.utable th,.utable td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+.utable th{font-size:.85rem;color:var(--muted)}
+.ugrp{border:1px solid var(--rule);border-radius:12px;padding:8px 12px;margin:8px 0;background:var(--surface)}
+.ugrp summary{cursor:pointer;font-weight:700}
+.ulist{margin:8px 0 4px;padding-left:1.2em;display:grid;gap:6px}
+.unote{font-size:.8rem;color:var(--warn)}
+@media (max-width:600px){.utable thead{display:none}.utable tr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.utable td{border:0;padding:0}.utable td:first-child{grid-column:1/-1;font-weight:600}.utable td:nth-child(2){color:var(--muted);font-size:.9rem}.utable td:last-child{text-align:right}}
 </style>
 </head>
 <body>
@@ -339,7 +353,7 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div><button type="button" class="themebtn" id="theme-btn" aria-label="Light or dark mode"></button></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -418,6 +432,12 @@ section[id],.panel[id]{scroll-margin-top:64px}
     <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
     <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
     <div id="by-body"></div>
+  </section>
+
+  <section class="section panel" id="unisec">
+    <h2>🎓 <span data-t="uH"></span></h2><p class="muted" data-t="uSub"></p>
+    <div class="seg tabs2" id="u-tabs" role="group"><button type="button" data-ut="cost" data-t="uTabC"></button><button type="button" data-ut="pub" data-t="uTabP"></button><button type="button" data-ut="pvt" data-t="uTabV"></button></div>
+    <div id="u-body"></div>
   </section>
 
   <section class="section panel" id="abroad">
@@ -1279,6 +1299,25 @@ const ABROAD=[
  ["Joint Japan/World Bank (JJ/WBGSP)","জয়েন্ট জাপান/বিশ্বব্যাংক","Development master's; needs 2+ years of work.","উন্নয়ন বিষয়ে মাস্টার্স; ২+ বছরের অভিজ্ঞতা লাগে।","https://www.worldbank.org/en/programs/scholarships"]
 ];
 
+/* ===== Public vs private university: cost (official fee pages / national press) ===== */
+Object.assign(SRC2,{
+  U1:{t:"UNB: Hidden struggles behind private university education (Aug 2025)",u:"https://unb.com.bd/category/special/hidden-struggles-behind-private-university-education-in-bangladesh/165587"},
+  U2:{t:"UNB: Public universities spend 4 times as much per student as TVET (DU BER study, Feb 2025)",u:"https://unb.com.bd/category/Bangladesh/public-univs-spend-4-times-as-much-annually-per-student-than-tvet-institutions/154171"},
+  U3:{t:"East West University: undergraduate tuition fees (Spring 2026)",u:"https://ewubd.edu/undergraduate-tuition-fees"},
+  U4:{t:"North South University: tuition fees (Spring 2026)",u:"https://northsouth.edu/tuition-fees/"},
+  U5:{t:"BRAC University: tuition and fees",u:"https://www.bracu.ac.bd/node/1226"},
+  U6:{t:"AIUB: tuition and fee structure (2026-27)",u:"https://www.aiub.edu/tuition-fee"},
+  U7:{t:"UGC: list of public universities",u:"https://ugc-universities.gov.bd/public-universities"},
+  U8:{t:"UGC: list of private universities",u:"https://ugc-universities.gov.bd/private-universities"}
+});
+/* [programme, credits, total Tk or null, perCredit Tk or null] */
+const UCOST={
+ "East West University":{s:"U3",full:true,rows:[["Bachelor of Business Administration (BBA)",130,917400],["Bachelor of Laws (LL.B Hons.)",130,927000],["Bachelor of Social Science in Economics (BSS)",130,820400],["Bachelor of Arts in English (BA)",130,820400],["Bachelor of Science in Computer Science & Engineering (B.Sc. CSE)",140,1003400],["Bachelor of Science in Electrical & Electronic Engineering (B.Sc. EEE)",140,1003400],["Bachelor of Science in Civil Engineering (B.Sc. CE)",145,1035900],["Bachelor of Pharmacy (B.Pharm.)",158,1192000],["Bachelor of Science in Mathematics (B.Sc.)",130,665900],["Bachelor of Science in Data Science & Analytics (B.Sc.)",130,847400]]},
+ "North South University":{s:"U4",rows:[["All undergraduate programmes (e.g. Bachelor of Business Administration, Computer Science & Engineering)",null,null,8000],["Master of Business Administration / Executive MBA (MBA / EMBA)",null,null,7000]]},
+ "BRAC University":{s:"U5",rows:[["Most undergraduate programmes (e.g. Business Administration, Computer Science & Engineering, Pharmacy)",null,null,8250],["Bachelor of Laws (LLB)",null,null,8800],["Master of Business Administration / Executive MBA (MBA / EMBA)",null,null,7200]]},
+ "American International University-Bangladesh":{s:"U6",rows:[["Bachelor of Business Administration (BBA)",null,null,8000],["Bachelor of Science in Computer Science & Engineering (B.Sc. CSE)",null,null,8500],["Bachelor of Science in Electrical & Electronic Engineering (B.Sc. EEE)",null,null,7500],["Bachelor of Laws (LLB)",null,null,8500],["Bachelor of Pharmacy (B.Pharm.)",null,null,8500],["Bachelor of Arts in English (BA)",null,null,6500],["Bachelor of Social Science in Economics (BSS)",null,null,5500],["Master of Business Administration / Executive MBA (MBA / EMBA)",null,null,6000]]}
+};
+
 /* ===== BCGO Career Map — app ===== */
 const T = {
   brand:["BCGO Career Map","বিসিজিও ক্যারিয়ার ম্যাপ"],joinG:["Join our Facebook group", "আমাদের ফেসবুক গ্রুপে যোগ দিন"],joinH:["You're not alone in this. Join the BCGO community", "এই পথে আপনি একা নন। BCGO কমিউনিটিতে যোগ দিন"],joinP:["Ask questions, find job circulars, and get advice from students and professionals across Bangladesh who've been where you are.", "প্রশ্ন করুন, চাকরির বিজ্ঞপ্তি পান, আর পরামর্শ নিন সারা দেশের সেই শিক্ষার্থী ও পেশাজীবীদের কাছ থেকে, যারা একসময় ঠিক আপনার জায়গাতেই ছিলেন।"],slogan:["Connecting Bangladeshis Worldwide","বিশ্বজুড়ে বাংলাদেশিদের সংযোগ"],tags:[["Every subject","Every career path","Public & private jobs","In Bangladesh and abroad"],["সব বিষয়","সব ক্যারিয়ার পথ","সরকারি ও বেসরকারি চাকরি","দেশে ও বিদেশে"]],
@@ -1349,6 +1388,10 @@ const T = {
   fFbSub:["Share your thoughts, ask questions, or tell your story", "মতামত দিন, প্রশ্ন করুন, বা আপনার গল্পটা বলুন"],
   fRules:["Please be kind to each other. No ads, no phone numbers, no agent offers.", "একে অপরের প্রতি সম্মান রাখুন। বিজ্ঞাপন, ফোন নম্বর বা এজেন্টের অফার দেবেন না।"],
   thDark:["🌙 Dark","🌙 ডার্ক"],thLight:["☀️ Light","☀️ লাইট"],
+  navU:["Public vs private","সরকারি বনাম বেসরকারি"],
+  uH:["Public or private university? Let's compare honestly","সরকারি নাকি বেসরকারি বিশ্ববিদ্যালয়? চলুন, খোলামেলা তুলনা করি"],
+  uSub:["Money is a real worry for most families, so here are the actual numbers, straight from university fee pages and national newspapers.","বেশিরভাগ পরিবারের কাছে খরচটা আসল দুশ্চিন্তা। তাই এখানে আসল হিসাবটা দিলাম, সরাসরি বিশ্ববিদ্যালয়ের ফি পেজ আর জাতীয় পত্রিকা থেকে।"],
+  uTabC:["Cost comparison","খরচের তুলনা"],uTabP:["Public universities","সরকারি বিশ্ববিদ্যালয়"],uTabV:["Private universities","বেসরকারি বিশ্ববিদ্যালয়"],
   navS:["Start here", "এখান থেকে শুরু"],
   navG:["Feeling lost?", "দিশেহারা লাগছে?"],navT:["All careers", "সব ক্যারিয়ার"],navA:["Scholarships abroad", "বিদেশে স্কলারশিপ"],
   gH:["Feeling lost? Let's start from your results", "দিশেহারা লাগছে? চলুন, আপনার রেজাল্ট থেকেই শুরু করি"],
@@ -1984,6 +2027,41 @@ function renderMatch(){
 function curTheme(){ const f=document.documentElement.dataset.theme; if(f) return f; return matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"; }
 function renderTheme(){ const b=$("#theme-btn"); if(b) b.textContent=curTheme()==="dark"?t("thLight"):t("thDark"); }
 (function(){ try{ const s=localStorage.getItem("bcgo-theme"); if(s) document.documentElement.dataset.theme=s; }catch(_){} })();
+
+/* ---- public vs private universities ---- */
+st.ut="cost"; st.uc="East West University";
+const tk=n=>"৳"+N(Number(n).toLocaleString("en-IN"));
+function renderUnis(){
+  document.querySelectorAll("#u-tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.ut===st.ut));
+  let h="";
+  if(st.ut==="cost"){
+    const card=(cls,ic,title,rows,src)=>`<div class="ucard ${cls}"><h3>${ic} ${esc(L(title))}</h3><dl>${rows.map(([k,v])=>`<dt>${esc(L(k))}</dt><dd>${esc(L(v))}</dd>`).join("")}</dl>${src.map(bxSrc).join("")}</div>`;
+    h=`<div class="ucmp">`+card("pub","🏛️",["Public university","সরকারি বিশ্ববিদ্যালয়"],[
+      [["Whole bachelor's (4 years)","পুরো স্নাতক (৪ বছর)"],["About ৳30,000–50,000 in total at universities like Dhaka, Jahangirnagar, Rajshahi, Chittagong, Khulna, Jagannath and Barishal","ঢাকা, জাহাঙ্গীরনগর, রাজশাহী, চট্টগ্রাম, খুলনা, জগন্নাথ ও বরিশালের মতো বিশ্ববিদ্যালয়ে সব মিলিয়ে প্রায় ৩০,০০০–৫০,০০০ টাকা"]],
+      [["Why so low?","এত কম কেন?"],["The government pays most of it: about ৳1.67 lakh per student every year on average","খরচের বড় অংশ সরকার দেয়: গড়ে প্রতি শিক্ষার্থীর পেছনে বছরে প্রায় ১.৬৭ লাখ টাকা"]],
+      [["Getting in","ভর্তি"],["Very competitive admission tests; seats are limited","কঠিন প্রতিযোগিতার ভর্তি পরীক্ষা; আসন সীমিত"]],
+      [["Master's (1–2 years)","মাস্টার্স (১–২ বছর)"],["Usually low fees too; check the department","সাধারণত ফি কম; বিভাগে খোঁজ নিন"]]],["U1","U2"])+
+     card("pvt","🏢",["Private university","বেসরকারি বিশ্ববিদ্যালয়"],[
+      [["Whole bachelor's (4 years)","পুরো স্নাতক (৪ বছর)"],["Usually ৳8–12 lakh in Dhaka, up to about ৳15 lakh for subjects like pharmacy or engineering","ঢাকায় সাধারণত ৮–১২ লাখ টাকা, ফার্মেসি বা প্রকৌশলের মতো বিষয়ে প্রায় ১৫ লাখ পর্যন্ত"]],
+      [["How it's charged","কীভাবে খরচ হয়"],["Per credit (often ৳5,500–8,800 a credit) plus admission and semester fees","প্রতি ক্রেডিট হিসাবে (প্রায়ই ক্রেডিটপ্রতি ৫,৫০০–৮,৮০০ টাকা), সঙ্গে ভর্তি ও সেমিস্টার ফি"]],
+      [["Getting in","ভর্তি"],["Easier entry; many offer waivers and scholarships for good results","ভর্তি তুলনামূলক সহজ; ভালো রেজাল্টে অনেকে ওয়েভার ও স্কলারশিপ দেয়"]],
+      [["Master's (MBA etc.)","মাস্টার্স (এমবিএ ইত্যাদি)"],["About ৳6,000–7,200 per credit at large universities","বড় বিশ্ববিদ্যালয়ে ক্রেডিটপ্রতি প্রায় ৬,০০০–৭,২০০ টাকা"]]],["U1","U4","U5","U6"])+`</div>`+
+     `<p class="wreal">💬 ${esc(L(["Honestly: a public seat saves your family lakhs, so the admission test is worth your best effort. If you go private, ask about waivers before you pay, and remember living costs (housing, food, transport) come on top of these figures.","সত্যি কথা বলি: সরকারি বিশ্ববিদ্যালয়ে একটা আসন পরিবারের কয়েক লাখ টাকা বাঁচায়, তাই ভর্তি পরীক্ষায় সর্বোচ্চ চেষ্টা করুন। বেসরকারিতে গেলে টাকা দেওয়ার আগে ওয়েভারের কথা জিজ্ঞেস করুন, আর মনে রাখবেন থাকা-খাওয়া-যাতায়াতের খরচ এই হিসাবের বাইরে।"]))}</p>`+
+     `<h3 class="uh3">${esc(L(["Private university fees, programme by programme","বেসরকারি বিশ্ববিদ্যালয়ের ফি, প্রোগ্রাম অনুযায়ী"]))}</h3><div class="seg subtabs" role="group">`+Object.keys(UCOST).map(k=>`<button type="button" data-uc="${esc(k)}" aria-pressed="${st.uc===k}">${esc(k)}</button>`).join("")+`</div>`;
+    const U=UCOST[st.uc];
+    h+=`<div class="utable"><table><thead><tr><th>${esc(L(["Programme","প্রোগ্রাম"]))}</th><th>${esc(L(["Duration","সময়"]))}</th><th>${esc(U.full?L(["Estimated total","আনুমানিক মোট খরচ"]):L(["Tuition per credit","ক্রেডিটপ্রতি টিউশন"]))}</th></tr></thead><tbody>`+
+      U.rows.map(([p,cr,tot,pc])=>`<tr><td>${esc(p)}${cr?` <span class="muted">(${N(cr)} ${esc(L(["credits","ক্রেডিট"]))})</span>`:""}</td><td>${esc(/MBA|Master/.test(p)?L(["1–2 years","১–২ বছর"]):L(["4 years","৪ বছর"]))}</td><td><b>${tot?tk(tot):tk(pc)}</b></td></tr>`).join("")+`</tbody></table></div>`+
+      `<p class="hint">${esc(U.full?L(["Includes tuition, lab, activity and admission fees. Waivers can lower it.","টিউশন, ল্যাব, অ্যাক্টিভিটি ও ভর্তি ফি মিলিয়ে। ওয়েভার পেলে কমে।"]):L(["This university publishes a per-credit rate, not a full total. A 4-year bachelor's is usually 130–140 credits, so multiply, then add admission and semester fees.","এই বিশ্ববিদ্যালয় পুরো খরচ নয়, ক্রেডিটপ্রতি হার প্রকাশ করে। ৪ বছরের স্নাতকে সাধারণত ১৩০–১৪০ ক্রেডিট, তাই গুণ করে নিন, সঙ্গে ভর্তি ও সেমিস্টার ফি যোগ করুন।"]))}</p>${bxSrc(U.s)}`;
+    h+=`<p class="hint">${esc(L(["About pass rates: the UGC does not publish official graduation or pass rates for each university, so we don't show any rather than guess.","পাসের হার নিয়ে: ইউজিসি প্রতিটি বিশ্ববিদ্যালয়ের আনুষ্ঠানিক পাস বা গ্র্যাজুয়েশনের হার প্রকাশ করে না, তাই আন্দাজে কোনো সংখ্যা দেখাচ্ছি না।"]))}</p>`;
+  } else {
+    const pub=st.ut==="pub"; const list=UNIS.filter(u=>pub?u.k==="pub":u.k==="pvt");
+    const groups={}; list.forEach(u=>(groups[u.ty]=groups[u.ty]||[]).push(u));
+    h=`<p class="muted">${esc(fill([pub?"{n} public universities approved by the UGC, grouped by type.":"{n} private universities approved by the UGC, grouped by type. ⚠ marks a UGC compliance note.",pub?"ইউজিসি অনুমোদিত {n}টি সরকারি বিশ্ববিদ্যালয়, ধরন অনুযায়ী সাজানো।":"ইউজিসি অনুমোদিত {n}টি বেসরকারি বিশ্ববিদ্যালয়, ধরন অনুযায়ী সাজানো। ⚠ চিহ্ন মানে ইউজিসির নোট আছে।"],{n:N(list.length)}))}</p>`+
+      Object.keys(groups).map(ty=>`<details class="ugrp" ${Object.keys(groups).length<4?"open":""}><summary>${esc(L([UTYPE[ty].en,UTYPE[ty].bn]))} <span class="cnt">${N(groups[ty].length)}</span></summary><ul class="ulist">${groups[ty].map(u=>{const note=UNI_NOTE[u.n]; const c=UCOST[u.n]; return `<li>${esc(u.n)}${note?` <span class="unote" title="${esc(L(note))}">⚠ ${esc(L(note))}</span>`:""}${c?` <button type="button" class="golink" data-ucgo="${esc(u.n)}">${esc(L(["See fees","ফি দেখুন"]))}</button>`:""}</li>`;}).join("")}</ul></details>`).join("")+
+      `<p class="hint">${esc(pub?L(["Typical cost: about ৳30,000–50,000 for the whole bachelor's at the major general universities. Specialised (medical, engineering) costs can differ.","সাধারণ খরচ: বড় সাধারণ বিশ্ববিদ্যালয়ে পুরো স্নাতকে প্রায় ৩০,০০০–৫০,০০০ টাকা। বিশেষায়িত (মেডিকেল, প্রকৌশল) বিশ্ববিদ্যালয়ে খরচ ভিন্ন হতে পারে।"]):L(["Typical cost: ৳8–12 lakh for a 4-year bachelor's in Dhaka, more for pharmacy and engineering.","সাধারণ খরচ: ঢাকায় ৪ বছরের স্নাতকে ৮–১২ লাখ টাকা, ফার্মেসি ও প্রকৌশলে বেশি।"]))}</p>${bxSrc(pub?"U7":"U8")}${bxSrc("U1")}`;
+  }
+  $("#u-body").innerHTML=h;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -1994,7 +2072,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
@@ -2012,6 +2090,9 @@ document.addEventListener("click",e=>{
   if(b.dataset.subj){ const k=b.dataset.subj; st.subjects.has(k)?st.subjects.delete(k):st.subjects.add(k); firstSel(); refresh(); return; }
   if(b.dataset.bt){ st.bt=b.dataset.bt; renderBeyond(); return; }
   if(b.id==="theme-btn"){ const n=curTheme()==="dark"?"light":"dark"; document.documentElement.dataset.theme=n; try{localStorage.setItem("bcgo-theme",n);}catch(_){} renderTheme(); return; }
+  if(b.dataset.ut){ st.ut=b.dataset.ut; renderUnis(); return; }
+  if(b.dataset.uc){ st.uc=b.dataset.uc; renderUnis(); return; }
+  if(b.dataset.ucgo){ st.ut="cost"; st.uc=b.dataset.ucgo; renderUnis(); $("#unisec").scrollIntoView({behavior:smooth(),block:"start"}); return; }
   if(b.dataset.sk){ const k=b.dataset.sk; st.skills.has(k)?st.skills.delete(k):st.skills.add(k); b.setAttribute("aria-pressed",st.skills.has(k)); renderMatch(); return; }
   if(b.dataset.ws){ st.w.stage=b.dataset.ws; renderWizard(); return; }
   if(b.dataset.wl){ st.w.like=b.dataset.wl; renderWizard(); return; }
