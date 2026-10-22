@@ -390,7 +390,7 @@ footer .own{flex-basis:100%;font-weight:600}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div><button type="button" class="themebtn" id="theme-btn" aria-label="Light or dark mode"></button></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#switch" data-t="navW"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#jobcenter" data-t="navJ"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#switch" data-t="navW"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#jobcenter" data-t="navJ"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#ideas" data-t="navI"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -479,6 +479,11 @@ footer .own{flex-basis:100%;font-weight:600}
     <h2 data-t="byH"></h2><p class="muted" data-t="bySub"></p>
     <div class="seg" id="by-tabs" role="group"><button type="button" data-bt="higher" data-t="tabHigher"></button><button type="button" data-bt="diploma" data-t="tabDip"></button><button type="button" data-bt="low" data-t="byLow"></button></div>
     <div id="by-body"></div>
+  </section>
+
+  <section class="section panel" id="ideas">
+    <h2>💡 <span data-t="iH"></span></h2><p class="muted" data-t="iSub"></p>
+    <div id="i-body"></div>
   </section>
 
   <section class="section panel" id="skilltrain">
@@ -1456,10 +1461,36 @@ const SW_ROUTE={
  ngojob:["NGO or development sector","এনজিও বা উন্নয়ন খাত",["Highlight field, reporting and people skills.","Volunteer or take a short project contract to get in.","Learn basic data tools (Excel, KoBo) to stand out."],["মাঠের কাজ, রিপোর্ট লেখা আর মানুষের সঙ্গে কাজের দক্ষতা তুলে ধরুন।","ঢোকার জন্য স্বেচ্ছাসেবা বা ছোট প্রকল্পের চুক্তিতে কাজ নিন।","আলাদা হতে সাধারণ ডেটা টুল (এক্সেল, কোবো) শিখুন।"],"ngo",""],
  abroadjob:["Skilled work abroad","বিদেশে দক্ষ কাজ",["Get a recognised skill certificate (TTC / BTEB) or language test (Japanese N4, Korean EPS, German A1).","Go only through BMET registration and licensed agencies.","Keep your current job until the visa and contract are in hand."],["স্বীকৃত দক্ষতার সনদ (টিটিসি / বিটিইবি) বা ভাষা পরীক্ষা (জাপানি এন৪, কোরিয়ান ইপিএস, জার্মান এ১) নিন।","শুধু বিএমইটি নিবন্ধন আর লাইসেন্সধারী এজেন্সির মাধ্যমে যান।","ভিসা আর চুক্তি হাতে না আসা পর্যন্ত বর্তমান চাকরি ছাড়বেন না।"],"skill",""],
  abroadstudy:["Master's abroad, then work there","বিদেশে মাস্টার্স, তারপর সেখানে কাজ",["Your work experience helps: Chevening and Japan/World Bank scholarships ask for 2+ years.","Take IELTS and prepare your applications a year ahead.","Choose a field where your experience counts."],["আপনার অভিজ্ঞতা কাজে লাগবে: শেভেনিং ও জাপান/বিশ্বব্যাংক বৃত্তিতে ২+ বছরের অভিজ্ঞতা চায়।","আইইএলটিএস দিন, আর এক বছর আগে থেকে আবেদনের প্রস্তুতি নিন।","এমন বিষয় বাছুন যেখানে আপনার অভিজ্ঞতা গোনা হয়।"],"abroad","deg"],
- biz:["Start a business from what you know","যা জানেন তা দিয়ে ব্যবসা শুরু",["Start small on the side, in the field you know (your industry's suppliers, customers and problems).","Test with real customers for 3–6 months before quitting your job.","Get a trade licence and keep proper accounts from day one."],["যে খাত চেনেন, সেখানেই পাশাপাশি ছোট করে শুরু করুন (নিজের শিল্পখাতের সাপ্লায়ার, গ্রাহক আর সমস্যা)।","চাকরি ছাড়ার আগে ৩–৬ মাস আসল গ্রাহক দিয়ে পরীক্ষা করুন।","ট্রেড লাইসেন্স নিন, আর প্রথম দিন থেকেই ঠিকমতো হিসাব রাখুন।"],"skill",""],
+ biz:["Start a business from what you know","যা জানেন তা দিয়ে ব্যবসা শুরু",["Start small on the side, in the field you know (your industry's suppliers, customers and problems).","Test with real customers for 3–6 months before quitting your job.","Get a trade licence and keep proper accounts from day one."],["যে খাত চেনেন, সেখানেই পাশাপাশি ছোট করে শুরু করুন (নিজের শিল্পখাতের সাপ্লায়ার, গ্রাহক আর সমস্যা)।","চাকরি ছাড়ার আগে ৩–৬ মাস আসল গ্রাহক দিয়ে পরীক্ষা করুন।","ট্রেড লাইসেন্স নিন, আর প্রথম দিন থেকেই ঠিকমতো হিসাব রাখুন।"],"ideas",""],
  freelance:["Freelancing or remote work","ফ্রিল্যান্সিং বা রিমোট কাজ",["Package one skill you already use at work (writing, design, data, support).","Build a profile and finish small jobs to earn reviews.","Grow it on the side until it matches your salary."],["কাজে যে দক্ষতা ব্যবহার করেন, সেটাকে একটা সেবা হিসেবে সাজান (লেখা, ডিজাইন, ডেটা, সাপোর্ট)।","প্রোফাইল বানিয়ে ছোট কাজ শেষ করে রিভিউ জমান।","বেতনের সমান না হওয়া পর্যন্ত পাশাপাশি বাড়ান।"],"skill",""]
 };
 const SW_MAP={pay:["mnc","tech","abroadjob","qual"],stable:["bcs","bankjob","teachjob","qual"],balance:["teachjob","freelance","ngojob","tech"],abroad:["abroadjob","abroadstudy","tech"],biz:["biz","freelance","qual"],grow:["mnc","qual","tech","bcs"]};
+
+/* ===== Startup ideas (Bangladesh) ===== */
+Object.assign(SRC2,{
+  ST1:{t:"UNB: Govt expands low-interest financing for youth entrepreneurs (Jun 2026)",u:"https://unb.com.bd/category/Bangladesh/govt-expands-low-interest-financing-to-boost-youth-entrepreneurship-finance-minister/187766"},
+  ST2:{t:"Dhaka Tribune: Bangladesh Bank forms Tk 1,000 crore fund for young entrepreneurs (Aug 2026)",u:"https://www.dhakatribune.com/business/banks/417264/bb-forms-tk1-000cr-fund-to-foster-young"},
+  ST3:{t:"UNB: How to get a trade licence in Bangladesh",u:"https://unb.com.bd/category/Bangladesh/how-to-get-a-trade-license-in-bangladesh/86563"},
+  ST4:{t:"The Financial Express: iDEA Startup Grant Programme",u:"https://thefinancialexpress.com.bd/trade/Startup-Grant-Programme-launched-to-inspire-innovators"}
+});
+/* [icon, nameEn, nameBn, budget(low|mid|high), interest tags, needEn, needBn, tipEn, tipBn] */
+const IDEAS=[
+ ["🎓","Home tutoring / small coaching","হোম টিউশন / ছোট কোচিং","low",["teach"],"Good results in a subject, patience, a few students to start","কোনো বিষয়ে ভালো রেজাল্ট, ধৈর্য, শুরুতে কয়েকজন শিক্ষার্থী","Start with 3–5 students; word of mouth from parents grows it.","৩–৫ জন শিক্ষার্থী দিয়ে শুরু করুন; অভিভাবকদের মুখে মুখে প্রচারেই বাড়ে।"],
+ ["🎨","Freelance design, video or writing","ফ্রিল্যান্স ডিজাইন, ভিডিও বা লেখা","low",["create","tech"],"A laptop, one strong skill, a portfolio","একটি ল্যাপটপ, একটা শক্ত দক্ষতা, একটা পোর্টফোলিও","Work for local shops first to build samples, then go global.","আগে স্থানীয় দোকানের কাজ করে নমুনা জমান, তারপর আন্তর্জাতিক বাজারে যান।"],
+ ["🛍️","Facebook / online shop (f-commerce)","ফেসবুক / অনলাইন শপ (এফ-কমার্স)","low",["sell"],"A product you understand, a reliable supplier, good photos","ভালো চেনা পণ্য, নির্ভরযোগ্য সাপ্লায়ার, ভালো ছবি","Start with pre-orders to avoid unsold stock; honest delivery builds repeat buyers.","অবিক্রীত মাল এড়াতে প্রি-অর্ডারে শুরু করুন; সৎ ডেলিভারিই ক্রেতা ফেরায়।"],
+ ["🍱","Home-made food, tiffin or catering","ঘরে তৈরি খাবার, টিফিন বা ক্যাটারিং","low",["food"],"Cooking skill, clean kitchen, offices or students nearby","রান্নার হাত, পরিষ্কার রান্নাঘর, আশেপাশে অফিস বা শিক্ষার্থী","Fix a daily menu and a delivery time; consistency matters more than variety.","দৈনিক মেনু আর ডেলিভারির সময় ঠিক রাখুন; বৈচিত্র্যের চেয়ে নিয়মিত মানই বেশি জরুরি।"],
+ ["📱","Mobile and electronics repair","মোবাইল ও ইলেকট্রনিক্স মেরামত","low",["hands"],"A short repair course, basic tools, a small shop space","ছোট মেরামত কোর্স, প্রাথমিক যন্ত্রপাতি, ছোট দোকানের জায়গা","Learn at a TTC or short course first; trust is your best advertisement.","আগে টিটিসি বা ছোট কোর্সে শিখুন; বিশ্বাসই আপনার সবচেয়ে বড় বিজ্ঞাপন।"],
+ ["📣","Digital marketing for local businesses","স্থানীয় ব্যবসার জন্য ডিজিটাল মার্কেটিং","low",["tech","sell"],"Facebook and Google ads skills, results you can show","ফেসবুক ও গুগল অ্যাডসের দক্ষতা, দেখানোর মতো ফলাফল","Offer a one-month trial to 2–3 shops and use their results to win more clients.","২–৩টি দোকানকে এক মাসের ট্রায়াল দিন, তাদের ফলাফল দেখিয়ে আরও ক্লায়েন্ট নিন।"],
+ ["🍄","Mushroom, rooftop or vegetable farming","মাশরুম, ছাদ বা সবজি চাষ","mid",["agri"],"Training from the agriculture extension office, space, a buyer before you grow","কৃষি সম্প্রসারণ অফিসের প্রশিক্ষণ, জায়গা, চাষের আগেই ক্রেতা","Find buyers (restaurants, shops) before your first harvest.","প্রথম ফসলের আগেই ক্রেতা (রেস্টুরেন্ট, দোকান) ঠিক করুন।"],
+ ["🐔","Poultry, fish or dairy","পোল্ট্রি, মাছ বা দুগ্ধ খামার","mid",["agri"],"Training, land or pond, knowledge of disease and feed","প্রশিক্ষণ, জমি বা পুকুর, রোগ ও খাবার সম্পর্কে জ্ঞান","Start small; one disease outbreak can wipe out a large first batch.","ছোট করে শুরু করুন; একটা রোগেই বড় প্রথম ব্যাচ শেষ হয়ে যেতে পারে।"],
+ ["🍳","Cloud kitchen (delivery-only food)","ক্লাউড কিচেন (শুধু ডেলিভারির খাবার)","mid",["food"],"A tested menu, food-delivery app listing, hygiene","পরীক্ষিত মেনু, ফুড ডেলিভারি অ্যাপে তালিকাভুক্তি, পরিচ্ছন্নতা","Keep the menu small; app commissions eat margins, so price carefully.","মেনু ছোট রাখুন; অ্যাপের কমিশন লাভ কমায়, তাই দাম সাবধানে ঠিক করুন।"],
+ ["🖨️","Printing, design and photocopy shop","প্রিন্টিং, ডিজাইন ও ফটোকপির দোকান","mid",["create","sell"],"A spot near schools or offices, printers, design skill","স্কুল বা অফিসের কাছে জায়গা, প্রিন্টার, ডিজাইনের দক্ষতা","Location decides most of the business; add design services for better margins.","ব্যবসার বেশিরভাগ ঠিক করে জায়গা; বেশি লাভের জন্য ডিজাইন সেবা যোগ করুন।"],
+ ["⚡","Electrical, AC and solar installation service","ইলেকট্রিক্যাল, এসি ও সোলার ইনস্টলেশন সেবা","mid",["hands"],"Trade certificate (TTC / BTEB), tools, a small team","ট্রেডের সনদ (টিটিসি / বিটিইবি), যন্ত্রপাতি, ছোট টিম","Certified, on-time technicians are rare; that reputation is your edge.","সনদপ্রাপ্ত, সময়মতো আসা টেকনিশিয়ান কম; এই সুনামই আপনার শক্তি।"],
+ ["💻","IT services or software for small businesses","ছোট ব্যবসার জন্য আইটি সেবা বা সফটওয়্যার","mid",["tech"],"Programming skill, understanding of one industry's problems","প্রোগ্রামিং দক্ষতা, কোনো এক শিল্পখাতের সমস্যা বোঝা","Solve one painful problem (billing, stock, payroll) for one industry first.","আগে একটা খাতের একটা বড় সমস্যা (বিলিং, স্টক, পে-রোল) সমাধান করুন।"],
+ ["🏭","Small agro-processing or packaged food","ছোট কৃষিপণ্য প্রক্রিয়াজাতকরণ বা প্যাকেটজাত খাবার","high",["agri","food"],"Food safety and BSTI requirements, machines, distribution","খাদ্য নিরাপত্তা ও বিএসটিআইয়ের শর্ত, মেশিন, বিপণন ব্যবস্থা","Check BSTI and food safety rules before buying machines.","মেশিন কেনার আগে বিএসটিআই ও খাদ্য নিরাপত্তার নিয়ম জেনে নিন।"],
+ ["🚚","Local delivery or logistics","স্থানীয় ডেলিভারি বা লজিস্টিকস","high",["sell"],"Riders or vehicles, tracking, business clients","রাইডার বা গাড়ি, ট্র্যাকিং, ব্যবসায়িক ক্লায়েন্ট","Sign a few online shops as steady clients before scaling.","বড় হওয়ার আগে কয়েকটা অনলাইন শপকে নিয়মিত ক্লায়েন্ট বানান।"],
+ ["📲","Tech startup (app or platform)","টেক স্টার্টআপ (অ্যাপ বা প্ল্যাটফর্ম)","high",["tech"],"A team, a real problem, users who will pay","একটা টিম, একটা আসল সমস্যা, টাকা দিতে রাজি ব্যবহারকারী","Build the smallest version, get paying users, then seek grants or investors.","সবচেয়ে ছোট সংস্করণ বানান, টাকা দেওয়া ব্যবহারকারী আনুন, তারপর অনুদান বা বিনিয়োগ খুঁজুন।"]
+];
 
 /* ===== BCGO Career Map — app ===== */
 const T = {
@@ -1545,6 +1576,9 @@ const T = {
   navW:["Change career","ক্যারিয়ার বদল"],
   swH:["Already working, but thinking of a change?","চাকরি করছেন, কিন্তু বদলের কথা ভাবছেন?"],
   swSub:["Changing career is a big decision, and it's normal to feel unsure. Answer five quick questions, and I'll map the routes that fit your life right now.","ক্যারিয়ার বদলানো বড় সিদ্ধান্ত, দ্বিধা লাগাটা স্বাভাবিক। পাঁচটি ছোট প্রশ্নের উত্তর দিন, আমি আপনার এখনকার জীবনের সঙ্গে মানানসই পথগুলো ম্যাপ করে দেখাচ্ছি।"],
+  navI:["Be your own boss","নিজেই নিজের বস"],
+  iH:["Don't want a 9-to-5? Be your own boss: startup ideas for Bangladesh","৯টা-৫টার চাকরি চান না? নিজেই নিজের বস হোন: বাংলাদেশের জন্য স্টার্টআপ আইডিয়া"],
+  iSub:["Independence is a real path, not a backup plan. Pick how much you can invest and what you enjoy, and see ideas people actually run in Bangladesh, what each needs, and the funding available.","স্বাধীনভাবে কাজ করাটা বিকল্প নয়, একটা আসল পথ। কতটা বিনিয়োগ করতে পারবেন আর কী ভালো লাগে বেছে নিন, দেখুন বাংলাদেশে মানুষ বাস্তবে যেসব ব্যবসা চালায়, প্রতিটিতে কী লাগে, আর কোথায় অর্থায়ন পাবেন।"],
   navS:["Start here", "এখান থেকে শুরু"],
   navG:["Feeling lost?", "দিশেহারা লাগছে?"],navT:["All careers", "সব ক্যারিয়ার"],navA:["Scholarships abroad", "বিদেশে স্কলারশিপ"],
   gH:["Feeling lost? Let's start from your results", "দিশেহারা লাগছে? চলুন, আপনার রেজাল্ট থেকেই শুরু করি"],
@@ -2069,7 +2103,7 @@ function renderTracks(){
     d=`<h3>${esc(st.lang==="bn"?n[1]:n[0])}</h3><p><b>${t("req")}:</b> ${esc(L(I0.req))}</p>${pay?`<p><b>${t("payL")}:</b> ${esc(pay)}</p>`:""}${bxSrc(I0.s)}${I0.m?bxSrc("B12"):""}`; }
   $("#tr-body").innerHTML=`<div class="mapgrid"><div>${tree}</div><aside><div class="ticket">${d}</div></aside></div>`;
 }
-function goTrack(k){ st.tr=k; st.topen=new Set(TRACKS[k].tree.map((_,i)=>k+"."+i)); st.tsel=null; renderTracks(); $("#tracks").scrollIntoView({behavior:smooth(),block:"start"}); }
+function goTrack(k){ if(!TRACKS[k]){ const el=$("#"+k); if(el) el.scrollIntoView({behavior:smooth(),block:"start"}); return; } st.tr=k; st.topen=new Set(TRACKS[k].tree.map((_,i)=>k+"."+i)); st.tsel=null; renderTracks(); $("#tracks").scrollIntoView({behavior:smooth(),block:"start"}); }
 /* ---- result-based guide ---- */
 function renderGuide(){
   const s=num(st.ssc), h=num(st.hsc), c=num(st.cg); const out=[];
@@ -2289,6 +2323,29 @@ function swPlan(){
    <p class="wreal">💬 ${esc(L(["Honestly: don't quit first and plan later. Most people who switch well build the new skill while still earning, and leave only when the next step is in hand.","সত্যি কথা বলি: আগে ছেড়ে পরে পরিকল্পনা করবেন না। যারা ভালোভাবে বদলান, তারা আয় চালু রেখেই নতুন দক্ষতা গড়েন, আর পরের ধাপ হাতে আসার পরই ছাড়েন।"]))}</p>
    </div>`;
 }
+
+/* ---- startup ideas ---- */
+st.ib="low"; st.ii="all";
+function renderIdeas(){
+  const B=[["low","🌱",["Under ৳1 lakh","১ লাখ টাকার কম"]],["mid","🌿",["৳1–10 lakh","১–১০ লাখ টাকা"]],["high","🌳",["৳10 lakh or more","১০ লাখ টাকা বা বেশি"]]];
+  const I=[["all","✨",["Anything","যেকোনো"]],["sell","🛒",["Selling","বিক্রি"]],["food","🍲",["Food","খাবার"]],["tech","💻",["Tech","প্রযুক্তি"]],["create","🎨",["Creative","সৃজনশীল"]],["hands","🔧",["Hands-on","হাতের কাজ"]],["agri","🌾",["Farming","কৃষি"]],["teach","📚",["Teaching","শিক্ষা"]]];
+  const seg=(arr,key,attr)=>`<div class="seg tabs2" role="group">${arr.map(([k,ic,l])=>`<button type="button" data-${attr}="${k}" aria-pressed="${st[key]===k}">${ic} ${esc(L(l))}</button>`).join("")}</div>`;
+  const list=IDEAS.filter(x=>x[3]===st.ib&&(st.ii==="all"||x[4].includes(st.ii)));
+  const cards=list.length?`<div class="ucmp">${list.map(([ic,e,b,,,ne,nb,te,tb])=>`<div class="kcard"><h3>${ic} ${esc(L([e,b]))}</h3><p><b>${esc(L(["You need:","যা লাগবে:"]))}</b> ${esc(L([ne,nb]))}</p><p class="wreal">💬 ${esc(L([te,tb]))}</p></div>`).join("")}</div>`:`<p class="hint">${esc(L(["No idea in this exact mix. Try another budget or interest.","এই মিলে কোনো আইডিয়া নেই। অন্য পুঁজি বা আগ্রহ বেছে দেখুন।"]))}</p>`;
+  const steps=[["Test before you invest: sell to 10 real customers first, even by hand.","বিনিয়োগের আগে যাচাই করুন: আগে হাতে হাতে হলেও ১০ জন আসল ক্রেতার কাছে বিক্রি করুন।"],
+   ["Get a trade licence online at etradelicense.gov.bd (you'll need your NID; the office inspects, then you pay the fee).","etradelicense.gov.bd-তে অনলাইনে ট্রেড লাইসেন্স নিন (এনআইডি লাগবে; অফিস পরিদর্শনের পর ফি দিতে হয়)।"],
+   ["Open a separate bank account for the business and keep simple accounts from day one.","ব্যবসার জন্য আলাদা ব্যাংক অ্যাকাউন্ট খুলুন, আর প্রথম দিন থেকেই সহজ হিসাব রাখুন।"],
+   ["Grow with your profit first; borrow only when you know the business works.","প্রথমে লাভ দিয়ে বাড়ান; ব্যবসা চলবে জানার পরই ঋণ নিন।"]];
+  const sup=[["🏦",["Collateral-free loans","জামানতবিহীন ঋণ"],["Bangladesh Bank's new-entrepreneur refinance scheme: up to ৳10 lakh without collateral at no more than 7%, and up to ৳35 lakh with collateral.","বাংলাদেশ ব্যাংকের নতুন উদ্যোক্তা পুনঃঅর্থায়ন স্কিম: জামানত ছাড়া ১০ লাখ টাকা পর্যন্ত, সর্বোচ্চ ৭% সুদে; জামানতসহ ৩৫ লাখ পর্যন্ত।"],"ST1"],
+   ["🚀",["Start-up Fund","স্টার্টআপ ফান্ড"],["A ৳500 crore Start-up Fund lends at 4%. A new ৳1,000 crore plan for young entrepreneurs (loans plus performance grants) is being set up.","৫০০ কোটি টাকার স্টার্টআপ ফান্ড থেকে ৪% সুদে ঋণ। তরুণ উদ্যোক্তাদের জন্য ১,০০০ কোটি টাকার নতুন পরিকল্পনা (ঋণ ও পারফরম্যান্সভিত্তিক অনুদান) তৈরি হচ্ছে।"],"ST2"],
+   ["🎓",["Training with a stipend","ভাতাসহ প্রশিক্ষণ"],["A 100-hour government entrepreneurship training (SICIP) comes with a ৳5,000 stipend, and its graduates get priority for these loans.","সরকারি ১০০ ঘণ্টার উদ্যোক্তা প্রশিক্ষণে (এসআইসিআইপি) ৫,০০০ টাকা ভাতা দেওয়া হয়, আর এর প্রশিক্ষণার্থীরা ঋণে অগ্রাধিকার পান।"],"ST1"],
+   ["🤝",["Equity investment","ইকুইটি বিনিয়োগ"],["Bangladesh Start-up Investment Company, formed with 39 banks, invests in startups in exchange for a share, so you don't repay it like a loan.","৩৯টি ব্যাংক মিলে গঠিত বাংলাদেশ স্টার্টআপ ইনভেস্টমেন্ট কোম্পানি শেয়ারের বিনিময়ে স্টার্টআপে বিনিয়োগ করে, তাই ঋণের মতো ফেরত দিতে হয় না।"],"ST1"],
+   ["🏆",["Idea grants","আইডিয়া অনুদান"],["The government's iDEA project has run startup grant competitions with grants of up to ৳10 lakh for innovative ideas.","সরকারের আইডিয়া প্রকল্প উদ্ভাবনী আইডিয়ার জন্য ১০ লাখ টাকা পর্যন্ত অনুদানের প্রতিযোগিতা চালিয়েছে।"],"ST4"]];
+  $("#i-body").innerHTML=`<h3 class="uh3">${esc(L(["1. How much can you invest?","১. কতটা বিনিয়োগ করতে পারবেন?"]))}</h3>${seg(B,"ib","ib")}<p class="hint">${esc(L(["These are rough starting ranges to help you plan; real costs depend on your area, rent and how small you start. Up to ৳10 lakh can be borrowed without collateral under the government scheme below.","এগুলো পরিকল্পনার জন্য মোটামুটি শুরুর পুঁজির ধারণা; আসল খরচ নির্ভর করে এলাকা, ভাড়া আর কতটা ছোট করে শুরু করছেন তার ওপর। নিচের সরকারি স্কিমে ১০ লাখ টাকা পর্যন্ত জামানত ছাড়া ঋণ নেওয়া যায়।"]))}</p><h3 class="uh3">${esc(L(["2. What do you enjoy?","২. কী করতে ভালো লাগে?"]))}</h3>${seg(I,"ii","ii")}${cards}`+
+   `<h3 class="uh3">${esc(L(["How to start, the right way","সঠিকভাবে শুরু করার উপায়"]))}</h3><ol class="wsteps">${steps.map(s=>`<li>${esc(L(s))}</li>`).join("")}</ol>${bxSrc("ST3")}`+
+   `<h3 class="uh3">${esc(L(["Government support you can use","যে সরকারি সহায়তা নিতে পারেন"]))}</h3><div class="ucmp">${sup.map(([ic,h,b,s])=>`<div class="kcard"><h3>${ic} ${esc(L(h))}</h3><p>${esc(L(b))}</p>${bxSrc(s)}</div>`).join("")}</div>`+
+   `<p class="wreal">💬 ${esc(L(["Honestly: most small businesses struggle in the first year. Keep your costs low, keep a job or income while you test, and never put your family's savings in before real customers are paying you.","সত্যি কথা বলি: বেশিরভাগ ছোট ব্যবসা প্রথম বছরে হিমশিম খায়। খরচ কম রাখুন, যাচাইয়ের সময় চাকরি বা আয় চালু রাখুন, আর আসল ক্রেতা টাকা দেওয়ার আগে পরিবারের সঞ্চয় ঢালবেন না।"]))}</p>`;
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -2299,7 +2356,7 @@ function renderGrades(){
 }
 function renderSources(){ $("#src-list").innerHTML=Object.values(SRC).concat(Object.values(SRC2)).map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join(""); }
 
-function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); renderSkillTrain(); renderJobs(); renderSwitch(); }
+function renderAll(){ renderStatic(); renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderOpen(); renderPvt(); renderGrades(); renderSources(); renderBeyond(); renderTracks(); renderGuide(); renderAbroad(); renderWizard(); renderSkills(); renderMatch(); renderTheme(); renderUnis(); renderSkillTrain(); renderJobs(); renderSwitch(); renderIdeas(); }
 function refresh(){ renderPicker(); renderMap(); renderDetail(); renderChecker(); renderQuiz(); renderPvt(); renderBeyond(); renderGuide(); renderMatch(); }
 
 function select(key, scroll){
@@ -2324,6 +2381,8 @@ document.addEventListener("click",e=>{
   if(b.dataset.sw){ const [k,v]=b.dataset.sw.split(":"); st.sw[k]=v; renderSwitch(); return; }
   if(b.dataset.swback){ const order=["goal","age","exp","edu","sec"]; for(const k of order){ if(st.sw[k]){ st.sw[k]=null; break; } } renderSwitch(); return; }
   if(b.dataset.swreset){ st.sw={sec:null,edu:null,exp:null,age:null,goal:null}; renderSwitch(); $("#switch").scrollIntoView({behavior:smooth(),block:"start"}); return; }
+  if(b.dataset.ib){ st.ib=b.dataset.ib; renderIdeas(); return; }
+  if(b.dataset.ii){ st.ii=b.dataset.ii; renderIdeas(); return; }
   if(b.dataset.sk){ const k=b.dataset.sk; st.skills.has(k)?st.skills.delete(k):st.skills.add(k); b.setAttribute("aria-pressed",st.skills.has(k)); renderMatch(); return; }
   if(b.dataset.ws){ st.w.stage=b.dataset.ws; renderWizard(); return; }
   if(b.dataset.wl){ st.w.like=b.dataset.wl; renderWizard(); return; }
