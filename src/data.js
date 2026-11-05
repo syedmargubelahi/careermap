@@ -794,20 +794,21 @@ const TRACKS={
  ]}
 };
 /* Scholarships abroad: official pages. Re-checked every two months. */
-const ABROAD_DATE="21 Oct 2026";
+const ABROAD_DATE="5 Nov 2026";
 const ABROAD=[
  ["Chevening (UK)","শেভেনিং (যুক্তরাজ্য)","1-year master's, fully funded. Needs 2 years of work experience.","১ বছরের মাস্টার্স, সম্পূর্ণ খরচ। ২ বছরের কাজের অভিজ্ঞতা লাগে।","https://www.chevening.org/scholarships/"],
  ["Commonwealth Scholarships (UK)","কমনওয়েলথ স্কলারশিপ (যুক্তরাজ্য)","Master's and PhD for Commonwealth citizens, fully funded.","কমনওয়েলথ নাগরিকদের জন্য মাস্টার্স ও পিএইচডি, সম্পূর্ণ খরচ।","https://cscuk.fcdo.gov.uk/scholarships/"],
- ["Fulbright (USA)","ফুলব্রাইট (যুক্তরাষ্ট্র)","Master's and PhD, through the US Embassy Dhaka.","মাস্টার্স ও পিএইচডি, ঢাকার মার্কিন দূতাবাসের মাধ্যমে।","https://bd.usembassy.gov/education-culture/"],
+ ["Fulbright (USA)","ফুলব্রাইট (যুক্তরাষ্ট্র)","Master's and PhD, through the US Embassy Dhaka.","মাস্টার্স ও পিএইচডি, ঢাকার মার্কিন দূতাবাসের মাধ্যমে।","https://bd.usembassy.gov/tag/fulbright/"],
  ["Erasmus Mundus (Europe)","ইরাসমাস মুন্ডুস (ইউরোপ)","Joint master's in 2+ European countries, full scholarship.","ইউরোপের ২+ দেশে যৌথ মাস্টার্স, পূর্ণ বৃত্তি।","https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en"],
  ["DAAD (Germany)","ডাড (জার্মানি)","Master's and PhD scholarships; many German public universities charge little or no tuition.","মাস্টার্স ও পিএইচডি বৃত্তি; জার্মানির অনেক সরকারি বিশ্ববিদ্যালয়ে টিউশন কম বা নেই।","https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/"],
  ["Australia Awards","অস্ট্রেলিয়া অ্যাওয়ার্ডস","Master's, fully funded, for Bangladeshi applicants.","বাংলাদেশিদের জন্য মাস্টার্স, সম্পূর্ণ খরচ।","https://www.dfat.gov.au/people-to-people/australia-awards"],
- ["MEXT (Japan)","মেক্সট (জাপান)","Japanese government scholarship; apply via the Embassy of Japan.","জাপান সরকারের বৃত্তি; জাপান দূতাবাসের মাধ্যমে আবেদন।","https://www.bd.emb-japan.go.jp/itpr_en/education.html"],
- ["Global Korea Scholarship","গ্লোবাল কোরিয়া স্কলারশিপ","Bachelor's, master's and PhD in Korea, fully funded.","কোরিয়ায় স্নাতক, মাস্টার্স ও পিএইচডি, সম্পূর্ণ খরচ।","https://www.studyinkorea.go.kr"],
- ["Türkiye Scholarships","তুরস্ক বৃত্তি","All levels; master's applicants under 30.","সব স্তর; মাস্টার্সে বয়স ৩০-এর নিচে।","https://www.turkiyeburslari.gov.tr"],
+ ["MEXT (Japan)","মেক্সট (জাপান)","Japanese government scholarship; apply via the Embassy of Japan. Research students under 35, undergraduates 17 to 25.","জাপান সরকারের বৃত্তি; জাপান দূতাবাসের মাধ্যমে আবেদন। গবেষণায় বয়স ৩৫-এর নিচে, স্নাতকে ১৭ থেকে ২৫।","https://www.bd.emb-japan.go.jp/itpr_en/education.html"],
+ ["Global Korea Scholarship","গ্লোবাল কোরিয়া স্কলারশিপ","Bachelor's, master's and PhD in Korea, fully funded. Bachelor's applicants under 25, graduate under 40.","কোরিয়ায় স্নাতক, মাস্টার্স ও পিএইচডি, সম্পূর্ণ খরচ। স্নাতকে বয়স ২৫-এর নিচে, মাস্টার্স ও পিএইচডিতে ৪০-এর নিচে।","https://www.studyinkorea.go.kr"],
+ ["Türkiye Scholarships","তুরস্ক বৃত্তি","All levels, fully funded. Age limits: bachelor's under 21, master's under 30, PhD under 35.","সব স্তর, সম্পূর্ণ খরচ। বয়সসীমা: স্নাতকে ২১, মাস্টার্সে ৩০, পিএইচডিতে ৩৫-এর নিচে।","https://www.turkiyeburslari.gov.tr"],
  ["Chinese Government Scholarship","চীনা সরকারি বৃত্তি","All levels at Chinese universities.","চীনের বিশ্ববিদ্যালয়ে সব স্তর।","https://www.campuschina.org"],
  ["Stipendium Hungaricum (Hungary)","স্টিপেন্ডিয়াম হাঙ্গারিকাম (হাঙ্গেরি)","Bachelor's, master's and PhD; Bangladesh is a partner country.","স্নাতক, মাস্টার্স ও পিএইচডি; বাংলাদেশ অংশীদার দেশ।","https://stipendiumhungaricum.hu"],
- ["Joint Japan/World Bank (JJ/WBGSP)","জয়েন্ট জাপান/বিশ্বব্যাংক","Development master's; needs 2+ years of work.","উন্নয়ন বিষয়ে মাস্টার্স; ২+ বছরের অভিজ্ঞতা লাগে।","https://www.worldbank.org/en/programs/scholarships"]
+ ["ICCR scholarships (India)","আইসিসিআর বৃত্তি (ভারত)","Bachelor's, master's and PhD at Indian public universities: tuition covered plus a monthly stipend and rent allowance. Ages 18 to 35 (PhD up to 40); medicine and law not included. Bangladeshis register first on the Suborno Jayanti portal.","ভারতের সরকারি বিশ্ববিদ্যালয়ে স্নাতক, মাস্টার্স ও পিএইচডি: টিউশন মওকুফ, সঙ্গে মাসিক ভাতা ও বাসাভাড়া ভাতা। বয়স ১৮ থেকে ৩৫ (পিএইচডিতে ৪০ পর্যন্ত); মেডিকেল ও আইন এর বাইরে। বাংলাদেশিরা আগে সুবর্ণ জয়ন্তী পোর্টালে নিবন্ধন করবেন।","https://a2ascholarships.iccr.gov.in/home/register"],
+ ["Joint Japan/World Bank (JJ/WBGSP)","জয়েন্ট জাপান/বিশ্বব্যাংক","Development master's outside Bangladesh; needs 3+ years of paid development work in the last 6 years.","বাংলাদেশের বাইরে উন্নয়ন বিষয়ে মাস্টার্স; গত ৬ বছরে উন্নয়ন খাতে ৩+ বছরের বেতনভুক্ত অভিজ্ঞতা লাগে।","https://www.worldbank.org/en/programs/scholarships"]
 ];
 
 /* ===== Public vs private university: cost (official fee pages / national press) ===== */
