@@ -878,6 +878,20 @@ function renderGrey(){
 }
 /* ---- motion helpers ---- */
 const RM=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+function initNavScroll(){
+  const nav=$(".qnav"), pv=$("#qprev"), nx=$("#qnext"); if(!nav) return;
+  const upd=()=>{ const m=nav.scrollWidth-nav.clientWidth; pv.disabled=nav.scrollLeft<=2; nx.disabled=nav.scrollLeft>=m-2; const hide=m<=2; pv.hidden=nx.hidden=hide; };
+  pv.addEventListener("click",()=>nav.scrollBy({left:-nav.clientWidth*.7}));
+  nx.addEventListener("click",()=>nav.scrollBy({left:nav.clientWidth*.7}));
+  nav.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd);
+  nav.addEventListener("wheel",e=>{ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&nav.scrollWidth>nav.clientWidth){ nav.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
+  let down=false,sx=0,sl=0,moved=false;
+  nav.addEventListener("pointerdown",e=>{ if(e.pointerType!=="mouse") return; down=true; moved=false; sx=e.clientX; sl=nav.scrollLeft; });
+  addEventListener("pointermove",e=>{ if(!down) return; const dx=e.clientX-sx; if(Math.abs(dx)>4){ moved=true; nav.classList.add("dragging"); } nav.scrollLeft=sl-dx; });
+  addEventListener("pointerup",()=>{ down=false; nav.classList.remove("dragging"); });
+  nav.addEventListener("click",e=>{ if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; } },true);
+  upd(); setTimeout(upd,300);
+}
 function initMotion(){
   if(!("IntersectionObserver" in window)) return;
   const secs=document.querySelectorAll("main section, .wrap > section, section.section, .moreh");
@@ -888,7 +902,7 @@ function initMotion(){
     const step=now=>{ const k=Math.min(1,(now-t0)/1200), v=end*(1-Math.pow(1-k,3)); sn.textContent=N(v.toFixed(2)+"%"); if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }); ob.observe(sn); }
   // highlight current menu item
   const links=[...document.querySelectorAll(".qnav a")]; const tgt=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
-  const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle("cur",a.getAttribute("href")==="#"+e.target.id&&!a.dataset.nlow)); const c=links.find(a=>a.classList.contains("cur")); if(c) c.scrollIntoView({block:"nearest",inline:"center",behavior:"auto"}); } }),{rootMargin:"-45% 0px -50% 0px"});
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle("cur",a.getAttribute("href")==="#"+e.target.id&&!a.dataset.nlow)); const c=links.find(a=>a.classList.contains("cur")); if(c){ const n=c.parentElement; n.scrollTo({left:c.offsetLeft-n.clientWidth/2+c.offsetWidth/2,behavior:"smooth"}); } } }),{rootMargin:"-45% 0px -50% 0px"});
   tgt.forEach(t=>io2.observe(t));
 }
 function renderGrades(){
@@ -971,4 +985,4 @@ document.addEventListener("input",e=>{
 if(matchMedia("(max-width: 600px)").matches) st.view="lines";
 /* example starting state: an Economics Honours graduate with realistic results */
 st.ssc="4.50"; st.hsc="4.17"; st.cg="3.12";
-firstSel(); renderAll(); initMotion();
+firstSel(); renderAll(); initNavScroll(); initMotion();

@@ -208,7 +208,7 @@ button.node.lad{cursor:pointer}
 .planb{font-size:.9rem;margin-top:6px}
 .lnk{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font:inherit}
 /* private industry list */
-.indgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:14px}
+.indgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px;margin-top:14px}
 .ind h3{font-size:1rem;display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .ichips{display:flex;flex-wrap:wrap;gap:6px}
 .ichip{border:1px solid var(--rule);border-left:4px solid var(--lc);background:var(--bg);border-radius:8px;padding:5px 10px;font-size:.84rem;text-align:left;cursor:pointer}
@@ -293,11 +293,17 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);display
 .find{width:100%;max-width:420px;padding:9px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;margin:8px 0 12px}
 .subtabs{margin:4px 0 10px;flex-wrap:wrap}
 .bcsbox{border-left:5px solid var(--green);background:color-mix(in srgb,var(--green) 8%,var(--surface));padding:10px 12px;border-radius:10px;margin:10px 0;display:grid;gap:4px}
-.qnav{position:sticky;top:0;z-index:20;display:flex;gap:6px;overflow-x:auto;padding:8px 0;margin-bottom:8px;background:var(--bg);border-bottom:1px solid var(--rule);scrollbar-width:none}
-.qnav::-webkit-scrollbar{display:none}
+.navbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg);border-bottom:1px solid var(--rule);margin-bottom:8px;padding:6px 0}
+.qnav{position:relative;flex:1;min-width:0;display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-behavior:smooth;scroll-snap-type:x proximity;padding:6px 10px 10px;scroll-padding-inline:10px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);cursor:grab}
+.qnav.dragging{cursor:grabbing;scroll-behavior:auto}
+.qnav::-webkit-scrollbar{height:5px}.qnav::-webkit-scrollbar-thumb{background:var(--rule);border-radius:9px}.qnav::-webkit-scrollbar-track{background:transparent}
+.qnav a{scroll-snap-align:start;white-space:nowrap}
+.qarr{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);color:var(--ink);font:700 1.2rem/1 Inter,sans-serif;cursor:pointer;display:grid;place-items:center;box-shadow:0 2px 8px rgba(30,38,51,.08);transition:opacity .2s,transform .15s}
+.qarr:hover{border-color:var(--green);color:var(--green)}.qarr:active{transform:scale(.92)}
+.qarr[disabled]{opacity:.3;cursor:default;box-shadow:none}
 .qnav a{flex:none;padding:7px 13px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:600}
 .qnav a:hover,.qnav a:focus-visible{background:var(--brand);color:var(--surface);border-color:var(--brand)}
-section[id],.panel[id]{scroll-margin-top:64px}
+section[id],.panel[id]{scroll-margin-top:90px}
 .tabs2{flex-wrap:wrap;margin:10px 0 8px}
 .node.br.tbr{cursor:pointer}
 .gband{font-weight:700;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
@@ -422,6 +428,18 @@ footer .own{flex-basis:100%;font-weight:600}
  *,*::before,*::after{animation:none!important;transition:none!important}
  .reveal{opacity:1;transform:none}
 }
+
+/* ===== no clipping anywhere ===== */
+html,body{overflow-x:clip}
+.wrap>*{min-width:0}
+.panel,.section,.picker,.ticket,.kcard,.ucard,.swr,.wres,.faq,.pbox{min-width:0;overflow-wrap:anywhere}
+.seg{max-width:100%;overflow-x:auto;scrollbar-width:thin}
+.seg button{white-space:normal;max-width:100%;text-align:center}
+.tabs2,.subtabs,#by-tabs,#u-tabs{display:flex;flex-wrap:wrap;overflow:visible}
+.tree{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:12px;scrollbar-width:thin}
+.utable{max-width:100%;overflow-x:auto}
+img,svg{max-width:100%}
+.ind,.ichips{min-width:0}.ichip{max-width:100%;white-space:normal;text-align:left}
 </style>
 </head>
 <body>
@@ -432,7 +450,7 @@ footer .own{flex-basis:100%;font-weight:600}
     <a class="brand" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener" aria-label="Bangladesh Career &amp; Global Opportunities"><svg class="logo" viewBox="0 0 44 44" role="img" aria-hidden="true"><rect x="0" y="0" width="44" height="44" rx="11" class="lg-bg"/><circle cx="22" cy="22" r="13.5" fill="none" class="lg-ring" stroke-width="2.2"/><ellipse cx="22" cy="22" rx="17" ry="6.5" fill="none" class="lg-orbit" stroke-width="1.8" transform="rotate(-25 22 22)"/><circle cx="20" cy="22" r="6.2" class="lg-red"/><circle cx="36.5" cy="15.2" r="2.6" class="lg-dot"/></svg><span class="wm"><b><span class="wm-bc">Bangladesh Career &amp;</span> <span class="wm-go">Global Opportunities</span></b><span data-t="brand"></span></span></a>
     <div class="topr"><a class="join" href="https://www.facebook.com/groups/bcgo.bd" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-3.999-4A4 4 0 0 0 16 11zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.7 0-8 1.34-8 4v3h16v-3c0-2.66-5.3-4-8-4zm-8 .5c-.36 0-.77.02-1.2.06C4.6 13.8 0 14.9 0 17.5V20h6v-3c0-1.4.7-2.6 2-3.5z"/></svg><span data-t="joinG"></span></a><div class="lang" role="group" aria-label="Language"><button type="button" data-l="bn">বাংলা</button><button type="button" data-l="en">English</button></div><button type="button" class="themebtn" id="theme-btn" aria-label="Light or dark mode"></button></div>
   </header>
-  <nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#switch" data-t="navW"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#jobcenter" data-t="navJ"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#ideas" data-t="navI"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav>
+  <div class="navbar"><button type="button" class="qarr" id="qprev" aria-label="Scroll menu left">‹</button><nav class="qnav" aria-label="Sections"><a href="#wizard" class="hot" data-t="navS"></a><a href="#switch" data-t="navW"></a><a href="#start" data-t="nav1"></a><a href="#skills" data-t="navSk"></a><a href="#map" data-t="nav2"></a><a href="#guide" data-t="navG"></a><a href="#jobcenter" data-t="navJ"></a><a href="#tracks" data-t="navT"></a><a href="#beyond" data-t="nav3"></a><a href="#beyond" data-nlow="1" data-t="nav4"></a><a href="#unisec" data-t="navU"></a><a href="#skilltrain" data-t="navK"></a><a href="#ideas" data-t="navI"></a><a href="#abroad" data-t="navA"></a><a href="#pvt" data-t="nav5"></a><a href="#quiz-panel" data-t="nav6"></a><a href="#forum" data-t="navF"></a><a href="#gpa" data-t="nav7"></a></nav><button type="button" class="qarr" id="qnext" aria-label="Scroll menu right">›</button></div>
 
   <section class="hero">
     <div><h1 data-t="h1"></h1><p data-t="sub"></p><div class="tagline" id="tagline"></div></div>
@@ -2438,6 +2456,20 @@ function renderGrey(){
 }
 /* ---- motion helpers ---- */
 const RM=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+function initNavScroll(){
+  const nav=$(".qnav"), pv=$("#qprev"), nx=$("#qnext"); if(!nav) return;
+  const upd=()=>{ const m=nav.scrollWidth-nav.clientWidth; pv.disabled=nav.scrollLeft<=2; nx.disabled=nav.scrollLeft>=m-2; const hide=m<=2; pv.hidden=nx.hidden=hide; };
+  pv.addEventListener("click",()=>nav.scrollBy({left:-nav.clientWidth*.7}));
+  nx.addEventListener("click",()=>nav.scrollBy({left:nav.clientWidth*.7}));
+  nav.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd);
+  nav.addEventListener("wheel",e=>{ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&nav.scrollWidth>nav.clientWidth){ nav.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
+  let down=false,sx=0,sl=0,moved=false;
+  nav.addEventListener("pointerdown",e=>{ if(e.pointerType!=="mouse") return; down=true; moved=false; sx=e.clientX; sl=nav.scrollLeft; });
+  addEventListener("pointermove",e=>{ if(!down) return; const dx=e.clientX-sx; if(Math.abs(dx)>4){ moved=true; nav.classList.add("dragging"); } nav.scrollLeft=sl-dx; });
+  addEventListener("pointerup",()=>{ down=false; nav.classList.remove("dragging"); });
+  nav.addEventListener("click",e=>{ if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; } },true);
+  upd(); setTimeout(upd,300);
+}
 function initMotion(){
   if(!("IntersectionObserver" in window)) return;
   const secs=document.querySelectorAll("main section, .wrap > section, section.section, .moreh");
@@ -2448,7 +2480,7 @@ function initMotion(){
     const step=now=>{ const k=Math.min(1,(now-t0)/1200), v=end*(1-Math.pow(1-k,3)); sn.textContent=N(v.toFixed(2)+"%"); if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }); ob.observe(sn); }
   // highlight current menu item
   const links=[...document.querySelectorAll(".qnav a")]; const tgt=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
-  const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle("cur",a.getAttribute("href")==="#"+e.target.id&&!a.dataset.nlow)); const c=links.find(a=>a.classList.contains("cur")); if(c) c.scrollIntoView({block:"nearest",inline:"center",behavior:"auto"}); } }),{rootMargin:"-45% 0px -50% 0px"});
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle("cur",a.getAttribute("href")==="#"+e.target.id&&!a.dataset.nlow)); const c=links.find(a=>a.classList.contains("cur")); if(c){ const n=c.parentElement; n.scrollTo({left:c.offsetLeft-n.clientWidth/2+c.offsetWidth/2,behavior:"smooth"}); } } }),{rootMargin:"-45% 0px -50% 0px"});
   tgt.forEach(t=>io2.observe(t));
 }
 function renderGrades(){
@@ -2531,7 +2563,7 @@ document.addEventListener("input",e=>{
 if(matchMedia("(max-width: 600px)").matches) st.view="lines";
 /* example starting state: an Economics Honours graduate with realistic results */
 st.ssc="4.50"; st.hsc="4.17"; st.cg="3.12";
-firstSel(); renderAll(); initMotion();
+firstSel(); renderAll(); initNavScroll(); initMotion();
 
 </script>
 
