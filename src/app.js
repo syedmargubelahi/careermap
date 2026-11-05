@@ -876,6 +876,21 @@ function renderGrey(){
    ["🎓",["Your university's own degree list","আপনার বিশ্ববিদ্যালয়ের নিজস্ব ডিগ্রির তালিকা"],["We have verified programme lists for only some universities. For others, the degree menu shows what that type of university usually offers.","কিছু বিশ্ববিদ্যালয়ের প্রোগ্রাম তালিকাই শুধু যাচাই করা। অন্যগুলোর ক্ষেত্রে ডিগ্রির তালিকায় এ ধরনের বিশ্ববিদ্যালয় সাধারণত যা দেয় তা দেখানো হয়।"]]];
   $("#grey-body").innerHTML=G.map(([i,h,b])=>`<details class="faq"><summary>${i} ${esc(L(h))}</summary><p>${esc(L(b))}</p></details>`).join("");
 }
+/* ---- motion helpers ---- */
+const RM=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+function initMotion(){
+  if(!("IntersectionObserver" in window)) return;
+  const secs=document.querySelectorAll("main section, .wrap > section, section.section, .moreh");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }),{rootMargin:"0px 0px -8% 0px"});
+  secs.forEach((el,i)=>{ if(i>1&&!RM()){ el.classList.add("reveal"); io.observe(el); } });
+  // count-up for the headline statistic
+  const sn=$("#stat-n"); if(sn&&!RM()){ const ob=new IntersectionObserver(es=>{ if(!es[0].isIntersecting) return; ob.disconnect(); const end=13.54, t0=performance.now();
+    const step=now=>{ const k=Math.min(1,(now-t0)/1200), v=end*(1-Math.pow(1-k,3)); sn.textContent=N(v.toFixed(2)+"%"); if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }); ob.observe(sn); }
+  // highlight current menu item
+  const links=[...document.querySelectorAll(".qnav a")]; const tgt=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle("cur",a.getAttribute("href")==="#"+e.target.id&&!a.dataset.nlow)); const c=links.find(a=>a.classList.contains("cur")); if(c) c.scrollIntoView({block:"nearest",inline:"center",behavior:"auto"}); } }),{rootMargin:"-45% 0px -50% 0px"});
+  tgt.forEach(t=>io2.observe(t));
+}
 function renderGrades(){
   const rows1=[["4.00 – 5.00","div1"],["3.00 – 3.99","div2"],["1.00 – 2.99","div3"]];
   const rows2=[[st.lang==="bn"?"৬০% বা বেশি":"60% or above","cl1"],[st.lang==="bn"?"৪৫% – ৬০%-এর কম":"45% to under 60%","cl2"],[st.lang==="bn"?"৩৩% – ৪৫%-এর কম":"33% to under 45%","cl3"]];
@@ -956,4 +971,4 @@ document.addEventListener("input",e=>{
 if(matchMedia("(max-width: 600px)").matches) st.view="lines";
 /* example starting state: an Economics Honours graduate with realistic results */
 st.ssc="4.50"; st.hsc="4.17"; st.cg="3.12";
-firstSel(); renderAll();
+firstSel(); renderAll(); initMotion();
